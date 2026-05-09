@@ -58,15 +58,21 @@ export function Header() {
 
     {/* Main Nav */}
     <nav className="bg-card/95 backdrop-blur-md border-b border-border">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto px-2 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <a href="/" className="flex items-center gap-3">
             <div className="w-12 h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-white rounded-full p-1.5 shadow-sm overflow-hidden border border-white/20">
               <img src="/logo.png" alt="Satpuda College Logo" className="w-full h-full object-contain" />
             </div>
             <div className="hidden sm:block">
-              <p className="font-bold text-foreground text-sm lg:text-lg leading-tight uppercase tracking-tighter">Satpuda College</p>
-              <p className="text-[10px] text-muted-foreground uppercase tracking-[0.2em]">Engineering & Polytechnic</p>
+              <p className="font-bold text-foreground text-sm lg:text-lg leading-tight uppercase tracking-tighter">
+                <div className="parent  flex items-center gap-[5px]">
+                  <div>Satpuda</div>
+                <div>Engineering</div>
+                <div>College</div>
+                </div>
+              </p>
+              <p className="text-[10px] text-muted-foreground uppercase tracking-[0.2em]">Satpuda College of Engineering & Polytechnic</p>
             </div>
           </a>
 
