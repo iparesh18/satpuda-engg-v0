@@ -82,7 +82,7 @@ export function CoursesSection() {
     const [activeProgram, setActiveProgram] = useState(0);
     const currentProgram = programs[activeProgram];
     const Icon = currentProgram.icon;
-    return (<section className="py-24 bg-gradient-to-b from-slate-50 to-white">
+    return (<section className="py-24 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -90,10 +90,10 @@ export function CoursesSection() {
             <Sparkles className="h-4 w-4 text-primary"/>
             <span className="text-sm font-medium text-primary">Our Programs</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight leading-tight">
             Wide Array of Courses
           </h2>
-          <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-5 text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto font-normal">
             B.Tech and Polytechnic programs designed to launch your career in engineering excellence
           </p>
         </div>
@@ -105,9 +105,9 @@ export function CoursesSection() {
             {programs.map((program, index) => {
             const ProgramIcon = program.icon;
             const isActive = activeProgram === index;
-            return (<button key={program.id} onClick={() => setActiveProgram(index)} className={`w-full text-left p-4 rounded-2xl transition-all duration-300 group ${isActive
-                    ? `bg-white shadow-lg shadow-slate-200/50 border-2 ${program.borderColor}`
-                    : "bg-white/50 hover:bg-white border border-slate-100 hover:shadow-md"}`}>
+            return (<button key={program.id} onClick={() => setActiveProgram(index)} className={`w-full text-left p-4 rounded-2xl transition-all duration-500 group ${isActive
+                    ? `bg-white/10 shadow-2xl shadow-blue-500/10 border border-white/20`
+                    : "bg-transparent hover:bg-white/5 border border-transparent hover:border-white/10 shadow-none"}`}>
                   <div className="flex items-center gap-4">
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${isActive
                     ? `bg-gradient-to-br ${program.color} text-white shadow-lg`
@@ -115,10 +115,10 @@ export function CoursesSection() {
                       <ProgramIcon className="h-5 w-5"/>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className={`font-semibold truncate transition-colors ${isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"}`}>
+                      <h3 className={`font-bold transition-colors ${isActive ? "text-blue-600" : "text-slate-600 group-hover:text-blue-600"}`}>
                         {program.name}
                       </h3>
-                      <p className="text-sm text-muted-foreground">{program.duration} Program</p>
+                      <p className={`text-sm ${isActive ? "text-blue-500/70" : "text-slate-400"}`}>{program.duration} Program</p>
                     </div>
                     <ArrowRight className={`h-5 w-5 transition-all duration-300 ${isActive
                     ? `${program.textColor} translate-x-0 opacity-100`
@@ -130,12 +130,11 @@ export function CoursesSection() {
 
           {/* Right: Course Details */}
           <div className="lg:col-span-8">
-            <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-100">
+            <div className="bg-transparent backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-white/10">
               {/* Image Header */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-64 overflow-hidden">
                 <img src={currentProgram.image} alt={currentProgram.name} className="w-full h-full object-cover"/>
-                <div className={`absolute inset-0 bg-gradient-to-t ${currentProgram.color} opacity-80 mix-blend-multiply`}/>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"/>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"/>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <div className="flex items-center gap-3">
                     <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white border border-white/30">
@@ -153,33 +152,33 @@ export function CoursesSection() {
 
               {/* Content */}
               <div className="p-6 md:p-8">
-                <p className="text-muted-foreground leading-relaxed text-lg">
+                <p className="text-foreground/90 leading-relaxed text-lg font-medium">
                   {currentProgram.description}
                 </p>
 
                 {/* Highlights Grid */}
                 <div className="mt-6 grid grid-cols-2 gap-3">
                   {currentProgram.highlights.map((highlight, index) => (<div key={index} className={`flex items-center gap-3 p-3 rounded-xl ${currentProgram.bgColor} border ${currentProgram.borderColor}`}>
-                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${currentProgram.color}`}/>
-                      <span className="text-sm font-medium text-foreground">{highlight}</span>
+                      <div className={`w-2 h-2 rounded-full bg-blue-600`}/>
+                      <span className="text-sm font-semibold text-foreground">{highlight}</span>
                     </div>))}
                 </div>
 
                 {/* Stats */}
                 <div className="mt-6 flex items-center gap-6 py-4 border-t border-slate-100">
                   <div className="flex items-center gap-2">
-                    <Clock className={`h-5 w-5 ${currentProgram.textColor}`}/>
+                    <Clock className={`h-5 w-5 text-blue-600`}/>
                     <div>
                       <p className="text-xs text-muted-foreground">Duration</p>
-                      <p className="font-semibold text-foreground">{currentProgram.duration}</p>
+                      <p className="font-bold text-foreground">{currentProgram.duration}</p>
                     </div>
                   </div>
                   <div className="w-px h-10 bg-slate-200"/>
                   <div className="flex items-center gap-2">
-                    <Users className={`h-5 w-5 ${currentProgram.textColor}`}/>
+                    <Users className={`h-5 w-5 text-blue-600`}/>
                     <div>
                       <p className="text-xs text-muted-foreground">Total Seats</p>
-                      <p className="font-semibold text-foreground">{currentProgram.seats}</p>
+                      <p className="font-bold text-foreground">{currentProgram.seats}</p>
                     </div>
                   </div>
                 </div>
