@@ -13,7 +13,7 @@ function AlertDialogPortal({ ...props }) {
     return (<AlertDialogPrimitive.Portal data-slot="alert-dialog-portal" {...props}/>);
 }
 function AlertDialogOverlay({ className, ...props }) {
-    return (<AlertDialogPrimitive.Overlay data-slot="alert-dialog-overlay" className={cn('data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50', className)} {...props}/>);
+    return (<AlertDialogPrimitive.Overlay data-slot="alert-dialog-overlay" className={cn('data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/30 dark:bg-black/50', className)} {...props}/>);
 }
 function AlertDialogContent({ className, ...props }) {
     return (<AlertDialogPortal>
