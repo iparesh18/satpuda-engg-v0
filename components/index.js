@@ -1,0 +1,11 @@
+// Main college website components index
+export { Header } from "./header.jsx";
+export { HeroSection } from "./hero-section.jsx";
+export { StatsBar } from "./stats-bar.jsx";
+export { AboutSection } from "./about-section.jsx";
+export { WhyChooseUsSection } from "./why-choose-us-section.jsx";
+export { PlacementsSection } from "./placements-section.jsx";
+export { TestimonialsSection } from "./testimonials-section.jsx";
+export { CTASection } from "./cta-section.jsx";
+export { MapSection } from "./map-section.jsx";
+export { Footer } from "./footer.jsx";

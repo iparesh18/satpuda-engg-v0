@@ -13,7 +13,7 @@ export function Header() {
     {
       label: "About Us",
       href: "/about",
-      dropdown: ["Vision & Mission", "Management", "Infrastructure", "Accreditation"]
+      dropdown: ["College Overview", "Management", "Infrastructure", "Accreditation"]
     },
     {
       label: "Academics",
@@ -66,13 +66,13 @@ export function Header() {
             </div>
             <div className="hidden sm:block">
               <p className="font-bold text-foreground text-sm lg:text-lg leading-tight uppercase tracking-tighter">
-                <div className="parent  flex items-center gap-[5px]">
+                <div className="parent flex items-center gap-[5px] ">
                   <div>Satpuda</div>
                 <div>Engineering</div>
                 <div>College</div>
                 </div>
               </p>
-              <p className="text-[10px] text-muted-foreground uppercase tracking-[0.2em]">Satpuda College of Engineering & Polytechnic</p>
+              <p className="text-[10px] text-muted-foreground uppercase  tracking-[0.2em]">Satpuda College of Engineering & Polytechnic</p>
             </div>
           </a>
 
@@ -812,7 +812,7 @@ export function Footer() {
     </div>
 
     {/* Copyright */}
-    <div className="border-t border-white/5 bg-black/20">
+    <div className="border-t border-gray-900/10 dark:border-white/5 bg-white/50 dark:bg-black/20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
         <p className="text-[10px] text-center opacity-40 uppercase tracking-[0.3em]">
           Copyright © 2026 Satpuda College of Engineering & Polytechnic Balaghat (M.P.)

@@ -14,7 +14,7 @@ const getSystemTheme = () => {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
-export function ThemeProvider({ children, defaultTheme = 'system', storageKey = 'theme', }) {
+export function ThemeProvider({ children, defaultTheme = 'light', storageKey = 'theme', }) {
     const [theme, setThemeState] = React.useState(() => {
         if (typeof window === 'undefined') {
             return defaultTheme;
