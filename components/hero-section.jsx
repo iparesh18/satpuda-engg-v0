@@ -72,21 +72,21 @@ export function HeroSection() {
           </motion.div>
 
           {/* Heading */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground leading-[1.0] tracking-[-0.03em] mb-8">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.0] tracking-[-0.03em] mb-8">
 
             <motion.span variants={itemVariants} className="block text-accent mb-4 text-lg sm:text-xl font-bold tracking-[0.2em] uppercase opacity-90">
               Welcome to
             </motion.span>
 
-            <motion.span variants={itemVariants} className="block overflow-hidden">
+            <motion.span variants={itemVariants} className="block overflow-hidden text-[#295cae]">
               Satpuda College
             </motion.span>
 
-            <motion.span variants={itemVariants} className="block overflow-hidden text-foreground/90">
+            <motion.span variants={itemVariants} className="block overflow-hidden text-[#295cae]/90">
               of Engineering and
             </motion.span>
 
-            <motion.span variants={itemVariants} className="block overflow-hidden text-foreground/70">
+            <motion.span variants={itemVariants} className="block overflow-hidden text-[#295cae]/70">
               Polytechnic
             </motion.span>
 

@@ -135,12 +135,24 @@ export function HeroSection() {
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 40, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.8,
+        ease: [0.215, 0.61, 0.355, 1],
+      },
+    },
+  };
+
+  const textRevealVariants = {
+    hidden: { y: "100%", opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1.2,
         ease: [0.16, 1, 0.3, 1],
       },
     },
@@ -192,23 +204,32 @@ export function HeroSection() {
 
           {/* Heading */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.0] tracking-[-0.03em] mb-8">
+            <div className="overflow-hidden mb-4">
+              <motion.span 
+                variants={textRevealVariants} 
+                className="block text-white text-lg sm:text-xl font-bold tracking-[0.2em] uppercase opacity-90"
+              >
+                Welcome to
+              </motion.span>
+            </div>
 
-            <motion.span variants={itemVariants} className="block text-accent mb-4 text-lg sm:text-xl font-bold tracking-[0.2em] uppercase opacity-90">
-              Welcome to
-            </motion.span>
+            <div className="overflow-hidden">
+              <motion.span variants={textRevealVariants} className="block">
+                Satpuda College
+              </motion.span>
+            </div>
 
-            <motion.span variants={itemVariants} className="block overflow-hidden">
-              Satpuda College
-            </motion.span>
+            <div className="overflow-hidden">
+              <motion.span variants={textRevealVariants} className="block text-white">
+                of Engineering and
+              </motion.span>
+            </div>
 
-            <motion.span variants={itemVariants} className="block overflow-hidden text-white/90">
-              of Engineering and
-            </motion.span>
-
-            <motion.span variants={itemVariants} className="block overflow-hidden text-white/70">
-              Polytechnic
-            </motion.span>
-
+            <div className="overflow-hidden">
+              <motion.span variants={textRevealVariants} className="block text-white">
+                Polytechnic
+              </motion.span>
+            </div>
           </h1>
 
           {/* Description */}
