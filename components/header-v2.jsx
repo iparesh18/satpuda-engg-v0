@@ -1,12 +1,13 @@
 "use client";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Menu, X, ChevronDown, Phone, Mail, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedMenu, setExpandedMenu] = useState(null);
-  
+
   const handleScroll = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -16,25 +17,20 @@ export function Header() {
     }
   };
 
-  const handlePageNavigation = (href) => {
-    window.location.href = href;
-    setMobileMenuOpen(false);
-    setExpandedMenu(null);
-  };
 
   const navItems = [
-    { 
-      label: "Home", 
-      type: "scroll",
-      scrollId: "hero" 
+    {
+      label: "Home",
+      type: "page",
+      href: "/"
     },
     {
       label: "About Us",
       type: "scroll",
       scrollId: "about",
       dropdown: [
-        { label: "College Overview", type: "scroll", scrollId: "about" },
-        { label: "Management", type: "page", href: "/about/management" },
+        { label: "College Overview", type: "page", href: "/about/overview" },
+        { label: "Director's Message", type: "page", href: "/about/directormessage" },
         { label: "Infrastructure", type: "page", href: "/about/infrastructure" },
         { label: "Accreditation", type: "page", href: "/about/accreditation" }
       ]
@@ -61,13 +57,13 @@ export function Header() {
         { label: "Apply Online", type: "page", href: "/admissions/apply" }
       ]
     },
-    { 
-      label: "Placements", 
+    {
+      label: "Placements",
       type: "scroll",
       scrollId: "placements"
     },
-    { 
-      label: "Contact", 
+    {
+      label: "Contact",
       type: "scroll",
       scrollId: "contact"
     },
@@ -105,7 +101,7 @@ export function Header() {
     <nav className="bg-card/95 backdrop-blur-md border-b border-border">
       <div className="mx-auto px-2 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <button onClick={() => handleScroll("hero")} className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity" onClick={() => setMobileMenuOpen(false)}>
             <div className="w-12 h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-white rounded-full p-1.5 shadow-sm overflow-hidden border border-white/20">
               <img src="/logo.png" alt="Satpuda College Logo" className="w-full h-full object-contain" />
             </div>
@@ -119,27 +115,57 @@ export function Header() {
               </p>
               <p className="text-[10px] text-muted-foreground uppercase tracking-[0.2em]">Satpuda College of Engineering & Polytechnic</p>
             </div>
-          </button>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (<div key={item.label} className="relative group">
-              <button 
-                onClick={() => item.type === "scroll" ? handleScroll(item.scrollId) : handlePageNavigation(item.href)}
-                className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary"
-              >
-                {item.label}
-                {item.dropdown && <ChevronDown className="h-4 w-4 opacity-50" />}
-              </button>
+              {item.type === "page" ? (
+                <Link
+                  to={item.href}
+                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    setExpandedMenu(null);
+                  }}
+                >
+                  {item.label}
+                  {item.dropdown && <ChevronDown className="h-4 w-4 opacity-50" />}
+                </Link>
+              ) : (
+                <button
+                  onClick={() => handleScroll(item.scrollId)}
+                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary"
+                >
+                  {item.label}
+                  {item.dropdown && <ChevronDown className="h-4 w-4 opacity-50" />}
+                </button>
+              )}
               {item.dropdown && (<div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="bg-card rounded-xl shadow-xl border border-border p-2 min-w-[220px]">
-                  {item.dropdown.map((subItem) => (<button
-                    key={subItem.label}
-                    onClick={() => subItem.type === "scroll" ? handleScroll(subItem.scrollId) : handlePageNavigation(subItem.href)}
-                    className="w-full text-left block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors"
-                  >
-                    {subItem.label}
-                  </button>))}
+                  {item.dropdown.map((subItem) => (
+                    subItem.type === "page" ? (
+                      <Link
+                        key={subItem.label}
+                        to={subItem.href}
+                        className="w-full text-left block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors"
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          setExpandedMenu(null);
+                        }}
+                      >
+                        {subItem.label}
+                      </Link>
+                    ) : (
+                      <button
+                        key={subItem.label}
+                        onClick={() => handleScroll(subItem.scrollId)}
+                        className="w-full text-left block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors"
+                      >
+                        {subItem.label}
+                      </button>
+                    )
+                  ))}
                 </div>
               </div>)}
             </div>))}
@@ -161,28 +187,49 @@ export function Header() {
       {mobileMenuOpen && (<div className="lg:hidden bg-card border-t border-border">
         <div className="px-4 py-4 space-y-2">
           {navItems.map((item) => (<div key={item.label}>
-            <button 
-              onClick={() => {
-                if (item.type === "scroll") {
-                  handleScroll(item.scrollId);
-                } else {
-                  handlePageNavigation(item.href);
-                }
-              }}
-              className="w-full text-left block px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
-            >
-              {item.label}
-            </button>
+            {item.type === "page" ? (
+              <Link
+                to={item.href}
+                className="w-full text-left block px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setExpandedMenu(null);
+                }}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <button
+                onClick={() => handleScroll(item.scrollId)}
+                className="w-full text-left block px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
+              >
+                {item.label}
+              </button>
+            )}
             {item.dropdown && (
               <div className="pl-4 space-y-1">
                 {item.dropdown.map((subItem) => (
-                  <button
-                    key={subItem.label}
-                    onClick={() => subItem.type === "scroll" ? handleScroll(subItem.scrollId) : handlePageNavigation(subItem.href)}
-                    className="w-full text-left block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors"
-                  >
-                    {subItem.label}
-                  </button>
+                  subItem.type === "page" ? (
+                    <Link
+                      key={subItem.label}
+                      to={subItem.href}
+                      className="w-full text-left block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setExpandedMenu(null);
+                      }}
+                    >
+                      {subItem.label}
+                    </Link>
+                  ) : (
+                    <button
+                      key={subItem.label}
+                      onClick={() => handleScroll(subItem.scrollId)}
+                      className="w-full text-left block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors"
+                    >
+                      {subItem.label}
+                    </button>
+                  )
                 ))}
               </div>
             )}

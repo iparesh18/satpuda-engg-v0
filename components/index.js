@@ -3,6 +3,7 @@ export { Header } from "./header.jsx";
 export { HeroSection } from "./hero-section.jsx";
 export { StatsBar } from "./stats-bar.jsx";
 export { AboutSection } from "./about-section.jsx";
+export { CollegeOverviewSection } from "./college-overview-section.jsx";
 export { WhyChooseUsSection } from "./why-choose-us-section.jsx";
 export { PlacementsSection } from "./placements-section.jsx";
 export { TestimonialsSection } from "./testimonials-section.jsx";
