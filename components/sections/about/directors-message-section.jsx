@@ -1,7 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, Lightbulb, ShieldCheck, Users, Building2, Telescope } from "lucide-react";
+import { GraduationCap, Briefcase, Lightbulb, ShieldCheck, Users, Building2, Telescope, ArrowRight } from "lucide-react";
+import { Suspense, lazy } from "react";
+
+const Spline = lazy(() => import("@splinetool/react-spline"));
+
+import SplitText from "../../bits/split-text.jsx";
+import BlurText from "../../bits/blur-text.jsx";
+import ShinyText from "../../bits/shiny-text.jsx";
+import SpotlightCard from "../../bits/spotlight-card.jsx";
 
 const highlights = [
   {
@@ -62,19 +70,26 @@ export function DirectorsMessageSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div className="absolute inset-y-0 right-0 w-full sm:w-4/5 lg:w-[52%] opacity-20">
-          <img
-            src="/images/overview/campus overview.png"
-            alt="Campus backdrop"
-            className="h-full w-full object-cover object-right transition-transform duration-1000"
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/96 to-background/88" />
-        <div className="relative mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-end lg:px-8">
+        {/* <div className="absolute inset-0 z-0">
+          <Suspense fallback={<div className="absolute inset-0 bg-background/50" />}>
+            <Spline 
+              scene="https://prod.spline.design/6Wq1Q7YGyHjSE7re/scene.splinecode" 
+              onError={() => console.error("Spline failed to load")}
+            />
+          </Suspense>
+        </div> */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent z-10" />
+        <div className="relative mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-end lg:px-8 z-20">
           <div>
-            <h1 className="text-4xl font-bold text-foreground sm:text-5xl pt-3 tracking-tight">Director&apos;s Message</h1>
-            <div className="mt-4 h-1.5 w-24 rounded-full bg-gradient-to-r from-primary via-primary/70 to-accent" />
-            <p className="mt-6 max-w-xl text-base text-muted-foreground">A message of vision, leadership and commitment.</p>
+            <SplitText
+              text="Director's Message"
+              className="text-5xl font-bold text-foreground sm:text-7xl pt-3 tracking-tighter"
+              delay={0.08}
+            />
+            <div className="mt-6 h-1.5 w-32 rounded-full bg-gradient-to-r from-primary via-primary/70 to-accent" />
+            <p className="mt-8 max-w-xl text-lg text-muted-foreground leading-relaxed">
+              <BlurText text="Empowering the next generation of engineers with innovation, leadership and a commitment to excellence." />
+            </p>
           </div>
           <div className="justify-self-start text-sm font-medium text-muted-foreground lg:justify-self-end">
             <span>Home</span>
@@ -93,58 +108,115 @@ export function DirectorsMessageSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <article className="overflow-hidden rounded-3xl border border-border/60 bg-card shadow-[0_10px_40px_rgba(0,0,0,0.06)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(0,0,0,0.08)] lg:flex lg:flex-row">
-          <div className="h-[480px] w-full overflow-hidden sm:h-[520px] lg:h-[420px] lg:w-[42%]">
-            <img src="/images/director.webp" alt="Mr. Anshul Jaiswal" className="h-full w-full object-cover object-top transition-transform duration-700 hover:scale-[1.02]" />
-          </div>
-          <div className="bg-primary px-5 py-6 text-primary-foreground lg:flex lg:w-[58%] lg:flex-col lg:justify-center">
-            <h2 className="text-2xl font-bold leading-tight">Mr. Anshul Jaiswal</h2>
-            <p className="mt-3 text-sm text-primary-foreground/90">Ph.D., M.S (Nanoelectronics)</p>
-            <p className="mt-2 text-sm text-primary-foreground/90">Director | Educator | Research Advocate</p>
-            <div className="my-5 h-px w-full bg-primary-foreground/25" />
-            <p className="text-sm text-primary-foreground/90">Satpuda College of Engineering and Polytechnic, Balaghat</p>
-          </div>
-        </article>
-
-        <article className="rounded-3xl border border-border/50 bg-background p-6 shadow-none transition-colors duration-300 hover:border-border sm:p-8 lg:p-12">
-          <div className="flex items-start gap-5">
-            <p className="text-4xl font-semibold leading-none text-primary/80 sm:text-5xl">“</p>
-            <p className="max-w-3xl pt-1 text-2xl font-semibold leading-tight text-foreground sm:text-3xl">
-              At Satpuda, we believe in building more than careers - we build confident, capable and compassionate human beings.
-            </p>
-          </div>
-
-          <div className="mt-7 h-px w-full bg-border/70" />
-
-          <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-            Education is the most powerful tool to transform lives and create a better world. Our goal is to provide a learning
-            environment that encourages curiosity, innovation and practical skills for real-world challenges.
-          </p>
-
-          <div className="mt-8 space-y-7">
-            {highlights.map(({ icon: Icon, title, description }) => (
-              <div key={title} className="group flex items-start gap-4 border-b border-border/50 pb-6 transition-all duration-300 last:border-b-0 last:pb-0 hover:translate-x-1">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-105 group-hover:bg-primary/15">
-                  <Icon className="h-6 w-6" />
+        <SpotlightCard className="group overflow-hidden rounded-[2.5rem] border-none bg-gradient-to-br from-card to-card/50 shadow-2xl transition-all duration-500">
+          <div className="flex flex-col lg:flex-row">
+            <div className="relative h-[500px] w-full overflow-hidden lg:h-[600px] lg:w-[45%]">
+              <img
+                src="/images/director.webp"
+                alt="Mr. Anshul Jaiswal"
+                className="h-full w-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent lg:hidden" />
+              <div className="absolute bottom-6 left-6 right-6 lg:hidden">
+                <h2 className="text-3xl font-bold text-white">Mr. Anshul Jaiswal</h2>
+                <p className="text-white/80">Director</p>
+              </div>
+            </div>
+            <div className="flex flex-col justify-center p-8 lg:w-[55%] lg:p-14">
+              <div className="hidden lg:block">
+                <motion.span
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  className="inline-block text-sm font-semibold tracking-widest text-primary uppercase mb-4"
+                >
+                  Leadership & Vision
+                </motion.span>
+                <h2 className="text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl tracking-tight">
+                  Mr. Anshul <span className="text-primary">Jaiswal</span>
+                </h2>
+              </div>
+              <div className="mt-8 space-y-4">
+                <p className="text-xl font-medium text-muted-foreground">Ph.D., M.S (Nanoelectronics)</p>
+                <p className="text-lg text-muted-foreground/80 leading-relaxed">
+                  A visionary educator and research advocate dedicated to transforming technical education in Balaghat and beyond.
+                </p>
+              </div>
+              <div className="mt-10 grid grid-cols-2 gap-6">
+                <div className="border-l-2 border-primary/30 pl-4">
+                  <p className="text-2xl font-bold text-foreground">25+</p>
+                  <p className="text-sm text-muted-foreground">Years Experience</p>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground">{title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
+                <div className="border-l-2 border-primary/30 pl-4">
+                  <p className="text-2xl font-bold text-foreground">150+</p>
+                  <p className="text-sm text-muted-foreground">Projects Guided</p>
                 </div>
               </div>
-            ))}
+              <div className="mt-12">
+                <button className="group/btn relative inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-primary-foreground transition-all hover:pr-10">
+                  <span className="font-semibold text-lg">Read Biography</span>
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover/btn:translate-x-1" />
+                </button>
+              </div>
+            </div>
           </div>
+        </SpotlightCard>
 
-          <p className="mt-8 text-base leading-relaxed text-muted-foreground">
-            I invite every student to take full advantage of the opportunities here and become a part of this journey of growth,
-            excellence and nation-building.
-          </p>
+        <article className="relative overflow-hidden rounded-[2.5rem] border border-border/40 bg-background/60 backdrop-blur-xl p-8 sm:p-12 lg:p-16">
+          <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-accent/5 blur-3xl" />
 
-          <div className="mt-8">
-            <p className="text-4xl leading-none text-foreground sm:text-5xl" style={{ fontFamily: "cursive" }}>
-              Anshul Jaiswal
-            </p>
-            <p className="mt-2 text-sm font-medium text-muted-foreground">Director</p>
+          <div className="relative z-10">
+            <div className="flex items-start gap-6">
+              <span className="text-6xl font-serif text-primary/30 leading-none">“</span>
+              <div className="max-w-3xl pt-2">
+                <BlurText
+                  text="At Satpuda, we believe in building more than careers - we build confident, capable and compassionate human beings."
+                  className="text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl tracking-tight"
+                  delay={0.05}
+                />
+              </div>
+            </div>
+
+            <div className="mt-12 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
+
+            <div className="mt-12 space-y-10">
+              {highlights.map(({ icon: Icon, title, description }, i) => (
+                <motion.div
+                  key={title}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="group flex items-start gap-6"
+                >
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500 group-hover:rotate-6 group-hover:bg-primary group-hover:text-white">
+                    <Icon className="h-7 w-7" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      {title}
+                    </h3>
+                    <p className="mt-2 text-base leading-relaxed text-muted-foreground max-w-xl">
+                      {description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-16 flex items-center justify-between">
+              <div>
+                <p className="text-5xl font-medium tracking-tighter text-foreground" style={{ fontFamily: "cursive" }}>
+                  Anshul Jaiswal
+                </p>
+                <div className="mt-2 flex items-center gap-2">
+                  <div className="h-1 w-8 rounded-full bg-primary" />
+                  <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">Director</p>
+                </div>
+              </div>
+              <div className="hidden sm:block opacity-20">
+                <p className="text-3xl font-serif italic text-foreground/50">AJ</p>
+              </div>
+            </div>
           </div>
         </article>
       </motion.section>
@@ -163,8 +235,10 @@ export function DirectorsMessageSection() {
                 <Icon className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-3xl font-bold leading-none text-foreground">{value}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{label}</p>
+                <p className="text-4xl font-bold leading-none text-foreground tracking-tighter">
+                  <ShinyText text={value} speed={3} color="rgba(59, 130, 246, 0.85)" />
+                </p>
+                <p className="mt-2 text-sm font-medium text-muted-foreground uppercase tracking-wide">{label}</p>
               </div>
             </div>
           ))}
