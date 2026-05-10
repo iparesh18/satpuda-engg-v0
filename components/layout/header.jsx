@@ -25,7 +25,7 @@ export function Header() {
         { label: "College Overview", type: "page", href: "/about/overview" },
         { label: "Director's Message", type: "page", href: "/about/directors-message" },
         { label: "Principal's Message", type: "page", href: "/about/principal-message" },
-        { label: "Accreditation", scrollId: "about" }
+        { label: "Mission & Vision", type: "page", href: "/about/mission-vision" }
       ]
     },
     {
@@ -213,3 +213,4 @@ export function Header() {
     </nav>
   </header>);
 }
+
