@@ -10,6 +10,9 @@ import MissionVisionPage from "../components/pages/about/mission-vision-page.jsx
 import AcademicsPage from "../components/pages/academics/academics-page.jsx";
 import AdmissionsPage from "../components/pages/admissions/admissions-page.jsx";
 import ComputerLabPage from "../components/pages/our-campus/computer-lab-page.jsx";
+import TransportPage from "../components/pages/our-campus/transport-page.jsx";
+import ScholarshipPage from "../components/pages/our-campus/scholarship-page.jsx";
+import LibraryPage from "../components/pages/our-campus/library-page.jsx";
 import { ThemeProvider } from "../components/shared/theme-provider.jsx";
 
 function ScrollToTop() {
@@ -37,6 +40,9 @@ export default function App() {
           <Route path="/academics" element={<AcademicsPage />} />
           <Route path="/admissions" element={<AdmissionsPage />} />
           <Route path="/our-campus/computer-lab" element={<ComputerLabPage />} />
+          <Route path="/our-campus/transport" element={<TransportPage />} />
+          <Route path="/our-campus/scholarship" element={<ScholarshipPage />} />
+          <Route path="/our-campus/library" element={<LibraryPage />} />
         </Routes>
       </RootLayout>
     </ThemeProvider>
