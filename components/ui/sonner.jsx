@@ -1,5 +1,5 @@
 'use client';
-import { useTheme } from '../theme-provider';
+import { useTheme } from '../shared/theme-provider.jsx';
 import { Toaster as Sonner } from 'sonner';
 const Toaster = ({ ...props }) => {
     const { resolvedTheme } = useTheme();

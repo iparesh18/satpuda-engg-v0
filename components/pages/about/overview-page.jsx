@@ -1,7 +1,6 @@
 "use client";
 
-import { Header, Footer } from "../../../components/index.js";
-import { CollegeOverviewSection } from "../../../components/college-overview-section.jsx";
+import { Header, Footer, CollegeOverviewSection } from "../../index.js";
 
 export default function CollegeOverviewPage() {
   return (

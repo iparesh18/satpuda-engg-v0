@@ -1,6 +1,6 @@
-import { Header, HeroSection, StatsBar, AboutSection, WhyChooseUsSection, PlacementsSection, TestimonialsSection, CTASection, MapSection, Footer } from "../components/index.js";
-import { CoursesSection } from "../components/courses-section";
-export default function Home() {
+import { Header, HeroSection, StatsBar, AboutSection, CoursesSection, WhyChooseUsSection, PlacementsSection, TestimonialsSection, CTASection, MapSection, Footer } from "../../index.js";
+
+export default function HomePage() {
     return (<main className="min-h-screen">
       {/* 1. Header & Hero */}
       <Header />

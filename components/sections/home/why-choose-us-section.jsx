@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Button } from "../components/ui/button";
+import { Button } from "../../ui/button";
 import { BookOpen, Briefcase, Building2, ArrowRight } from "lucide-react";
 
 export function WhyChooseUsSection() {

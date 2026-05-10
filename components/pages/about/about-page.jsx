@@ -1,6 +1,6 @@
 "use client";
 
-import { Header, Footer, AboutSection } from "../../components/index.js";
+import { Header, Footer, AboutSection } from "../../index.js";
 
 export default function AboutPage() {
   return (

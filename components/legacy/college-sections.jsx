@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Menu, X, ChevronDown, Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, GraduationCap, Award, Building, Monitor as MonitorIcon, Mountain as MountainIcon, Building2 as Building2Icon, Cog as CogIcon, Zap as ZapIcon, Clock as ClockIcon, Users as UsersIcon, ArrowRight as ArrowRightIcon } from "lucide-react";
-import { Button } from "../components/ui/button";
+import { Button } from "../ui/button";
 const navigation = [
     { name: "Home", href: "#" },
     {

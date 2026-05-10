@@ -1,7 +1,7 @@
 "use client";
-import { Header, Footer } from "../../components/index.js";
+import { Header, Footer } from "../../index.js";
 import { motion } from "framer-motion";
-import { Button } from "../../components/ui/button";
+import { Button } from "../../ui/button";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 
 export default function AdmissionsPage() {
@@ -40,7 +40,7 @@ export default function AdmissionsPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="text-center"
             >

@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Button } from "../components/ui/button";
+import { Button } from "../../ui/button";
 import { ArrowRight, Play } from "lucide-react";
 
 export function HeroSection() {

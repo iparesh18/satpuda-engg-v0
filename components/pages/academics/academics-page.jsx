@@ -1,7 +1,7 @@
 "use client";
-import { Header, Footer } from "../../components/index.js";
+import { Header, Footer } from "../../index.js";
 import { motion } from "framer-motion";
-import { Button } from "../../components/ui/button";
+import { Button } from "../../ui/button";
 import { ArrowRight, BookOpen, Users, Award } from "lucide-react";
 
 export default function AcademicsPage() {

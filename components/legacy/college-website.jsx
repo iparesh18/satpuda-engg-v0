@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "../components/ui/button";
+import { Button } from "../ui/button";
 import { Menu, X, ChevronDown, Phone, Mail, Facebook, Twitter, Instagram, Youtube, GraduationCap, Users, Building2, Trophy, BookOpen, Briefcase, ArrowRight, Play, CheckCircle2, Star, Quote } from "lucide-react";
 // ============================================
 // HEADER

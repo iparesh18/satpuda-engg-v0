@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Button } from "../components/ui/button";
+import { Button } from "../../ui/button";
 import { Trophy, Users, Building2, Star, ArrowRight } from "lucide-react";
 
 export function PlacementsSection() {

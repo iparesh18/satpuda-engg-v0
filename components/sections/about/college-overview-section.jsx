@@ -1,5 +1,5 @@
 import { ArrowRight, BookOpen, Building2, Users, Trophy, Briefcase, Sparkles, GraduationCap } from "lucide-react";
-import { Button } from "../components/ui/button";
+import { Button } from "../../ui/button";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
