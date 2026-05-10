@@ -9,6 +9,7 @@ import PrincipalMessagePage from "../components/pages/about/principal-message-pa
 import MissionVisionPage from "../components/pages/about/mission-vision-page.jsx";
 import AcademicsPage from "../components/pages/academics/academics-page.jsx";
 import AdmissionsPage from "../components/pages/admissions/admissions-page.jsx";
+import ComputerLabPage from "../components/pages/our-campus/computer-lab-page.jsx";
 import { ThemeProvider } from "../components/shared/theme-provider.jsx";
 
 function ScrollToTop() {
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/about/mission-vision" element={<MissionVisionPage />} />
           <Route path="/academics" element={<AcademicsPage />} />
           <Route path="/admissions" element={<AdmissionsPage />} />
+          <Route path="/our-campus/computer-lab" element={<ComputerLabPage />} />
         </Routes>
       </RootLayout>
     </ThemeProvider>

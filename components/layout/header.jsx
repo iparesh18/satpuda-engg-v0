@@ -29,6 +29,19 @@ export function Header() {
       ]
     },
     {
+      label: "Our Campus",
+      href: "#our-campus",
+      scrollId: "our-campus",
+      dropdown: [
+        { label: "Computer Lab", type: "page", href: "/our-campus/computer-lab" },
+        { label: "Transport", type: "page", href: "/our-campus/transport" },
+        { label: "Scholarship", type: "page", href: "/our-campus/scholarship" },
+        { label: "Library", type: "page", href: "/our-campus/library" },
+        { label: "Sports", type: "page", href: "/our-campus/sports" },
+        { label: "Gallery", type: "page", href: "/our-campus/gallery" }
+      ]
+    },
+    {
       label: "Academics",
       href: "#courses",
       scrollId: "courses",

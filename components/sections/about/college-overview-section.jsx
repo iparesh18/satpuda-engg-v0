@@ -2,6 +2,8 @@ import { ArrowRight, BookOpen, Building2, Users, Trophy, Briefcase, Sparkles, Gr
 import { Button } from "../../ui/button";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import SplitText from "../../bits/split-text.jsx";
+import BlurText from "../../bits/blur-text.jsx";
 
 function CountingNumber({ value, suffix = "" }) {
   const ref = useRef(null);
@@ -98,98 +100,113 @@ export function CollegeOverviewSection() {
   ];
 
   return (
-    <section className="bg-[#f6f5ff] py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* About Overview Hero */}
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-sm text-muted-foreground mb-4"
-            >
-              Home / About / Overview
-            </motion.div>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight"
-            >
-              About
-              <br />
-              <span className="text-[#5b5bd6]">Overview</span>
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="mt-4 text-slate-600 max-w-lg"
-            >
-              Empowering Future Engineers with Knowledge, Innovation & Excellence.
-            </motion.p>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="mt-6"
-            >
-              <Button 
-                className="bg-[#5b5bd6] hover:bg-[#4d4dc3] text-white rounded-full px-6 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#5b5bd6]/30 group"
-              >
-                Explore Our Campus
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
-            </motion.div>
-          </motion.div>
-
-          <motion.div 
-            className="relative"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <motion.div 
-              className="rounded-3xl overflow-hidden shadow-2xl border border-white/70"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-            >
-              <motion.img
-                src="/images/overview/campus overview.png"
-                alt="Campus overview"
-                className="w-full h-[340px] sm:h-[380px] object-cover"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 1.5, ease: "easeOut" }}
-              />
-            </motion.div>
-            <motion.div 
-              className="absolute -bottom-6 right-6 bg-white shadow-xl rounded-2xl px-4 py-3 flex items-center gap-3 border border-slate-100"
-              animate={{ 
-                y: [0, -10, 0],
-              }}
-              transition={{ 
-                duration: 4, 
-                repeat: Infinity, 
-                ease: "easeInOut" 
-              }}
-            >
-              <div className="h-10 w-10 rounded-full bg-[#5b5bd6]/10 flex items-center justify-center">
-                <GraduationCap className="h-5 w-5 text-[#5b5bd6]" />
-              </div>
-              <div>
-                <div className="text-sm font-semibold text-slate-900">Excellence</div>
-                <div className="text-xs text-slate-500">Since 24+ Years</div>
-              </div>
-            </motion.div>
-          </motion.div>
+    <main className="bg-background min-h-screen">
+      {/* Premium Hero Section */}
+      <motion.section
+        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-32 pb-16 lg:pt-36 lg:pb-24"
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <div className="absolute inset-y-0 right-0 w-full sm:w-4/5 lg:w-[52%] opacity-10">
+          <img
+            src="/images/overview/campus overview.png"
+            alt="Campus backdrop"
+            className="h-full w-full object-cover object-right"
+          />
         </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/96 to-background/88 lg:from-background lg:via-background/90 lg:to-transparent" />
+        
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Column: Text Content */}
+            <div className="relative z-10">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+                className="flex items-center gap-2 text-primary font-semibold tracking-widest uppercase text-xs mb-6"
+              >
+                <div className="h-px w-8 bg-primary" />
+                Satpuda College
+              </motion.div>
+              
+              <SplitText
+                text="College Overview"
+                className="text-5xl font-bold text-foreground sm:text-7xl lg:text-8xl tracking-tighter"
+                delay={0.08}
+              />
+              <div className="mt-8 h-2 w-32 rounded-full bg-gradient-to-r from-primary via-primary/70 to-accent" />
+              <p className="mt-10 max-w-xl text-xl text-muted-foreground leading-relaxed">
+                <BlurText text="Empowering future engineers with knowledge, innovation, and academic excellence since 24+ years." />
+              </p>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.8 }}
+                className="mt-12 flex flex-wrap gap-4"
+              >
+                <Button 
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-10 py-7 text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 group"
+                >
+                  Explore Our Campus
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Button>
+                <div className="flex items-center gap-3 text-sm font-medium text-muted-foreground ml-2">
+                  <span>Home</span>
+                  <span className="text-muted-foreground/30">/</span>
+                  <span className="text-foreground">Overview</span>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Right Column: Featured Image with Badge */}
+            <motion.div 
+              className="relative hidden lg:block"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 1 }}
+            >
+              <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-card">
+                <motion.img
+                  src="/images/overview/campus overview.png"
+                  alt="Campus overview"
+                  className="w-full h-[500px] object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 1.5, ease: "easeOut" }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              </div>
+              
+              {/* Floating Excellence Badge */}
+              <motion.div 
+                className="absolute -bottom-10 -left-10 bg-card shadow-2xl rounded-[2rem] p-8 flex items-center gap-5 border border-border/50 backdrop-blur-xl"
+                animate={{ 
+                  y: [0, -15, 0],
+                }}
+                transition={{ 
+                  duration: 4, 
+                  repeat: Infinity, 
+                  ease: "easeInOut" 
+                }}
+              >
+                <div className="h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+                  <GraduationCap className="h-8 w-8 text-primary" />
+                </div>
+                <div>
+                  <div className="text-2xl font-black text-foreground tracking-tight">Excellence</div>
+                  <div className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Since 24+ Years</div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-background pb-20">
+
 
         {/* Who We Are */}
         <div className="mt-20 grid lg:grid-cols-2 gap-12 items-center">
@@ -479,6 +496,6 @@ export function CollegeOverviewSection() {
           </div>
         </div>
       </div>
-    </section>
+    </main>
   );
 }

@@ -75,7 +75,7 @@ export function PrincipalMessageSection() {
           <div className="flex flex-col lg:flex-row">
             <div className="relative h-[500px] w-full overflow-hidden lg:h-[600px] lg:w-[45%]">
               <img
-                src="/images/hero-3.jpg"
+                src="/principal.png"
                 alt="Principal portrait"
                 className="h-full w-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
               />
