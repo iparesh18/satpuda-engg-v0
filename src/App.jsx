@@ -4,6 +4,8 @@ import RootLayout from "../components/layout/root-layout.jsx";
 import HomePage from "../components/pages/home/home-page.jsx";
 import AboutPage from "../components/pages/about/about-page.jsx";
 import CollegeOverviewPage from "../components/pages/about/overview-page.jsx";
+import DirectorsMessagePage from "../components/pages/about/directors-message-page.jsx";
+import PrincipalMessagePage from "../components/pages/about/principal-message-page.jsx";
 import AcademicsPage from "../components/pages/academics/academics-page.jsx";
 import AdmissionsPage from "../components/pages/admissions/admissions-page.jsx";
 import { ThemeProvider } from "../components/shared/theme-provider.jsx";
@@ -27,6 +29,8 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/about/overview" element={<CollegeOverviewPage />} />
+          <Route path="/about/directors-message" element={<DirectorsMessagePage />} />
+          <Route path="/about/principal-message" element={<PrincipalMessagePage />} />
           <Route path="/academics" element={<AcademicsPage />} />
           <Route path="/admissions" element={<AdmissionsPage />} />
         </Routes>

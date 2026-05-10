@@ -23,8 +23,8 @@ export function Header() {
       scrollId: "about",
       dropdown: [
         { label: "College Overview", type: "page", href: "/about/overview" },
-        { label: "Management", scrollId: "about" },
-        { label: "Infrastructure", scrollId: "about" },
+        { label: "Director's Message", type: "page", href: "/about/directors-message" },
+        { label: "Principal's Message", type: "page", href: "/about/principal-message" },
         { label: "Accreditation", scrollId: "about" }
       ]
     },
