@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { 
   Monitor, 
   Settings, 
@@ -11,9 +12,24 @@ import {
   Award, 
   GraduationCap, 
   Heart,
-  ChevronRight
+  ChevronRight,
+  Target,
+  Zap,
+  ArrowRight,
+  Cpu,
+  Terminal,
+  Database,
+  Network,
+  Layers,
+  Code,
+  Server,
+  Activity,
+  Cloud,
+  ShieldCheck,
+  HardDrive
 } from "lucide-react";
 
+import Magnetic from "../../bits/magnetic.jsx";
 import SplitText from "../../bits/split-text.jsx";
 import BlurText from "../../bits/blur-text.jsx";
 import ShinyText from "../../bits/shiny-text.jsx";
@@ -75,6 +91,14 @@ const listItems = [
 ];
 
 export function ComputerLabSection() {
+  const [shelfFocus, setShelfFocus] = useState(50);
+
+  const updateShelfFocus = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    setShelfFocus(x);
+  };
+
   return (
     <main className="bg-background pb-20">
       {/* Hero Section */}
@@ -206,6 +230,203 @@ export function ComputerLabSection() {
           </motion.div>
         </div>
       </section>
+
+      {/* Interactive Virtual Silicon Arena */}
+      <motion.section
+        className="mx-auto mt-24 max-w-7xl px-4 sm:px-6 lg:px-8"
+        onPointerMove={updateShelfFocus}
+        initial={{ opacity: 0, y: 22 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <div className="group relative overflow-hidden rounded-[3rem] border border-border/40 bg-card/40 backdrop-blur-xl p-8 shadow-2xl sm:p-12">
+          <div className="grid lg:grid-cols-[1.2fr,1fr] gap-16 items-center">
+            {/* 3D-like Silicon Arena Container */}
+            <motion.div 
+              className="relative h-[450px] sm:h-[600px] overflow-hidden rounded-[2.5rem] border border-border/40 bg-background/40 backdrop-blur-md perspective-[1000px] group/arena"
+              style={{
+                perspective: "1200px"
+              }}
+            >
+              {/* Dynamic Mouse-Following Glow */}
+              <div 
+                className="pointer-events-none absolute inset-0 opacity-40 transition-opacity duration-700 group-hover/arena:opacity-100"
+                style={{
+                  background: `radial-gradient(600px circle at ${shelfFocus}% 50%, rgba(59,130,246,0.15), transparent 80%)`,
+                }}
+              />
+              
+              <motion.div 
+                className="relative h-full w-full flex items-center justify-center"
+                style={{
+                  transformStyle: 'preserve-3d',
+                  rotateX: typeof window !== "undefined" && window.innerWidth > 1024 ? (shelfFocus - 50) * 0.25 : 0,
+                  rotateY: typeof window !== "undefined" && window.innerWidth > 1024 ? (shelfFocus - 50) * 0.15 : 0,
+                }}
+              >
+                {/* Arena Circuit Grid System */}
+                <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:40px_40px]" />
+
+                {/* Rotating Data Rings */}
+                {[...Array(4)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
+                    transition={{ duration: 15 + i * 8, repeat: Infinity, ease: "linear" }}
+                    className="absolute rounded-full border border-primary/10 shadow-[0_0_40px_rgba(59,130,246,0.05)]"
+                    style={{
+                      width: `${240 + i * 90}px`,
+                      height: `${240 + i * 90}px`,
+                      translateZ: i * 25
+                    }}
+                  />
+                ))}
+
+                {/* Core Silicon Processor Hub */}
+                <Magnetic intensity={0.3}>
+                  <motion.div 
+                    className="relative z-20 h-44 w-44 rounded-3xl bg-primary flex items-center justify-center shadow-[0_0_80px_rgba(59,130,246,0.5)] border-4 border-white/20"
+                    whileHover={{ scale: 1.1, rotate: 15 }}
+                  >
+                    <Cpu className="h-20 w-20 text-white drop-shadow-2xl animate-pulse" />
+                    
+                    {/* Orbital Data Nodes */}
+                    <motion.div 
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-[-50px]"
+                    >
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-12 w-12 rounded-2xl bg-card border border-primary/30 flex items-center justify-center shadow-xl backdrop-blur-xl">
+                        <Terminal className="h-6 w-6 text-primary" />
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                </Magnetic>
+
+                {/* Interactive Tech Hotspots */}
+                {[
+                  { x: 20, y: 25, label: "AI_NODE_X", icon: Network },
+                  { x: 80, y: 30, label: "CLOUD_CORE", icon: Cloud },
+                  { x: 25, y: 75, label: "CYBER_SHIELD", icon: ShieldCheck },
+                  { x: 75, y: 70, label: "DATA_VAULT", icon: HardDrive }
+                ].map((spot, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute z-30 group/spot"
+                    style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: i * 0.2 }}
+                  >
+                    <div className="relative">
+                      <div className="h-5 w-5 rounded-full bg-primary animate-ping opacity-40" />
+                      <div className="absolute inset-0 h-5 w-5 rounded-full bg-primary border-2 border-white shadow-2xl cursor-pointer flex items-center justify-center">
+                        <spot.icon className="h-2.5 w-2.5 text-white" />
+                      </div>
+                      
+                      <div className="absolute top-8 left-1/2 -translate-x-1/2 opacity-0 scale-90 group-hover/spot:opacity-100 group-hover/spot:scale-100 transition-all duration-300 pointer-events-none">
+                        <div className="bg-background/95 backdrop-blur-2xl border border-primary/30 rounded-2xl p-4 shadow-2xl min-w-[140px]">
+                          <p className="text-[10px] font-black uppercase tracking-widest text-primary mb-1">Module</p>
+                          <p className="text-xs font-black text-foreground">{spot.label}</p>
+                          <div className="mt-3 flex items-center gap-2">
+                            <div className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
+                            <span className="text-[8px] text-muted-foreground uppercase font-black tracking-tighter">Sync: Active</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* HUD Console Overlays */}
+              <div className="absolute top-10 left-10 right-10 flex items-center justify-between pointer-events-none">
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-2 bg-background/60 backdrop-blur-md px-4 py-2 rounded-xl border border-primary/20">
+                    <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+                    <span className="text-[10px] font-black uppercase tracking-widest text-foreground">Silicon Arena v.9.0</span>
+                  </div>
+                  <span className="text-[8px] font-bold text-muted-foreground uppercase tracking-widest ml-4">Compute Grid • Stable</span>
+                </div>
+                
+                <div className="flex gap-3">
+                  <div className="rounded-xl bg-primary/10 border border-primary/20 px-4 py-2 backdrop-blur-md">
+                    <span className="text-[10px] font-black text-primary uppercase">Uptime: 99.9%</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Telemetry */}
+              <div className="absolute bottom-10 left-10 right-10 flex items-center justify-between pointer-events-none">
+                <div className="flex items-center gap-3 rounded-full border border-border/40 bg-background/60 px-6 py-3 text-[10px] font-black uppercase tracking-widest text-muted-foreground backdrop-blur-md">
+                  <Activity className="h-4 w-4 text-primary" />
+                  Neural Processing Hub
+                </div>
+                <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground opacity-60">
+                  Virtual Lab Environment
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Content Side - Replicated from Sports Performance Style */}
+            <div className="space-y-8">
+              <motion.div 
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="flex items-center gap-3 text-primary font-bold tracking-widest uppercase text-[10px]"
+              >
+                <div className="h-px w-8 bg-primary" />
+                Technical Infrastructure
+              </motion.div>
+              <h3 className="text-4xl font-bold text-foreground tracking-tight sm:text-6xl leading-[1.1]">The Architecture of Innovation</h3>
+              <p className="mt-8 text-xl text-muted-foreground leading-relaxed">
+                Our computer labs utilize a high-performance grid architecture, providing students with the computational power required for AI research, cloud development, and complex algorithm modeling.
+              </p>
+              
+              <div className="mt-12 grid gap-5">
+                {[
+                  { label: "Neural Network Throughput", value: "1.2 PB/s", trend: "up" },
+                  { label: "Cloud Sync Latency", value: "Low-Tier", trend: "stable" },
+                  { label: "Processing Efficiency", value: "Optimized", trend: "up" }
+                ].map((stat) => (
+                  <motion.div 
+                    key={stat.label} 
+                    className="group/stat relative flex items-center justify-between rounded-2xl border border-border/40 bg-background/40 p-8 transition-all duration-500 hover:bg-background/80 hover:border-primary/40 hover:-translate-y-2 overflow-hidden"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <motion.div 
+                      className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent -translate-x-full group-hover/stat:translate-x-full transition-transform duration-1000"
+                    />
+                    
+                    <div className="relative z-10 flex flex-col">
+                      <span className="font-black text-primary uppercase tracking-[0.3em] text-[10px] mb-2">Live Metric</span>
+                      <span className="font-bold text-xl text-foreground transition-colors group-hover/stat:text-primary tracking-tight">{stat.label}</span>
+                    </div>
+
+                    <div className="relative z-10 text-right">
+                      <p className="text-2xl font-black text-foreground tracking-tighter">{stat.v || stat.value}</p>
+                      <div className="mt-1 flex items-center justify-end gap-1.5">
+                        <div className={`h-1.5 w-1.5 rounded-full ${stat.trend === 'up' ? 'bg-green-500' : 'bg-primary'}`} />
+                        <span className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">{stat.trend}</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="mt-14 group relative inline-flex items-center gap-5 rounded-full bg-primary px-14 py-7 text-xl font-black text-primary-foreground transition-all hover:shadow-[0_0_50px_rgba(59,130,246,0.5)]"
+              >
+                Access Lab Resources
+                <ArrowRight className="h-7 w-7 transition-transform group-hover:translate-x-3" />
+              </motion.button>
+            </div>
+          </div>
+        </div>
+      </motion.section>
 
       {/* Bottom List Section */}
       <section className="mx-auto mt-24 max-w-7xl px-4 sm:px-6 lg:px-8">
