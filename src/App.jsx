@@ -14,6 +14,7 @@ import TransportPage from "../components/pages/our-campus/transport-page.jsx";
 import ScholarshipPage from "../components/pages/our-campus/scholarship-page.jsx";
 import LibraryPage from "../components/pages/our-campus/library-page.jsx";
 import SportsPage from "../components/pages/our-campus/sports-page.jsx";
+import GalleryPage from "../components/pages/our-campus/gallery-page.jsx";
 import { ThemeProvider } from "../components/shared/theme-provider.jsx";
 
 function ScrollToTop() {
@@ -45,6 +46,7 @@ export default function App() {
           <Route path="/our-campus/scholarship" element={<ScholarshipPage />} />
           <Route path="/our-campus/library" element={<LibraryPage />} />
           <Route path="/our-campus/sports" element={<SportsPage />} />
+          <Route path="/our-campus/gallery" element={<GalleryPage />} />
         </Routes>
       </RootLayout>
     </ThemeProvider>
