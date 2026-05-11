@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "../../ui/button";
 import { ArrowRight, Play } from "lucide-react";
 
@@ -124,6 +125,14 @@ export function HeroSection() {
               <Play className="h-4 w-4" />
               Watch Campus Tour
             </Button>
+
+            <Link
+              to="/journey-at-satpuda"
+              className="inline-flex h-14 items-center gap-2 rounded-xl border border-primary/20 bg-primary/10 px-8 text-base font-bold text-primary transition-all duration-500 hover:border-primary/30 hover:bg-primary/15"
+            >
+              Journey at Satpuda
+              <ArrowRight className="h-4 w-4" />
+            </Link>
 
           </motion.div>
 
