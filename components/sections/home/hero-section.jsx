@@ -84,11 +84,11 @@ export function HeroSection() {
             </motion.span>
 
             <motion.span variants={itemVariants} className="block overflow-hidden text-[#295cae]/90">
-              of Engineering and
+              of <span className="text-red-600">Engineering</span> and
             </motion.span>
 
             <motion.span variants={itemVariants} className="block overflow-hidden text-[#295cae]/70">
-              Polytechnic
+              <span className="text-red-600">Polytechnic</span>
             </motion.span>
 
           </h1>

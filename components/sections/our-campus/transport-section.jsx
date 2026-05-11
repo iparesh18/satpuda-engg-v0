@@ -235,7 +235,7 @@ export function TransportSection() {
                     />
                     <g>
                       <animateMotion
-                        dur="15s"
+                        dur="3s"
                         repeatCount="indefinite"
                         rotate="auto"
                       >

@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Trophy, Users, Briefcase, Building2 } from "lucide-react";
+import ShinyText from "../../bits/shiny-text.jsx";
 
 export function StatsBar() {
   const stats = [
@@ -30,7 +31,9 @@ export function StatsBar() {
             <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 text-primary mb-4 group-hover:scale-110 transition-transform duration-500">
               {stat.icon}
             </div>
-            <p className="text-3xl lg:text-5xl font-bold text-foreground tracking-tighter">{stat.value}</p>
+            <p className="text-3xl lg:text-5xl font-bold text-foreground tracking-tighter">
+              <ShinyText text={stat.value} speed={3} color="rgba(59, 130, 246, 0.85)" />
+            </p>
             <p className="text-xs text-muted-foreground mt-2 uppercase tracking-widest">{stat.label}</p>
           </motion.div>))}
         </div>
