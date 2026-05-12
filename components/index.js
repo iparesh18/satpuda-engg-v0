@@ -11,3 +11,5 @@ export { CTASection } from "./sections/home/cta-section.jsx";
 export { MapSection } from "./sections/home/map-section.jsx";
 export { Footer } from "./sections/home/footer.jsx";
 export { CoursesSection } from "./sections/home/courses-section.jsx";
+export { CSESection } from "./sections/academics/cse-section.jsx";
+export { MiningSection } from "./sections/academics/mining-section.jsx";
