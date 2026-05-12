@@ -50,13 +50,14 @@ export function Header() {
     },
     {
       label: "Academics",
-      type: "page",
-      href: "/academics",
+      href: "#academics",
+      scrollId: "academics",
       dropdown: [
-        { label: "B.Tech Programs", type: "page", href: "/academics/btech" },
-        { label: "Polytechnic", type: "page", href: "/academics/polytechnic" },
-        { label: "Faculty", type: "page", href: "/academics/faculty" },
-        { label: "Syllabus", type: "page", href: "/academics/syllabus" }
+        { label: "Computer Science Engineering", type: "page", href: "/academics/computer-science-engineering" },
+        { label: "Mining Engineering", type: "page", href: "/academics/mining-engineering" },
+        { label: "Civil Engineering", type: "page", href: "/academics/civil-engineering" },
+        { label: "Mechanical Engineering", type: "page", href: "/academics/mechanical-engineering" },
+        { label: "Electrical Engineering", type: "page", href: "/academics/electrical-engineering" }
       ]
     },
     {

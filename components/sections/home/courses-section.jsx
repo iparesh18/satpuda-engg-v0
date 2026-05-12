@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Monitor, Mountain, Building2, Cog, Zap, ArrowRight, Clock, Users, Sparkles } from "lucide-react";
+import Magnetic from "../../bits/magnetic.jsx";
 const programs = [
     {
         id: "cse",
@@ -103,34 +105,56 @@ export function CoursesSection() {
           {/* Left: Course Navigation */}
           <div className="lg:col-span-4 space-y-3">
             {programs.map((program, index) => {
-            const ProgramIcon = program.icon;
-            const isActive = activeProgram === index;
-            return (<button key={program.id} onClick={() => setActiveProgram(index)} className={`w-full text-left p-4 rounded-2xl transition-all duration-500 group ${isActive
-                    ? `bg-white/10 shadow-2xl shadow-blue-500/10 border border-white/20`
-                    : "bg-transparent hover:bg-white/5 border border-transparent hover:border-white/10 shadow-none"}`}>
-                  <div className="flex items-center gap-4">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${isActive
-                    ? `bg-gradient-to-br ${program.color} text-white shadow-lg`
-                    : `${program.bgColor} ${program.textColor}`}`}>
-                      <ProgramIcon className="h-5 w-5"/>
-                    </div>
+              const ProgramIcon = program.icon;
+              const isActive = activeProgram === index;
+              return (
+                <motion.button
+                  key={program.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  onClick={() => setActiveProgram(index)}
+                  className={`w-full text-left p-6 rounded-2xl transition-all duration-500 group relative overflow-hidden backdrop-blur-xl ${
+                    isActive
+                      ? `bg-primary/10 shadow-[0_20px_50px_rgba(59,130,246,0.1)] border-white/20`
+                      : "bg-white/5 hover:bg-white/10 border-transparent hover:border-white/10 shadow-none"
+                  } border`}
+                >
+                  <div className="relative z-10 flex items-center gap-4">
+                    <Magnetic intensity={0.2}>
+                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 ${
+                        isActive
+                          ? `bg-gradient-to-br ${program.color} text-white shadow-lg rotate-6`
+                          : `${program.bgColor} ${program.textColor} group-hover:rotate-6`
+                      }`}>
+                        <ProgramIcon className="h-6 w-6"/>
+                      </div>
+                    </Magnetic>
                     <div className="flex-1 min-w-0">
-                      <h3 className={`font-bold transition-colors ${isActive ? "text-blue-600" : "text-slate-600 group-hover:text-blue-600"}`}>
+                      <h3 className={`text-lg font-bold transition-colors ${isActive ? "text-primary" : "text-foreground/60 group-hover:text-primary"}`}>
                         {program.name}
                       </h3>
-                      <p className={`text-sm ${isActive ? "text-blue-500/70" : "text-slate-400"}`}>{program.duration} Program</p>
+                      <p className={`text-sm ${isActive ? "text-primary/70" : "text-muted-foreground"}`}>{program.duration} Program</p>
                     </div>
-                    <ArrowRight className={`h-5 w-5 transition-all duration-300 ${isActive
-                    ? `${program.textColor} translate-x-0 opacity-100`
-                    : "text-muted-foreground -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"}`}/>
+                    <ArrowRight className={`h-5 w-5 transition-all duration-500 ${isActive
+                      ? `text-primary translate-x-0 opacity-100`
+                      : "text-muted-foreground -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"}`}/>
                   </div>
-                </button>);
-        })}
+                </motion.button>
+              );
+            })}
           </div>
 
           {/* Right: Course Details */}
           <div className="lg:col-span-8">
-            <div className="bg-transparent backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-white/10">
+            <motion.div 
+              key={activeProgram}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="bg-card/40 backdrop-blur-2xl rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.2)] overflow-hidden border border-white/10"
+            >
               {/* Image Header */}
               <div className="relative h-64 overflow-hidden">
                 <img src={currentProgram.image} alt={currentProgram.name} className="w-full h-full object-cover"/>
@@ -193,7 +217,7 @@ export function CoursesSection() {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
