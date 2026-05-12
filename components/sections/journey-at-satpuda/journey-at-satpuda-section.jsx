@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import gsap from "gsap";
@@ -58,16 +58,38 @@ function JourneyNavbar() {
 // ─────────────────────────────────────────────
 function NodeGraph() {
   const svgRef = useRef(null);
+  const [hoveredNodeId, setHoveredNodeId] = useState(null);
+  const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
+
 
   const nodes = [
-    { id: 1, label: "Student",       x: 50, y: 15 },
-    { id: 2, label: "Learning",      x: 15, y: 45 },
-    { id: 3, label: "Innovation",    x: 50, y: 50 },
-    { id: 4, label: "Collaboration", x: 85, y: 45 },
-    { id: 5, label: "Success",       x: 50, y: 85 },
+    { id: 1, label: "Aspiration",       x: 50, y: 5,  icon: Sparkles },
+    { id: 2, label: "Foundation",       x: 20, y: 30, icon: BookOpen },
+    { id: 3, label: "Core Skills",      x: 80, y: 30, icon: Code2 },
+    { id: 4, label: "Innovation Hub",    x: 50, y: 50, icon: Lightbulb },
+    { id: 5, label: "Collaboration",     x: 20, y: 70, icon: Users },
+    { id: 6, label: "Tech Mastery",     x: 80, y: 70, icon: Brain },
+    { id: 7, label: "Industry Success", x: 50, y: 95, icon: Award },
+
   ];
 
-  const connections = [[1,2],[1,3],[1,4],[2,5],[3,5],[4,5]];
+  const connections = [
+    [1, 2], [1, 3],
+    [2, 4], [3, 4],
+    [4, 5], [4, 6],
+    [5, 7], [6, 7]
+  ];
+
+  // Helper to generate curved path between two points
+  const getCurvedPath = (from, to) => {
+    const dy = to.y - from.y;
+    // Vertical S-Curve flow
+    const cp1y = from.y + dy * 0.5;
+    const cp2y = to.y - dy * 0.5;
+    return `M ${from.x} ${from.y} C ${from.x} ${cp1y}, ${to.x} ${cp2y}, ${to.x} ${to.y}`;
+  };
+
+
 
   useEffect(() => {
     if (!svgRef.current) return;
@@ -81,16 +103,17 @@ function NodeGraph() {
           const svg = svgRef.current;
           if (!svg) return;
 
-          svg.querySelectorAll("line[data-anim]").forEach((line, i) => {
-            const len = line.getTotalLength();
-            gsap.set(line, { strokeDasharray: len, strokeDashoffset: len });
-            gsap.to(line, {
+          svg.querySelectorAll("path[data-base-path]").forEach((path, i) => {
+            const len = path.getTotalLength();
+            gsap.set(path, { strokeDasharray: len, strokeDashoffset: len });
+            gsap.to(path, {
               strokeDashoffset: 0,
-              duration: 2,
-              delay: i * 0.15,
-              ease: "power3.inOut",
+              duration: 2.5,
+              delay: 0.5 + (i * 0.1),
+              ease: "power4.out",
             });
           });
+
         },
       });
     }, svgRef);
@@ -99,7 +122,23 @@ function NodeGraph() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden pt-24">
+    <section 
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        setMousePos({ x, y });
+      }}
+      className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden pt-24"
+    >
+      {/* Interactive Mouse Follower Glow */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none transition-opacity duration-1000"
+        style={{
+          background: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, rgba(59, 130, 246, 0.08) 0%, transparent 50%)`
+        }}
+      />
+
       {/* Background Animated Glows */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <motion.div 
@@ -123,6 +162,27 @@ function NodeGraph() {
       {/* Noise Overlay */}
       <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
+      {/* Technical Grid Background */}
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" 
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px'
+        }}
+      />
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none" 
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(59, 130, 246, 0.2) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(59, 130, 246, 0.2) 1px, transparent 1px)
+          `,
+          backgroundSize: '200px 200px'
+        }}
+      />
+
+
       {/* Background Glows */}
       <div className="absolute top-1/4 left-1/4 w-[40rem] h-[40rem] bg-primary/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-accent/10 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
@@ -144,15 +204,22 @@ function NodeGraph() {
           />
         </div>
 
-        <div className="relative aspect-square max-w-2xl mx-auto">
-          {/* SVG Connections with Glow */}
-          <svg ref={svgRef} viewBox="0 0 100 100" className="absolute inset-0 w-full h-full pointer-events-none drop-shadow-[0_0_8px_rgba(59,130,246,0.3)]">
+        <motion.div 
+          style={{
+            x: (mousePos.x - 50) * 0.2,
+            y: (mousePos.y - 50) * 0.2,
+          }}
+          className="relative aspect-square max-w-2xl mx-auto"
+        >
+
+          {/* SVG Connections with Glow and Flow */}
+          <svg ref={svgRef} viewBox="0 0 100 100" className="absolute inset-0 w-full h-full pointer-events-none drop-shadow-[0_0_15px_rgba(59,130,246,0.2)]">
             <defs>
               <linearGradient id="journey-line-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%"   stopColor="rgb(59,130,246)"  stopOpacity="0.6" />
-                <stop offset="100%" stopColor="rgb(168,85,247)"  stopOpacity="0.6" />
+                <stop offset="0%"   stopColor="rgb(59,130,246)"  stopOpacity="0.4" />
+                <stop offset="100%" stopColor="rgb(168,85,247)"  stopOpacity="0.4" />
               </linearGradient>
-              <filter id="glow">
+              <filter id="glow-heavy">
                 <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
                 <feMerge>
                   <feMergeNode in="coloredBlur" />
@@ -164,71 +231,151 @@ function NodeGraph() {
             {connections.map(([a, b]) => {
               const from = nodes.find(n => n.id === a);
               const to   = nodes.find(n => n.id === b);
+              const path = getCurvedPath(from, to);
+              const isConnectedToHovered = hoveredNodeId === a || hoveredNodeId === b;
+              
               return (
-                <line
-                  key={`${a}-${b}`}
-                  data-anim
-                  x1={from.x} y1={from.y}
-                  x2={to.x}   y2={to.y}
-                  stroke="url(#journey-line-grad)"
-                  strokeWidth="0.4"
-                  filter="url(#glow)"
-                />
+                <g key={`${a}-${b}`} className="transition-opacity duration-500">
+                  {/* Base Path */}
+                  <path
+                    d={path}
+                    data-base-path
+                    stroke="url(#journey-line-grad)"
+                    strokeWidth={isConnectedToHovered ? "0.6" : "0.3"}
+                    fill="none"
+                    className={`transition-all duration-500 ${isConnectedToHovered ? "opacity-100" : "opacity-20"}`}
+                  />
+
+
+                  {/* Animated Flow Line */}
+                  <path
+                    d={path}
+                    stroke="rgb(59,130,246)"
+                    strokeWidth="0.4"
+                    fill="none"
+                    strokeDasharray="1, 10"
+                    strokeDashoffset="0"
+                    className={isConnectedToHovered ? "opacity-100" : "opacity-40"}
+                  >
+
+                    <animate
+                      attributeName="stroke-dashoffset"
+                      from="11"
+                      to="0"
+                      dur="3s"
+                      repeatCount="indefinite"
+                    />
+                  </path>
+                  {/* Glowing Pulse Path (Active on Hover) */}
+                  <path
+                    d={path}
+                    stroke="rgb(168,85,247)"
+                    strokeWidth="0.8"
+                    fill="none"
+                    strokeDasharray="4, 100"
+                    strokeDashoffset="0"
+                    className={`transition-opacity blur-[2px] ${isConnectedToHovered ? "opacity-100" : "opacity-0"}`}
+                  >
+
+                     <animate
+                      attributeName="stroke-dashoffset"
+                      from="104"
+                      to="0"
+                      dur="2s"
+                      repeatCount="indefinite"
+                    />
+                  </path>
+                </g>
               );
             })}
           </svg>
 
-          {/* Interactive Nodes */}
-          {nodes.map((node, i) => (
-            <motion.div
-              key={node.id}
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ 
-                type: "spring",
-                stiffness: 260,
-                damping: 20,
-                delay: 0.5 + (i * 0.1) 
-              }}
-              style={{
-                position: 'absolute',
-                left: `${node.x}%`,
-                top: `${node.y}%`,
-                transform: 'translate(-50%, -50%)',
-              }}
-              className="group z-20"
-            >
-              <Magnetic>
-                <div className="relative cursor-pointer">
-                  {/* Outer Ring */}
-                  <motion.div 
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute inset-0 -m-4 border border-primary/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" 
-                  />
-                  
-                  {/* Node Circle */}
-                  <div className="w-4 h-4 md:w-6 md:h-6 bg-background border-2 border-primary rounded-full shadow-[0_0_20px_rgba(59,130,246,0.5)] flex items-center justify-center group-hover:scale-125 transition-transform duration-500 overflow-hidden">
-                    <div className="absolute inset-0 bg-primary opacity-20 group-hover:opacity-40 transition-opacity" />
-                    <Sparkles className="w-2 h-2 md:w-3 md:h-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
 
-                  {/* Label */}
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 whitespace-nowrap">
-                    <motion.div
-                      initial={{ opacity: 0.5, y: 0 }}
-                      whileHover={{ opacity: 1, y: 2 }}
-                      className="text-xs md:text-sm font-bold tracking-widest uppercase bg-linear-to-b from-foreground to-foreground/60 bg-clip-text text-transparent"
-                    >
-                      {node.label}
-                    </motion.div>
+          {/* Interactive Nodes */}
+          {nodes.map((node, i) => {
+            const Icon = node.icon;
+            return (
+              <motion.div
+                key={node.id}
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ 
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                  delay: 0.3 + (i * 0.08) 
+                }}
+                style={{
+                  position: 'absolute',
+                  left: `${node.x}%`,
+                  top: `${node.y}%`,
+                  transform: 'translate(-50%, -50%)',
+                }}
+                className="group z-20"
+              >
+                <Magnetic intensity={0.2}>
+                  <div 
+                    onMouseEnter={() => setHoveredNodeId(node.id)}
+                    onMouseLeave={() => setHoveredNodeId(null)}
+                    className="relative cursor-pointer"
+                  >
+
+                    {/* Pulsing Aura */}
+                    <div className="absolute inset-0 -m-8 pointer-events-none">
+                       <motion.div 
+                        animate={{ 
+                          scale: [1, 1.5, 1],
+                          opacity: [0.1, 0.3, 0.1]
+                        }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                        className="w-full h-full bg-primary/20 rounded-full blur-2xl"
+                      />
+                    </div>
+
+                    {/* Outer Ring */}
+                    <motion.div 
+                      animate={{ scale: [1, 1.1, 1], rotate: 360 }}
+                      transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-0 -m-3 border border-dashed border-primary/40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" 
+                    />
+                    
+                    {/* Node Circle - Premium Glassmorphism */}
+                    <div className="w-10 h-10 md:w-14 md:h-14 bg-background/40 backdrop-blur-xl border border-white/20 rounded-full shadow-[0_0_30px_rgba(59,130,246,0.3)] flex items-center justify-center group-hover:scale-110 group-hover:border-primary transition-all duration-500 overflow-hidden group">
+                      <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-accent/20 opacity-40 group-hover:opacity-100 transition-opacity" />
+                      <Icon className="w-5 h-5 md:w-6 md:h-6 text-foreground group-hover:text-primary group-hover:scale-110 transition-all duration-500 relative z-10" />
+                      
+                      {/* Internal Glare */}
+                      <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                    </div>
+
+                    {/* Label with Glassmorphic Tooltip style */}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-6 whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 pointer-events-none">
+                      <div className="px-5 py-2.5 rounded-2xl bg-background/90 backdrop-blur-2xl border border-primary/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                        <motion.div
+                          className="text-xs md:text-sm font-black tracking-[0.2em] uppercase text-primary"
+                        >
+                           <BlurText text={node.label} delay={0.02} />
+                        </motion.div>
+                      </div>
+                      {/* Triangle Arrow */}
+                      <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-background/90 border-l border-t border-primary/20 rotate-45" />
+                    </div>
+
+
+                    {/* Static Label (Visible by default, but subtle) */}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 whitespace-nowrap group-hover:opacity-0 transition-opacity duration-300">
+                      <span className="text-[10px] md:text-[12px] font-bold tracking-[0.2em] uppercase opacity-40">
+                        {node.label}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </Magnetic>
-            </motion.div>
-          ))}
-        </div>
+                </Magnetic>
+              </motion.div>
+            );
+          })}
+
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
