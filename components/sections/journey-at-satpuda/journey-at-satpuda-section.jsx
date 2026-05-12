@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Lenis from "lenis";
 import {
   ArrowRight,
   ArrowLeft,
@@ -16,12 +17,16 @@ import {
   Star,
   Award,
   Sparkles,
+  Coffee,
+  BookOpen,
+  GraduationCap,
 } from "lucide-react";
 
 import ShinyText from "../../bits/shiny-text.jsx";
 import SpotlightCard from "../../bits/spotlight-card.jsx";
 import Magnetic from "../../bits/magnetic.jsx";
-
+import SplitText from "../../bits/split-text.jsx";
+import BlurText from "../../bits/blur-text.jsx";
 gsap.registerPlugin(ScrollTrigger);
 
 // ─────────────────────────────────────────────
@@ -55,11 +60,11 @@ function NodeGraph() {
   const svgRef = useRef(null);
 
   const nodes = [
-    { id: 1, label: "Student",       x: 50, y: 20 },
-    { id: 2, label: "Learning",      x: 20, y: 50 },
+    { id: 1, label: "Student",       x: 50, y: 15 },
+    { id: 2, label: "Learning",      x: 15, y: 45 },
     { id: 3, label: "Innovation",    x: 50, y: 50 },
-    { id: 4, label: "Collaboration", x: 80, y: 50 },
-    { id: 5, label: "Success",       x: 50, y: 80 },
+    { id: 4, label: "Collaboration", x: 85, y: 45 },
+    { id: 5, label: "Success",       x: 50, y: 85 },
   ];
 
   const connections = [[1,2],[1,3],[1,4],[2,5],[3,5],[4,5]];
@@ -67,7 +72,6 @@ function NodeGraph() {
   useEffect(() => {
     if (!svgRef.current) return;
 
-    // gsap.context scopes all tweens/ScrollTriggers so cleanup is reliable
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         trigger: svgRef.current,
@@ -77,26 +81,15 @@ function NodeGraph() {
           const svg = svgRef.current;
           if (!svg) return;
 
-          // Lines — draw-on effect
           svg.querySelectorAll("line[data-anim]").forEach((line, i) => {
             const len = line.getTotalLength();
             gsap.set(line, { strokeDasharray: len, strokeDashoffset: len });
             gsap.to(line, {
               strokeDashoffset: 0,
-              duration: 1.4,
-              delay: i * 0.14,
-              ease: "power2.inOut",
+              duration: 2,
+              delay: i * 0.15,
+              ease: "power3.inOut",
             });
-          });
-
-          // Circles — pop in
-          svg.querySelectorAll("circle[data-node]").forEach((c, i) => {
-            gsap.fromTo(
-              c,
-              { attr: { r: 0 }, opacity: 0 },
-              { attr: { r: 2.5 }, opacity: 0.85, duration: 0.45,
-                delay: i * 0.14 + 0.3, ease: "back.out(1.7)" }
-            );
           });
         },
       });
@@ -106,43 +99,66 @@ function NodeGraph() {
   }, []);
 
   return (
-    <section className="relative min-h-[100vh] flex items-center justify-center bg-gradient-to-b from-background via-background/95 to-background/90 overflow-hidden pt-24">
-      {/* Background grid */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none" aria-hidden>
-        <svg width="100%" height="100%" className="absolute inset-0">
-          <defs>
-            <pattern id="journey-grid" width="50" height="50" patternUnits="userSpaceOnUse">
-              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="currentColor" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#journey-grid)" />
-        </svg>
+    <section className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden pt-24">
+      {/* Background Animated Glows */}
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.2, 1],
+            rotate: [0, 90, 180, 270, 360],
+          }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-1/2 -left-1/2 w-full h-full bg-primary/10 rounded-full blur-[120px]"
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.5, 1],
+            rotate: [360, 270, 180, 90, 0],
+          }}
+          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+          className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-accent/10 rounded-full blur-[120px]"
+        />
       </div>
 
-      <div className="relative w-full max-w-3xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            From Student to <span className="text-primary">Professional</span>
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            A transformation powered by excellence and innovation
-          </p>
-        </motion.div>
+      {/* Noise Overlay */}
+      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
-        {/* Plain div — stable dimensions so getTotalLength() works correctly */}
-        <div className="relative aspect-square max-w-xl mx-auto">
-          <svg ref={svgRef} viewBox="0 0 100 100" className="w-full h-full">
+      {/* Background Glows */}
+      <div className="absolute top-1/4 left-1/4 w-[40rem] h-[40rem] bg-primary/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-accent/10 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
+
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-5xl lg:text-7xl font-bold mb-6 tracking-tighter"
+          >
+            From Student to <span className="text-primary">Professional</span>
+          </motion.h2>
+          <BlurText
+            text="A cinematic transformation powered by excellence, innovation, and global industry standards."
+            className="text-muted-foreground text-xl max-w-2xl mx-auto"
+            delay={0.04}
+          />
+        </div>
+
+        <div className="relative aspect-square max-w-2xl mx-auto">
+          {/* SVG Connections with Glow */}
+          <svg ref={svgRef} viewBox="0 0 100 100" className="absolute inset-0 w-full h-full pointer-events-none drop-shadow-[0_0_8px_rgba(59,130,246,0.3)]">
             <defs>
               <linearGradient id="journey-line-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%"   stopColor="rgb(59,130,246)"  stopOpacity="0.35" />
-                <stop offset="100%" stopColor="rgb(168,85,247)"  stopOpacity="0.35" />
+                <stop offset="0%"   stopColor="rgb(59,130,246)"  stopOpacity="0.6" />
+                <stop offset="100%" stopColor="rgb(168,85,247)"  stopOpacity="0.6" />
               </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
+                <feMerge>
+                  <feMergeNode in="coloredBlur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
             </defs>
 
             {connections.map(([a, b]) => {
@@ -155,41 +171,82 @@ function NodeGraph() {
                   x1={from.x} y1={from.y}
                   x2={to.x}   y2={to.y}
                   stroke="url(#journey-line-grad)"
-                  strokeWidth="0.8"
+                  strokeWidth="0.4"
+                  filter="url(#glow)"
                 />
               );
             })}
-
-            {nodes.map(node => (
-              <g key={node.id}>
-                {/* Static halo */}
-                <circle cx={node.x} cy={node.y} r={6} fill="rgb(59,130,246)" opacity="0.08" />
-                {/* GSAP-animated dot — starts at r=0 */}
-                <circle data-node cx={node.x} cy={node.y} r="0" fill="rgb(59,130,246)" opacity="0" />
-                <text
-                  x={node.x} y={node.y + 9}
-                  textAnchor="middle"
-                  fontSize="3.5"
-                  fill="currentColor"
-                  opacity="0.55"
-                  className="pointer-events-none select-none"
-                >
-                  {node.label}
-                </text>
-              </g>
-            ))}
           </svg>
+
+          {/* Interactive Nodes */}
+          {nodes.map((node, i) => (
+            <motion.div
+              key={node.id}
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ 
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                delay: 0.5 + (i * 0.1) 
+              }}
+              style={{
+                position: 'absolute',
+                left: `${node.x}%`,
+                top: `${node.y}%`,
+                transform: 'translate(-50%, -50%)',
+              }}
+              className="group z-20"
+            >
+              <Magnetic>
+                <div className="relative cursor-pointer">
+                  {/* Outer Ring */}
+                  <motion.div 
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute inset-0 -m-4 border border-primary/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" 
+                  />
+                  
+                  {/* Node Circle */}
+                  <div className="w-4 h-4 md:w-6 md:h-6 bg-background border-2 border-primary rounded-full shadow-[0_0_20px_rgba(59,130,246,0.5)] flex items-center justify-center group-hover:scale-125 transition-transform duration-500 overflow-hidden">
+                    <div className="absolute inset-0 bg-primary opacity-20 group-hover:opacity-40 transition-opacity" />
+                    <Sparkles className="w-2 h-2 md:w-3 md:h-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+
+                  {/* Label */}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 whitespace-nowrap">
+                    <motion.div
+                      initial={{ opacity: 0.5, y: 0 }}
+                      whileHover={{ opacity: 1, y: 2 }}
+                      className="text-xs md:text-sm font-bold tracking-widest uppercase bg-linear-to-b from-foreground to-foreground/60 bg-clip-text text-transparent"
+                    >
+                      {node.label}
+                    </motion.div>
+                  </div>
+                </div>
+              </Magnetic>
+            </motion.div>
+          ))}
         </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          className="text-center text-muted-foreground mt-12 max-w-2xl mx-auto"
+          transition={{ duration: 1, delay: 1.5 }}
+          className="text-center mt-20"
         >
-          Every node represents transformation. Scroll to explore what we provide and what you gain.
-        </motion.p>
+          <div className="inline-flex items-center gap-4 px-6 py-2 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-md">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">
+              Every node represents transformation. Scroll to explore.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -209,8 +266,8 @@ const CARDS = [
 function HorizontalScrollCards() {
   const trackRef   = useRef(null);
   const sectionRef = useRef(null);
-  // Progress bar is updated via DOM ref — NO React state → no re-renders during scroll
   const progressBarRef = useRef(null);
+  const cardRefs = useRef([]);
 
   useEffect(() => {
     const track   = trackRef.current;
@@ -220,23 +277,51 @@ function HorizontalScrollCards() {
     const ctx = gsap.context(() => {
       const getTravelDist = () => -(track.scrollWidth - window.innerWidth);
 
-      gsap.to(track, {
+      // Horizontal Scroll
+      const scrollAnim = gsap.to(track, {
         x: getTravelDist,
         ease: "none",
         scrollTrigger: {
           trigger: section,
           pin: true,
-          scrub: 1,
+          scrub: 1.2,
           start: "top top",
           end: () => `+=${Math.abs(getTravelDist())}`,
           invalidateOnRefresh: true,
           onUpdate(self) {
-            // Direct DOM mutation — zero React overhead
             if (progressBarRef.current) {
               progressBarRef.current.style.width = `${self.progress * 100}%`;
             }
           },
         },
+      });
+
+      // Individual Card Cinematic Animations (Theatre-style but via GSAP)
+      cardRefs.current.forEach((card, i) => {
+        if (!card) return;
+        gsap.fromTo(card, 
+          { 
+            y: 50, 
+            rotateZ: -5, 
+            scale: 0.9, 
+            opacity: 0.5,
+            filter: "brightness(0.5) blur(10px)"
+          },
+          {
+            y: 0,
+            rotateZ: 0,
+            scale: 1,
+            opacity: 1,
+            filter: "brightness(1) blur(0px)",
+            scrollTrigger: {
+              trigger: card,
+              containerAnimation: scrollAnim, // Connect to horizontal scroll
+              start: "left 80%",
+              end: "left 20%",
+              scrub: true,
+            }
+          }
+        );
       });
     }, sectionRef);
 
@@ -246,79 +331,256 @@ function HorizontalScrollCards() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-gradient-to-b from-background/90 to-background overflow-hidden"
+      className="relative bg-background overflow-hidden"
       style={{ height: "100vh" }}
     >
+      {/* Cinematic Background Layer */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_70%)]" />
+        <motion.div 
+          animate={{ rotate: 360 }}
+          transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] border-[1px] border-primary/5 rounded-full"
+        />
+      </div>
+
       {/* Section header */}
-      <div className="absolute top-0 left-0 right-0 z-10 pt-16 text-center pointer-events-none">
+      <div className="absolute top-0 left-0 right-0 z-20 pt-16 text-center pointer-events-none">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl lg:text-5xl font-bold mb-2">
-            What We Provide <span className="text-primary">vs</span> What You Gain
+          <h2 className="text-4xl lg:text-6xl font-bold mb-4 tracking-tight">
+            What We Provide <span className="text-primary italic">vs</span> What You Gain
           </h2>
-          <p className="text-muted-foreground text-lg">Scroll to explore the transformation</p>
+          <p className="text-muted-foreground text-xl">Cinematic exploration of your future</p>
         </motion.div>
       </div>
 
-      {/* Card track — plain div, GSAP owns the x-transform */}
+      {/* Card track */}
       <div
         ref={trackRef}
-        className="absolute top-1/2 -translate-y-1/2 flex gap-6 px-12"
+        className="absolute top-1/2 -translate-y-1/2 flex gap-12 px-[20vw]"
         style={{ width: "fit-content", willChange: "transform" }}
       >
         {CARDS.map((card, idx) => {
           const Icon = card.icon;
           return (
-            // No whileInView here — cards are inside a GSAP-moved container;
-            // viewport intersection is unreliable. Simple opacity via CSS group.
-            <div key={idx} className="flex-shrink-0 w-80 group">
-              <SpotlightCard
-                className={`overflow-hidden rounded-[2rem] border border-border/40 bg-linear-to-br ${card.color} backdrop-blur-xl p-8 h-full transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20`}
-              >
-                {/* Icon — CSS-only hover scale/rotate, no state */}
-                <div className="mb-6 w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center transition-all duration-300 group-hover:bg-primary/30 group-hover:scale-110 group-hover:rotate-6">
-                  <Icon className="w-6 h-6 text-primary" />
-                </div>
+            <div 
+              key={idx} 
+              ref={el => cardRefs.current[idx] = el}
+              className="flex-shrink-0 w-[24rem] h-[32rem]"
+            >
+              <Magnetic intensity={0.2}>
+                    <SpotlightCard
+                      className={`overflow-hidden rounded-[2.5rem] border border-border/40 bg-linear-to-br ${card.color} backdrop-blur-2xl p-10 h-full transition-all duration-700 hover:border-primary/60 hover:shadow-[0_0_50px_rgba(59,130,246,0.1)] group`}
+                    >
+                      {/* Floating Particles in Card */}
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                        {[...Array(3)].map((_, i) => (
+                          <motion.div
+                            key={i}
+                            animate={{ 
+                              y: [-20, 20, -20],
+                              x: [-10, 10, -10],
+                              opacity: [0.2, 0.5, 0.2]
+                            }}
+                            transition={{ duration: 3 + i, repeat: Infinity }}
+                            className="absolute w-2 h-2 bg-primary/20 rounded-full blur-xs"
+                            style={{ 
+                              top: `${20 + i * 25}%`, 
+                              left: `${20 + i * 30}%` 
+                            }}
+                          />
+                        ))}
+                      </div>
 
-                <h3 className="text-2xl font-bold mb-6">{card.title}</h3>
+                      <div className="relative z-10 h-full flex flex-col">
+                        <div className="mb-8 w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center transition-all duration-500 group-hover:bg-primary/30 group-hover:scale-110 group-hover:rotate-12 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]">
+                          <Icon className="w-8 h-8 text-primary" />
+                        </div>
 
-                <div className="space-y-6">
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1 font-medium">We Provide</p>
-                    <p className="text-lg font-semibold text-foreground">{card.we}</p>
-                  </div>
-                  <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1 font-medium">You Gain</p>
-                    <p className="text-lg font-semibold text-primary">{card.you}</p>
-                  </div>
-                </div>
+                        <h3 className="text-3xl font-bold mb-8 leading-tight">{card.title}</h3>
 
-                <div className="mt-8 flex items-center gap-2 text-primary/50 transition-all duration-300 group-hover:text-primary group-hover:translate-x-1">
-                  <Sparkles className="w-4 h-4" />
-                  <span className="text-sm">Growth Area</span>
-                </div>
-              </SpotlightCard>
+                        <div className="space-y-8 flex-grow">
+                          <div className="group/item">
+                            <p className="text-xs text-muted-foreground mb-2 font-bold uppercase tracking-widest opacity-60">We Provide</p>
+                            <p className="text-xl font-medium text-foreground group-hover/item:text-primary transition-colors">{card.we}</p>
+                          </div>
+                          <div className="w-full h-px bg-linear-to-r from-transparent via-primary/30 to-transparent" />
+                          <div className="group/item">
+                            <p className="text-xs text-muted-foreground mb-2 font-bold uppercase tracking-widest opacity-60">You Gain</p>
+                            <p className="text-xl font-bold text-primary group-hover/item:scale-105 origin-left transition-transform inline-block">{card.you}</p>
+                          </div>
+                        </div>
+
+                        <div className="mt-8 flex items-center gap-3 text-primary font-bold tracking-tighter transition-all duration-500 group-hover:gap-4">
+                          <Sparkles className="w-5 h-5 animate-pulse" />
+                          <span className="text-sm uppercase italic">Evolution Track</span>
+                          <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all" />
+                        </div>
+                      </div>
+                    </SpotlightCard>
+              </Magnetic>
             </div>
           );
         })}
       </div>
 
-      {/* Progress bar — DOM-updated, no React state */}
-      <div className="absolute bottom-6 left-8 right-8 pointer-events-none">
-        <div className="w-full h-0.5 bg-border/30 rounded-full overflow-hidden">
+      {/* Cinematic Progress Bar */}
+      <div className="absolute bottom-12 left-12 right-12 flex flex-col items-center gap-4 pointer-events-none">
+        <div className="w-full max-w-md h-[2px] bg-border/20 rounded-full overflow-hidden backdrop-blur-sm">
           <div
             ref={progressBarRef}
-            className="h-full bg-gradient-to-r from-primary/60 to-accent/60 rounded-full"
+            className="h-full bg-linear-to-r from-primary via-accent to-primary shadow-[0_0_15px_rgba(59,130,246,0.5)]"
             style={{ width: "0%", transition: "none" }}
           />
         </div>
-        <div className="flex justify-center mt-3">
-          <ArrowRight className="w-5 h-5 text-primary/40" />
+        <div className="flex items-center gap-6 text-[10px] uppercase tracking-[0.3em] font-bold text-muted-foreground/40">
+          <span>01 Start</span>
+          <div className="w-12 h-px bg-border/20" />
+          <span className="text-primary/60">Exploring Journey</span>
+          <div className="w-12 h-px bg-border/20" />
+          <span>05 Finish</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────
+// COLLEGE LIFE STORYTELLING
+// ─────────────────────────────────────────────
+const STORY_CHAPTERS = [
+  {
+    id: "first-step",
+    title: "The First Step",
+    description: "Walking through the gates with a bag full of dreams and a heart full of curiosity. The journey of a thousand miles begins with a single classroom.",
+    image: "/story/first-day.png",
+    icon: BookOpen,
+    accent: "from-blue-500/20 to-cyan-500/20"
+  },
+  {
+    id: "deep-dive",
+    title: "The Deep Dive",
+    description: "Midnight oil and neon screens. Mastering the complex algorithms and turning blue errors into green successes. Here, passion meets precision.",
+    image: "/story/coding.png",
+    icon: Coffee,
+    accent: "from-purple-500/20 to-indigo-500/20"
+  },
+  {
+    id: "beyond-books",
+    title: "Beyond Books",
+    description: "Lifelong friendships forged over project discussions and canteen tea. Learning that collaboration is just as important as calculation.",
+    image: "/story/friendship.png",
+    icon: Users,
+    accent: "from-orange-500/20 to-red-500/20"
+  },
+  {
+    id: "the-launch",
+    title: "The Professional Launch",
+    description: "From a student to a visionary. Throwing the cap high, ready to solve global challenges with the knowledge and spirit gained here.",
+    image: "/story/graduation.png",
+    icon: GraduationCap,
+    accent: "from-emerald-500/20 to-teal-500/20"
+  }
+];
+
+function CollegeLifeStory() {
+  return (
+    <section className="relative py-32 bg-background overflow-hidden">
+      {/* Background Story Track */}
+      <div className="absolute left-1/2 top-0 bottom-0 w-px bg-linear-to-b from-transparent via-primary/20 to-transparent hidden lg:block" />
+
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-32">
+          <BlurText 
+            text="The Student Chronicles"
+            className="text-primary font-bold tracking-[0.3em] uppercase text-sm mb-4"
+          />
+          <h2 className="text-5xl lg:text-7xl font-bold tracking-tighter">
+            Every Pixel Tells a <span className="text-primary">Story</span>
+          </h2>
+        </div>
+
+        <div className="space-y-40">
+          {STORY_CHAPTERS.map((chapter, idx) => {
+            const Icon = chapter.icon;
+            const isEven = idx % 2 === 0;
+
+            return (
+              <div key={chapter.id} className="relative grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                {/* Visual Side */}
+                <motion.div
+                  initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  className={`${isEven ? "lg:order-1" : "lg:order-2"} relative group`}
+                >
+                  <div className={`relative aspect-4/3 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]`}>
+                    <img 
+                      src={chapter.image} 
+                      alt={chapter.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-background/80 via-transparent to-transparent" />
+                    
+                    {/* Floating Info Badge */}
+                    <div className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                          <Icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <span className="font-bold text-sm tracking-widest uppercase">Chapter 0{idx + 1}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Decorative Glow */}
+                  <div className={`absolute -inset-4 bg-linear-to-br ${chapter.accent} blur-3xl opacity-30 -z-10 group-hover:opacity-50 transition-opacity`} />
+                </motion.div>
+
+                {/* Content Side */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className={`${isEven ? "lg:order-2 lg:pl-12" : "lg:order-1 lg:pr-12"} text-left`}
+                >
+                  <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-primary/20 bg-primary/5">
+                    <Icon className="w-4 h-4 text-primary" />
+                    <span className="text-xs font-bold uppercase tracking-widest text-primary/80">Memory Lane</span>
+                  </div>
+                  
+                  <h3 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight leading-tight">
+                    {chapter.title}
+                  </h3>
+                  
+                  <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed mb-8 max-w-xl">
+                    {chapter.description}
+                  </p>
+
+                  <button className="group flex items-center gap-4 text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                    <span className="w-12 h-px bg-white/20 group-hover:bg-primary transition-colors" />
+                    Read Full Story
+                  </button>
+                </motion.div>
+
+                {/* Center Node Dot (Desktop Only) */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden lg:block">
+                  <motion.div
+                    whileInView={{ scale: [0, 1.2, 1], opacity: [0, 1] }}
+                    viewport={{ once: true }}
+                    className="w-4 h-4 rounded-full bg-background border-4 border-primary shadow-[0_0_20px_rgba(59,130,246,0.8)]"
+                  />
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -375,51 +637,77 @@ function OutcomesSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.08 }}
               >
-                <SpotlightCard className="group overflow-hidden rounded-[2rem] border border-border/40 bg-gradient-to-br from-card/90 to-card/50 backdrop-blur-xl p-8 h-full transition-all duration-500 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/15">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-primary/30">
-                      <Icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <div className="text-3xl font-bold text-primary mb-1">
-                        <ShinyText text={outcome.metric} />
+                <Magnetic intensity={0.1}>
+                  <SpotlightCard className="group relative overflow-hidden rounded-[2.5rem] border border-border/40 bg-gradient-to-br from-card/90 to-card/50 backdrop-blur-xl p-10 h-full transition-all duration-500 hover:-translate-y-3 hover:border-primary/40 hover:shadow-[0_20px_50px_rgba(59,130,246,0.15)]">
+                    <div className="flex items-start gap-6 mb-8">
+                      <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 group-hover:bg-primary group-hover:text-white">
+                        <Icon className="w-8 h-8 text-primary group-hover:text-white transition-colors" />
                       </div>
-                      <p className="text-sm font-semibold text-foreground">{outcome.label}</p>
+                      <div className="flex-grow">
+                        <div className="text-4xl font-black text-primary mb-2 tracking-tighter">
+                          <ShinyText text={outcome.metric} speed={3} color="rgba(59, 130, 246, 0.9)" />
+                        </div>
+                        <p className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300">{outcome.label}</p>
+                      </div>
                     </div>
-                  </div>
-                  <p className="text-muted-foreground">{outcome.description}</p>
-                </SpotlightCard>
+                    <p className="text-muted-foreground text-lg leading-relaxed">{outcome.description}</p>
+                    
+                    {/* Decorative bottom line */}
+                    <div className="absolute bottom-0 left-0 h-1 w-0 bg-primary group-hover:w-full transition-all duration-700" />
+                  </SpotlightCard>
+                </Magnetic>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Skills grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto"
-        >
-          <div className="rounded-[2.5rem] border border-border/40 bg-gradient-to-br from-primary/10 to-accent/5 backdrop-blur-xl p-12">
-            <h3 className="text-2xl font-bold mb-8 text-center">Skills You'll Master</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-              {SKILLS.map((skill, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ scale: 0.85, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.07, duration: 0.35 }}
-                  className="text-center p-4 rounded-xl border border-primary/20 bg-primary/5 hover:bg-primary/10 transition-colors cursor-default"
-                >
-                  <p className="font-semibold text-sm text-foreground">{skill}</p>
-                </motion.div>
-              ))}
-            </div>
+        {/* Skills Tag Cloud — No Cards, Awwwards Style */}
+        <div className="max-w-4xl mx-auto mt-32">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-bold tracking-[0.2em] uppercase text-primary/60 mb-2">Technical Arsenal</h3>
+            <p className="text-sm text-muted-foreground uppercase tracking-widest">Hover to interact with your future toolkit</p>
           </div>
-        </motion.div>
+
+          <div className="flex flex-wrap justify-center gap-4 lg:gap-6">
+            {SKILLS.map((skill, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
+                whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                viewport={{ once: true }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: idx * 0.05,
+                  type: "spring",
+                  stiffness: 100 
+                }}
+              >
+                <Magnetic intensity={0.2}>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="relative px-8 py-4 rounded-2xl border border-primary/20 bg-primary/5 backdrop-blur-xl group cursor-none overflow-hidden"
+                  >
+                    {/* Inner Glow */}
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    {/* Floating Glow Point */}
+                    <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-primary/20 rounded-full blur-2xl opacity-0 group-hover:opacity-50 transition-all duration-700 group-hover:translate-x-1/2 group-hover:translate-y-1/2" />
+
+                    <div className="relative z-10 flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary group-hover:scale-150 transition-transform duration-300" />
+                      <span className="font-bold text-base lg:text-lg tracking-tight text-foreground/80 group-hover:text-primary transition-colors">
+                        {skill}
+                      </span>
+                    </div>
+
+                    {/* Bottom Indicator */}
+                    <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary group-hover:w-full transition-all duration-500" />
+                  </motion.div>
+                </Magnetic>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
         {/* CTA */}
         <motion.div
@@ -445,11 +733,47 @@ function OutcomesSection() {
 // MAIN EXPORT
 // ─────────────────────────────────────────────
 export function JourneyAtSatpudaSection() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Sync Lenis with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+
+    return () => {
+      lenis.destroy();
+      gsap.ticker.remove(lenis.raf);
+    };
+  }, []);
+
   return (
     <main className="bg-background">
       <JourneyNavbar />
       <NodeGraph />
       <HorizontalScrollCards />
+      <CollegeLifeStory />
       <OutcomesSection />
     </main>
   );

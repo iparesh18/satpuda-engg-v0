@@ -6,7 +6,7 @@ import { Menu, X, ChevronDown, Phone, Mail, Facebook, Twitter, Instagram, Youtub
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+
   const handleScroll = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -43,13 +43,14 @@ export function Header() {
     },
     {
       label: "Academics",
-      href: "#courses",
-      scrollId: "courses",
+      href: "#academics",
+      scrollId: "academics",
       dropdown: [
-        { label: "B.Tech Programs", scrollId: "courses" },
-        { label: "Polytechnic", scrollId: "courses" },
-        { label: "Faculty", scrollId: "courses" },
-        { label: "Syllabus", scrollId: "courses" }
+        { label: "Computer Science Engineering", type: "page", href: "/academics/computer-science-engineering" },
+        { label: "Mining Engineering", type: "page", href: "/academics/mining-engineering" },
+        { label: "Civil Engineering", type: "page", href: "/academics/civil-engineering" },
+        { label: "Mechanical Engineering", type: "page", href: "/academics/mechanical-engineering" },
+        { label: "Electrical Engineering", type: "page", href: "/academics/electrical-engineering" }
       ]
     },
     {
@@ -106,8 +107,8 @@ export function Header() {
               <p className="font-bold text-foreground text-sm lg:text-lg leading-tight uppercase tracking-tighter">
                 <div className="parent  flex items-center gap-[5px]">
                   <div>Satpuda</div>
-                <div>Engineering</div>
-                <div>College</div>
+                  <div>Engineering</div>
+                  <div>College</div>
                 </div>
               </p>
               <p className="text-[10px] text-muted-foreground uppercase tracking-[0.2em]">Satpuda College of Engineering & Polytechnic</p>
@@ -117,23 +118,23 @@ export function Header() {
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (<div key={item.label} className="relative group">
-                {item.type === "page" ? (
-                  <Link
-                    to={item.href}
-                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary"
-                  >
-                    {item.label}
-                    {item.dropdown && <ChevronDown className="h-4 w-4 opacity-50" />}
-                  </Link>
-                ) : (
-                  <button 
-                    onClick={() => handleScroll(item.scrollId)}
-                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary"
-                  >
-                    {item.label}
-                    {item.dropdown && <ChevronDown className="h-4 w-4 opacity-50" />}
-                  </button>
-                )}
+              {item.type === "page" ? (
+                <Link
+                  to={item.href}
+                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary"
+                >
+                  {item.label}
+                  {item.dropdown && <ChevronDown className="h-4 w-4 opacity-50" />}
+                </Link>
+              ) : (
+                <button
+                  onClick={() => handleScroll(item.scrollId)}
+                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary"
+                >
+                  {item.label}
+                  {item.dropdown && <ChevronDown className="h-4 w-4 opacity-50" />}
+                </button>
+              )}
               {item.dropdown && (<div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="bg-card rounded-xl shadow-xl border border-border p-2 min-w-[200px]">
                   {item.dropdown.map((subItem) => (
@@ -186,7 +187,7 @@ export function Header() {
                 {item.label}
               </Link>
             ) : (
-              <button 
+              <button
                 onClick={() => handleScroll(item.scrollId)}
                 className="w-full text-left block px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
               >
