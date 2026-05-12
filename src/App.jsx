@@ -17,6 +17,9 @@ import SportsPage from "../components/pages/our-campus/sports-page.jsx";
 import GalleryPage from "../components/pages/our-campus/gallery-page.jsx";
 import CSEPage from "../components/pages/academics/cse-page.jsx";
 import MiningPage from "../components/pages/academics/mining-page.jsx";
+import CivilPage from "../components/pages/academics/civil-page.jsx";
+import MechanicalPage from "../components/pages/academics/mechanical-page.jsx";
+import ElectricalPage from "../components/pages/academics/electrical-page.jsx";
 import { JourneyAtSatpudaSection } from "../components/sections/journey-at-satpuda/journey-at-satpuda-section.jsx";
 import { ThemeProvider } from "../components/shared/theme-provider.jsx";
 
@@ -45,6 +48,9 @@ export default function App() {
           <Route path="/academics" element={<AcademicsPage />} />
           <Route path="/academics/computer-science-engineering" element={<CSEPage />} />
           <Route path="/academics/mining-engineering" element={<MiningPage />} />
+          <Route path="/academics/civil-engineering" element={<CivilPage />} />
+          <Route path="/academics/mechanical-engineering" element={<MechanicalPage />} />
+          <Route path="/academics/electrical-engineering" element={<ElectricalPage />} />
           <Route path="/admissions" element={<AdmissionsPage />} />
           <Route path="/our-campus/computer-lab" element={<ComputerLabPage />} />
           <Route path="/our-campus/transport" element={<TransportPage />} />
