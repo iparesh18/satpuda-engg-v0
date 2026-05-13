@@ -1,5 +1,11 @@
+import SmoothScroll from "../shared/smooth-scroll.jsx";
+
 export default function RootLayout({ children, }) {
-    return (<div className="bg-background font-sans antialiased min-h-screen">
-      {children}
-    </div>);
+    return (
+    <SmoothScroll>
+      <div className="bg-background font-sans antialiased min-h-screen">
+        {children}
+      </div>
+    </SmoothScroll>
+    );
 }
