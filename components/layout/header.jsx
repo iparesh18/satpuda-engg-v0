@@ -62,7 +62,7 @@ export function Header() {
         { label: "Admission Form", type: "page", href: "/admissions/admission-form" }
       ]
     },
-    { label: "Placements", href: "#placements", scrollId: "placements" },
+    { label: "Placements", type: "page", href: "/placements" },
     { label: "Contact", href: "#contact", scrollId: "contact" },
   ];
   return (<header className="fixed top-0 left-0 right-0 z-50">

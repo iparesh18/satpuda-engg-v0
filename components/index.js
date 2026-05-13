@@ -13,3 +13,8 @@ export { Footer } from "./sections/home/footer.jsx";
 export { CoursesSection } from "./sections/home/courses-section.jsx";
 export { CSESection } from "./sections/academics/cse-section.jsx";
 export { MiningSection } from "./sections/academics/mining-section.jsx";
+export { PlacementsHeroSection } from "./sections/placements/placements-hero-section.jsx";
+export { StudentSuccessSection } from "./sections/placements/student-success-section.jsx";
+export { SuccessGlobeSection } from "./sections/placements/success-globe-section.jsx";
+export { HorizontalScrollSection } from "./sections/placements/horizontal-scroll-section.jsx";
+export { default as PlacementsPage } from "./pages/placements/placements-page.jsx";

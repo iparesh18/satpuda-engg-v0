@@ -22,6 +22,8 @@ import MechanicalPage from "../components/pages/academics/mechanical-page.jsx";
 import ElectricalPage from "../components/pages/academics/electrical-page.jsx";
 import CoursesOfferedPage from "../components/pages/admissions/courses-offered-page.jsx";
 import { JourneyAtSatpudaSection } from "../components/sections/journey-at-satpuda/journey-at-satpuda-section.jsx";
+import { PlacementsPage } from "../components/index.js";
+
 import { ThemeProvider } from "../components/shared/theme-provider.jsx";
 
 function ScrollToTop() {
@@ -60,6 +62,8 @@ export default function App() {
           <Route path="/our-campus/library" element={<LibraryPage />} />
           <Route path="/our-campus/sports" element={<SportsPage />} />
           <Route path="/our-campus/gallery" element={<GalleryPage />} />
+          <Route path="/placements" element={<PlacementsPage />} />
+
           <Route path="/journey-at-satpuda" element={<JourneyAtSatpudaSection />} />
         </Routes>
       </RootLayout>
