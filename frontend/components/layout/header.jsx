@@ -63,7 +63,7 @@ export function Header() {
       ]
     },
     { label: "Placements", type: "page", href: "/placements" },
-    { label: "Contact", href: "#contact", scrollId: "contact" },
+    { label: "Contact", type: "page", href: "/contact" },
   ];
   return (<header className="fixed top-0 left-0 right-0 z-50">
     {/* Top Bar */}
@@ -102,13 +102,13 @@ export function Header() {
               <img src="/logo.png" alt="Satpuda College Logo" className="w-full h-full object-contain" />
             </div>
             <div className="hidden sm:block">
-              <p className="font-bold text-foreground text-sm lg:text-lg leading-tight uppercase tracking-tighter">
-                <div className="parent  flex items-center gap-[5px]">
-                  <div>Satpuda</div>
-                  <div>Engineering</div>
-                  <div>College</div>
-                </div>
-              </p>
+              <div className="font-bold text-foreground text-sm lg:text-lg leading-tight uppercase tracking-tighter">
+                <span className="flex items-center gap-[5px]">
+                  <span>Satpuda</span>
+                  <span>Engineering</span>
+                  <span>College</span>
+                </span>
+              </div>
               <p className="text-[10px] text-muted-foreground uppercase tracking-[0.2em]">Satpuda College of Engineering & Polytechnic</p>
             </div>
           </Link>
@@ -162,9 +162,11 @@ export function Header() {
 
           {/* CTA & Mobile Menu */}
           <div className="flex items-center gap-3">
-            <Button className="hidden sm:inline-flex bg-accent hover:bg-accent/90 text-accent-foreground">
-              Apply Now
-            </Button>
+            <Link to="/admissions/admission-form">
+              <Button className="hidden sm:inline-flex bg-accent hover:bg-accent/90 text-accent-foreground">
+                Apply Now
+              </Button>
+            </Link>
             <button className="lg:hidden p-2 rounded-lg hover:bg-secondary transition-colors" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -217,9 +219,11 @@ export function Header() {
               </div>
             )}
           </div>))}
-          <Button className="w-full mt-4 bg-accent hover:bg-accent/90 text-accent-foreground">
-            Apply Now
-          </Button>
+          <Link to="/admissions/admission-form" onClick={() => setMobileMenuOpen(false)}>
+            <Button className="w-full mt-4 bg-accent hover:bg-accent/90 text-accent-foreground">
+              Apply Now
+            </Button>
+          </Link>
         </div>
       </div>)}
     </nav>

@@ -9,12 +9,14 @@ import PrincipalMessagePage from "../components/pages/about/principal-message-pa
 import MissionVisionPage from "../components/pages/about/mission-vision-page.jsx";
 import AcademicsPage from "../components/pages/academics/academics-page.jsx";
 import AdmissionsPage from "../components/pages/admissions/admissions-page.jsx";
+import AdmissionFormPage from "../components/pages/admissions/admission-form-page.jsx";
 import ComputerLabPage from "../components/pages/our-campus/computer-lab-page.jsx";
 import TransportPage from "../components/pages/our-campus/transport-page.jsx";
 import ScholarshipPage from "../components/pages/our-campus/scholarship-page.jsx";
 import LibraryPage from "../components/pages/our-campus/library-page.jsx";
 import SportsPage from "../components/pages/our-campus/sports-page.jsx";
 import GalleryPage from "../components/pages/our-campus/gallery-page.jsx";
+import ContactPage from "../components/pages/contact/contact-page.jsx";
 import CSEPage from "../components/pages/academics/cse-page.jsx";
 import MiningPage from "../components/pages/academics/mining-page.jsx";
 import CivilPage from "../components/pages/academics/civil-page.jsx";
@@ -55,6 +57,7 @@ export default function App() {
           <Route path="/academics/mechanical-engineering" element={<MechanicalPage />} />
           <Route path="/academics/electrical-engineering" element={<ElectricalPage />} />
           <Route path="/admissions" element={<AdmissionsPage />} />
+          <Route path="/admissions/admission-form" element={<AdmissionFormPage />} />
           <Route path="/admissions/courses-offered" element={<CoursesOfferedPage />} />
           <Route path="/our-campus/computer-lab" element={<ComputerLabPage />} />
           <Route path="/our-campus/transport" element={<TransportPage />} />
@@ -63,6 +66,7 @@ export default function App() {
           <Route path="/our-campus/sports" element={<SportsPage />} />
           <Route path="/our-campus/gallery" element={<GalleryPage />} />
           <Route path="/placements" element={<PlacementsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
 
           <Route path="/journey-at-satpuda" element={<JourneyAtSatpudaSection />} />
         </Routes>

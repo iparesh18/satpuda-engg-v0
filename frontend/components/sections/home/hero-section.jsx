@@ -91,10 +91,7 @@ export function HeroSection() {
             <motion.span variants={itemVariants} className="block overflow-hidden text-[#295cae]/70">
               <span className="text-red-600">Polytechnic</span>
             </motion.span>
-
           </h1>
-
-          {/* Description */}
           <motion.p
             variants={itemVariants}
             className="text-sm sm:text-base lg:text-lg text-foreground/60 leading-relaxed max-w-2xl mb-10 font-medium tracking-normal"
