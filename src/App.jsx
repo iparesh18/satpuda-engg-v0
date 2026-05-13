@@ -20,6 +20,7 @@ import MiningPage from "../components/pages/academics/mining-page.jsx";
 import CivilPage from "../components/pages/academics/civil-page.jsx";
 import MechanicalPage from "../components/pages/academics/mechanical-page.jsx";
 import ElectricalPage from "../components/pages/academics/electrical-page.jsx";
+import CoursesOfferedPage from "../components/pages/admissions/courses-offered-page.jsx";
 import { JourneyAtSatpudaSection } from "../components/sections/journey-at-satpuda/journey-at-satpuda-section.jsx";
 import { ThemeProvider } from "../components/shared/theme-provider.jsx";
 
@@ -52,6 +53,7 @@ export default function App() {
           <Route path="/academics/mechanical-engineering" element={<MechanicalPage />} />
           <Route path="/academics/electrical-engineering" element={<ElectricalPage />} />
           <Route path="/admissions" element={<AdmissionsPage />} />
+          <Route path="/admissions/courses-offered" element={<CoursesOfferedPage />} />
           <Route path="/our-campus/computer-lab" element={<ComputerLabPage />} />
           <Route path="/our-campus/transport" element={<TransportPage />} />
           <Route path="/our-campus/scholarship" element={<ScholarshipPage />} />

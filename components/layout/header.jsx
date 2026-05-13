@@ -58,10 +58,8 @@ export function Header() {
       href: "#admissions",
       scrollId: "admissions",
       dropdown: [
-        { label: "Eligibility", scrollId: "admissions" },
-        { label: "Fee Structure", scrollId: "admissions" },
-        { label: "Scholarships", scrollId: "admissions" },
-        { label: "Apply Online", scrollId: "admissions" }
+        { label: "Courses Offered",type : "page", href: "/admissions/courses-offered" },
+        { label: "Admission Form", type: "page", href: "/admissions/admission-form" }
       ]
     },
     { label: "Placements", href: "#placements", scrollId: "placements" },
