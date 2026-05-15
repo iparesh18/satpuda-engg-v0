@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import confetti from "canvas-confetti";
 import { Header, Footer } from "../../index.js";
 import { Link } from "react-router-dom";
 import { Button } from "../../ui/button.jsx";
@@ -82,6 +83,11 @@ export default function AdmissionFormPage() {
       }
 
       setFormStatus({ type: "success", message: payload.message });
+      confetti({
+        particleCount: 120,
+        spread: 80,
+        origin: { y: 0.7 }
+      });
       setFormData(initialForm);
     } catch (error) {
       setFormStatus({ type: "error", message: error.message });

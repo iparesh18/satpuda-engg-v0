@@ -47,6 +47,7 @@
     "@theatre/studio": "^0.7.2",
     "@use-gesture/react": "^10.3.1",
     "autoprefixer": "^10.4.20",
+    "canvas-confetti": "^1.9.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.1.1",
