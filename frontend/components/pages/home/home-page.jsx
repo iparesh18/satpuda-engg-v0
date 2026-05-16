@@ -1,12 +1,10 @@
-import { Header, HeroSection, StatsBar, AboutSection, CoursesSection, WhyChooseUsSection, PlacementsSection, TestimonialsSection, CTASection, MapSection, Footer } from "../../index.js";
+import { Header, HeroSection, StatsBar, AboutSection, GateAchieversSection, CoursesSection, WhyChooseUsSection, PlacementsSection, CompanyMarquee, TestimonialsSection, CTASection, MapSection, Footer } from "../../index.js";
 
 export default function HomePage() {
     return (<main className="min-h-screen">
       {/* 1. Header & Hero */}
       <Header />
-      <section id="hero">
-        <HeroSection />
-      </section>
+      <HeroSection />
       
       {/* 2. Stats Bar - Quick credibility */}
       <StatsBar />
@@ -15,32 +13,41 @@ export default function HomePage() {
       <section id="about">
         <AboutSection />
       </section>
+
+      {/* 4. GATE Achievers */}
+      <section id="gate-achievers">
+        <GateAchieversSection />
+      </section>
       
-      {/* 4. Courses/Programs */}
+      {/* 5. Courses/Programs */}
       <section id="courses">
         <CoursesSection />
       </section>
       
-      {/* 5. Why Choose Us (3 boxes) - Builds trust */}
+      {/* 6. Why Choose Us (3 boxes) - Builds trust */}
       <WhyChooseUsSection />
       
-      {/* 6. Placements - Proof of results */}
+      {/* 7. Placements - Proof of results */}
       <section id="placements">
         <PlacementsSection />
       </section>
       
-      {/* 7. Testimonials - Social proof */}
+      {/* 7b. Company Logos Marquee */}
+      <CompanyMarquee />
+
+      {/* 8. Testimonials - Social proof */}
       <TestimonialsSection />
       
-      {/* 8. CTA Section - Drive conversions */}
+      {/* 9. CTA Section - Drive conversions */}
       <CTASection />
       
-      {/* 9. Location Map */}
+      {/* 10. Location Map */}
       <MapSection />
       
-      {/* 10. Footer - Always last */}
+      {/* 11. Footer - Always last */}
       <section id="contact">
         <Footer />
       </section>
     </main>);
 }
+

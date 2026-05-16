@@ -24,11 +24,11 @@ export function MapSection() {
   ];
 
   return (
-    <section className="relative py-24 bg-background overflow-hidden">
+    <section className="relative overflow-hidden bg-background py-16 sm:py-20 lg:py-24">
       {/* Background gradient blobs */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-accent/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+        <div className="absolute top-0 right-0 h-100 w-100 -translate-y-1/2 translate-x-1/2 animate-pulse rounded-full bg-primary/5 blur-[120px]" />
+        <div className="absolute bottom-0 left-0 h-75 w-75 translate-y-1/2 -translate-x-1/2 rounded-full bg-accent/5 blur-[100px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -37,19 +37,19 @@ export function MapSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-12 text-center sm:mb-16"
         >
           <span className="inline-block text-primary font-semibold tracking-widest uppercase text-sm mb-4">Visit Us</span>
-          <h2 className="text-5xl font-bold text-foreground mb-6 sm:text-6xl tracking-tight">
+          <h2 className="mb-5 text-3xl font-bold tracking-tight text-foreground sm:mb-6 sm:text-5xl lg:text-6xl">
             <SplitText text="Find Our" delay={0.08} className="block" />
             <SplitText text="Campus" delay={0.12} className="text-primary" />
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          <div className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             <BlurText text="Located in the heart of Madhya Pradesh, our state-of-the-art campus is designed for excellence and innovation." />
-          </p>
+          </div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+        <div className="mb-12 grid gap-6 sm:gap-8 lg:grid-cols-3">
           {/* Contact Info Cards */}
           {contactInfo.map((item, i) => (
             <motion.div
@@ -60,7 +60,7 @@ export function MapSection() {
               transition={{ delay: i * 0.1 }}
               className="group relative p-6 rounded-2xl border border-border/50 bg-card/50 backdrop-blur hover:border-primary/50 transition-all duration-300 hover:shadow-2xl"
             >
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               
               <div className="relative z-10">
                 <div className={`h-12 w-12 rounded-xl ${item.color} bg-opacity-10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
@@ -79,10 +79,10 @@ export function MapSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-[3rem] overflow-hidden border-4 border-card shadow-2xl group"
+          className="group relative overflow-hidden rounded-3xl border-4 border-card shadow-2xl sm:rounded-[3rem]"
         >
           {/* Map frame with enhanced styling */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent z-20 pointer-events-none group-hover:from-primary/10 transition-all duration-500" />
+          <div className="absolute inset-0 z-20 bg-linear-to-br from-primary/5 via-transparent to-transparent pointer-events-none transition-all duration-500 group-hover:from-primary/10" />
           
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3703.8404414348593!2d80.14880717505493!3d21.82509498003108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2a592263486c99%3A0xa4123dec04965bfb!2sSatpuda%20College%20of%20Engineering%20and%20Polytechnic%2C%20Balaghat!5e0!3m2!1sen!2sin!4v1778579078581!5m2!1sen!2sin"
@@ -92,12 +92,12 @@ export function MapSection() {
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            className="w-full h-96 sm:h-[500px] transition-all duration-700 ease-out"
+            className="h-96 w-full transition-all duration-700 ease-out sm:h-125"
           />
         </motion.div>
 
         {/* Action Buttons */}
-        <div className="mt-12 flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:mt-12 sm:flex-row sm:gap-6">
           <Magnetic intensity={0.2}>
             <button
               onClick={handleCopyAddress}
@@ -151,3 +151,4 @@ export function MapSection() {
     </section>
   );
 }
+

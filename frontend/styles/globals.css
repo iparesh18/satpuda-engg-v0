@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -11,20 +11,20 @@
   --card-foreground: oklch(0.12 0.01 255);
   --popover: oklch(0.98 0.01 255);
   --popover-foreground: oklch(0.12 0.01 255);
-  --primary: oklch(0.65 0.15 255);
+  --primary: #021545;
   --primary-foreground: oklch(0.98 0.01 255);
   --secondary: oklch(0.92 0.02 255);
   --secondary-foreground: oklch(0.12 0.01 255);
   --muted: oklch(0.85 0.02 255);
   --muted-foreground: oklch(0.5 0.02 255);
-  --accent: oklch(0.57 0.22 25);
+  --accent: #d60b0b;
   --accent-foreground: oklch(0.98 0.01 255);
-  --destructive: oklch(0.57 0.22 25);
+  --destructive: #d60b0b;
   --destructive-foreground: oklch(0.98 0.01 255);
   --border: oklch(0.88 0.02 255);
   --input: oklch(0.95 0.02 255);
-  --ring: oklch(0.65 0.15 255);
-  --chart-1: oklch(0.65 0.15 255);
+  --ring: #021545;
+  --chart-1: #021545;
   --chart-2: oklch(0.57 0.22 25);
   --chart-3: oklch(0.55 0.15 160);
   --chart-4: oklch(0.55 0.12 210);
@@ -32,12 +32,12 @@
   --radius: 0.625rem;
   --sidebar: oklch(0.97 0.01 255);
   --sidebar-foreground: oklch(0.12 0.01 255);
-  --sidebar-primary: oklch(0.65 0.15 255);
+  --sidebar-primary: #021545;
   --sidebar-primary-foreground: oklch(0.98 0.01 255);
   --sidebar-accent: oklch(0.92 0.02 255);
   --sidebar-accent-foreground: oklch(0.12 0.01 255);
   --sidebar-border: oklch(0.88 0.02 255);
-  --sidebar-ring: oklch(0.65 0.15 255);
+  --sidebar-ring: #021545;
 }
 
 .dark {
@@ -47,34 +47,34 @@
   --card-foreground: oklch(0.98 0.01 255);
   --popover: oklch(0.14 0.02 255);
   --popover-foreground: oklch(0.98 0.01 255);
-  --primary: oklch(0.65 0.15 255);
+  --primary: #021545;
   --primary-foreground: oklch(0.1 0.05 255);
   --secondary: oklch(0.18 0.02 255);
   --secondary-foreground: oklch(0.98 0.01 255);
   --muted: oklch(0.16 0.02 255);
   --muted-foreground: oklch(0.6 0.02 255);
-  --accent: oklch(0.57 0.22 25);
+  --accent: #d60b0b;
   --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.57 0.22 25);
+  --destructive: #d60b0b;
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.2 0.02 255);
   --input: oklch(0.2 0.02 255);
-  --ring: oklch(0.65 0.15 255);
+  --ring: #021545;
   --sidebar: oklch(0.12 0.01 255);
   --sidebar-foreground: oklch(0.98 0.01 255);
-  --sidebar-primary: oklch(0.65 0.15 255);
+  --sidebar-primary: #021545;
   --sidebar-primary-foreground: oklch(0.1 0.05 255);
   --sidebar-accent: oklch(0.16 0.02 255);
   --sidebar-accent-foreground: oklch(0.98 0.01 255);
   --sidebar-border: oklch(0.2 0.02 255);
-  --sidebar-ring: oklch(0.65 0.15 255);
+  --sidebar-ring: #021545;
 }
 
 @theme inline {
-  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-heading: 'Syne', sans-serif;
-  --font-poppins: 'Poppins', sans-serif;
-  --font-inter: 'Inter', sans-serif;
+  --font-sans: 'Montserrat', system-ui, sans-serif;
+  --font-heading: 'Montserrat', system-ui, sans-serif;
+  --font-poppins: 'Montserrat', system-ui, sans-serif;
+  --font-inter: 'Montserrat', system-ui, sans-serif;
   --font-mono: 'Geist Mono', ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -151,4 +151,42 @@
 ::selection {
   background: color-mix(in oklab, var(--accent) 25%, white);
   color: var(--foreground);
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee__track {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  animation: marquee-scroll 22s linear infinite;
+}
+
+.marquee__content {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 0 2.5rem;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
 }

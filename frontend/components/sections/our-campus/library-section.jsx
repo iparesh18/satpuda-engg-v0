@@ -479,7 +479,7 @@ export function LibrarySection() {
                   </div>
                   <div className="mt-6">
                     <p className="text-3xl font-black text-foreground tracking-tighter">
-                      <ShinyText text={value} speed={3} color="#3b82f6" />
+                      <ShinyText text={value} speed={3} color="#d60b0b" />
                     </p>
                     <p className="mt-2 text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em]">{label}</p>
                   </div>
@@ -548,3 +548,4 @@ export function LibrarySection() {
     </main>
   );
 }
+

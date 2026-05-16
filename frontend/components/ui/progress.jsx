@@ -8,3 +8,4 @@ function Progress({ className, value, ...props }) {
     </ProgressPrimitive.Root>);
 }
 export { Progress };
+

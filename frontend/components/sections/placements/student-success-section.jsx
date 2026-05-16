@@ -61,7 +61,7 @@ export function StudentSuccessSection() {
         >
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="w-12 h-px bg-primary/40" />
-            <ShinyText text="ALUMNI IMPACT" speed={3} color="#3b82f6" className="text-xs font-bold tracking-[0.4em] uppercase text-primary/80" />
+            <ShinyText text="ALUMNI IMPACT" speed={3} color="#d60b0b" className="text-xs font-bold tracking-[0.4em] uppercase text-primary/80" />
             <div className="w-12 h-px bg-primary/40" />
           </div>
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-none mb-8">
@@ -180,3 +180,4 @@ export function StudentSuccessSection() {
     </section>
   );
 }
+

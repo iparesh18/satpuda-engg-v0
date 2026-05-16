@@ -39,3 +39,4 @@ function NavigationMenuIndicator({ className, ...props }) {
     </NavigationMenuPrimitive.Indicator>);
 }
 export { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuContent, NavigationMenuTrigger, NavigationMenuLink, NavigationMenuIndicator, NavigationMenuViewport, navigationMenuTriggerStyle, };
+

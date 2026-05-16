@@ -61,3 +61,4 @@ const SplitText = ({
 };
 
 export default SplitText;
+

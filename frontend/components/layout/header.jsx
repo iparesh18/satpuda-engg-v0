@@ -65,7 +65,31 @@ export function Header() {
     { label: "Placements", type: "page", href: "/placements" },
     { label: "Contact", type: "page", href: "/contact" },
   ];
-  return (<header className="fixed top-0 left-0 right-0 z-50">
+  return (<header className="relative z-50">
+      {/* Red Marquee */}
+      <div className="bg-[#b30000] text-white border-b border-red-500 shadow-lg">
+        <div className="overflow-hidden py-2">
+          <div className="marquee w-full">
+            <div className="marquee__track">
+              <div className="marquee__content">
+                <span className="font-semibold">🚨 Admission Open 2026</span>
+                <span className="font-semibold">Apply Now for Engineering & Polytechnic</span>
+                <span className="font-semibold">Limited Seats Available</span>
+                <span className="font-semibold">AICTE Approved • RGPV Affiliated</span>
+              </div>
+              <div className="marquee__content" aria-hidden="true">
+                <span className="font-semibold">🚨 Admission Open 2026</span>
+                <span className="font-semibold">Apply Now for Engineering & Polytechnic</span>
+                <span className="font-semibold">Limited Seats Available</span>
+                <span className="font-semibold">AICTE Approved • RGPV Affiliated</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Blue Navbar */}
+      <div className="bg-[#021545]/95 backdrop-blur-md border-b border-white/10">
     {/* Top Bar */}
     <div className="bg-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -103,7 +127,7 @@ export function Header() {
             </div>
             <div className="hidden sm:block">
               <div className="font-bold text-foreground text-sm lg:text-lg leading-tight uppercase tracking-tighter">
-                <span className="flex items-center gap-[5px]">
+                <span className="flex items-center gap-1.25">
                   <span>Satpuda</span>
                   <span>Engineering</span>
                   <span>College</span>
@@ -119,7 +143,7 @@ export function Header() {
               {item.type === "page" ? (
                 <Link
                   to={item.href}
-                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary"
+                  className="flex items-center gap-1 px-4 py-2 text-[15px] font-semibold text-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary"
                 >
                   {item.label}
                   {item.dropdown && <ChevronDown className="h-4 w-4 opacity-50" />}
@@ -127,14 +151,14 @@ export function Header() {
               ) : (
                 <button
                   onClick={() => handleScroll(item.scrollId)}
-                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary"
+                  className="flex items-center gap-1 px-4 py-2 text-[15px] font-semibold text-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary"
                 >
                   {item.label}
                   {item.dropdown && <ChevronDown className="h-4 w-4 opacity-50" />}
                 </button>
               )}
               {item.dropdown && (<div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <div className="bg-card rounded-xl shadow-xl border border-border p-2 min-w-[200px]">
+                <div className="bg-card rounded-xl shadow-xl border border-border p-2 min-w-50">
                   {item.dropdown.map((subItem) => (
                     subItem.type === "page" ? (
                       <Link
@@ -181,7 +205,7 @@ export function Header() {
             {item.type === "page" ? (
               <Link
                 to={item.href}
-                className="w-full text-left block px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
+                className="w-full text-left block px-4 py-3 text-base font-semibold text-foreground hover:bg-secondary rounded-lg transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.label}
@@ -189,7 +213,7 @@ export function Header() {
             ) : (
               <button
                 onClick={() => handleScroll(item.scrollId)}
-                className="w-full text-left block px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
+                className="w-full text-left block px-4 py-3 text-base font-semibold text-foreground hover:bg-secondary rounded-lg transition-colors"
               >
                 {item.label}
               </button>
@@ -227,6 +251,8 @@ export function Header() {
         </div>
       </div>)}
     </nav>
+      </div>
   </header>);
 }
+
 

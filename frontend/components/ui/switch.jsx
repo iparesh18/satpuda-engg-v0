@@ -8,3 +8,4 @@ function Switch({ className, ...props }) {
     </SwitchPrimitive.Root>);
 }
 export { Switch };
+

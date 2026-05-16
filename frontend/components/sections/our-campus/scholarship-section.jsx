@@ -498,7 +498,7 @@ export function ScholarshipSection() {
           <ul className="mt-8 space-y-4">
             {eligibilityList.map((item) => (
               <li key={item} className="flex items-center gap-4 text-muted-foreground group">
-                <div className="h-2 w-2 rounded-full bg-primary transition-all duration-300 group-hover:scale-150 group-hover:shadow-[0_0_10px_rgba(59,130,246,1)]" />
+                <div className="h-2 w-2 rounded-full bg-primary transition-all duration-300 group-hover:scale-150 group-hover:shadow-[0_0_10px_rgba(214, 11, 11, 1)]" />
                 <span className="text-lg transition-colors group-hover:text-foreground">{item}</span>
               </li>
             ))}
@@ -595,3 +595,4 @@ export function ScholarshipSection() {
     </main>
   );
 }
+

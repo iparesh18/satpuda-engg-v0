@@ -10,7 +10,7 @@ import Magnetic from "../../bits/magnetic.jsx";
 gsap.registerPlugin(ScrollTrigger);
 
 const PARTNERS = [
-  { name: "Mahindra & Mahindra", type: "Manufacturing", icon: Building2, color: "from-red-500/20 to-red-600/20" },
+  { name: "Mahindra & Mahindra", type: "Manufacturing", icon: Building2, color: "from-[#d60b0b]/20 to-[#d60b0b]/20" },
   { name: "Tata Consultancy Services", type: "Technology", icon: Globe, color: "from-blue-500/20 to-blue-600/20" },
   { name: "L&T Construction", type: "Infrastructure", icon: Award, color: "from-yellow-500/20 to-yellow-600/20" },
   { name: "Reliance Industries", type: "Conglomerate", icon: Briefcase, color: "from-green-500/20 to-green-600/20" },
@@ -127,3 +127,4 @@ export function HorizontalScrollSection() {
     </section>
   );
 }
+

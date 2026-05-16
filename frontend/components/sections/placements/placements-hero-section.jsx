@@ -28,7 +28,7 @@ export function PlacementsHeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <ShinyText text="CAREER EXCELLENCE HUB" speed={3} color="#3b82f6" className="text-sm font-black tracking-[0.3em] uppercase mb-6 inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5" />
+            <ShinyText text="CAREER EXCELLENCE HUB" speed={3} color="#d60b0b" className="text-sm font-black tracking-[0.3em] uppercase mb-6 inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5" />
           </motion.div>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tighter leading-[0.9]">
@@ -68,3 +68,4 @@ export function PlacementsHeroSection() {
     </section>
   );
 }
+

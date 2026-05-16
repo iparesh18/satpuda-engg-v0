@@ -23,3 +23,4 @@ function AccordionContent({ className, children, ...props }) {
     </AccordionPrimitive.Content>);
 }
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
+

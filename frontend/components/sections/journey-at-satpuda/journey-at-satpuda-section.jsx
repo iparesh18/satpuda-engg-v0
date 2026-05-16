@@ -623,7 +623,7 @@ const STORY_CHAPTERS = [
     description: "Lifelong friendships forged over project discussions and canteen tea. Learning that collaboration is just as important as calculation.",
     image: "/story/friendship.png",
     icon: Users,
-    accent: "from-orange-500/20 to-red-500/20"
+    accent: "from-orange-500/20 to-[#d60b0b]/20"
   },
   {
     id: "the-launch",
@@ -792,7 +792,7 @@ function OutcomesSection() {
                       </div>
                       <div className="flex-grow">
                         <div className="text-4xl font-black text-primary mb-2 tracking-tighter">
-                          <ShinyText text={outcome.metric} speed={3} color="rgba(59, 130, 246, 0.9)" />
+                          <ShinyText text={outcome.metric} speed={3} color="rgba(214, 11, 11, 0.9)" />
                         </div>
                         <p className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300">{outcome.label}</p>
                       </div>
@@ -925,3 +925,4 @@ export function JourneyAtSatpudaSection() {
     </main>
   );
 }
+

@@ -135,7 +135,7 @@ export function CoursesOfferedSection() {
                       
                       <div className="space-y-2">
                         <h3 className="text-3xl font-bold text-foreground tracking-tighter">
-                          <ShinyText text={stat.value} speed={3} color="rgba(59, 130, 246, 1)" />
+                          <ShinyText text={stat.value} speed={3} color="rgba(214, 11, 11, 1)" />
                         </h3>
                         <p className="text-xs text-muted-foreground font-bold uppercase tracking-[0.2em] group-hover:text-primary transition-colors duration-300">
                           {stat.label}
@@ -609,3 +609,4 @@ export function CoursesOfferedSection() {
     </main>
   );
 }
+

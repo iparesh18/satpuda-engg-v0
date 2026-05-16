@@ -260,7 +260,7 @@ export function GallerySection() {
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Gallery Count</p>
                   <p className="text-3xl font-bold text-foreground">
-                    <ShinyText text="120+" speed={3} color="rgba(59, 130, 246, 0.85)" />
+                    <ShinyText text="120+" speed={3} color="rgba(214, 11, 11, 0.85)" />
                   </p>
                 </div>
               </div>
@@ -453,3 +453,4 @@ export function GallerySection() {
     </main>
   );
 }
+

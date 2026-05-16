@@ -31,3 +31,4 @@ export default function Magnetic({ children, intensity = 0.5 }) {
     </motion.div>
   );
 }
+

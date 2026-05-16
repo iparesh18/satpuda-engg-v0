@@ -272,7 +272,7 @@ export default function ContactPage() {
                       className={`rounded-lg px-4 py-3 text-sm font-medium ${
                         formStatus.type === "success"
                           ? "bg-primary/10 text-primary"
-                          : "bg-red-500/10 text-red-600"
+                          : "bg-[#d60b0b]/10 text-[#d60b0b]"
                       }`}
                     >
                       {formStatus.message}
@@ -352,3 +352,4 @@ export default function ContactPage() {
     </div>
   );
 }
+

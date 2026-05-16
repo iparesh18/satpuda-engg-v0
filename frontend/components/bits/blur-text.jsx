@@ -8,6 +8,7 @@ const BlurText = ({
   threshold = 0.1,
   rootMargin = '0px',
   textAlign = 'left',
+  as = 'span',
 }) => {
   const words = text.split(" ");
   const [inView, setInView] = useState(false);
@@ -30,8 +31,10 @@ const BlurText = ({
     return () => observer.disconnect();
   }, [threshold, rootMargin]);
 
+  const Component = as;
+
   return (
-    <p
+    <Component
       ref={ref}
       className={`${className}`}
       style={{ textAlign, display: 'block' }}
@@ -54,8 +57,9 @@ const BlurText = ({
           {word}{index !== words.length - 1 ? " " : ""}
         </motion.span>
       ))}
-    </p>
+    </Component>
   );
 };
 
 export default BlurText;
+

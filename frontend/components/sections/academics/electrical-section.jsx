@@ -215,7 +215,7 @@ export function ElectricalSection() {
                 <Icon className="h-5 w-5" />
               </motion.div>
               <p className="text-2xl font-bold text-foreground tracking-tight">
-                <ShinyText text={value} speed={3} color="rgba(59, 130, 246, 1)" />
+                <ShinyText text={value} speed={3} color="rgba(214, 11, 11, 1)" />
               </p>
               <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold mt-1 group-hover:text-primary transition-colors">{label}</p>
             </motion.div>
@@ -342,7 +342,7 @@ export function ElectricalSection() {
               viewport={{ once: true }}
               className="relative aspect-square rounded-[4rem] overflow-hidden bg-background border border-border/50 shadow-2xl flex items-center justify-center group"
             >
-              <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(to_right,#3b82f6_1px,transparent_1px),linear-gradient(to_bottom,#3b82f6_1px,transparent_1px)] [background-size:36px_36px]" />
+              <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(to_right,#d60b0b_1px,transparent_1px),linear-gradient(to_bottom,#d60b0b_1px,transparent_1px)] [background-size:36px_36px]" />
 
               <div className="relative w-full h-full flex items-center justify-center">
                 <svg className="absolute inset-0 w-full h-full pointer-events-none">
@@ -526,3 +526,4 @@ export function ElectricalSection() {
     </main>
   );
 }
+

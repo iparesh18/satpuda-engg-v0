@@ -224,7 +224,7 @@ export function MiningSection() {
                 <Icon className="h-5 w-5" />
               </motion.div>
               <p className="text-2xl font-bold text-foreground tracking-tight">
-                <ShinyText text={value} speed={3} color="rgba(59, 130, 246, 1)" />
+                <ShinyText text={value} speed={3} color="rgba(214, 11, 11, 1)" />
               </p>
               <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold mt-1 group-hover:text-primary transition-colors">{label}</p>
             </motion.div>
@@ -466,7 +466,7 @@ export function MiningSection() {
               {/* Edge HUD Overlay */}
               <div className="absolute top-8 left-8 flex flex-col gap-2">
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[10px] font-bold text-white tracking-widest uppercase">
-                  <div className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
+                  <div className="h-1.5 w-1.5 rounded-full bg-[#d60b0b] animate-pulse" />
                   Live Core Feed
                 </div>
                 <div className="px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[10px] font-bold text-white/60 tracking-widest uppercase">
@@ -595,3 +595,4 @@ export function MiningSection() {
     </main>
   );
 }
+

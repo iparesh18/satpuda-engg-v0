@@ -14,3 +14,4 @@ function HoverCardContent({ className, align = 'center', sideOffset = 4, ...prop
     </HoverCardPrimitive.Portal>);
 }
 export { HoverCard, HoverCardTrigger, HoverCardContent };
+

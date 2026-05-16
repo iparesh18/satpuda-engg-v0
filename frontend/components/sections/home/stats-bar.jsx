@@ -32,7 +32,7 @@ export function StatsBar() {
               {stat.icon}
             </div>
             <p className="text-3xl lg:text-5xl font-bold text-foreground tracking-tighter">
-              <ShinyText text={stat.value} speed={3} color="rgba(59, 130, 246, 0.85)" />
+              <ShinyText text={stat.value} speed={3} color="rgba(214, 11, 11, 0.85)" />
             </p>
             <p className="text-xs text-muted-foreground mt-2 uppercase tracking-widest">{stat.label}</p>
           </motion.div>))}
@@ -41,3 +41,4 @@ export function StatsBar() {
     </div>
   </section>);
 }
+

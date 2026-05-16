@@ -24,3 +24,4 @@ const ShinyText = ({ text, className = "", disabled = false, speed = 5, color = 
 };
 
 export default ShinyText;
+

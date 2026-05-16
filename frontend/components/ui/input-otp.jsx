@@ -25,3 +25,4 @@ function InputOTPSeparator({ ...props }) {
     </div>);
 }
 export { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator };
+

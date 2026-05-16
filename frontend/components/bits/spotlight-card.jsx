@@ -56,3 +56,4 @@ const SpotlightCard = ({ children, className = "", spotlightColor = "rgba(255, 2
 };
 
 export default SpotlightCard;
+

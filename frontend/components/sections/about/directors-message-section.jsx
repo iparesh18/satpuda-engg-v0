@@ -236,7 +236,7 @@ export function DirectorsMessageSection() {
               </div>
               <div>
                 <p className="text-4xl font-bold leading-none text-foreground tracking-tighter">
-                  <ShinyText text={value} speed={3} color="rgba(59, 130, 246, 0.85)" />
+                  <ShinyText text={value} speed={3} color="rgba(214, 11, 11, 0.85)" />
                 </p>
                 <p className="mt-2 text-sm font-medium text-muted-foreground uppercase tracking-wide">{label}</p>
               </div>

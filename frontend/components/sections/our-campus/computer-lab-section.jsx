@@ -465,3 +465,4 @@ export function ComputerLabSection() {
     </main>
   );
 }
+

@@ -976,3 +976,4 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
     </div>
   );
 }
+
