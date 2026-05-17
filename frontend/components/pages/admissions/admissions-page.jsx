@@ -44,8 +44,9 @@ export default function AdmissionsPage() {
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-                Admissions 2026-27
+              <h1 className="text-5xl md:text-6xl font-semibold tracking-[-0.04em] text-foreground mb-6">
+                <span className="text-primary">Admissions</span>{" "}
+                <span className="text-accent">2026-27</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
                 Start Your Journey to Success Today
@@ -60,7 +61,9 @@ export default function AdmissionsPage() {
         {/* Eligibility */}
         <section className="py-20 bg-card/30">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-foreground mb-12">Eligibility Criteria</h2>
+            <h2 className="text-4xl font-semibold tracking-[-0.04em] text-foreground mb-12">
+              <span className="text-primary">Eligibility</span> Criteria
+            </h2>
             <div className="grid md:grid-cols-2 gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
@@ -76,7 +79,7 @@ export default function AdmissionsPage() {
                       transition={{ delay: index * 0.1 }}
                       className="flex items-center gap-3"
                     >
-                      <CheckCircle2 className="h-6 w-6 text-accent flex-shrink-0" />
+                        <CheckCircle2 className="h-6 w-6 text-accent shrink-0" />
                       <span className="text-muted-foreground">{item}</span>
                     </motion.div>
                   ))}
@@ -97,7 +100,7 @@ export default function AdmissionsPage() {
                       transition={{ delay: index * 0.1 }}
                       className="flex items-center gap-3"
                     >
-                      <CheckCircle2 className="h-6 w-6 text-accent flex-shrink-0" />
+                      <CheckCircle2 className="h-6 w-6 text-accent shrink-0" />
                       <span className="text-muted-foreground">{item}</span>
                     </motion.div>
                   ))}
@@ -110,7 +113,9 @@ export default function AdmissionsPage() {
         {/* Fee Structure */}
         <section className="py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-foreground mb-12">Fee Structure</h2>
+            <h2 className="text-4xl font-semibold tracking-[-0.04em] text-foreground mb-12">
+              Fee <span className="text-accent">Structure</span>
+            </h2>
             <div className="grid md:grid-cols-2 gap-6">
               {feeStructure.map((item, index) => (
                 <motion.div
@@ -131,7 +136,9 @@ export default function AdmissionsPage() {
         {/* Process */}
         <section className="py-20 bg-card/30">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-foreground mb-12 text-center">Admission Process</h2>
+            <h2 className="text-4xl font-semibold tracking-[-0.04em] text-foreground mb-12 text-center">
+              Admission <span className="text-primary">Process</span>
+            </h2>
             <div className="grid md:grid-cols-4 gap-6">
               {[
                 { step: "1", title: "Submit Form", desc: "Fill the online application form" },
@@ -160,7 +167,9 @@ export default function AdmissionsPage() {
         {/* Scholarships Info */}
         <section className="py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-foreground mb-6">Scholarships Available</h2>
+            <h2 className="text-4xl font-semibold tracking-[-0.04em] text-foreground mb-6">
+              <span className="text-accent">Scholarships</span> Available
+            </h2>
             <div className="bg-primary/10 rounded-lg p-8 border border-primary/20">
               <p className="text-lg text-foreground mb-4">
                 We offer various scholarships to deserving students:
@@ -179,7 +188,9 @@ export default function AdmissionsPage() {
         {/* CTA */}
         <section className="py-20 bg-accent text-accent-foreground">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl font-bold mb-4">Ready to Join Satpuda College?</h2>
+            <h2 className="text-4xl font-semibold tracking-[-0.04em] mb-4">
+              Ready to Join <span className="text-primary">Satpuda College</span>?
+            </h2>
             <p className="text-lg mb-8 opacity-90">Complete your application and secure your seat today!</p>
             <Button size="lg" className="bg-accent-foreground hover:bg-accent-foreground/90 text-accent h-14 px-10 font-semibold">
               Apply Now <ArrowRight className="ml-2 h-5 w-5" />

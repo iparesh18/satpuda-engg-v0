@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
+import { SectionHeading } from "./section-heading.jsx";
 
 export function TestimonialsSection() {
   const testimonials = [
@@ -26,23 +27,14 @@ export function TestimonialsSection() {
       image: "/images/hero-5.jpg"
     }
   ];
-  return (<section className="py-24 bg-background">
+  return (<section className="bg-background py-16 sm:py-18 lg:py-20">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="text-center max-w-2xl mx-auto mb-16"
-      >
-        <span className="inline-block text-sm font-semibold text-accent uppercase tracking-[0.2em] mb-4">
-          Student Voices
-        </span>
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground text-balance leading-[1.1] tracking-tight">
-          What Our <br />
-          <span className="text-foreground/40">Students Say</span>
-        </h2>
-      </motion.div>
+      <SectionHeading
+        eyebrow="Student Voices"
+        title="What Our Students Say"
+        className="mb-12"
+        highlights={['Students', 'Say']}
+      />
 
       <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
         {testimonials.map((testimonial, index) => (<motion.div 
@@ -54,6 +46,11 @@ export function TestimonialsSection() {
           whileHover={{ y: -10 }}
           className="bg-card/50 backdrop-blur-sm border border-border rounded-3xl p-8 lg:p-10 shadow-xl hover:bg-card/80 transition-all duration-500 group"
         >
+          <div className="mb-5 flex items-center gap-1 text-accent">
+            {Array.from({ length: 5 }).map((_, starIndex) => (
+              <Star key={starIndex} className="h-4 w-4 fill-current" />
+            ))}
+          </div>
           <Quote className="h-10 w-10 text-accent/30 mb-6 group-hover:text-accent transition-colors duration-500" />
           <p className="text-foreground/70 leading-relaxed mb-8 text-lg italic">
             {`"${testimonial.quote}"`}

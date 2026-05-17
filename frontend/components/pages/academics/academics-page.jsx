@@ -56,8 +56,9 @@ export default function AcademicsPage() {
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-                Academic Excellence
+              <h1 className="text-5xl md:text-6xl font-semibold tracking-[-0.04em] text-foreground mb-6">
+                <span className="text-primary">Academic</span>{" "}
+                <span className="text-accent">Excellence</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                 We offer comprehensive engineering programs designed to create industry-ready professionals
@@ -69,7 +70,9 @@ export default function AcademicsPage() {
         {/* Programs Grid */}
         <section className="py-20 bg-card/30">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-foreground mb-12 text-center">Our Programs</h2>
+            <h2 className="text-4xl font-semibold tracking-[-0.04em] text-foreground mb-12 text-center">
+              Our <span className="text-primary">Programs</span>
+            </h2>
             <div className="grid md:grid-cols-2 gap-8">
               {programs.map((program, index) => (
                 <motion.div
@@ -98,7 +101,9 @@ export default function AcademicsPage() {
         {/* Features */}
         <section className="py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-foreground mb-12 text-center">Why Our Academics?</h2>
+            <h2 className="text-4xl font-semibold tracking-[-0.04em] text-foreground mb-12 text-center">
+              Why Our <span className="text-accent">Academics</span>?
+            </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {features.map((feature, index) => (
                 <motion.div
@@ -122,7 +127,9 @@ export default function AcademicsPage() {
         {/* CTA */}
         <section className="py-20 bg-primary/5">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Ready to Pursue Your Engineering Dream?</h2>
+            <h2 className="text-4xl font-semibold tracking-[-0.04em] text-foreground mb-4">
+              Ready to Pursue Your <span className="text-primary">Engineering Dream</span>?
+            </h2>
             <p className="text-lg text-muted-foreground mb-8">Join hundreds of successful engineers from Satpuda College</p>
             <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground h-14 px-10">
               Apply Now <ArrowRight className="ml-2 h-5 w-5" />

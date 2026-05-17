@@ -9,40 +9,157 @@ import BlurText from "../../bits/blur-text.jsx";
 
 const SUCCESS_STORIES = [
   {
-    name: "Aditya Raj",
-    package: "45 LPA | Google",
-    photo: "https://picsum.photos/400/400?random=11",
-    doubt: "Non-tech background student",
-    confidence: "Software Engineer at Google",
-    quote: "Satpuda gave me the foundation and the confidence to crack top-tier companies. The mentors are world-class.",
+    name: "Placement Achiever 01",
+    package: "Company 01",
+    photo: "/images/placement/company-01.jpeg",
+    doubt: "Aspiring young professional",
+    confidence: "Successfully Placed",
+    quote: "Grateful for the exceptional training and mentorship that shaped my career at Satpuda College.",
     color: "from-blue-500/10 to-blue-600/10"
   },
   {
-    name: "Sneha Verma",
-    package: "32 LPA | Microsoft",
-    photo: "https://picsum.photos/400/400?random=12",
-    doubt: "Fear of coding algorithms",
-    confidence: "Cloud Specialist at Microsoft",
-    quote: "The practical approach to learning and the hands-on labs made all the difference in my career.",
+    name: "Placement Achiever 02",
+    package: "Company 02",
+    photo: "/images/placement/company-02.jpeg",
+    doubt: "Dedicated student",
+    confidence: "Industry Ready",
+    quote: "The hands-on projects and industry exposure prepared me perfectly for my role.",
     color: "from-purple-500/10 to-purple-600/10"
   },
   {
-    name: "Rohan Das",
-    package: "28 LPA | Amazon",
-    photo: "https://picsum.photos/400/400?random=13",
-    doubt: "Struggled with communication",
-    confidence: "SDE-2 at Amazon",
-    quote: "It's not just about technical skills; Satpuda groomed my overall personality for the global stage.",
+    name: "Placement Achiever 03",
+    package: "Company 03",
+    photo: "/images/placement/company-03.jpeg",
+    doubt: "Hard-working scholar",
+    confidence: "Career Launched",
+    quote: "Satpuda's focus on both technical and soft skills made all the difference in my success.",
     color: "from-orange-500/10 to-orange-600/10"
   },
   {
-    name: "Kriti Singh",
-    package: "25 LPA | Meta",
-    photo: "https://picsum.photos/400/400?random=14",
-    doubt: "Lacked industry exposure",
-    confidence: "Product Designer at Meta",
-    quote: "The internship opportunities and industry connections provided by the college are unparalleled.",
+    name: "Placement Achiever 04",
+    package: "Company 04",
+    photo: "/images/placement/company-04.jpeg",
+    doubt: "Passionate learner",
+    confidence: "Dream Achieved",
+    quote: "The faculty's dedication and the college's network opened doors I didn't know existed.",
     color: "from-pink-500/10 to-rose-600/10"
+  },
+  {
+    name: "Placement Achiever 05",
+    package: "Company 05",
+    photo: "/images/placement/company-05.jpeg",
+    doubt: "Ambitious engineer",
+    confidence: "Goal Accomplished",
+    quote: "Every class, every project, every mentor interaction was a stepping stone to my success.",
+    color: "from-green-500/10 to-green-600/10"
+  },
+  {
+    name: "Placement Achiever 06",
+    package: "Company 06",
+    photo: "/images/placement/company-06.jpeg",
+    doubt: "Determined student",
+    confidence: "Professional Growth",
+    quote: "The curriculum balanced theory with real-world applications, making me job-ready.",
+    color: "from-red-500/10 to-red-600/10"
+  },
+  {
+    name: "Placement Achiever 07",
+    package: "Company 07",
+    photo: "/images/placement/company-07.jpeg",
+    doubt: "Driven individual",
+    confidence: "Career Success",
+    quote: "I credit my placement success to Satpuda's rigorous training and ethical values.",
+    color: "from-yellow-500/10 to-yellow-600/10"
+  },
+  {
+    name: "Placement Achiever 08",
+    package: "Company 08",
+    photo: "/images/placement/company-08.jpeg",
+    doubt: "Committed scholar",
+    confidence: "Dreams Realized",
+    quote: "The mentorship and guidance I received transformed me into a confident professional.",
+    color: "from-indigo-500/10 to-indigo-600/10"
+  },
+  {
+    name: "Placement Achiever 09",
+    package: "Company 09",
+    photo: "/images/placement/company-09.jpeg",
+    doubt: "Passionate engineer",
+    confidence: "Milestone Reached",
+    quote: "Satpuda's industry connections and internship programs were game-changers for me.",
+    color: "from-cyan-500/10 to-cyan-600/10"
+  },
+  {
+    name: "Placement Achiever 10",
+    package: "Company 10",
+    photo: "/images/placement/company-10.jpeg",
+    doubt: "Focused professional",
+    confidence: "Opportunity Seized",
+    quote: "The college's placement cell's support and guidance made the journey smooth.",
+    color: "from-teal-500/10 to-teal-600/10"
+  },
+  {
+    name: "Placement Achiever 11",
+    package: "Company 11",
+    photo: "/images/placement/company-11.jpeg",
+    doubt: "Motivated learner",
+    confidence: "Success Achieved",
+    quote: "Every skill I needed for my job, I learned and perfected at Satpuda.",
+    color: "from-lime-500/10 to-lime-600/10"
+  },
+  {
+    name: "Placement Achiever 12",
+    package: "Company 12",
+    photo: "/images/placement/company-12.jpeg",
+    doubt: "Diligent student",
+    confidence: "Goals Surpassed",
+    quote: "The college's emphasis on innovation and practical learning set me apart.",
+    color: "from-sky-500/10 to-sky-600/10"
+  },
+  {
+    name: "Placement Achiever 13",
+    package: "Company 13",
+    photo: "/images/placement/company-13.jpeg",
+    doubt: "Dedicated professional",
+    confidence: "Career Established",
+    quote: "I'm grateful for the holistic development approach that Satpuda provides.",
+    color: "from-violet-500/10 to-violet-600/10"
+  },
+  {
+    name: "Placement Achiever 14",
+    package: "Company 14",
+    photo: "/images/placement/company-14.jpeg",
+    doubt: "Hard-working achiever",
+    confidence: "Milestone Crossed",
+    quote: "The peer learning and collaborative environment at Satpuda accelerated my growth.",
+    color: "from-fuchsia-500/10 to-fuchsia-600/10"
+  },
+  {
+    name: "Placement Achiever 15",
+    package: "Company 15",
+    photo: "/images/placement/company-15.jpeg",
+    doubt: "Aspiring expert",
+    confidence: "Excellence Attained",
+    quote: "Satpuda's reputation is well-deserved; the education quality is outstanding.",
+    color: "from-amber-500/10 to-amber-600/10"
+  },
+  {
+    name: "Placement Achiever 16",
+    package: "Company 16",
+    photo: "/images/placement/company-16.jpeg",
+    doubt: "Passionate technologist",
+    confidence: "Future Ready",
+    quote: "The college prepared me not just for a job, but for a fulfilling career.",
+    color: "from-rose-500/10 to-rose-600/10"
+  },
+  {
+    name: "Placement Achiever 17",
+    package: "Company 17",
+    photo: "/images/placement/company-17.jpeg",
+    doubt: "Committed graduate",
+    confidence: "Dream Position",
+    quote: "I recommend Satpuda to any student seeking quality education and placements.",
+    color: "from-slate-500/10 to-slate-600/10"
   }
 ];
 

@@ -116,7 +116,7 @@ export function CollegeOverviewSection() {
             className="h-full w-full object-cover object-right"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/96 to-background/88 lg:from-background lg:via-background/90 lg:to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-background via-background/96 to-background/88 lg:from-background lg:via-background/90 lg:to-transparent" />
         
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -137,7 +137,7 @@ export function CollegeOverviewSection() {
                 className="text-5xl font-bold text-foreground sm:text-7xl lg:text-8xl tracking-tighter"
                 delay={0.08}
               />
-              <div className="mt-8 h-2 w-32 rounded-full bg-gradient-to-r from-primary via-primary/70 to-accent" />
+              <div className="mt-8 h-2 w-32 rounded-full bg-linear-to-r from-primary via-primary/70 to-accent" />
               <p className="mt-10 max-w-xl text-xl text-muted-foreground leading-relaxed">
                 <BlurText text="Empowering future engineers with knowledge, innovation, and academic excellence since 24+ years." />
               </p>
@@ -173,16 +173,16 @@ export function CollegeOverviewSection() {
                 <motion.img
                   src="/images/overview/campus overview.png"
                   alt="Campus overview"
-                  className="w-full h-[500px] object-cover"
+                  className="w-full h-125 object-cover"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 1.5, ease: "easeOut" }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
               </div>
               
               {/* Floating Excellence Badge */}
               <motion.div 
-                className="absolute -bottom-10 -left-10 bg-card shadow-2xl rounded-[2rem] p-8 flex items-center gap-5 border border-border/50 backdrop-blur-xl"
+                className="absolute -bottom-10 -left-10 bg-card shadow-2xl rounded-4xl p-8 flex items-center gap-5 border border-border/50 backdrop-blur-xl"
                 animate={{ 
                   y: [0, -15, 0],
                 }}
@@ -219,7 +219,7 @@ export function CollegeOverviewSection() {
             <motion.div 
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              className="inline-flex items-center gap-2 bg-white text-[#5b5bd6] text-xs font-semibold tracking-widest px-3 py-1 rounded-full border border-[#5b5bd6]/10 shadow-sm"
+              className="inline-flex items-center gap-2 bg-white text-primary text-xs font-semibold tracking-widest px-3 py-1 rounded-full border border-primary/10 shadow-sm"
             >
               <Sparkles className="h-3 w-3" />
               WHO WE ARE
@@ -233,7 +233,7 @@ export function CollegeOverviewSection() {
               >
                 Shaping Engineers,
                 <br />
-                <span className="text-[#5b5bd6]">Building Tomorrow.</span>
+                <span className="text-primary">Building Tomorrow.</span>
               </motion.h3>
             </div>
             <motion.p 
@@ -254,15 +254,15 @@ export function CollegeOverviewSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 * index, duration: 0.5 }}
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                  className="bg-white rounded-2xl p-4 shadow-sm border border-white/60 group hover:border-[#5b5bd6]/30 hover:shadow-md transition-all cursor-default"
+                  className="bg-white rounded-2xl p-4 shadow-sm border border-white/60 group hover:border-primary/30 hover:shadow-md transition-all cursor-default"
                 >
                   <motion.div 
                     whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
-                    className="h-10 w-10 rounded-xl bg-[#5b5bd6]/10 flex items-center justify-center group-hover:bg-[#5b5bd6] transition-colors"
+                    className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors"
                   >
-                    <item.icon className="h-5 w-5 text-[#5b5bd6] group-hover:text-white transition-colors" />
+                    <item.icon className="h-5 w-5 text-primary group-hover:text-primary-foreground transition-colors" />
                   </motion.div>
-                  <div className="mt-3 text-sm font-semibold text-slate-900 group-hover:text-[#5b5bd6] transition-colors">{item.title}</div>
+                  <div className="mt-3 text-sm font-semibold text-slate-900 group-hover:text-primary transition-colors">{item.title}</div>
                 </motion.div>
               ))}
             </div>
@@ -274,7 +274,7 @@ export function CollegeOverviewSection() {
               whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 1, ease: "backOut" }}
               whileHover={{ scale: 1.05, rotate: 2 }}
-              className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[3/4]"
+              className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-3/4"
             >
               <img
                 src="/images/overview/student in class.png"
@@ -287,7 +287,7 @@ export function CollegeOverviewSection() {
               whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ delay: 0.3, duration: 1, ease: "backOut" }}
               whileHover={{ scale: 1.05, rotate: -2 }}
-              className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[3/4] mt-8"
+              className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-3/4 mt-8"
             >
               <img
                 src="/images/overview/student in lab.png"
@@ -307,8 +307,8 @@ export function CollegeOverviewSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="text-[#5b5bd6] font-semibold tracking-wide flex items-center gap-2">
-                <div className="h-[1px] w-8 bg-[#5b5bd6]" />
+              <div className="text-primary font-semibold tracking-wide flex items-center gap-2">
+                <div className="h-px w-8 bg-primary" />
                 Experience Excellence at
               </div>
               <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 mt-1">
@@ -327,16 +327,16 @@ export function CollegeOverviewSection() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2, duration: 0.5 }}
                   whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                  className="bg-white rounded-2xl p-5 shadow-sm border border-white/60 group hover:border-[#5b5bd6]/20 hover:shadow-xl transition-all"
+                  className="bg-white rounded-2xl p-5 shadow-sm border border-white/60 group hover:border-primary/20 hover:shadow-xl transition-all"
                 >
                   <motion.div 
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className="h-10 w-10 rounded-xl bg-[#5b5bd6]/10 flex items-center justify-center group-hover:bg-[#5b5bd6] transition-colors"
+                    className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors"
                   >
-                    <item.icon className="h-5 w-5 text-[#5b5bd6] group-hover:text-white transition-colors" />
+                    <item.icon className="h-5 w-5 text-primary group-hover:text-primary-foreground transition-colors" />
                   </motion.div>
-                  <div className="mt-3 text-sm font-semibold text-slate-900 group-hover:text-[#5b5bd6] transition-colors">{item.title}</div>
+                  <div className="mt-3 text-sm font-semibold text-slate-900 group-hover:text-primary transition-colors">{item.title}</div>
                   <div className="mt-2 text-xs text-slate-500 line-clamp-2">{item.description}</div>
                 </motion.div>
               ))}
@@ -348,7 +348,7 @@ export function CollegeOverviewSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-10 bg-[#5b5bd6] rounded-3xl px-6 py-10 text-white relative overflow-hidden group shadow-2xl shadow-[#5b5bd6]/20"
+            className="mt-10 bg-linear-to-r from-primary to-accent rounded-3xl px-6 py-10 text-white relative overflow-hidden group shadow-2xl shadow-primary/20"
           >
             {/* Background Accent */}
             <div className="absolute top-0 right-0 -mt-10 -mr-10 h-40 w-40 bg-white/10 rounded-full blur-3xl transition-transform duration-1000 group-hover:scale-150" />
@@ -386,7 +386,7 @@ export function CollegeOverviewSection() {
             <h3 className="text-3xl sm:text-4xl font-bold text-slate-900">Life at Satpuda</h3>
           </motion.div>
           
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-4 h-auto lg:h-[600px]">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-4 h-auto lg:h-150">
             {lifeCards.map((card, index) => (
               <motion.div 
                 key={card.title} 
@@ -402,7 +402,7 @@ export function CollegeOverviewSection() {
                   alt={card.title} 
                   className="absolute inset-0 h-full w-full object-cover group-hover:scale-110 transition-transform duration-1000" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="absolute bottom-0 left-0 p-6 text-white translate-y-6 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
                   <div className="text-xl font-bold">{card.title}</div>
@@ -431,20 +431,20 @@ export function CollegeOverviewSection() {
               <h3 className="text-3xl sm:text-4xl font-bold text-slate-900">Our Campus</h3>
               <p className="text-slate-500 text-sm mt-1">Exploring the environment where innovation thrives.</p>
             </div>
-            <div className="hidden sm:flex items-center gap-2">
+              <div className="hidden sm:flex items-center gap-2">
               <motion.div 
-                className="h-[1px] w-12 bg-[#5b5bd6]/30"
+                className="h-px w-12 bg-primary/30"
                 initial={{ width: 0 }}
                 whileInView={{ width: 48 }}
                 transition={{ duration: 1 }}
               />
-              <span className="text-[#5b5bd6] text-xs font-bold tracking-widest uppercase">Gallery</span>
+              <span className="text-primary text-xs font-bold tracking-widest uppercase">Gallery</span>
             </div>
           </motion.div>
           
           <div className="mt-8 grid lg:grid-cols-[2fr_1fr] gap-6">
             <motion.div 
-              className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white group relative h-[300px] sm:h-[450px]"
+              className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white group relative h-75 sm:h-112.5"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -465,7 +465,7 @@ export function CollegeOverviewSection() {
             
             <div className="grid grid-rows-2 gap-6">
               <motion.div 
-                className="rounded-3xl overflow-hidden shadow-xl border-4 border-white group relative h-[210px]"
+                className="rounded-3xl overflow-hidden shadow-xl border-4 border-white group relative h-52.5"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -479,7 +479,7 @@ export function CollegeOverviewSection() {
                 />
               </motion.div>
               <motion.div 
-                className="rounded-3xl overflow-hidden shadow-xl border-4 border-white group relative h-[210px]"
+                className="rounded-3xl overflow-hidden shadow-xl border-4 border-white group relative h-52.5"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

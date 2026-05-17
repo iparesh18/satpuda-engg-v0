@@ -1,4 +1,4 @@
-import { Header, HeroSection, StatsBar, AboutSection, GateAchieversSection, CoursesSection, WhyChooseUsSection, PlacementsSection, CompanyMarquee, TestimonialsSection, CTASection, MapSection, Footer } from "../../index.js";
+import { Header, HeroSection, StatsBar, AboutSection, GateAchieversSection, CoursesSection, BlueInfoMarqueeSection, WhyChooseUsSection, PlacementsSection, CompanyMarquee, RedInfoMarqueeSection, DomeGallerySection, TestimonialsSection, CTASection, MapSection, Footer } from "../../index.js";
 
 export default function HomePage() {
     return (<main className="min-h-screen">
@@ -23,6 +23,9 @@ export default function HomePage() {
       <section id="courses">
         <CoursesSection />
       </section>
+
+      {/* 5b. Blue Information Marquee */}
+      <BlueInfoMarqueeSection />
       
       {/* 6. Why Choose Us (3 boxes) - Builds trust */}
       <WhyChooseUsSection />
@@ -34,6 +37,12 @@ export default function HomePage() {
       
       {/* 7b. Company Logos Marquee */}
       <CompanyMarquee />
+
+      {/* 7b1. Red Information Marquee */}
+      <RedInfoMarqueeSection />
+
+      {/* 7c. Dome Gallery */}
+      <DomeGallerySection />
 
       {/* 8. Testimonials - Social proof */}
       <TestimonialsSection />

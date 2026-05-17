@@ -95,8 +95,9 @@ export default function ContactPage() {
                   <span className="text-foreground font-medium">Contact Us</span>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
-                  Contact Us
+                <h1 className="text-4xl md:text-5xl font-semibold tracking-[-0.04em] text-foreground mb-3">
+                  <span className="text-primary">Contact</span>{" "}
+                  <span className="text-accent">Us</span>
                 </h1>
                 <div className="h-1 w-12 bg-primary rounded-full mb-4" />
                 <p className="text-muted-foreground max-w-xl">
@@ -158,7 +159,7 @@ export default function ContactPage() {
                     <Send className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h2 className="text-lg font-bold text-foreground">Send a Message</h2>
+                    <h2 className="text-lg font-semibold tracking-[-0.03em] text-foreground">Send a Message</h2>
                     <p className="text-sm text-muted-foreground">We will get back to you shortly.</p>
                   </div>
                 </div>
@@ -243,7 +244,7 @@ export default function ContactPage() {
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      className="mt-2 w-full min-h-[140px] rounded-lg border border-border bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/30"
+                        className="mt-2 w-full min-h-35 rounded-lg border border-border bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/30"
                       placeholder="Write your message here..."
                     />
                   </div>

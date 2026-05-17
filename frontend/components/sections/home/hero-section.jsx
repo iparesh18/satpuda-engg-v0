@@ -10,6 +10,8 @@ export function HeroSection() {
     "/images/banner1.jpeg",
     "/images/banner2.jpeg",
     "/images/banner3.jpeg",
+    "/images/banner4.jpeg",
+    "/images/hero-1.jpeg",
   ];
   const [activeImage, setActiveImage] = useState(0);
 
@@ -92,7 +94,7 @@ export function HeroSection() {
               </span>
               <span className="block">Satpuda College of</span>
               <span className="block text-white/90">
-                <span className="text-[#d60b0b]">Engineering</span> &amp; Polytechnic
+                <span className="text-[#d60b0b]">Engineering</span> &amp; <span className="text-[#d60b0b]">Polytechnic</span>
               </span>
             </motion.h1>
 

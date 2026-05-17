@@ -6,40 +6,106 @@ import { MousePointer2 } from "lucide-react";
 
 const SUCCESS_ITEMS = [
   {
-    image: 'https://picsum.photos/500/500?random=1',
+    image: '/images/placement/company-01.jpeg',
     link: '#',
-    title: 'Aditya Raj',
-    description: 'Placed at Google with 45 LPA package. A dream come true journey.'
+    title: 'Placement Achiever 01',
+    description: 'Company 01 - Successfully placed through Satpuda College placement drive.'
   },
   {
-    image: 'https://picsum.photos/500/500?random=2',
+    image: '/images/placement/company-02.jpeg',
     link: '#',
-    title: 'Sneha Verma',
-    description: 'Secured a role at Microsoft. Focused on Cloud Computing and AI.'
+    title: 'Placement Achiever 02',
+    description: 'Company 02 - A great career milestone achieved with college support.'
   },
   {
-    image: 'https://picsum.photos/500/500?random=3',
+    image: '/images/placement/company-03.jpeg',
     link: '#',
-    title: 'Rohan Das',
-    description: 'Joined Amazon as SDE. Mastered Data Structures at Satpuda.'
+    title: 'Placement Achiever 03',
+    description: 'Company 03 - Industry-ready skills from Satpuda engineering programs.'
   },
   {
-    image: 'https://picsum.photos/500/500?random=4',
+    image: '/images/placement/company-04.jpeg',
     link: '#',
-    title: 'Kriti Singh',
-    description: 'Placed at Meta. Expert in Frontend Engineering and UI/UX.'
+    title: 'Placement Achiever 04',
+    description: 'Company 04 - Excelling in career with Satpuda education foundation.'
   },
   {
-    image: 'https://picsum.photos/500/500?random=5',
+    image: '/images/placement/company-05.jpeg',
     link: '#',
-    title: 'Deepak Kumar',
-    description: 'Working at Netflix. Passionate about Backend Architecture.'
+    title: 'Placement Achiever 05',
+    description: 'Company 05 - Professional growth story starting from Satpuda.'
   },
   {
-    image: 'https://picsum.photos/500/500?random=6',
+    image: '/images/placement/company-06.jpeg',
     link: '#',
-    title: 'Ananya Roy',
-    description: 'Joined Adobe as Product Designer. Creative visionary from Satpuda.'
+    title: 'Placement Achiever 06',
+    description: 'Company 06 - Success achieved through dedicated training and mentorship.'
+  },
+  {
+    image: '/images/placement/company-07.jpeg',
+    link: '#',
+    title: 'Placement Achiever 07',
+    description: 'Company 07 - Thriving in role with skills learned at Satpuda.'
+  },
+  {
+    image: '/images/placement/company-08.jpeg',
+    link: '#',
+    title: 'Placement Achiever 08',
+    description: 'Company 08 - Career launched successfully post-graduation.'
+  },
+  {
+    image: '/images/placement/company-09.jpeg',
+    link: '#',
+    title: 'Placement Achiever 09',
+    description: 'Company 09 - Making impact in the industry as Satpuda alumnus.'
+  },
+  {
+    image: '/images/placement/company-10.jpeg',
+    link: '#',
+    title: 'Placement Achiever 10',
+    description: 'Company 10 - Realizing dreams with quality education from Satpuda.'
+  },
+  {
+    image: '/images/placement/company-11.jpeg',
+    link: '#',
+    title: 'Placement Achiever 11',
+    description: 'Company 11 - Excellence in career with Satpuda foundation.'
+  },
+  {
+    image: '/images/placement/company-12.jpeg',
+    link: '#',
+    title: 'Placement Achiever 12',
+    description: 'Company 12 - Success story of dedication and quality learning.'
+  },
+  {
+    image: '/images/placement/company-13.jpeg',
+    link: '#',
+    title: 'Placement Achiever 13',
+    description: 'Company 13 - Building successful career with industry exposure.'
+  },
+  {
+    image: '/images/placement/company-14.jpeg',
+    link: '#',
+    title: 'Placement Achiever 14',
+    description: 'Company 14 - Professional excellence achieved at Satpuda.'
+  },
+  {
+    image: '/images/placement/company-15.jpeg',
+    link: '#',
+    title: 'Placement Achiever 15',
+    description: 'Company 15 - Career advancement through quality education.'
+  },
+  {
+    image: '/images/placement/company-16.jpeg',
+    link: '#',
+    title: 'Placement Achiever 16',
+    description: 'Company 16 - Success milestone with Satpuda engineering programs.'
+  },
+  {
+    image: '/images/placement/company-17.jpeg',
+    link: '#',
+    title: 'Placement Achiever 17',
+    description: 'Company 17 - Living the dream career journey from Satpuda College.'
   }
 ];
 

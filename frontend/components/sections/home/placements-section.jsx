@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Button } from "../../ui/button";
 import { Trophy, Users, Building2, Star, ArrowRight } from "lucide-react";
+import { SectionHeading } from "./section-heading.jsx";
 
 export function PlacementsSection() {
   const stats = [
@@ -40,7 +41,7 @@ export function PlacementsSection() {
   };
 
   return (
-    <section className="py-24 bg-background overflow-hidden">
+    <section className="bg-background overflow-hidden py-16 sm:py-18 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center"
@@ -51,19 +52,14 @@ export function PlacementsSection() {
         >
           {/* Left Content */}
           <div className="order-2 lg:order-1">
-            <motion.span variants={itemVariants} className="inline-block text-sm font-semibold text-accent uppercase tracking-[0.2em] mb-4">
-              Our Achievements
-            </motion.span>
-            
-            <motion.h2 variants={itemVariants} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-8 text-balance leading-[1.1] tracking-tight">
-              Record Breaking <br />
-              <span className="text-foreground/40">Placements</span>
-            </motion.h2>
-
-            <motion.p variants={itemVariants} className="text-muted-foreground leading-relaxed mb-12 text-lg max-w-xl">
-              Take the first step towards a successful career with Satpuda College. Our institution is dedicated to nurturing young minds through 
-              world-class education and industry-oriented training.
-            </motion.p>
+            <SectionHeading
+              align="left"
+              eyebrow="Our Achievements"
+              title="Record Breaking Placements"
+              description="Take the first step towards a successful career with Satpuda College. Our institution is dedicated to nurturing young minds through world-class education and industry-oriented training."
+              className="mb-10 mx-0"
+              highlights={['Record Breaking', 'Placements']}
+            />
 
             <div className="grid grid-cols-2 gap-4 mb-10">
               {stats.map((stat, index) => (
@@ -84,7 +80,7 @@ export function PlacementsSection() {
             </div>
 
             <motion.div variants={itemVariants}>
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground h-16 px-10 rounded-2xl text-lg font-bold shadow-2xl transition-all duration-500 hover:translate-y-[-4px]">
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground h-16 px-10 rounded-2xl text-lg font-bold shadow-2xl transition-all duration-500 hover:-translate-y-1">
                 Call for Admission
                 <ArrowRight className="ml-3 h-5 w-5" />
               </Button>
@@ -92,11 +88,11 @@ export function PlacementsSection() {
           </div>
 
           {/* Right - Orbiting Logos */}
-          <div className="relative flex items-center justify-center order-1 lg:order-2 py-20 lg:py-0">
+          <div className="relative flex items-center justify-center order-1 py-12 lg:order-2 lg:py-0">
             
             {/* Animated Orbit Rings */}
             <motion.div 
-              className="relative w-80 h-80 lg:w-[450px] lg:h-[450px] flex items-center justify-center"
+              className="relative w-80 h-80 lg:w-112.5 lg:h-112.5 flex items-center justify-center"
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
@@ -119,11 +115,11 @@ export function PlacementsSection() {
                       key={company.name} 
                       className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                       style={{ 
-                        transform: `rotate(${angle}deg) translate(${typeof window !== 'undefined' && window.innerWidth > 1024 ? 225 : 160}px) rotate(-${angle}deg)` 
+                        transform: `rotate(${angle}deg) translate(${typeof window !== 'undefined' && window.innerWidth > 1024 ? 250 : 180}px) rotate(-${angle}deg)` 
                       }}
                     >
                       <motion.div 
-                        className="w-14 h-14 lg:w-20 lg:h-20 bg-white rounded-full border border-border shadow-2xl flex items-center justify-center p-3 lg:p-4 hover:border-primary/50 transition-all duration-300 group overflow-hidden"
+                        className="w-16 h-16 lg:w-24 lg:h-24 bg-white rounded-full border border-border shadow-2xl flex items-center justify-center p-3.5 lg:p-5 hover:border-primary/50 transition-all duration-300 group overflow-hidden"
                         animate={{ rotate: -360 }}
                         transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
                       >

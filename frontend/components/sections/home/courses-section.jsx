@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Monitor, Mountain, Building2, Cog, Zap, ArrowRight, Clock, Users, Sparkles } from "lucide-react";
 import Magnetic from "../../bits/magnetic.jsx";
+import { SectionHeading } from "./section-heading.jsx";
 const programs = [
     {
         id: "cse",
@@ -19,8 +20,8 @@ const programs = [
         diplomaHighlights: ["Programming Basics", "Web Development", "Hardware & Networking", "Database Management"],
         duration: "4 Years",
         seats: 120,
-        image: "/images/hero-2.jpg",
-        diplomaImage: "/images/hero-3.jpg"
+        image: "/images/courses/Btech CSE.jpeg",
+        diplomaImage: "/images/courses/Btech CSE.jpeg"
     },
     {
         id: "mining",
@@ -37,8 +38,8 @@ const programs = [
         diplomaHighlights: ["Mine Surveying", "Surface Mining", "Geology Basics", "Mine Safety"],
         duration: "4 Years",
         seats: 60,
-        image: "/images/hero-1.jpg",
-        diplomaImage: "/images/hero-4.jpg"
+        image: "/images/courses/Btech mining.jpeg",
+        diplomaImage: "/images/courses/Btech mining.jpeg"
     },
     {
         id: "civil",
@@ -55,8 +56,8 @@ const programs = [
         diplomaHighlights: ["Surveying", "Construction Tech", "Civil Drafting", "Building Materials"],
         duration: "4 Years",
         seats: 60,
-        image: "/images/hero-1.jpg",
-        diplomaImage: "/images/hero-5.jpg"
+        image: "/images/courses/Btech Civil.jpeg",
+        diplomaImage: "/images/courses/Btech Civil.jpeg"
     },
     {
         id: "mechanical",
@@ -73,8 +74,8 @@ const programs = [
         diplomaHighlights: ["Machine Operation", "Manufacturing", "Maintenance", "AutoCAD Basics"],
         duration: "4 Years",
         seats: 60,
-        image: "/images/hero-5.jpg",
-        diplomaImage: "/images/hero-1.jpg"
+        image: "/images/courses/Btech mechanical.jpeg",
+        diplomaImage: "/images/courses/Btech mechanical.jpeg"
     },
     {
         id: "electrical",
@@ -91,8 +92,8 @@ const programs = [
         diplomaHighlights: ["Circuit Wiring", "Equipment Maintenance", "Power Systems", "Electrical Safety"],
         duration: "4 Years",
         seats: 60,
-        image: "/images/hero-2.jpg",
-        diplomaImage: "/images/hero-4.jpg"
+        image: "/images/courses/Btech electrician.jpeg",
+        diplomaImage: "/images/courses/Btech electrician.jpeg"
     },
 ];
 export function CoursesSection() {
@@ -125,22 +126,22 @@ export function CoursesSection() {
       return activeDegree === "diploma" ? program.diplomaImage : program.image;
     };
 
-    return (<section className="py-24 bg-background">
+    return (<section className="bg-background py-16 sm:py-18 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 mb-6">
             <Sparkles className="h-4 w-4 text-primary"/>
             <span className="text-sm font-medium text-primary">Our Programs</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight leading-tight">
-            Wide Array of Courses
-          </h2>
-          <p className="mt-5 text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto font-normal mb-10">
-            {activeDegree === "btech" 
+          <SectionHeading
+            title="Wide Array of Courses"
+            description={activeDegree === "btech"
               ? "Comprehensive B.Tech programs designed to launch your career in engineering excellence."
               : "Industry-focused Polytechnic diploma programs providing hands-on technical skills."}
-          </p>
+            className="mb-8"
+            highlights={['Courses']}
+          />
           
           <div className="flex justify-center">
             <div className="p-1.5 rounded-2xl bg-background border border-border flex gap-2">
@@ -193,7 +194,7 @@ export function CoursesSection() {
                     <Magnetic intensity={0.2}>
                       <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 ${
                         isActive
-                          ? `bg-gradient-to-br ${program.color} text-white shadow-lg rotate-6`
+                          ? `bg-linear-to-br ${program.color} text-white shadow-lg rotate-6`
                           : `${program.bgColor} ${program.textColor} group-hover:rotate-6`
                       }`}>
                         <ProgramIcon className="h-6 w-6"/>
@@ -226,7 +227,7 @@ export function CoursesSection() {
               {/* Image Header */}
               <div className="relative h-64 overflow-hidden">
                 <img src={getProgramImage(currentProgram)} alt={getProgramName(currentProgram)} className="w-full h-full object-cover"/>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent dark:from-black/80 dark:via-black/20"/>
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent dark:from-black/80 dark:via-black/20"/>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <div className="flex items-center gap-3">
                     <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white border border-white/30">
@@ -277,7 +278,7 @@ export function CoursesSection() {
 
                 {/* CTA */}
                 <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                  <button className={`flex-1 py-3 px-6 rounded-xl bg-gradient-to-r ${currentProgram.color} text-white font-semibold hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5`}>
+                  <button className={`flex-1 py-3 px-6 rounded-xl bg-linear-to-r ${currentProgram.color} text-white font-semibold hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5`}>
                     Apply Now
                   </button>
                   <button className={`flex-1 py-3 px-6 rounded-xl border-2 ${currentProgram.borderColor} ${currentProgram.textColor} font-semibold hover:${currentProgram.bgColor} transition-all duration-300`}>

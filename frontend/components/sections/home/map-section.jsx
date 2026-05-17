@@ -3,9 +3,8 @@
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, ArrowRight, Copy, Check } from "lucide-react";
 import { useState } from "react";
-import SplitText from "../../bits/split-text.jsx";
-import BlurText from "../../bits/blur-text.jsx";
 import Magnetic from "../../bits/magnetic.jsx";
+import { SectionHeading } from "./section-heading.jsx";
 
 export function MapSection() {
   const [copied, setCopied] = useState(false);
@@ -24,7 +23,7 @@ export function MapSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-background py-16 sm:py-20 lg:py-24">
+    <section className="relative overflow-hidden bg-background py-14 sm:py-16 lg:py-18">
       {/* Background gradient blobs */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 h-100 w-100 -translate-y-1/2 translate-x-1/2 animate-pulse rounded-full bg-primary/5 blur-[120px]" />
@@ -33,23 +32,15 @@ export function MapSection() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12 text-center sm:mb-16"
-        >
-          <span className="inline-block text-primary font-semibold tracking-widest uppercase text-sm mb-4">Visit Us</span>
-          <h2 className="mb-5 text-3xl font-bold tracking-tight text-foreground sm:mb-6 sm:text-5xl lg:text-6xl">
-            <SplitText text="Find Our" delay={0.08} className="block" />
-            <SplitText text="Campus" delay={0.12} className="text-primary" />
-          </h2>
-          <div className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            <BlurText text="Located in the heart of Madhya Pradesh, our state-of-the-art campus is designed for excellence and innovation." />
-          </div>
-        </motion.div>
+        <SectionHeading
+          eyebrow="Visit Us"
+          title="Find Our Campus"
+          description="Located in the heart of Madhya Pradesh, our state-of-the-art campus is designed for excellence and innovation."
+          className="mb-10 sm:mb-12"
+          highlights={['Campus']}
+        />
 
-        <div className="mb-12 grid gap-6 sm:gap-8 lg:grid-cols-3">
+        <div className="mb-10 grid gap-6 sm:gap-8 lg:grid-cols-3">
           {/* Contact Info Cards */}
           {contactInfo.map((item, i) => (
             <motion.div
@@ -97,7 +88,7 @@ export function MapSection() {
         </motion.div>
 
         {/* Action Buttons */}
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:mt-12 sm:flex-row sm:gap-6">
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:mt-10 sm:flex-row sm:gap-6">
           <Magnetic intensity={0.2}>
             <button
               onClick={handleCopyAddress}
