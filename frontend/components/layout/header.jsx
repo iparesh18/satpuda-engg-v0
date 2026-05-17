@@ -188,7 +188,7 @@ export function Header() {
           <div className="flex items-center gap-3">
             <Link to="/admissions/admission-form">
               <Button className="hidden sm:inline-flex bg-accent hover:bg-accent/90 text-accent-foreground">
-                Register Now
+                Apply Now
               </Button>
             </Link>
             <button className="lg:hidden p-2 rounded-lg hover:bg-secondary transition-colors" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
