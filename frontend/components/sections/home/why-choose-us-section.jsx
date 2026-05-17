@@ -1,66 +1,155 @@
 "use client";
+
+import { useRef } from "react";
 import { motion } from "framer-motion";
-import { Button } from "../../ui/button";
-import { BookOpen, Briefcase, Building2, ArrowRight } from "lucide-react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Autoplay, Pagination, Keyboard, A11y } from "swiper/modules";
+import { Sparkles } from "lucide-react";
+
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+
+const slides = [
+  {
+    title: "Learning That Stays Practical",
+    image: "/images/overview/student in class.png",
+  },
+  {
+    title: "Hands-On Lab Culture",
+    image: "/images/overview/student in lab.png",
+  },
+  {
+    title: "Campus Built for Growth",
+    image: "/images/overview/campus view.png",
+  },
+  {
+    title: "Modern Campus Infrastructure",
+    image: "/images/overview/campus building.png",
+  },
+  {
+    title: "Smart Library & Study Zones",
+    image: "/images/overview/smart library.png",
+  },
+  {
+    title: "Events, Sports & College Life",
+    image: "/images/overview/sports and activity.png",
+  },
+];
 
 export function WhyChooseUsSection() {
-  const cards = [
-    {
-      icon: <BookOpen className="h-7 w-7" />,
-      title: "Academic Excellence",
-      description: "Satpuda College is committed to delivering top-notch technical education with state-of-the-art labs and experienced faculty."
-    },
-    {
-      icon: <Briefcase className="h-7 w-7" />,
-      title: "Placement Growth",
-      description: "With a dedicated Training & Placement Cell, we ensure students are industry-ready for top multinational companies."
-    },
-    {
-      icon: <Building2 className="h-7 w-7" />,
-      title: "Campus Life",
-      description: "From modern infrastructure to sports and hostel facilities, we provide a dynamic environment for development."
-    }
-  ];
-  return (<section className="py-24 bg-background">
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="text-center max-w-3xl mx-auto mb-16"
-      >
-        <span className="inline-block text-sm font-semibold text-accent uppercase tracking-[0.2em] mb-4">
-          Why Choose Us
-        </span>
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground text-balance leading-[1.1] tracking-tight">
-          Building Skills, <br />
-          <span className="text-foreground/40">Shaping Futures!</span>
-        </h2>
-      </motion.div>
+  const sectionRef = useRef(null);
 
-      <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-        {cards.map((card, index) => (<motion.div 
-          key={index} 
-          initial={{ opacity: 0, y: 30 }}
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        ".why-strip-heading",
+        { y: 18, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }
+      );
+      gsap.fromTo(
+        ".why-strip-subheading",
+        { y: 14, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, delay: 0.15, ease: "power3.out" }
+      );
+    },
+    { scope: sectionRef }
+  );
+
+  return (
+    <section ref={sectionRef} className="relative overflow-hidden bg-[#f4f9ff] py-14 sm:py-16 lg:py-18">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(2,21,69,0.08),transparent_32%),radial-gradient(circle_at_bottom,rgba(214,11,11,0.06),transparent_38%)]" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.2 }}
-          whileHover={{ y: -10 }}
-          className="group bg-card/50 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-sm border border-border hover:shadow-2xl hover:border-primary/30 transition-all duration-500"
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto mb-4 max-w-3xl text-center sm:mb-5"
         >
-          <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
-            {card.icon}
-          </div>
-          <h3 className="text-2xl font-bold text-foreground mb-4">{card.title}</h3>
-          <p className="text-muted-foreground leading-relaxed mb-8 text-sm lg:text-base">{card.description}</p>
-          <a href="#" className="inline-flex items-center gap-3 text-sm font-bold text-primary uppercase tracking-widest hover:text-accent transition-colors group/link">
-            Apply Now
-            <ArrowRight className="h-4 w-4 group-hover/link:translate-x-2 transition-transform" />
-          </a>
-        </motion.div>))}
-      </div>
-    </div>
-  </section>);
-}
+          <span className="why-strip-label inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.26em] text-primary/80">
+            <Sparkles className="h-4 w-4 text-accent" />
+            Why Students Choose Satpuda
+          </span>
 
+          <h2 className="why-strip-heading mt-2 text-3xl font-black leading-[1.02] tracking-tight text-foreground opacity-0 sm:text-5xl lg:text-6xl">
+            A visual look at the campus strengths
+          </h2>
+
+          <p className="why-strip-subheading mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground opacity-0 sm:text-base">
+            Swipe through a quick cinematic strip of the spaces and experiences that shape student life.
+          </p>
+        </motion.div>
+
+        <div className="relative rounded-4xl border border-border/60 bg-white/70 px-3 py-4 shadow-[0_30px_80px_rgba(2,21,69,0.12)] backdrop-blur-sm sm:px-4 sm:py-5 lg:rounded-[2.5rem]">
+          <Swiper
+            modules={[EffectCoverflow, Autoplay, Pagination, Keyboard, A11y]}
+            effect="coverflow"
+            centeredSlides
+            grabCursor
+            loop
+            slidesPerView="auto"
+            spaceBetween={12}
+            speed={900}
+            keyboard={{ enabled: true }}
+            autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+            pagination={{ clickable: true }}
+            coverflowEffect={{
+              rotate: 28,
+              stretch: 0,
+              depth: 180,
+              modifier: 1,
+              slideShadows: false,
+            }}
+            className="why-strip-swiper overflow-visible pb-10"
+          >
+            {slides.map((slide) => (
+              <SwiperSlide key={slide.title} style={{ width: "clamp(240px, 24vw, 340px)" }}>
+                <div className="group relative overflow-hidden rounded-3xl border border-border/70 bg-white shadow-[0_18px_50px_rgba(2,21,69,0.12)] transition-transform duration-500 hover:-translate-y-1">
+                  <div className="relative aspect-[1.22/1] overflow-hidden">
+                    <img
+                      src={slide.image}
+                      alt={slide.title}
+                      className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.08]"
+                      loading="lazy"
+                    />
+
+                    <div className="absolute inset-0 bg-linear-to-t from-black/65 via-black/18 to-transparent" />
+
+                    <div className="absolute inset-x-0 bottom-0 p-4 text-left">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/75">Satpuda</p>
+                      <h3 className="mt-1 text-base font-bold leading-tight text-white sm:text-lg">
+                        {slide.title}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+
+      <style>{`
+        .why-strip-swiper .swiper-pagination {
+          bottom: 0 !important;
+        }
+        .why-strip-swiper .swiper-pagination-bullet {
+          width: 8px;
+          height: 8px;
+          background: rgba(255, 255, 255, 0.35);
+          opacity: 1;
+          transition: all 0.25s ease;
+        }
+        .why-strip-swiper .swiper-pagination-bullet-active {
+          width: 26px;
+          border-radius: 9999px;
+          background: #d60b0b;
+        }
+      `}</style>
+    </section>
+  );
+}

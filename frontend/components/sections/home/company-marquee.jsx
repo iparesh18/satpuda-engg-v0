@@ -1,141 +1,63 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 const companies = [
-  { name: "Mahindra", logo: "/images/mahindra logo.png" },
-  { name: "Suzuki",   logo: "/images/suzuki logo.png"   },
-  { name: "Hero",     logo: "/images/Hero logo.png"     },
-  { name: "Tata",     logo: "/images/tata.png"          },
-  { name: "Apollo",   logo: "/images/apollo logo.png"   },
-  { name: "Eicher",   logo: "/images/eicher logo.png"   },
-  { name: "Volvo",    logo: "/images/volvo logo.jpg"    },
-  { name: "MRF",      logo: "/images/mrf.png"           },
+  { name: "Tata", src: "/images/tata.png" },
+  { name: "Mahindra", src: "/images/mahindra logo.png" },
+  { name: "Volvo", src: "/images/volvo logo.jpg" },
+  { name: "Eicher", src: "/images/eicher logo.png" },
+  { name: "Suzuki", src: "/images/suzuki logo.png" },
+  { name: "Apollo", src: "/images/apollo logo.png" },
+  { name: "MRF", src: "/images/mrf.png" },
 ];
 
-// Duplicate for seamless infinite loop
-const items = [...companies, ...companies];
+const marqueeTrack = [...companies, ...companies];
 
 export function CompanyMarquee() {
   return (
-    <section className="company-marquee-section">
-      {/* Label — matches site-wide section heading style */}
-      <div className="company-marquee-header">
-        <span className="company-marquee-label">Our Recruiters</span>
-      </div>
+    <section className="bg-white py-8 sm:py-10">
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className="w-full px-4 sm:px-6 lg:px-8"
+      >
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Recruiters & Partners</p>
+        <h2 className="mt-2 text-xl font-extrabold tracking-tight text-foreground sm:text-2xl">
+          Companies Our Students Connect With
+        </h2>
+      </motion.div>
 
-      <div className="company-marquee-track-wrapper">
-        {/* Soft fade edges */}
-        <div className="company-marquee-fade-left"  />
-        <div className="company-marquee-fade-right" />
+      <div className="relative mt-5 w-full overflow-hidden py-2">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-linear-to-r from-white to-transparent sm:w-28" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-linear-to-l from-white to-transparent sm:w-28" />
 
-        <div className="company-marquee-track">
-          {items.map((company, i) => (
-            <div key={`${company.name}-${i}`} className="company-marquee-item">
+        <div className="overflow-hidden">
+          <div
+            className="flex w-max items-center gap-10 sm:gap-14"
+            style={{ animation: "company-marquee 28s linear infinite" }}
+          >
+            {marqueeTrack.map((company, index) => (
               <img
-                src={company.logo}
+                key={`${company.name}-${index}`}
+                src={company.src}
                 alt={company.name}
-                className="company-marquee-logo"
-                draggable={false}
+                className="h-10 w-auto max-w-36 flex-none object-contain grayscale transition-all duration-300 hover:grayscale-0 sm:h-12 sm:max-w-44"
+                loading="lazy"
               />
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
+        <style>{`
+          @keyframes company-marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+        `}</style>
       </div>
-
-      <style>{`
-        .company-marquee-section {
-          padding: 3rem 0 3.5rem;
-          background: var(--background);
-          overflow: hidden;
-        }
-
-        /* ── Label — mirrors "Our Achievements", "About Our Institution" style ── */
-        .company-marquee-header {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 2rem;
-        }
-
-        .company-marquee-label {
-          font-size: 0.875rem;      /* text-sm */
-          font-weight: 600;         /* font-semibold */
-          color: var(--accent);     /* text-accent */
-          text-transform: uppercase;
-          letter-spacing: 0.2em;   /* tracking-[0.2em] */
-          white-space: nowrap;
-        }
-
-        /* ── Scrolling track ── */
-        .company-marquee-track-wrapper {
-          position: relative;
-          width: 100%;
-          overflow: hidden;
-        }
-
-        .company-marquee-fade-left,
-        .company-marquee-fade-right {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          width: 120px;
-          z-index: 2;
-          pointer-events: none;
-        }
-        .company-marquee-fade-left  { left:  0; background: linear-gradient(to right, var(--background), transparent); }
-        .company-marquee-fade-right { right: 0; background: linear-gradient(to left,  var(--background), transparent); }
-
-        .company-marquee-track {
-          display: flex;
-          align-items: center;
-          gap: 3rem;
-          width: max-content;
-          animation: marquee-scroll 30s linear infinite;
-        }
-
-        .company-marquee-track:hover {
-          animation-play-state: paused;
-        }
-
-        /* No borders, no background card — just the logo */
-        .company-marquee-item {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          width: 140px;
-          height: 80px;
-          padding: 8px;
-          transition: transform 0.3s ease;
-        }
-
-        .company-marquee-item:hover {
-          transform: translateY(-4px);
-        }
-
-        .company-marquee-logo {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          filter: grayscale(100%);
-          opacity: 0.55;
-          transition: filter 0.35s ease, opacity 0.35s ease;
-          user-select: none;
-        }
-
-        .company-marquee-item:hover .company-marquee-logo {
-          filter: grayscale(0%);
-          opacity: 1;
-        }
-
-        @keyframes marquee-scroll {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .company-marquee-track { animation: none; }
-        }
-      `}</style>
     </section>
   );
 }
