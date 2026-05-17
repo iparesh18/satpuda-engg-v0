@@ -14,10 +14,13 @@ const programs = [
         textColor: "text-blue-500",
         borderColor: "border-blue-500/20",
         description: "Master programming, AI, machine learning, and cloud computing. Build the digital future with cutting-edge software development skills.",
+        diplomaDescription: "Build a strong foundation in computer programming, web technologies, and software development for fast entry into IT roles.",
         highlights: ["AI & Machine Learning", "Full Stack Development", "Cybersecurity", "Cloud Computing"],
+        diplomaHighlights: ["Programming Basics", "Web Development", "Hardware & Networking", "Database Management"],
         duration: "4 Years",
         seats: 120,
-        image: "/images/hero-2.jpg"
+        image: "/images/hero-2.jpg",
+        diplomaImage: "/images/hero-3.jpg"
     },
     {
         id: "mining",
@@ -29,10 +32,13 @@ const programs = [
         textColor: "text-amber-500",
         borderColor: "border-amber-500/20",
         description: "Learn sustainable extraction techniques, mine planning, and environmental management for the mining industry.",
+        diplomaDescription: "Gain practical skills in mine surveying, extraction methods, and basic geology for a successful career in mining operations.",
         highlights: ["Mine Planning", "Mineral Processing", "Safety Management", "Geo-Exploration"],
+        diplomaHighlights: ["Mine Surveying", "Surface Mining", "Geology Basics", "Mine Safety"],
         duration: "4 Years",
         seats: 60,
-        image: "/images/hero-1.jpg"
+        image: "/images/hero-1.jpg",
+        diplomaImage: "/images/hero-4.jpg"
     },
     {
         id: "civil",
@@ -44,10 +50,13 @@ const programs = [
         textColor: "text-emerald-500",
         borderColor: "border-emerald-500/20",
         description: "Design and build infrastructure that shapes cities. Master structural analysis, construction, and sustainable development.",
+        diplomaDescription: "Learn the fundamentals of construction technology, surveying, and civil drafting to assist in infrastructure projects.",
         highlights: ["Structural Design", "Construction Tech", "Urban Planning", "Green Building"],
+        diplomaHighlights: ["Surveying", "Construction Tech", "Civil Drafting", "Building Materials"],
         duration: "4 Years",
         seats: 60,
-        image: "/images/hero-1.jpg"
+        image: "/images/hero-1.jpg",
+        diplomaImage: "/images/hero-5.jpg"
     },
     {
         id: "mechanical",
@@ -59,10 +68,13 @@ const programs = [
         textColor: "text-rose-500",
         borderColor: "border-rose-500/20",
         description: "From robotics to manufacturing, explore thermodynamics, automation, and product design for modern industries.",
+        diplomaDescription: "Acquire hands-on training in machine operation, basic manufacturing processes, and mechanical maintenance.",
         highlights: ["Robotics", "CAD/CAM", "Automation", "Thermal Systems"],
+        diplomaHighlights: ["Machine Operation", "Manufacturing", "Maintenance", "AutoCAD Basics"],
         duration: "4 Years",
         seats: 60,
-        image: "/images/hero-5.jpg"
+        image: "/images/hero-5.jpg",
+        diplomaImage: "/images/hero-1.jpg"
     },
     {
         id: "electrical",
@@ -74,16 +86,45 @@ const programs = [
         textColor: "text-violet-500",
         borderColor: "border-violet-500/20",
         description: "Power the future with expertise in electrical systems, renewable energy, and smart grid technologies.",
+        diplomaDescription: "Develop essential skills in electrical circuit wiring, equipment maintenance, and basic power systems.",
         highlights: ["Power Systems", "Renewable Energy", "IoT", "Smart Grids"],
+        diplomaHighlights: ["Circuit Wiring", "Equipment Maintenance", "Power Systems", "Electrical Safety"],
         duration: "4 Years",
         seats: 60,
-        image: "/images/hero-2.jpg"
+        image: "/images/hero-2.jpg",
+        diplomaImage: "/images/hero-4.jpg"
     },
 ];
 export function CoursesSection() {
     const [activeProgram, setActiveProgram] = useState(0);
+    const [activeDegree, setActiveDegree] = useState("btech");
+    
     const currentProgram = programs[activeProgram];
     const Icon = currentProgram.icon;
+
+    const getProgramName = (program) => {
+      if (activeDegree === "diploma" && program.id === "mining") {
+        return "Mining and Mine Surveying";
+      }
+      return program.name;
+    };
+
+    const getProgramDuration = (program) => {
+      return activeDegree === "diploma" ? "3 Years" : program.duration;
+    };
+
+    const getProgramDescription = (program) => {
+      return activeDegree === "diploma" ? program.diplomaDescription : program.description;
+    };
+
+    const getProgramHighlights = (program) => {
+      return activeDegree === "diploma" ? program.diplomaHighlights : program.highlights;
+    };
+
+    const getProgramImage = (program) => {
+      return activeDegree === "diploma" ? program.diplomaImage : program.image;
+    };
+
     return (<section className="py-24 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -95,9 +136,36 @@ export function CoursesSection() {
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight leading-tight">
             Wide Array of Courses
           </h2>
-          <p className="mt-5 text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto font-normal">
-            B.Tech and Polytechnic programs designed to launch your career in engineering excellence
+          <p className="mt-5 text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto font-normal mb-10">
+            {activeDegree === "btech" 
+              ? "Comprehensive B.Tech programs designed to launch your career in engineering excellence."
+              : "Industry-focused Polytechnic diploma programs providing hands-on technical skills."}
           </p>
+          
+          <div className="flex justify-center">
+            <div className="p-1.5 rounded-2xl bg-background border border-border flex gap-2">
+              <button
+                onClick={() => setActiveDegree("btech")}
+                className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  activeDegree === "btech" 
+                  ? "bg-primary text-white shadow-lg shadow-primary/20" 
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                }`}
+              >
+                B.Tech Programs
+              </button>
+              <button
+                onClick={() => setActiveDegree("diploma")}
+                className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  activeDegree === "diploma" 
+                  ? "bg-primary text-white shadow-lg shadow-primary/20" 
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                }`}
+              >
+                Diploma Programs
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Main Content Grid */}
@@ -133,9 +201,9 @@ export function CoursesSection() {
                     </Magnetic>
                     <div className="flex-1 min-w-0">
                       <h3 className={`text-lg font-bold transition-colors ${isActive ? "text-primary" : "text-foreground/60 group-hover:text-primary"}`}>
-                        {program.name}
+                        {getProgramName(program)}
                       </h3>
-                      <p className={`text-sm ${isActive ? "text-primary/70" : "text-muted-foreground"}`}>{program.duration} Program</p>
+                      <p className={`text-sm ${isActive ? "text-primary/70" : "text-muted-foreground"}`}>{getProgramDuration(program)} Program</p>
                     </div>
                     <ArrowRight className={`h-5 w-5 transition-all duration-500 ${isActive
                       ? `text-primary translate-x-0 opacity-100`
@@ -157,7 +225,7 @@ export function CoursesSection() {
             >
               {/* Image Header */}
               <div className="relative h-64 overflow-hidden">
-                <img src={currentProgram.image} alt={currentProgram.name} className="w-full h-full object-cover"/>
+                <img src={getProgramImage(currentProgram)} alt={getProgramName(currentProgram)} className="w-full h-full object-cover"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent dark:from-black/80 dark:via-black/20"/>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <div className="flex items-center gap-3">
@@ -166,7 +234,7 @@ export function CoursesSection() {
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-white">
-                        {currentProgram.name}
+                        {getProgramName(currentProgram)}
                       </h3>
                       <p className="text-white/80">Department</p>
                     </div>
@@ -177,12 +245,12 @@ export function CoursesSection() {
               {/* Content */}
               <div className="p-6 md:p-8">
                 <p className="text-foreground/90 leading-relaxed text-lg font-medium">
-                  {currentProgram.description}
+                  {getProgramDescription(currentProgram)}
                 </p>
 
                 {/* Highlights Grid */}
                 <div className="mt-6 grid grid-cols-2 gap-3">
-                  {currentProgram.highlights.map((highlight, index) => (<div key={index} className={`flex items-center gap-3 p-3 rounded-xl ${currentProgram.bgColor} border ${currentProgram.borderColor}`}>
+                  {getProgramHighlights(currentProgram).map((highlight, index) => (<div key={index} className={`flex items-center gap-3 p-3 rounded-xl ${currentProgram.bgColor} border ${currentProgram.borderColor}`}>
                       <div className={`w-2 h-2 rounded-full bg-blue-600`}/>
                       <span className="text-sm font-semibold text-foreground">{highlight}</span>
                     </div>))}
@@ -194,7 +262,7 @@ export function CoursesSection() {
                     <Clock className={`h-5 w-5 text-blue-600`}/>
                     <div>
                       <p className="text-xs text-muted-foreground">Duration</p>
-                      <p className="font-bold text-foreground">{currentProgram.duration}</p>
+                      <p className="font-bold text-foreground">{getProgramDuration(currentProgram)}</p>
                     </div>
                   </div>
                   <div className="w-px h-10 bg-slate-200"/>
