@@ -1,7 +1,10 @@
 import { Header, HeroSection, StatsBar, AboutSection, GateAchieversSection, CoursesSection, BlueInfoMarqueeSection, WhyChooseUsSection, PlacementsSection, CompanyMarquee, RedInfoMarqueeSection, DomeGallerySection, TestimonialsSection, CTASection, MapSection, Footer } from "../../index.js";
+import { ReloadContactPopup } from "../../sections/home/reload-contact-popup.jsx";
 
 export default function HomePage() {
     return (<main className="min-h-screen">
+  <ReloadContactPopup />
+
       {/* 1. Header & Hero */}
       <Header />
       <HeroSection />
