@@ -22,7 +22,7 @@ export function CompanyMarquee() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full px-4 sm:px-6 lg:px-8"
+        className="w-full px-4 sm:px-6 lg:px-8 text-center"
       >
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Recruiters & Partners</p>
         <h2 className="mt-2 text-xl font-extrabold tracking-tight text-foreground sm:text-2xl">
@@ -35,28 +35,26 @@ export function CompanyMarquee() {
         <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-linear-to-l from-white to-transparent sm:w-28" />
 
         <div className="overflow-hidden">
-          <div
-            className="flex w-max items-center gap-10 sm:gap-14"
-            style={{ animation: "company-marquee 28s linear infinite" }}
+          <motion.div
+            className="flex w-max items-center will-change-transform"
+            animate={{ x: ["0%", "-25%"] }}
+            transition={{ repeat: Infinity, ease: "linear", duration: 28 }}
           >
-            {marqueeTrack.map((company, index) => (
-              <img
-                key={`${company.name}-${index}`}
-                src={company.src}
-                alt={company.name}
-                className="h-10 w-auto max-w-36 flex-none object-contain grayscale transition-all duration-300 hover:grayscale-0 sm:h-12 sm:max-w-44"
-                loading="lazy"
-              />
+            {[...Array(4)].map((_, index) => (
+              <div key={index} className="flex items-center gap-10 sm:gap-14 pr-10 sm:pr-14" aria-hidden={index !== 0 ? "true" : undefined}>
+                {companies.map((company) => (
+                  <img
+                    key={`${company.name}-${index}`}
+                    src={company.src}
+                    alt={company.name}
+                    className="h-10 w-auto max-w-36 flex-none object-contain sm:h-12 sm:max-w-44"
+                    loading="lazy"
+                  />
+                ))}
+              </div>
             ))}
-          </div>
+          </motion.div>
         </div>
-
-        <style>{`
-          @keyframes company-marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-        `}</style>
       </div>
     </section>
   );

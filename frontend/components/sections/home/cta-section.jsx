@@ -1,8 +1,8 @@
 "use client";
-import { Button } from "../../ui/button";
-import { ArrowRight, Newspaper } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Newspaper } from "lucide-react";
+import { Button } from "../../ui/button";
 import Magnetic from "../../bits/magnetic.jsx";
 import ShinyText from "../../bits/shiny-text.jsx";
 
@@ -68,6 +68,3 @@ export function CTASection() {
     </section>
   );
 }
-
-
-
