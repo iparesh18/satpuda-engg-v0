@@ -1,166 +1,30 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Quote, Star, TrendingUp, Sparkles, ArrowRight } from "lucide-react";
+import { Quote, Star, TrendingUp, Sparkles, ArrowRight, BadgeCheck, Briefcase, Calendar } from "lucide-react";
 import ShinyText from "../../bits/shiny-text.jsx";
 import SpotlightCard from "../../bits/spotlight-card.jsx";
 import Magnetic from "../../bits/magnetic.jsx";
 import BlurText from "../../bits/blur-text.jsx";
 
 const SUCCESS_STORIES = [
-  {
-    name: "Placement Achiever 01",
-    package: "Company 01",
-    photo: "/images/placement/company-01.jpeg",
-    doubt: "Aspiring young professional",
-    confidence: "Successfully Placed",
-    quote: "Grateful for the exceptional training and mentorship that shaped my career at Satpuda College.",
-    color: "from-blue-500/10 to-blue-600/10"
-  },
-  {
-    name: "Placement Achiever 02",
-    package: "Company 02",
-    photo: "/images/placement/company-02.jpeg",
-    doubt: "Dedicated student",
-    confidence: "Industry Ready",
-    quote: "The hands-on projects and industry exposure prepared me perfectly for my role.",
-    color: "from-purple-500/10 to-purple-600/10"
-  },
-  {
-    name: "Placement Achiever 03",
-    package: "Company 03",
-    photo: "/images/placement/company-03.jpeg",
-    doubt: "Hard-working scholar",
-    confidence: "Career Launched",
-    quote: "Satpuda's focus on both technical and soft skills made all the difference in my success.",
-    color: "from-orange-500/10 to-orange-600/10"
-  },
-  {
-    name: "Placement Achiever 04",
-    package: "Company 04",
-    photo: "/images/placement/company-04.jpeg",
-    doubt: "Passionate learner",
-    confidence: "Dream Achieved",
-    quote: "The faculty's dedication and the college's network opened doors I didn't know existed.",
-    color: "from-pink-500/10 to-rose-600/10"
-  },
-  {
-    name: "Placement Achiever 05",
-    package: "Company 05",
-    photo: "/images/placement/company-05.jpeg",
-    doubt: "Ambitious engineer",
-    confidence: "Goal Accomplished",
-    quote: "Every class, every project, every mentor interaction was a stepping stone to my success.",
-    color: "from-green-500/10 to-green-600/10"
-  },
-  {
-    name: "Placement Achiever 06",
-    package: "Company 06",
-    photo: "/images/placement/company-06.jpeg",
-    doubt: "Determined student",
-    confidence: "Professional Growth",
-    quote: "The curriculum balanced theory with real-world applications, making me job-ready.",
-    color: "from-red-500/10 to-red-600/10"
-  },
-  {
-    name: "Placement Achiever 07",
-    package: "Company 07",
-    photo: "/images/placement/company-07.jpeg",
-    doubt: "Driven individual",
-    confidence: "Career Success",
-    quote: "I credit my placement success to Satpuda's rigorous training and ethical values.",
-    color: "from-yellow-500/10 to-yellow-600/10"
-  },
-  {
-    name: "Placement Achiever 08",
-    package: "Company 08",
-    photo: "/images/placement/company-08.jpeg",
-    doubt: "Committed scholar",
-    confidence: "Dreams Realized",
-    quote: "The mentorship and guidance I received transformed me into a confident professional.",
-    color: "from-indigo-500/10 to-indigo-600/10"
-  },
-  {
-    name: "Placement Achiever 09",
-    package: "Company 09",
-    photo: "/images/placement/company-09.jpeg",
-    doubt: "Passionate engineer",
-    confidence: "Milestone Reached",
-    quote: "Satpuda's industry connections and internship programs were game-changers for me.",
-    color: "from-cyan-500/10 to-cyan-600/10"
-  },
-  {
-    name: "Placement Achiever 10",
-    package: "Company 10",
-    photo: "/images/placement/company-10.jpeg",
-    doubt: "Focused professional",
-    confidence: "Opportunity Seized",
-    quote: "The college's placement cell's support and guidance made the journey smooth.",
-    color: "from-teal-500/10 to-teal-600/10"
-  },
-  {
-    name: "Placement Achiever 11",
-    package: "Company 11",
-    photo: "/images/placement/company-11.jpeg",
-    doubt: "Motivated learner",
-    confidence: "Success Achieved",
-    quote: "Every skill I needed for my job, I learned and perfected at Satpuda.",
-    color: "from-lime-500/10 to-lime-600/10"
-  },
-  {
-    name: "Placement Achiever 12",
-    package: "Company 12",
-    photo: "/images/placement/company-12.jpeg",
-    doubt: "Diligent student",
-    confidence: "Goals Surpassed",
-    quote: "The college's emphasis on innovation and practical learning set me apart.",
-    color: "from-sky-500/10 to-sky-600/10"
-  },
-  {
-    name: "Placement Achiever 13",
-    package: "Company 13",
-    photo: "/images/placement/company-13.jpeg",
-    doubt: "Dedicated professional",
-    confidence: "Career Established",
-    quote: "I'm grateful for the holistic development approach that Satpuda provides.",
-    color: "from-violet-500/10 to-violet-600/10"
-  },
-  {
-    name: "Placement Achiever 14",
-    package: "Company 14",
-    photo: "/images/placement/company-14.jpeg",
-    doubt: "Hard-working achiever",
-    confidence: "Milestone Crossed",
-    quote: "The peer learning and collaborative environment at Satpuda accelerated my growth.",
-    color: "from-fuchsia-500/10 to-fuchsia-600/10"
-  },
-  {
-    name: "Placement Achiever 15",
-    package: "Company 15",
-    photo: "/images/placement/company-15.jpeg",
-    doubt: "Aspiring expert",
-    confidence: "Excellence Attained",
-    quote: "Satpuda's reputation is well-deserved; the education quality is outstanding.",
-    color: "from-amber-500/10 to-amber-600/10"
-  },
-  {
-    name: "Placement Achiever 16",
-    package: "Company 16",
-    photo: "/images/placement/company-16.jpeg",
-    doubt: "Passionate technologist",
-    confidence: "Future Ready",
-    quote: "The college prepared me not just for a job, but for a fulfilling career.",
-    color: "from-rose-500/10 to-rose-600/10"
-  },
-  {
-    name: "Placement Achiever 17",
-    package: "Company 17",
-    photo: "/images/placement/company-17.jpeg",
-    doubt: "Committed graduate",
-    confidence: "Dream Position",
-    quote: "I recommend Satpuda to any student seeking quality education and placements.",
-    color: "from-slate-500/10 to-slate-600/10"
-  }
+  { name: "DEWANG MALEWAR", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-01.jpeg", package: "4.0 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/first step innovation.png" },
+  { name: "VISHAKHA BAGHELE", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-02.jpeg", package: "4.0 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/first step innovation.png" },
+  { name: "PREKSHA DWIVEDI", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-03.jpeg", package: "4.0 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/first step innovation.png" },
+  { name: "ANKUSH NANDAGOULI", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-04.jpeg", package: "4.0 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/first step innovation.png" },
+  { name: "RAJNEESH ASHWALE", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-05.jpeg", package: "4.0 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/first step innovation.png" },
+  { name: "ABHISHEK MANESHWAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-06.jpeg", package: "3.25 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.png" },
+  { name: "RANVEER SHARMA", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-07.jpeg", package: "5.5 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/lloyds-metals.jpg" },
+  { name: "HARSHIT SELOKAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-08.jpeg", package: "3.25 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/gr infraproject ltd.png" },
+  { name: "ANKIT BANDHE", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-09.jpeg", package: "3.7 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/lloyds-metals.jpg" },
+  { name: "HIMANSHU DORAS", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-10.jpeg", package: "3.25 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/gr infraproject ltd.png" },
+  { name: "DISHANT THAKRE", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-11.jpeg", package: "3.7 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/lloyds-metals.jpg" },
+  { name: "OM DUBEY", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-12.jpeg", package: "3.25 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.png" },
+  { name: "VINENDRA PAGARWAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-13.jpeg", package: "3.25 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/gr infraproject ltd.png" },
+  { name: "DIPANSHU", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-14.jpeg", package: "3.7 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/lloyds-metals.jpg" },
+  { name: "NAVEEN GAJBHIYE", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-15.jpeg", package: "3.25 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.png" },
+  { name: "VIJESH KUMAR", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-16.jpeg", package: "3.7 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/lloyds-metals.jpg" },
+  { name: "ADNAN KHAN", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-17.jpeg", package: "3.7 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/lloyds-metals.jpg" }
 ];
 
 export function StudentSuccessSection() {
@@ -176,19 +40,21 @@ export function StudentSuccessSection() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto"
         >
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-primary/40" />
-            <ShinyText text="ALUMNI IMPACT" speed={3} color="#d60b0b" className="text-xs font-bold tracking-[0.4em] uppercase text-primary/80" />
-            <div className="w-12 h-px bg-primary/40" />
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+            <span className="text-sm font-bold tracking-[0.2em] uppercase text-blue-600">SUCCESS STORIES</span>
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-600" />
           </div>
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-none mb-8">
-            Where <span className="text-primary italic">Futures</span> Get Hired
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-4 text-gray-900 dark:text-white">
+            From Campus To <span className="text-blue-600 relative inline-block">Careers
+              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 20" preserveAspectRatio="none">
+                <path d="M0 15 Q 50 0 100 15" fill="transparent" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+              </svg>
+            </span>
           </h2>
-          <BlurText
-            text="Cinematic transformation stories of our alumni who evolved from students to industry leaders at global giants."
-            className="text-muted-foreground text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed"
-            delay={0.04}
-          />
+          <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl font-medium">
+            Real students. Real struggles. Real success.
+          </p>
         </motion.div>
       </div>
 
@@ -205,61 +71,60 @@ export function StudentSuccessSection() {
                 key={index} 
                 className={`flex-shrink-0 px-4 transition-all duration-700 ${
                   hoveredIndex !== null && hoveredIndex !== index 
-                    ? "blur-md opacity-30 scale-95" 
+                    ? "blur-sm opacity-50 scale-95" 
                     : "blur-0 opacity-100 scale-100"
                 }`}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                <Magnetic intensity={0.1}>
-                  <SpotlightCard className={`w-[320px] md:w-[450px] h-[500px] md:h-[550px] p-8 md:p-10 rounded-[2.5rem] md:rounded-[3.5rem] border border-border/40 bg-linear-to-br ${story.color} backdrop-blur-2xl transition-all duration-700 relative flex flex-col group/card`}>
-                    
-                    <div className="absolute top-8 right-10 opacity-10 group-hover/card:opacity-20 transition-opacity">
-                      <Quote className="w-12 h-12" />
+                <div className={`w-[350px] md:w-[400px] h-auto p-0 rounded-[2rem] overflow-hidden bg-white shadow-xl flex flex-col group border-b-4 ${story.borderColor} transition-transform duration-500 hover:-translate-y-2`}>
+                  {/* Top Image Part */}
+                  <div className="relative h-[250px] md:h-[280px] w-full bg-gray-100">
+                    <img src={story.photo} alt={story.name} className="w-full h-full object-cover object-[50%_15%]" />
+                  </div>
+
+                  {/* Bottom White Part */}
+                  <div className="relative bg-white pt-10 pb-6 px-6 flex-grow flex flex-col">
+                    {/* Company Logo Floating */}
+                    <div className="absolute -top-8 left-6 w-16 h-16 bg-white rounded-xl shadow-lg border border-gray-100 flex items-center justify-center p-2 z-10 overflow-hidden">
+                      <img src={story.logo} alt={story.company} className="w-full h-full object-contain" />
                     </div>
 
-                    <div className="flex items-center gap-5 mb-8 md:mb-10">
-                      <div className="relative">
-                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden border-2 border-primary/20 group-hover/card:border-primary/50 transition-colors">
-                          <img src={story.photo} alt={story.name} className="w-full h-full object-cover" />
-                        </div>
-                        <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-lg bg-accent text-accent-foreground flex items-center justify-center shadow-lg">
-                          <Star className="w-4 h-4 fill-current" />
-                        </div>
+                    {/* Name & Company */}
+                    <div className="mb-6 pl-[88px]">
+                      <div className="flex items-center gap-1.5 mb-1">
+                        <h4 className="text-xl font-bold text-gray-900 leading-none truncate">{story.name}</h4>
+                        <BadgeCheck className="w-5 h-5 text-blue-600 shrink-0" />
                       </div>
-                      <div>
-                        <h4 className="text-xl md:text-2xl font-bold tracking-tight">{story.name}</h4>
-                        <p className="text-xs md:text-sm font-bold text-primary uppercase tracking-widest">{story.package}</p>
-                      </div>
+                      <p className="text-sm font-semibold text-blue-600 truncate">{story.company}</p>
                     </div>
 
-                    <div className="flex-grow space-y-8 md:space-y-10">
-                      <div className="space-y-2 md:space-y-3">
-                        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/50">The Struggle</p>
-                        <p className="text-lg md:text-xl font-medium line-through decoration-primary/30 opacity-60 italic leading-tight">{story.doubt}</p>
-                      </div>
-
-                      <div className="flex items-center justify-center">
-                        <div className="w-full h-px bg-linear-to-r from-transparent via-border to-transparent relative">
-                           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-background border border-border flex items-center justify-center">
-                              <TrendingUp className="w-4 h-4 text-primary" />
-                           </div>
+                    {/* Stats */}
+                    <div className="flex items-center justify-between border-t border-gray-100 pt-6 mt-auto">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+                          <Briefcase className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">PACKAGE</p>
+                          <p className="text-base font-black text-gray-900 leading-none">{story.package}</p>
                         </div>
                       </div>
 
-                      <div className="space-y-2 md:space-y-3">
-                        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">The Achievement</p>
-                        <p className="text-xl md:text-3xl font-black tracking-tight text-foreground leading-none">{story.confidence}</p>
+                      <div className="w-px h-10 bg-gray-100" />
+
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 shrink-0">
+                          <Calendar className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">PLACED IN</p>
+                          <p className="text-base font-black text-gray-900 leading-none">{story.year}</p>
+                        </div>
                       </div>
                     </div>
-
-                    <div className="mt-10 pt-8 border-t border-border/50">
-                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed italic line-clamp-3 group-hover/card:line-clamp-none transition-all duration-500">
-                        "{story.quote}"
-                      </p>
-                    </div>
-                  </SpotlightCard>
-                </Magnetic>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -272,7 +137,7 @@ export function StudentSuccessSection() {
           100% { transform: translateX(-33.33%); }
         }
         .animate-marquee-smooth {
-          animation: marquee-smooth 50s linear infinite;
+          animation: marquee-smooth 80s linear infinite;
         }
         .pause-on-hover:hover {
           animation-play-state: paused;

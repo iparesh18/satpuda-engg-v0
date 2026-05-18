@@ -10,23 +10,23 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
 
 const baseAchievers = [
-  { name: "Placement Achiever 01", company: "Company 01", image: "/images/placement/company-01.jpeg" },
-  { name: "Placement Achiever 02", company: "Company 02", image: "/images/placement/company-02.jpeg" },
-  { name: "Placement Achiever 03", company: "Company 03", image: "/images/placement/company-03.jpeg" },
-  { name: "Placement Achiever 04", company: "Company 04", image: "/images/placement/company-04.jpeg" },
-  { name: "Placement Achiever 05", company: "Company 05", image: "/images/placement/company-05.jpeg" },
-  { name: "Placement Achiever 06", company: "Company 06", image: "/images/placement/company-06.jpeg" },
-  { name: "Placement Achiever 07", company: "Company 07", image: "/images/placement/company-07.jpeg" },
-  { name: "Placement Achiever 08", company: "Company 08", image: "/images/placement/company-08.jpeg" },
-  { name: "Placement Achiever 09", company: "Company 09", image: "/images/placement/company-09.jpeg" },
-  { name: "Placement Achiever 10", company: "Company 10", image: "/images/placement/company-10.jpeg" },
-  { name: "Placement Achiever 11", company: "Company 11", image: "/images/placement/company-11.jpeg" },
-  { name: "Placement Achiever 12", company: "Company 12", image: "/images/placement/company-12.jpeg" },
-  { name: "Placement Achiever 13", company: "Company 13", image: "/images/placement/company-13.jpeg" },
-  { name: "Placement Achiever 14", company: "Company 14", image: "/images/placement/company-14.jpeg" },
-  { name: "Placement Achiever 15", company: "Company 15", image: "/images/placement/company-15.jpeg" },
-  { name: "Placement Achiever 16", company: "Company 16", image: "/images/placement/company-16.jpeg" },
-  { name: "Placement Achiever 17", company: "Company 17", image: "/images/placement/company-17.jpeg" },
+  { name: "DEWANG MALEWAR", company: "FIRST STEP INNOVATION", image: "/images/placement/company-01.jpeg" },
+  { name: "VISHAKHA BAGHELE", company: "FIRST STEP INNOVATION", image: "/images/placement/company-02.jpeg" },
+  { name: "PREKSHA DWIVEDI", company: "FIRST STEP INNOVATION", image: "/images/placement/company-03.jpeg" },
+  { name: "ANKUSH NANDAGOULI", company: "FIRST STEP INNOVATION", image: "/images/placement/company-04.jpeg" },
+  { name: "RAJNEESH ASHWALE", company: "FIRST STEP INNOVATION", image: "/images/placement/company-05.jpeg" },
+  { name: "ABHISHEK MANESHWAR", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-06.jpeg" },
+  { name: "RANVEER SHARMA", company: "LLOYDS METALS AND ENERGY LIMITED", image: "/images/placement/company-07.jpeg" },
+  { name: "HARSHIT SELOKAR", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-08.jpeg" },
+  { name: "ANKIT BANDHE", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-09.jpeg" },
+  { name: "HIMANSHU DORAS", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-10.jpeg" },
+  { name: "DISHANT THAKRE", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-11.jpeg" },
+  { name: "OM DUBEY", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-12.jpeg" },
+  { name: "VINENDRA PAGARWAR", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-13.jpeg" },
+  { name: "DIPANSHU", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-14.jpeg" },
+  { name: "NAVEEN GAJBHIYE", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-15.jpeg" },
+  { name: "VIJESH KUMAR", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-16.jpeg" },
+  { name: "ADNAN KHAN", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-17.jpeg" },
 ];
 
 export function GateAchieversSection() {
@@ -86,16 +86,22 @@ export function GateAchieversSection() {
           />
 
           <div className="relative mx-auto max-w-6xl">
-            <Swiper
-              modules={[EffectCoverflow, Navigation, Autoplay]}
-              effect="coverflow"
-              grabCursor={true}
-              centeredSlides={true}
-              loop={true}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
+            <div className="relative">
+              {/* Fade overlays for side images */}
+              <div className="pointer-events-none absolute bottom-12 left-0 top-0 z-10 w-16 bg-gradient-to-r from-[#f5f9ff] to-transparent sm:w-24 lg:w-40" />
+              <div className="pointer-events-none absolute bottom-12 right-0 top-0 z-10 w-16 bg-gradient-to-l from-[#f5f9ff] to-transparent sm:w-24 lg:w-40" />
+
+              <Swiper
+                modules={[EffectCoverflow, Navigation, Autoplay]}
+                effect="coverflow"
+                grabCursor={true}
+                centeredSlides={true}
+                loop={true}
+                speed={1200}
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: false,
+                }}
               breakpoints={{
                 0: { slidesPerView: 1 },
                 640: { slidesPerView: 3 },
@@ -143,6 +149,7 @@ export function GateAchieversSection() {
                 </SwiperSlide>
               ))}
             </Swiper>
+            </div>
 
             {/* Navigation Arrows */}
             <div className="mt-8 flex items-center justify-center gap-6">

@@ -24,7 +24,7 @@ export function Footer() {
               <img src="/logo.png" alt="Satpuda College Logo" className="w-full h-full object-contain" />
             </div>
             <div>
-              <p className="font-bold text-base uppercase tracking-tighter">Satpuda College</p>
+              <p className="font-bold text-base uppercase tracking-tighter">Satpuda Engineering College </p>
               <p className="text-[10px] opacity-70 uppercase tracking-widest">Est. 1995</p>
             </div>
           </div>
