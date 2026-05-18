@@ -44,7 +44,7 @@ const newsItems = [
     title: "Educational & Industrial Visit Conducted by Civil & Mining Dept.",
     author: "admin",
     date: "Jan 2024",
-    image: "/images/hero-1.jpg",
+    image: "/images/banner0.jpeg",
   },
   {
     id: 5,

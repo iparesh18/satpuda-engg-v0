@@ -27,6 +27,8 @@ const baseAchievers = [
   { name: "NAVEEN GAJBHIYE", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-15.jpeg" },
   { name: "VIJESH KUMAR", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-16.jpeg" },
   { name: "ADNAN KHAN", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-17.jpeg" },
+  { name: "SANJEET PANCHESWAR", company: "GROUP R MINING & EXPLORATION INDIA PVT LTD.", image: "/images/placement/18.jpeg" },
+  { name: "MITHLESH KHERWAR", company: "GROUP R MINING & EXPLORATION INDIA PVT LTD.", image: "/images/placement/19.jpeg" },
 ];
 
 export function GateAchieversSection() {

@@ -9,9 +9,9 @@ export function HeroSection() {
   const heroImages = [
      "/images/bannerp.jpeg",
     "/images/banner1.jpeg",
-    "/images/banner2.jpeg",
     "/images/banner3.jpeg",
     "/images/hero-1.jpeg",
+     "/images/banner9.jpeg",
     
    
   ];

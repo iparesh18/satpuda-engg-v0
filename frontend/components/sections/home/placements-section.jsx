@@ -141,7 +141,7 @@ export function PlacementsSection() {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <div className="text-center">
-                  <p className="text-4xl lg:text-6xl font-black leading-none tracking-tighter">4.20</p>
+                  <p className="text-4xl lg:text-6xl font-black leading-none tracking-tighter">16.3</p>
                   <p className="text-xs lg:text-sm font-bold uppercase tracking-[0.2em] mt-1">LPA</p>
                 </div>
                 <div className="absolute -bottom-4 bg-white text-[#02060d] px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-xl">
