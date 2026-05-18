@@ -8,104 +8,104 @@ const SUCCESS_ITEMS = [
   {
     image: '/images/placement/company-01.jpeg',
     link: '#',
-    title: 'Placement Achiever 01',
-    description: 'Company 01 - Successfully placed through Satpuda College placement drive.'
+    title: 'DEWANG MALEWAR',
+    description: 'FIRST STEP INNOVATION'
   },
   {
     image: '/images/placement/company-02.jpeg',
     link: '#',
-    title: 'Placement Achiever 02',
-    description: 'Company 02 - A great career milestone achieved with college support.'
+    title: 'VISHAKHA BAGHELE',
+    description: 'FIRST STEP INNOVATION'
   },
   {
     image: '/images/placement/company-03.jpeg',
     link: '#',
-    title: 'Placement Achiever 03',
-    description: 'Company 03 - Industry-ready skills from Satpuda engineering programs.'
+    title: 'PREKSHA DWIVEDI',
+    description: 'FIRST STEP INNOVATION'
   },
   {
     image: '/images/placement/company-04.jpeg',
     link: '#',
-    title: 'Placement Achiever 04',
-    description: 'Company 04 - Excelling in career with Satpuda education foundation.'
+    title: 'ANKUSH NANDAGOULI',
+    description: 'FIRST STEP INNOVATION'
   },
   {
     image: '/images/placement/company-05.jpeg',
     link: '#',
-    title: 'Placement Achiever 05',
-    description: 'Company 05 - Professional growth story starting from Satpuda.'
+    title: 'RAJNEESH ASHWALE',
+    description: 'FIRST STEP INNOVATION'
   },
   {
     image: '/images/placement/company-06.jpeg',
     link: '#',
-    title: 'Placement Achiever 06',
-    description: 'Company 06 - Success achieved through dedicated training and mentorship.'
+    title: 'ABHISHEK MANESHWAR',
+    description: 'GR INFRAPROJECTS LTD.'
   },
   {
     image: '/images/placement/company-07.jpeg',
     link: '#',
-    title: 'Placement Achiever 07',
-    description: 'Company 07 - Thriving in role with skills learned at Satpuda.'
+    title: 'RANVEER SHARMA',
+    description: 'LLOYDS METALS AND ENERGY LIMITED'
   },
   {
     image: '/images/placement/company-08.jpeg',
     link: '#',
-    title: 'Placement Achiever 08',
-    description: 'Company 08 - Career launched successfully post-graduation.'
+    title: 'HARSHIT SELOKAR',
+    description: 'GR INFRAPROJECTS LTD.'
   },
   {
     image: '/images/placement/company-09.jpeg',
     link: '#',
-    title: 'Placement Achiever 09',
-    description: 'Company 09 - Making impact in the industry as Satpuda alumnus.'
+    title: 'ANKIT BANDHE',
+    description: 'LLOYDS METALS AND ENERGY LIMITED'
   },
   {
     image: '/images/placement/company-10.jpeg',
     link: '#',
-    title: 'Placement Achiever 10',
-    description: 'Company 10 - Realizing dreams with quality education from Satpuda.'
+    title: 'HIMANSHU DORAS',
+    description: 'GR INFRAPROJECTS LTD.'
   },
   {
     image: '/images/placement/company-11.jpeg',
     link: '#',
-    title: 'Placement Achiever 11',
-    description: 'Company 11 - Excellence in career with Satpuda foundation.'
+    title: 'DISHANT THAKRE',
+    description: 'LLOYDS METALS AND ENERGY LIMITED'
   },
   {
     image: '/images/placement/company-12.jpeg',
     link: '#',
-    title: 'Placement Achiever 12',
-    description: 'Company 12 - Success story of dedication and quality learning.'
+    title: 'OM DUBEY',
+    description: 'GR INFRAPROJECTS LTD.'
   },
   {
     image: '/images/placement/company-13.jpeg',
     link: '#',
-    title: 'Placement Achiever 13',
-    description: 'Company 13 - Building successful career with industry exposure.'
+    title: 'VINENDRA PAGARWAR',
+    description: 'GR INFRAPROJECTS LTD.'
   },
   {
     image: '/images/placement/company-14.jpeg',
     link: '#',
-    title: 'Placement Achiever 14',
-    description: 'Company 14 - Professional excellence achieved at Satpuda.'
+    title: 'DIPANSHU',
+    description: 'LLOYDS METALS AND ENERGY LIMITED'
   },
   {
     image: '/images/placement/company-15.jpeg',
     link: '#',
-    title: 'Placement Achiever 15',
-    description: 'Company 15 - Career advancement through quality education.'
+    title: 'NAVEEN GAJBHIYE',
+    description: 'GR INFRAPROJECTS LTD.'
   },
   {
     image: '/images/placement/company-16.jpeg',
     link: '#',
-    title: 'Placement Achiever 16',
-    description: 'Company 16 - Success milestone with Satpuda engineering programs.'
+    title: 'VIJESH KUMAR',
+    description: 'LLOYDS METALS AND ENERGY LIMITED'
   },
   {
     image: '/images/placement/company-17.jpeg',
     link: '#',
-    title: 'Placement Achiever 17',
-    description: 'Company 17 - Living the dream career journey from Satpuda College.'
+    title: 'ADNAN KHAN',
+    description: 'LLOYDS METALS AND ENERGY LIMITED'
   }
 ];
 
