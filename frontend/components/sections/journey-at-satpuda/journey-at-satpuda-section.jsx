@@ -12,7 +12,7 @@ const CHAPTERS = [
     title: "The First Step",
     subtitle: "CHAPTER 1",
     description: "New place. New people. Same dreams in every heart.",
-    image: "/images/journey/1.png",
+    image: "/images/journey/1.jpeg",
     icon: BookOpen,
     color: "from-blue-500/20 to-blue-600/20",
     iconBg: "bg-blue-500"
@@ -23,7 +23,7 @@ const CHAPTERS = [
     title: "The Confusion",
     subtitle: "CHAPTER 2",
     description: "So many paths. So many questions. Finding direction wasn't easy.",
-    image: "/images/journey/2.png",
+    image: "/images/journey/2.jpeg",
     icon: HelpCircle,
     color: "from-purple-500/20 to-purple-600/20",
     iconBg: "bg-purple-500"
@@ -34,7 +34,7 @@ const CHAPTERS = [
     title: "The Deep Dive",
     subtitle: "CHAPTER 3",
     description: "Late nights. Endless bugs. But every line of code made us stronger.",
-    image: "/images/journey/3.png",
+    image: "/images/journey/3.jpeg",
     icon: Zap,
     color: "from-pink-500/20 to-pink-600/20",
     iconBg: "bg-pink-500"
@@ -45,7 +45,7 @@ const CHAPTERS = [
     title: "The Power of Collaboration",
     subtitle: "CHAPTER 4",
     description: "We learned. We collaborated. We built together.",
-    image: "/images/journey/4.png",
+    image: "/images/journey/4.jpeg",
     icon: Users,
     color: "from-orange-500/20 to-orange-600/20",
     iconBg: "bg-orange-500"
@@ -56,7 +56,7 @@ const CHAPTERS = [
     title: "The Breakthrough",
     subtitle: "CHAPTER 5",
     description: "That one project. That one moment. That changed everything.",
-    image: "/images/journey/5.png",
+    image: "/images/journey/5.jpeg",
     icon: Award,
     color: "from-green-500/20 to-green-600/20",
     iconBg: "bg-green-500"
@@ -67,7 +67,7 @@ const CHAPTERS = [
     title: "The Moment We Made It",
     subtitle: "CHAPTER 6",
     description: "From classrooms to careers. From learners to professionals.",
-    image: "/images/journey/6.png",
+    image: "/images/journey/6.jpeg",
     icon: Sparkles,
     color: "from-indigo-500/20 to-indigo-600/20",
     iconBg: "bg-indigo-500"
@@ -75,12 +75,12 @@ const CHAPTERS = [
 ];
 
 const MEMORIES = [
-  { image: "/images/journey/1.png", title: "Class of 2026" },
-  { image: "/images/journey/2.png", title: "Tech Fest 2025" },
-  { image: "/images/journey/3.png", title: "Project Launch" },
-  { image: "/images/journey/4.png", title: "Placement Drive" },
-  { image: "/images/journey/5.png", title: "Campus Life" },
-  { image: "/images/journey/6.png", title: "Graduation" },
+  { image: "/images/journey/1.jpeg", title: "Class of 2026" },
+  { image: "/images/journey/2.jpeg", title: "Tech Fest 2025" },
+  { image: "/images/journey/3.jpeg", title: "Project Launch" },
+  { image: "/images/journey/4.jpeg", title: "Placement Drive" },
+  { image: "/images/journey/5.jpeg", title: "Campus Life" },
+  { image: "/images/journey/6.jpeg", title: "Graduation" },
 ];
 
 function JourneyNavbar() {
