@@ -103,7 +103,7 @@ export function CollegeOverviewSection() {
     <main className="bg-background min-h-screen">
       {/* Premium Hero Section */}
       <motion.section
-        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-32 pb-16 lg:pt-36 lg:pb-24"
+        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-32 pb-16 lg:pt-28 lg:pb-24"
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -119,26 +119,16 @@ export function CollegeOverviewSection() {
         <div className="absolute inset-0 bg-linear-to-r from-background via-background/96 to-background/88 lg:from-background lg:via-background/90 lg:to-transparent" />
         
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 lg:items-start">
             {/* Left Column: Text Content */}
             <div className="relative z-10">
-              <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-                className="flex items-center gap-2 text-primary font-semibold tracking-widest uppercase text-xs mb-6"
-              >
-                <div className="h-px w-8 bg-primary" />
-                Satpuda College
-              </motion.div>
-              
               <SplitText
                 text="College Overview"
-                className="text-5xl font-bold text-foreground sm:text-7xl lg:text-8xl tracking-tighter"
+                className="text-5xl font-bold text-foreground sm:text-7xl pt-3 tracking-tighter"
                 delay={0.08}
               />
-              <div className="mt-8 h-2 w-32 rounded-full bg-linear-to-r from-primary via-primary/70 to-accent" />
-              <p className="mt-10 max-w-xl text-xl text-muted-foreground leading-relaxed">
+              <div className="mt-6 h-1.5 w-32 rounded-full bg-gradient-to-r from-primary via-primary/70 to-accent" />
+              <p className="mt-8 max-w-xl text-lg text-muted-foreground leading-relaxed">
                 <BlurText text="Empowering future engineers with knowledge, innovation, and academic excellence since 24+ years." />
               </p>
               
@@ -390,7 +380,7 @@ export function CollegeOverviewSection() {
             {lifeCards.map((card, index) => (
               <motion.div 
                 key={card.title} 
-                className={`group relative rounded-3xl overflow-hidden shadow-sm border border-white/60 bg-slate-100 ${card.span}`}
+                className={`group relative rounded-3xl overflow-hidden shadow-sm border border-white/60 bg-slate-100 h-64 lg:h-auto ${card.span}`}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -481,7 +471,7 @@ export function CollegeOverviewSection() {
               <motion.div 
                 className="rounded-3xl overflow-hidden shadow-xl border-4 border-white group relative h-52.5"
                 initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
                 whileHover={{ rotate: 1 }}

@@ -4,14 +4,14 @@ import { Button } from "../../ui/button";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { SectionHeading } from "./section-heading.jsx";
 
-export function AboutSection() {
+export function AboutSection({ className }) {
   const features = [
     "State-of-the-art Infrastructure",
     "Experienced Faculty Members",
     "Industry Collaborations",
     "Research & Innovation Labs"
   ];
-  return (<section className="bg-background py-16 sm:py-18 lg:py-20">
+  return (<section className={`bg-background ${className || "py-16 sm:py-18 lg:py-20"}`}>
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
         {/* Images */}
@@ -46,10 +46,10 @@ export function AboutSection() {
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5, type: "spring" }}
-            className="absolute -bottom-8 -right-8 bg-accent text-accent-foreground rounded-4xl p-6 lg:p-10 shadow-[0_20px_50px_rgba(var(--accent),0.3)] border-4 border-background"
+            className="absolute -bottom-4 -right-2 lg:-bottom-8 lg:-right-8 bg-accent text-accent-foreground rounded-2xl sm:rounded-4xl p-4 sm:p-6 lg:p-10 shadow-[0_20px_50px_rgba(var(--accent),0.3)] border-4 border-background"
           >
-            <p className="text-4xl lg:text-6xl font-black leading-none">25+</p>
-            <p className="text-xs lg:text-sm font-bold uppercase tracking-widest mt-1 opacity-80">Years of Trust</p>
+            <p className="text-3xl sm:text-4xl lg:text-6xl font-black leading-none">25+</p>
+            <p className="text-[10px] sm:text-xs lg:text-sm font-bold uppercase tracking-widest mt-1 opacity-80">Years of Trust</p>
           </motion.div>
         </motion.div>
 

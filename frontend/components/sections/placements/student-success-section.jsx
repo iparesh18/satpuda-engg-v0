@@ -24,14 +24,17 @@ const SUCCESS_STORIES = [
   { name: "DIPANSHU", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-14.jpeg", package: "3.7 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/lloyds-metals.jpg" },
   { name: "NAVEEN GAJBHIYE", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-15.jpeg", package: "3.25 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.png" },
   { name: "VIJESH KUMAR", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-16.jpeg", package: "3.7 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/lloyds-metals.jpg" },
-  { name: "ADNAN KHAN", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-17.jpeg", package: "3.7 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/lloyds-metals.jpg" }
+  { name: "ADNAN KHAN", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-17.jpeg", package: "3.7 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/lloyds-metals.jpg" },
+  { name: "SANJEET PANCHESWAR", company: "GROUP R MINING & EXPLORATION INDIA PVT LTD", photo: "/images/placement/18.jpeg", package: "14.3 LPA", year: "2017", borderColor: "border-purple-600", logo: "/images/group r.jpg" },
+  { name: "MITHLESH KHERWAR", company: "GROUP R MINING & EXPLORATION INDIA PVT LTD", photo: "/images/placement/19.jpeg", package: "16.3 LPA", year: "2017", borderColor: "border-blue-600", logo: "/images/group r.jpg" },
+
 ];
 
 export function StudentSuccessSection() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="relative py-32 bg-background overflow-hidden flex flex-col">
+    <section className="relative py-20 md:py-32 bg-background overflow-hidden flex flex-col">
       {/* Header Content - Top Aligned */}
       <div className="container mx-auto px-6 mb-16 relative z-10 text-center">
         <motion.div
@@ -77,9 +80,9 @@ export function StudentSuccessSection() {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                <div className={`w-[350px] md:w-[400px] h-auto p-0 rounded-[2rem] overflow-hidden bg-white shadow-xl flex flex-col group border-b-4 ${story.borderColor} transition-transform duration-500 hover:-translate-y-2`}>
+                <div className={`w-[280px] sm:w-[350px] md:w-[400px] h-auto p-0 rounded-[2rem] overflow-hidden bg-white shadow-xl flex flex-col group border-b-4 ${story.borderColor} transition-transform duration-500 hover:-translate-y-2`}>
                   {/* Top Image Part */}
-                  <div className="relative h-[250px] md:h-[280px] w-full bg-gray-100">
+                  <div className="relative h-[200px] sm:h-[250px] md:h-[280px] w-full bg-gray-100">
                     <img src={story.photo} alt={story.name} className="w-full h-full object-cover object-[50%_15%]" />
                   </div>
 
