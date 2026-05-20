@@ -138,15 +138,15 @@ export function ElectricalSection() {
   return (
     <main className="bg-background overflow-hidden">
       <motion.section
-        className="relative pt-32 pb-20 lg:pt-40 lg:pb-32"
+        className="relative pt-16 pb-20 sm:pt-20 lg:pt-24 lg:pb-32"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/8 via-background to-background" />
-          <div className="absolute top-0 right-0 w-[520px] h-[520px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 animate-pulse" />
-          <div className="absolute bottom-0 left-0 w-[320px] h-[320px] bg-accent/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+          <div className="absolute inset-0 bg-linear-to-b from-primary/8 via-background to-background" />
+          <div className="absolute top-0 right-0 w-130 h-130 bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 animate-pulse" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -163,7 +163,7 @@ export function ElectricalSection() {
                 <SplitText text="Electrical" delay={0.08} className="block" />
                 <SplitText text="Engineering" delay={0.12} className="text-primary" />
               </h1>
-              <div className="mt-6 h-1.5 w-32 rounded-full bg-gradient-to-r from-primary to-accent" />
+              <div className="mt-6 h-1.5 w-32 rounded-full bg-linear-to-r from-primary to-accent" />
               <p className="mt-8 max-w-xl text-xl text-muted-foreground leading-relaxed">
                 <BlurText text="Empowering innovation through intelligent power systems, automation and advanced electrical design." />
               </p>
@@ -190,7 +190,7 @@ export function ElectricalSection() {
                 alt="Electrical Engineering"
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent" />
             </motion.div>
           </div>
         </div>
@@ -272,7 +272,7 @@ export function ElectricalSection() {
               className="relative aspect-square rounded-[3rem] overflow-hidden border-8 border-card shadow-2xl"
             >
               <img src="/images/hero-2.jpg" alt="Electrical Projects" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-tr from-primary/20 to-transparent" />
             </motion.div>
           </div>
         </div>
@@ -318,7 +318,7 @@ export function ElectricalSection() {
                   exit={{ opacity: 0, y: -30, scale: 0.9 }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
                 >
-                  <SpotlightCard className="h-full group p-8 rounded-[2rem] border-border/50 bg-card/50 text-left hover:border-primary/50 transition-all cursor-default">
+                  <SpotlightCard className="h-full group p-8 rounded-4xl border-border/50 bg-card/50 text-left hover:border-primary/50 transition-all cursor-default">
                     <div className="h-14 w-14 flex items-center justify-center rounded-2xl bg-primary/10 text-primary mb-6 group-hover:scale-110 transition-transform">
                       <card.icon className="h-7 w-7" />
                     </div>
@@ -342,7 +342,7 @@ export function ElectricalSection() {
               viewport={{ once: true }}
               className="relative aspect-square rounded-[4rem] overflow-hidden bg-background border border-border/50 shadow-2xl flex items-center justify-center group"
             >
-              <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(to_right,#d60b0b_1px,transparent_1px),linear-gradient(to_bottom,#d60b0b_1px,transparent_1px)] [background-size:36px_36px]" />
+              <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(to_right,#d60b0b_1px,transparent_1px),linear-gradient(to_bottom,#d60b0b_1px,transparent_1px)] bg-size-[36px_36px]" />
 
               <div className="relative w-full h-full flex items-center justify-center">
                 <svg className="absolute inset-0 w-full h-full pointer-events-none">
@@ -415,7 +415,7 @@ export function ElectricalSection() {
                 ))}
               </div>
 
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
+              <div className="absolute inset-0 pointer-events-none bg-linear-to-t from-primary/10 via-transparent to-transparent" />
             </motion.div>
 
             <div className="space-y-10">

@@ -98,7 +98,7 @@ export function MissionVisionSection() {
         }
       `}</style>
       <motion.section
-        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-32 pb-10 lg:pt-28 lg:pb-12"
+        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-16 pb-10 sm:pt-20 lg:pt-24 lg:pb-12"
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -113,7 +113,7 @@ export function MissionVisionSection() {
               className="pt-3 text-4xl font-bold tracking-tight text-foreground sm:text-5xl"
               delay={0.06}
             />
-            <div className="mt-4 h-1.5 w-24 rounded-full bg-gradient-to-r from-primary via-primary/70 to-accent" />
+            <div className="mt-4 h-1.5 w-24 rounded-full bg-linear-to-r from-primary via-primary/70 to-accent" />
             <BlurText
               text="Our purpose. Our promise. Our responsibility."
               className="mt-6 max-w-xl text-base text-muted-foreground"
@@ -282,7 +282,7 @@ export function MissionVisionSection() {
             <div
               ref={constellationRef}
               onMouseMove={handleMouseMove}
-              className="relative mx-auto h-[750px] max-w-6xl overflow-hidden rounded-[3rem] border border-border/40 bg-background/40 backdrop-blur-sm cursor-crosshair group/container"
+              className="relative mx-auto h-187.5 max-w-6xl overflow-hidden rounded-[3rem] border border-border/40 bg-background/40 backdrop-blur-sm cursor-crosshair group/container"
             >
               {/* Star Background */}
               <motion.div
@@ -391,12 +391,12 @@ export function MissionVisionSection() {
                           ease: "easeInOut",
                           delay: node.floatDelay
                         }}
-                        className={`group relative flex items-center gap-4 rounded-[2rem] border border-white/20 bg-background/80 px-6 py-4 shadow-2xl backdrop-blur-md transition-all duration-500 hover:border-primary/50 hover:bg-background/95 ${hoveredNode === index ? "scale-110 -translate-y-2 z-50" : "z-10"}`}
+                        className={`group relative flex items-center gap-4 rounded-4xl border border-white/20 bg-background/80 px-6 py-4 shadow-2xl backdrop-blur-md transition-all duration-500 hover:border-primary/50 hover:bg-background/95 ${hoveredNode === index ? "scale-110 -translate-y-2 z-50" : "z-10"}`}
                       >
                         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-500">
                           <node.icon className="h-6 w-6" />
                         </div>
-                        <div className="max-w-[220px]">
+                        <div className="max-w-55">
                           <p className="text-sm font-bold uppercase tracking-[0.2em] text-foreground">{node.title}</p>
                           <motion.p 
                             initial={{ height: 0, opacity: 0 }}
@@ -411,7 +411,7 @@ export function MissionVisionSection() {
                         </div>
                         
                         {/* Pulse effect */}
-                        <div className="absolute -inset-1 rounded-[2rem] bg-primary/20 opacity-0 group-hover:animate-ping pointer-events-none" />
+                        <div className="absolute -inset-1 rounded-4xl bg-primary/20 opacity-0 group-hover:animate-ping pointer-events-none" />
                       </motion.div>
                     </Magnetic>
                   </div>

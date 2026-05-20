@@ -6,7 +6,7 @@ export default function CollegeOverviewPage() {
   return (
     <div>
       <Header />
-      <main className="pt-24">
+      <main className="pt-0">
         <CollegeOverviewSection />
       </main>
       <Footer />

@@ -103,7 +103,7 @@ export function CollegeOverviewSection() {
     <main className="bg-background min-h-screen">
       {/* Premium Hero Section */}
       <motion.section
-        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-32 pb-16 lg:pt-28 lg:pb-24"
+        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-16 pb-16 sm:pt-20 lg:pt-24 lg:pb-24"
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -127,7 +127,7 @@ export function CollegeOverviewSection() {
                 className="text-5xl font-bold text-foreground sm:text-7xl pt-3 tracking-tighter"
                 delay={0.08}
               />
-              <div className="mt-6 h-1.5 w-32 rounded-full bg-gradient-to-r from-primary via-primary/70 to-accent" />
+              <div className="mt-6 h-1.5 w-32 rounded-full bg-linear-to-r from-primary via-primary/70 to-accent" />
               <p className="mt-8 max-w-xl text-lg text-muted-foreground leading-relaxed">
                 <BlurText text="Empowering future engineers with knowledge, innovation, and academic excellence since 24+ years." />
               </p>

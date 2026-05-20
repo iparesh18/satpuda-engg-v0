@@ -138,13 +138,13 @@ export function MechanicalSection() {
   return (
     <main className="bg-background overflow-hidden">
       <motion.section
-        className="relative pt-32 pb-20 lg:pt-40 lg:pb-32"
+        className="relative pt-16 pb-20 sm:pt-20 lg:pt-24 lg:pb-32"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/8 via-background to-background" />
+          <div className="absolute inset-0 bg-linear-to-b from-primary/8 via-background to-background" />
           <div className="absolute top-0 right-0 w-[520px] h-[520px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 animate-pulse" />
           <div className="absolute bottom-0 left-0 w-[320px] h-[320px] bg-accent/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
         </div>
@@ -163,7 +163,7 @@ export function MechanicalSection() {
                 <SplitText text="Mechanical" delay={0.08} className="block" />
                 <SplitText text="Engineering" delay={0.12} className="text-primary" />
               </h1>
-              <div className="mt-6 h-1.5 w-32 rounded-full bg-gradient-to-r from-primary to-accent" />
+              <div className="mt-6 h-1.5 w-32 rounded-full bg-linear-to-r from-primary to-accent" />
               <p className="mt-8 max-w-xl text-xl text-muted-foreground leading-relaxed">
                 <BlurText text="Powering innovation through machine intelligence, design excellence and practical engineering mastery." />
               </p>
@@ -190,7 +190,7 @@ export function MechanicalSection() {
                 alt="Mechanical Engineering"
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent" />
             </motion.div>
           </div>
         </div>

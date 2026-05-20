@@ -139,13 +139,13 @@ export function MiningSection() {
     <main className="bg-background overflow-hidden">
       {/* Hero Section */}
       <motion.section
-        className="relative pt-32 pb-20 lg:pt-40 lg:pb-32"
+        className="relative pt-16 pb-20 sm:pt-20 lg:pt-24 lg:pb-32"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-background to-background" />
+          <div className="absolute inset-0 bg-linear-to-b from-primary/10 via-background to-background" />
           {/* Animated Background Elements */}
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
@@ -165,7 +165,7 @@ export function MiningSection() {
                 <SplitText text="Mining" delay={0.08} className="block" />
                 <SplitText text="Engineering" delay={0.12} className="text-primary" />
               </h1>
-              <div className="mt-6 h-1.5 w-32 rounded-full bg-gradient-to-r from-primary to-amber-500" />
+              <div className="mt-6 h-1.5 w-32 rounded-full bg-linear-to-r from-primary to-amber-500" />
               <p className="mt-8 max-w-xl text-xl text-muted-foreground leading-relaxed">
                 <BlurText text="Exploring the depths. Empowering the future. Mining Engineering drives sustainable resource extraction and nation building." />
               </p>
@@ -192,7 +192,7 @@ export function MiningSection() {
                 alt="Mining Engineering" 
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-background/60 via-transparent to-transparent" />
               <div className="absolute bottom-8 left-8">
                 <div className="flex items-center gap-3 p-3 rounded-2xl bg-black/40 backdrop-blur-md border border-white/10">
                   <Pickaxe className="h-5 w-5 text-amber-500" />

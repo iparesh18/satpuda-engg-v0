@@ -6,6 +6,7 @@ import { Menu, X, ChevronDown, Phone, Mail, Facebook, Twitter, Instagram, Youtub
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState({});
 
   const handleScroll = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -13,6 +14,13 @@ export function Header() {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
       setMobileMenuOpen(false);
     }
+  };
+
+  const toggleMobileDropdown = (label) => {
+    setMobileDropdownOpen((prev) => ({
+      ...prev,
+      [label]: !prev[label],
+    }));
   };
 
   const navItems = [
@@ -202,24 +210,39 @@ export function Header() {
       {mobileMenuOpen && (<div className="lg:hidden bg-card border-t border-border">
         <div className="px-4 py-4 space-y-2">
           {navItems.map((item) => (<div key={item.label}>
-            {item.type === "page" ? (
-              <Link
-                to={item.href}
-                className="w-full text-left block px-4 py-3 text-base font-semibold text-foreground hover:bg-secondary rounded-lg transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ) : (
-              <button
-                onClick={() => handleScroll(item.scrollId)}
-                className="w-full text-left block px-4 py-3 text-base font-semibold text-foreground hover:bg-secondary rounded-lg transition-colors"
-              >
-                {item.label}
-              </button>
-            )}
-            {item.dropdown && (
-              <div className="pl-4 space-y-1">
+            <div className="flex items-center gap-2 rounded-lg hover:bg-secondary transition-colors">
+              {item.type === "page" ? (
+                <Link
+                  to={item.href}
+                  className="flex-1 text-left block px-4 py-3 text-base font-semibold text-foreground"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  onClick={() => handleScroll(item.scrollId)}
+                  className="flex-1 text-left block px-4 py-3 text-base font-semibold text-foreground"
+                >
+                  {item.label}
+                </button>
+              )}
+
+              {item.dropdown && (
+                <button
+                  type="button"
+                  onClick={() => toggleMobileDropdown(item.label)}
+                  className="mr-2 inline-flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground hover:bg-background hover:text-foreground"
+                  aria-label={`Toggle ${item.label} submenu`}
+                  aria-expanded={Boolean(mobileDropdownOpen[item.label])}
+                >
+                  <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileDropdownOpen[item.label] ? "rotate-180" : ""}`} />
+                </button>
+              )}
+            </div>
+
+            {item.dropdown && mobileDropdownOpen[item.label] && (
+              <div className="mt-1 pl-4 space-y-1 border-l border-border/70">
                 {item.dropdown.map((subItem) => (
                   subItem.type === "page" ? (
                     <Link

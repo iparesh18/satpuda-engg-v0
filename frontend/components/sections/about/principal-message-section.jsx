@@ -28,7 +28,7 @@ export function PrincipalMessageSection() {
   return (
     <main className="bg-background pb-20">
       <motion.section
-        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-32 pb-10 lg:pt-28 lg:pb-12"
+        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-16 pb-10 sm:pt-20 lg:pt-24 lg:pb-12"
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -41,7 +41,7 @@ export function PrincipalMessageSection() {
             className="h-full w-full object-cover object-right"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/96 to-background/88" />
+        <div className="absolute inset-0 bg-linear-to-r from-background via-background/96 to-background/88" />
         <div className="relative mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-end lg:px-8">
           <div>
             <SplitText
@@ -49,7 +49,7 @@ export function PrincipalMessageSection() {
               className="text-5xl font-bold text-foreground sm:text-7xl pt-3 tracking-tighter"
               delay={0.08}
             />
-            <div className="mt-6 h-1.5 w-32 rounded-full bg-gradient-to-r from-primary via-primary/70 to-accent" />
+            <div className="mt-6 h-1.5 w-32 rounded-full bg-linear-to-r from-primary via-primary/70 to-accent" />
             <p className="mt-8 max-w-xl text-lg text-muted-foreground leading-relaxed">
               <BlurText text="A message of guidance, inspiration and commitment to academic excellence." />
             </p>
@@ -71,15 +71,15 @@ export function PrincipalMessageSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <SpotlightCard className="group overflow-hidden rounded-[2.5rem] border-none bg-gradient-to-br from-card to-card/50 shadow-2xl transition-all duration-500">
+        <SpotlightCard className="group overflow-hidden rounded-[2.5rem] border-none bg-linear-to-br from-card to-card/50 shadow-2xl transition-all duration-500">
           <div className="flex flex-col lg:flex-row">
-            <div className="relative h-[500px] w-full overflow-hidden lg:h-[600px] lg:w-[45%]">
+            <div className="relative h-125 w-full overflow-hidden lg:h-150 lg:w-[45%]">
               <img
                 src="/principal.png"
                 alt="Principal portrait"
                 className="h-full w-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent lg:hidden" />
+              <div className="absolute inset-0 bg-linear-to-t from-background/80 via-transparent to-transparent lg:hidden" />
               <div className="absolute bottom-6 left-6 right-6 lg:hidden">
                 <h2 className="text-3xl font-bold text-white">Prof. (Dr.) Ashok Kumar Gupta</h2>
                 <p className="text-white/80">Principal</p>
@@ -145,7 +145,7 @@ export function PrincipalMessageSection() {
               </div>
             </div>
 
-            <div className="mt-10 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
+            <div className="mt-10 h-px w-full bg-linear-to-r from-transparent via-border to-transparent" />
 
             <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
               <p>
@@ -187,7 +187,7 @@ export function PrincipalMessageSection() {
           {stats.map(({ icon: Icon, value, label }) => (
             <div
               key={label}
-              className="flex items-center gap-3 px-4 py-4 transition-all duration-300 hover:-translate-y-[2px] lg:border-r lg:border-border/40 lg:last:border-r-0"
+              className="flex items-center gap-3 px-4 py-4 transition-all duration-300 hover:-translate-y-0.5 lg:border-r lg:border-border/40 lg:last:border-r-0"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-105">
                 <Icon className="h-5 w-5" />
