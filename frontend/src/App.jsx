@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import RootLayout from "../components/layout/root-layout.jsx";
 import HomePage from "../components/pages/home/home-page.jsx";
+import StickyWhatsApp from "../components/ui/StickyWhatsApp.jsx";
 import AboutPage from "../components/pages/about/about-page.jsx";
 import CollegeOverviewPage from "../components/pages/about/overview-page.jsx";
 import DirectorsMessagePage from "../components/pages/about/directors-message-page.jsx";
@@ -71,6 +72,7 @@ export default function App() {
           <Route path="/journey-at-satpuda" element={<JourneyAtSatpudaSection />} />
         </Routes>
       </RootLayout>
+      <StickyWhatsApp />
     </ThemeProvider>
   );
 }
