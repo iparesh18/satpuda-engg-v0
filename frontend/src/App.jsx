@@ -71,9 +71,8 @@ export default function App() {
 
           <Route path="/journey-at-satpuda" element={<JourneyAtSatpudaSection />} />
         </Routes>
-
-        <StickyWhatsApp />
       </RootLayout>
+      <StickyWhatsApp />
     </ThemeProvider>
   );
 }
