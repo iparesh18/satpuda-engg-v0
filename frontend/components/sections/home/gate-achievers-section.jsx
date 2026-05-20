@@ -90,8 +90,8 @@ export function GateAchieversSection() {
           <div className="relative mx-auto max-w-6xl">
             <div className="relative">
               {/* Fade overlays for side images */}
-              <div className="pointer-events-none absolute bottom-12 left-0 top-0 z-10 w-16 bg-gradient-to-r from-[#f5f9ff] to-transparent sm:w-24 lg:w-40" />
-              <div className="pointer-events-none absolute bottom-12 right-0 top-0 z-10 w-16 bg-gradient-to-l from-[#f5f9ff] to-transparent sm:w-24 lg:w-40" />
+              <div className="hidden sm:block pointer-events-none absolute bottom-12 left-0 top-0 z-10 w-16 bg-gradient-to-r from-[#f5f9ff] to-transparent sm:w-24 lg:w-40" />
+              <div className="hidden sm:block pointer-events-none absolute bottom-12 right-0 top-0 z-10 w-16 bg-gradient-to-l from-[#f5f9ff] to-transparent sm:w-24 lg:w-40" />
 
               <Swiper
                 modules={[EffectCoverflow, Navigation, Autoplay]}

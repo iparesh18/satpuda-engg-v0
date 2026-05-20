@@ -10,7 +10,7 @@ export function StatsBar() {
     { value: "95%", label: "Placement Rate", icon: <Briefcase className="h-6 w-6" /> },
     { value: "50+", label: "Top Recruiters", icon: <Building2 className="h-6 w-6" /> },
   ];
-  return (<section className="relative z-20 -mt-16">
+  return (<section className="relative z-20 mt-4 md:-mt-16">
     <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <motion.div 
         initial={{ y: 40, opacity: 0 }}

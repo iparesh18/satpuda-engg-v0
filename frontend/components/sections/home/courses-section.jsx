@@ -144,11 +144,11 @@ export function CoursesSection() {
           highlights={['Courses']}
         />
 
-        <div className="flex justify-center">
-          <div className="p-1.5 rounded-2xl bg-background border border-border flex gap-2">
+        <div className="flex justify-center w-full">
+          <div className="p-1.5 rounded-2xl bg-background border border-border flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
             <button
               onClick={() => setActiveDegree("btech")}
-              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${activeDegree === "btech"
+              className={`px-4 sm:px-8 py-2 sm:py-3 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 w-full sm:w-auto ${activeDegree === "btech"
                   ? "bg-primary text-white shadow-lg shadow-primary/20"
                   : "text-muted-foreground hover:text-foreground hover:bg-secondary"
                 }`}
@@ -157,7 +157,7 @@ export function CoursesSection() {
             </button>
             <button
               onClick={() => setActiveDegree("diploma")}
-              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${activeDegree === "diploma"
+              className={`px-4 sm:px-8 py-2 sm:py-3 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 w-full sm:w-auto ${activeDegree === "diploma"
                   ? "bg-primary text-white shadow-lg shadow-primary/20"
                   : "text-muted-foreground hover:text-foreground hover:bg-secondary"
                 }`}

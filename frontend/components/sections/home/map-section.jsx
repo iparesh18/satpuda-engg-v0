@@ -8,6 +8,7 @@ import { SectionHeading } from "./section-heading.jsx";
 
 export function MapSection() {
   const [copied, setCopied] = useState(false);
+  const [isMapInteractive, setIsMapInteractive] = useState(false);
 
   const handleCopyAddress = () => {
     navigator.clipboard.writeText("Lalbarra - Balaghat Road, Manjhapur, Madhya Pradesh 481001");
@@ -40,52 +41,62 @@ export function MapSection() {
           highlights={['Campus']}
         />
 
-        <div className="mb-10 grid gap-6 sm:gap-8 lg:grid-cols-3">
-          {/* Contact Info Cards */}
-          {contactInfo.map((item, i) => (
-            <motion.div
-              key={item.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group relative p-6 rounded-2xl border border-border/50 bg-card/50 backdrop-blur hover:border-primary/50 transition-all duration-300 hover:shadow-2xl"
-            >
-              <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              
-              <div className="relative z-10">
-                <div className={`h-12 w-12 rounded-xl ${item.color} bg-opacity-10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <item.icon className={`h-6 w-6 ${item.color}`} />
+        {/* Combined Layout for Desktop and Mobile */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
+          {/* Contact Info Card */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="w-full lg:w-[380px] shrink-0"
+          >
+            <div className="flex flex-col rounded-3xl border border-border/50 bg-card/60 backdrop-blur shadow-xl overflow-hidden divide-y divide-border/30 h-full">
+              {contactInfo.map((item, i) => (
+                <div key={item.label} className="p-5 sm:p-6 flex-1 flex items-center gap-4 hover:bg-white/5 transition-colors">
+                  <div className={`h-12 w-12 sm:h-14 sm:w-14 shrink-0 rounded-xl sm:rounded-2xl ${item.color} bg-opacity-10 flex items-center justify-center`}>
+                    <item.icon className={`h-6 w-6 sm:h-7 sm:w-7 ${item.color}`} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] sm:text-xs font-bold text-muted-foreground uppercase tracking-widest">{item.label}</p>
+                    <p className="text-sm sm:text-base font-bold text-foreground mt-0.5 sm:mt-1">{item.value}</p>
+                  </div>
                 </div>
-                <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-2">{item.label}</p>
-                <p className="text-lg font-bold text-foreground leading-relaxed group-hover:text-primary transition-colors">{item.value}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              ))}
+            </div>
+          </motion.div>
 
-        {/* Map Container */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="group relative overflow-hidden rounded-3xl border-4 border-card shadow-2xl sm:rounded-[3rem]"
-        >
-          {/* Map frame with enhanced styling */}
-          <div className="absolute inset-0 z-20 bg-linear-to-br from-primary/5 via-transparent to-transparent pointer-events-none transition-all duration-500 group-hover:from-primary/10" />
-          
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3703.8404414348593!2d80.14880717505493!3d21.82509498003108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2a592263486c99%3A0xa4123dec04965bfb!2sSatpuda%20College%20of%20Engineering%20and%20Polytechnic%2C%20Balaghat!5e0!3m2!1sen!2sin!4v1778579078581!5m2!1sen!2sin"
-            width="100%"
-            height="500"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="h-96 w-full transition-all duration-700 ease-out sm:h-125"
-          />
-        </motion.div>
+          {/* Map Container */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="w-full relative overflow-hidden rounded-3xl border-4 border-card shadow-2xl sm:rounded-[3rem] h-[400px] sm:h-[500px]"
+            onMouseLeave={() => setIsMapInteractive(false)}
+          >
+            {/* Click overlay to enable map interaction */}
+            {!isMapInteractive && (
+              <div 
+                className="absolute inset-0 z-10 cursor-pointer flex items-center justify-center bg-transparent group"
+                onClick={() => setIsMapInteractive(true)}
+                title="Click to interact with map"
+              >
+              </div>
+            )}
+            
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3703.8404414348593!2d80.14880717505493!3d21.82509498003108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2a592263486c99%3A0xa4123dec04965bfb!2sSatpuda%20College%20of%20Engineering%20and%20Polytechnic%2C%20Balaghat!5e0!3m2!1sen!2sin!4v1778579078581!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className={`w-full h-full transition-all duration-300 ${isMapInteractive ? "" : "pointer-events-none"}`}
+            />
+          </motion.div>
+        </div>
 
         {/* Action Buttons */}
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:mt-10 sm:flex-row sm:gap-6">

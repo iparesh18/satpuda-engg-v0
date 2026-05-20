@@ -77,10 +77,10 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="flex gap-3 content-center items-center justify-between mt-14"
+          className="flex flex-col lg:flex-row gap-8 lg:gap-3 items-center justify-between mt-14"
         >
           {/* College Logo */}
-          <div className="w-64 sm:w-72 lg:w-80 mt-9">
+          <div className="w-64 sm:w-72 lg:w-80 lg:mt-9">
             <img
               src="/images/logo.webp"
               alt="Satpuda College of Engineering & Polytechnic"

@@ -2,6 +2,17 @@ import { motion } from "framer-motion";
 
 const ShinyText = ({ text, className = "", disabled = false, speed = 5, color = "rgba(255, 255, 255, 0.8)" }) => {
   const animationDuration = `${speed}s`;
+  
+  // If the color is red, just render a simple solid text instead of the shiny effect
+  const isRed = color.includes("214, 11, 11") || color.includes("#d60b0b") || color.includes("d60b0b");
+  
+  if (isRed) {
+    return (
+      <span className={`inline-block ${className}`} style={{ color }}>
+        {text}
+      </span>
+    );
+  }
 
   return (
     <span

@@ -115,7 +115,7 @@ export function PlacementsSection() {
                       key={company.name} 
                       className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                       style={{ 
-                        transform: `rotate(${angle}deg) translate(${typeof window !== 'undefined' && window.innerWidth > 1024 ? 250 : 180}px) rotate(-${angle}deg)` 
+                        transform: `rotate(${angle}deg) translate(${typeof window !== 'undefined' && window.innerWidth > 1024 ? 250 : 140}px) rotate(-${angle}deg)` 
                       }}
                     >
                       <motion.div 
