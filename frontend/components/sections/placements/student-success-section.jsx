@@ -64,8 +64,8 @@ export function StudentSuccessSection() {
       {/* Marquee Section - Below Header */}
       <div className="relative mt-10">
         {/* Gradients to fade out the edges */}
-        <div className="absolute inset-y-0 left-0 w-32 md:w-64 bg-linear-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 md:w-64 bg-linear-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
+        <div className="hidden md:block absolute inset-y-0 left-0 w-32 md:w-64 bg-linear-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
+        <div className="hidden md:block absolute inset-y-0 right-0 w-32 md:w-64 bg-linear-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
 
         <div className="flex overflow-hidden group/marquee relative">
           <div className="flex py-10 animate-marquee-smooth pause-on-hover">

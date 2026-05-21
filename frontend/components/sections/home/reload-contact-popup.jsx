@@ -35,7 +35,7 @@ export function ReloadContactPopup() {
     <AnimatePresence>
       {open ? (
         <motion.div
-          className="fixed inset-0 flex items-center justify-center bg-black/50 p-4"
+          className="fixed inset-0 flex items-center justify-center bg-black/50 p-4 sm:p-6"
           style={{ zIndex: 9999 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -57,7 +57,7 @@ export function ReloadContactPopup() {
               <X className="h-4 w-4" />
             </button>
 
-            <div className="grid md:grid-cols-2">
+            <div className="grid max-h-[calc(100vh-2rem)] grid-rows-[auto_auto] overflow-y-auto md:max-h-none md:grid-cols-2 md:grid-rows-none">
               <div className="bg-linear-to-br from-primary/15 via-background to-accent/10 p-6 md:p-8 lg:p-10">
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">Admission Support</p>
                 <h3 className="text-2xl font-bold text-foreground md:text-3xl">Get A Quick Call Back</h3>
@@ -101,7 +101,7 @@ export function ReloadContactPopup() {
                 </form>
               </div>
 
-              <div className="relative h-72 md:h-130">
+              <div className="relative h-48 sm:h-64 md:h-130">
                 <img
                   src="/images/popup.png"
                   alt="Student"

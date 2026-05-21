@@ -117,9 +117,53 @@
   transition: 0.2s ease;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1500px) and (min-width: 769px) {
   .face-title,
   .face-description {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .face-title,
+  .face-description {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 90%;
+  }
+
+  .face-title.active,
+  .face-description.active {
+    transform: translateX(-50%);
+  }
+
+  .face-title.inactive,
+  .face-description.inactive {
+    transform: translate(-50%, 20px);
+  }
+
+  .face-title {
+    top: auto;
+    bottom: 22%;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #000000;
+    text-shadow: none;
+    letter-spacing: 0;
+  }
+
+  .face-description {
+    top: auto;
+    bottom: 17%;
+    font-size: 0.875rem;
+    color: #3b82f6;
+    font-weight: 600;
+  }
+  
+  .action-button.active {
+    bottom: 5%;
   }
 }

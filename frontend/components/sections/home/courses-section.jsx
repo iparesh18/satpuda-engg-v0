@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Monitor, Mountain, Building2, Cog, Zap, ArrowRight, Clock, Users, Sparkles } from "lucide-react";
 import Magnetic from "../../bits/magnetic.jsx";
 import { SectionHeading } from "./section-heading.jsx";
+import { Link } from "react-router-dom";
 const programs = [
   {
     id: "cse",
@@ -275,9 +276,10 @@ export function CoursesSection() {
 
               {/* CTA */}
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                <button className={`flex-1 py-3 px-6 rounded-xl bg-linear-to-r ${currentProgram.color} text-white font-semibold hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5`}>
+                <Link to="/admissions/admission-form" className="flex-1 py-3 px-6 rounded-xl bg-linear-to-r ${currentProgram.color} text-white bg-accent font-semibold hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
                   Apply Now
-                </button>
+                </Link>
+                <Link/>
                 <button className={`flex-1 py-3 px-6 rounded-xl border-2 ${currentProgram.borderColor} ${currentProgram.textColor} font-semibold hover:${currentProgram.bgColor} transition-all duration-300`}>
                   Download Brochure
                 </button>

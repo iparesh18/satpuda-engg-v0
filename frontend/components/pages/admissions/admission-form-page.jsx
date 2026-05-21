@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import confetti from "canvas-confetti";
 import { Header, Footer } from "../../index.js";
 import { Link } from "react-router-dom";
@@ -31,6 +31,10 @@ export default function AdmissionFormPage() {
   const [formData, setFormData] = useState(initialForm);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formStatus, setFormStatus] = useState(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const courses = [
     "B.Tech - Computer Science Engineering",
@@ -100,7 +104,7 @@ export default function AdmissionFormPage() {
     <div>
       <Header />
 
-      <main className="bg-background pt-28 pb-20">
+      <main className="bg-background pt-0 md:pt-28 pb-20">
         {/* Hero */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-background to-accent/10" />
