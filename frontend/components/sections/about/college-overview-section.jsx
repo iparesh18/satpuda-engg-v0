@@ -1,5 +1,6 @@
 import { ArrowRight, BookOpen, Building2, Users, Trophy, Briefcase, Sparkles, GraduationCap } from "lucide-react";
 import { Button } from "../../ui/button";
+import { Link } from "react-router-dom";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import SplitText from "../../bits/split-text.jsx";
@@ -138,12 +139,14 @@ export function CollegeOverviewSection() {
                 transition={{ delay: 0.8, duration: 0.8 }}
                 className="mt-12 flex flex-wrap gap-4"
               >
-                <Button 
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-10 py-7 text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 group"
-                >
-                  Explore Our Campus
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
+                <Link to="/our-campus/gallery" className="inline-flex">
+                  <Button 
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-10 py-7 text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 group"
+                  >
+                    Explore Our Campus
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Button>
+                </Link>
                 <div className="flex items-center gap-3 text-sm font-medium text-muted-foreground ml-2">
                   <span>Home</span>
                   <span className="text-muted-foreground/30">/</span>

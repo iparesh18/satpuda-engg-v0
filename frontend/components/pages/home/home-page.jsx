@@ -1,5 +1,6 @@
 import { Header, HeroSection, StatsBar, AboutSection, GateAchieversSection, CoursesSection, BlueInfoMarqueeSection, WhyChooseUsSection, PlacementsSection, CompanyMarquee, RedInfoMarqueeSection, DomeGallerySection, TestimonialsSection, CTASection, MapSection, Footer } from "../../index.js";
 import { ReloadContactPopup } from "../../sections/home/reload-contact-popup.jsx";
+import { ArrowUp } from "lucide-react";
 
 export default function HomePage() {
     return (<main className="min-h-screen">
@@ -58,6 +59,16 @@ export default function HomePage() {
       
       {/* 11. Footer - Always last */}
       <section id="contact">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-6 flex justify-center">
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
+            aria-label="Scroll to top"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-white text-foreground shadow-sm transition-all hover:border-primary/40 hover:bg-primary/5 hover:text-primary"
+          >
+            <ArrowUp className="h-5 w-5" />
+          </button>
+        </div>
         <Footer />
       </section>
     </main>);

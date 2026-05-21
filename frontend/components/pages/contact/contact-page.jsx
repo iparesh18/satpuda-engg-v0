@@ -79,7 +79,7 @@ export default function ContactPage() {
     <div>
       <Header />
 
-      <main className="bg-background pt-28 pb-20">
+      <main className="bg-background pt-0 pb-20 sm:pt-20 lg:pt-0">
         {/* Hero */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-background to-accent/10" />
@@ -339,9 +339,11 @@ export default function ContactPage() {
                       <Mail className="h-4 w-4 text-primary" /> admission@satpuda.ac.in
                     </span>
                   </div>
-                  <Button className="mt-6 w-full bg-primary text-white">
-                    Contact Admissions <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  <Link to="/admissions/admission-form" className="mt-6 inline-flex w-full">
+                    <Button className="w-full bg-primary text-white">
+                      Contact Admissions <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

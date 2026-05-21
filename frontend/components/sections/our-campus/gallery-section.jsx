@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   ArrowRight,
   Award,
@@ -160,10 +161,10 @@ export function GallerySection() {
                 transition={{ delay: 0.8, duration: 0.8 }}
                 className="mt-12 flex flex-wrap gap-4"
               >
-                <button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-10 py-5 text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 group inline-flex items-center gap-2">
+                <Link to="/our-campus/gallery" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-10 py-5 text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 group inline-flex items-center gap-2">
                   Explore Highlights
                   <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                </button>
+                </Link>
                 <div className="flex items-center gap-3 text-sm font-medium text-muted-foreground ml-2">
                   <span>Our Campus</span>
                   <span className="text-muted-foreground/30">/</span>

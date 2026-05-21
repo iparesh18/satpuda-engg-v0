@@ -65,7 +65,7 @@ export function HeroSection() {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
           {heroImages.map((src, idx) => (
-            <div key={idx} className="relative w-full h-full flex-shrink-0 overflow-hidden">
+            <div key={idx} className="relative w-full h-full shrink-0 overflow-hidden">
               <img
                 src={src}
                 alt={`banner-bg-${idx}`}
@@ -87,26 +87,20 @@ export function HeroSection() {
         animate="visible"
         variants={containerVariants}
       >
-        <div className="relative md:absolute md:left-1/2 md:-translate-x-1/2 md:bottom-10 lg:bottom-[40px] xl:bottom-[-200px] w-full md:w-auto z-30">
+        <div className="relative md:absolute md:left-1/2 md:-translate-x-1/2 md:bottom-10 lg:bottom-10 xl:-bottom-50 w-full md:w-auto z-30">
           <motion.div
             variants={itemVariants}
             className="flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-4 bg-primary/60 md:bg-primary/45 backdrop-blur-xl border border-white/30 rounded-2xl md:rounded-full px-4 py-4 md:py-3 shadow-2xl shadow-black/35"
           >
-            <Link
-              to="/admissions/admission-form"
-              size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-3 h-12 text-sm md:text-base font-bold rounded-xl shadow-lg gap-2 transition-all duration-300 w-full md:w-auto flex justify-center"
-            >
-              Start Your Journey
-            </Link>
+            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-3 h-12 text-sm md:text-base font-bold rounded-xl shadow-lg gap-2 transition-all duration-300 w-full md:w-auto flex justify-center">
+              <Link to="/admissions/admission-form">Start Your Journey</Link>
+            </Button>
 
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white/30 hover:bg-white/10 bg-white/5 backdrop-blur-sm text-white px-6 h-12 rounded-xl text-sm md:text-base gap-2 transition-all duration-300 w-full md:w-auto flex justify-center"
-            >
-              <Play className="h-4 w-4" />
-              Watch Campus Tour
+            <Button asChild size="lg" variant="outline" className="border-white/30 hover:bg-white/10 bg-white/5 backdrop-blur-sm text-white px-6 h-12 rounded-xl text-sm md:text-base gap-2 transition-all duration-300 w-full md:w-auto flex justify-center">
+              <Link to="/our-campus/gallery" className="inline-flex items-center gap-2">
+                <Play className="h-4 w-4" />
+                Watch Campus Tour
+              </Link>
             </Button>
 
             <Link

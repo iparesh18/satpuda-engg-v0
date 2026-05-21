@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "../../ui/button";
 import { Trophy, Users, Building2, Star, ArrowRight } from "lucide-react";
 import { SectionHeading } from "./section-heading.jsx";
@@ -80,10 +81,12 @@ export function PlacementsSection() {
             </div>
 
             <motion.div variants={itemVariants}>
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground h-16 px-10 rounded-2xl text-lg font-bold shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                Call for Admission
-                <ArrowRight className="ml-3 h-5 w-5" />
-              </Button>
+              <Link to="/admissions/admission-form" className="inline-flex">
+                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground h-16 px-10 rounded-2xl text-lg font-bold shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                  Call for Admission
+                  <ArrowRight className="ml-3 h-5 w-5" />
+                </Button>
+              </Link>
             </motion.div>
           </div>
 

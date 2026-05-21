@@ -1,6 +1,7 @@
 "use client";
 import { Header, Footer } from "../../index.js";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "../../ui/button";
 import { ArrowRight, BookOpen, Users, Award } from "lucide-react";
 
@@ -12,6 +13,7 @@ export default function AcademicsPage() {
       seats: "60 Seats",
       description: "Learn to design and build structures, bridges, and infrastructure.",
       icon: <Award className="h-8 w-8" />
+      , href: "/academics/civil-engineering"
     },
     {
       name: "B.Tech Mechanical Engineering",
@@ -19,6 +21,7 @@ export default function AcademicsPage() {
       seats: "60 Seats",
       description: "Master mechanical design, manufacturing, and thermal systems.",
       icon: <Award className="h-8 w-8" />
+      , href: "/academics/mechanical-engineering"
     },
     {
       name: "B.Tech Electrical Engineering",
@@ -26,6 +29,7 @@ export default function AcademicsPage() {
       seats: "60 Seats",
       description: "Specialize in power systems, electronics, and electrical machines.",
       icon: <Award className="h-8 w-8" />
+      , href: "/academics/electrical-engineering"
     },
     {
       name: "Diploma Programs",
@@ -33,6 +37,7 @@ export default function AcademicsPage() {
       seats: "120 Seats",
       description: "Practical-oriented diploma programs with job placements.",
       icon: <Award className="h-8 w-8" />
+      , href: "/admissions/courses-offered"
     }
   ];
 
@@ -89,9 +94,11 @@ export default function AcademicsPage() {
                     <span>👥 {program.seats}</span>
                   </div>
                   <p className="text-muted-foreground mb-6">{program.description}</p>
-                  <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  <Link to={program.href} className="inline-flex">
+                    <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
                 </motion.div>
               ))}
             </div>
@@ -131,9 +138,11 @@ export default function AcademicsPage() {
               Ready to Pursue Your <span className="text-primary">Engineering Dream</span>?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">Join hundreds of successful engineers from Satpuda College</p>
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground h-14 px-10">
-              Apply Now <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <Link to="/admissions/admission-form" className="inline-flex">
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground h-14 px-10">
+                Apply Now <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </section>
       </main>

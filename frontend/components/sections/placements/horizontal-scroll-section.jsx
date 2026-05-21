@@ -23,6 +23,10 @@ export function HorizontalScrollSection() {
   const triggerRef = useRef(null);
 
   useEffect(() => {
+    if (!window.matchMedia("(min-width: 1024px)").matches) {
+      return;
+    }
+
     const pin = gsap.fromTo(
       sectionRef.current,
       { translateX: 0 },
@@ -46,11 +50,11 @@ export function HorizontalScrollSection() {
 
   return (
     <section className="overflow-hidden bg-background">
-      <div ref={triggerRef}>
+      <div className="lg:block hidden" ref={triggerRef}>
         <div ref={sectionRef} className="h-screen w-[400vw] flex flex-row relative items-center px-[10vw]">
           
           {/* Intro Slide */}
-          <div className="h-screen w-[100vw] flex flex-col justify-center shrink-0 pr-[20vw]">
+          <div className="h-screen w-screen flex flex-col justify-center shrink-0 pr-[20vw]">
             <motion.span 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -99,7 +103,7 @@ export function HorizontalScrollSection() {
           })}
 
           {/* Final CTA Slide */}
-          <div className="h-screen w-[100vw] flex flex-col justify-center items-center shrink-0">
+          <div className="h-screen w-screen flex flex-col justify-center items-center shrink-0">
              <div className="relative">
                 <motion.div 
                   animate={{ scale: [1, 1.2, 1], rotate: 360 }}
@@ -122,6 +126,68 @@ export function HorizontalScrollSection() {
              </div>
           </div>
 
+        </div>
+      </div>
+
+      <div className="lg:hidden px-4 py-14 sm:px-6">
+        <div className="mx-auto max-w-7xl">
+          <motion.span
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-4 block text-sm font-bold uppercase tracking-[0.3em] text-primary"
+          >
+            Industry Network
+          </motion.span>
+          <h2 className="text-4xl font-black tracking-tighter leading-tight sm:text-5xl">
+            Our Elite <br />
+            <span className="text-muted-foreground/30 italic">Recruitment</span> <br />
+            Partners
+          </h2>
+          <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
+            Scroll to explore the global brands that hire our exceptional talent every year.
+          </p>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {PARTNERS.map((partner, index) => {
+              const Icon = partner.icon;
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.45, delay: index * 0.05 }}
+                >
+                  <SpotlightCard className={`h-full rounded-3xl bg-linear-to-br ${partner.color} border border-white/10 backdrop-blur-3xl p-5 sm:p-6 flex flex-col justify-between`}>
+                    <div>
+                      <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-background/50">
+                        <Icon className="h-7 w-7 text-primary" />
+                      </div>
+                      <h3 className="text-2xl font-bold tracking-tight">{partner.name}</h3>
+                      <p className="mt-2 text-xs font-bold uppercase tracking-widest text-primary/70">{partner.type}</p>
+                    </div>
+
+                    <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-4">
+                      <span className="text-xs font-medium text-muted-foreground">Hiring Partner since 2018</span>
+                      <ArrowRight className="h-5 w-5 text-foreground/70" />
+                    </div>
+                  </SpotlightCard>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <button className="group relative inline-flex items-center gap-3 rounded-2xl bg-accent px-8 py-4 text-base font-black text-accent-foreground shadow-2xl transition-all hover:-translate-y-1">
+              <span className="relative z-10 flex items-center gap-3">
+                GET STARTED NOW
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </span>
+              <div className="absolute inset-0 bg-white opacity-0 transition-opacity group-hover:opacity-10" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

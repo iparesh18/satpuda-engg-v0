@@ -104,7 +104,7 @@ export default function AdmissionFormPage() {
     <div>
       <Header />
 
-      <main className="bg-background pt-0 md:pt-28 pb-20">
+      <main className="bg-background pt-0 md:pt-0 pb-20">
         {/* Hero */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-background to-accent/10" />

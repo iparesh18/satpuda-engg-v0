@@ -1,6 +1,7 @@
 "use client";
 import { Header, Footer } from "../../index.js";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "../../ui/button";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 
@@ -51,9 +52,11 @@ export default function AdmissionsPage() {
               <p className="text-xl text-muted-foreground mb-8">
                 Start Your Journey to Success Today
               </p>
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground h-14 px-10">
-                Apply Now <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <Link to="/admissions/admission-form" className="inline-flex">
+                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground h-14 px-10">
+                  Apply Now <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </section>
@@ -192,9 +195,11 @@ export default function AdmissionsPage() {
               Ready to Join <span className="text-primary">Satpuda College</span>?
             </h2>
             <p className="text-lg mb-8 opacity-90">Complete your application and secure your seat today!</p>
-            <Button size="lg" className="bg-accent-foreground hover:bg-accent-foreground/90 text-accent h-14 px-10 font-semibold">
-              Apply Now <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <Link to="/admissions/admission-form" className="inline-flex">
+              <Button size="lg" className="bg-accent-foreground hover:bg-accent-foreground/90 text-accent h-14 px-10 font-semibold">
+                Apply Now <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </section>
       </main>

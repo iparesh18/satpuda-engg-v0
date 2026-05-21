@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState, Suspense, lazy } from "react";
+import { Link } from "react-router-dom";
 import {
   Trophy,
   Users,
@@ -578,10 +579,10 @@ export function SportsSection() {
               </p>
             </div>
             <Magnetic intensity={0.3}>
-              <button className="group relative inline-flex items-center gap-4 rounded-full bg-primary px-12 py-6 text-xl font-bold text-primary-foreground transition-all hover:pr-14 shadow-2xl shadow-primary/30">
+              <Link to="/our-campus/sports" className="group relative inline-flex items-center gap-4 rounded-full bg-primary px-12 py-6 text-xl font-bold text-primary-foreground transition-all hover:pr-14 shadow-2xl shadow-primary/30">
                 Explore Sports
                 <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-2" />
-              </button>
+              </Link>
             </Magnetic>
           </div>
         </div>

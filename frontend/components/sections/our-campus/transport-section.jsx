@@ -1,6 +1,7 @@
 "use client";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Bus, MapPin, Route, ShieldCheck, Navigation, Clock, ArrowRight, Users, Sparkles, GraduationCap } from "lucide-react";
 import Magnetic from "../../bits/magnetic.jsx";
 import BlurText from "../../bits/blur-text.jsx";
@@ -407,10 +408,10 @@ export function TransportSection() {
           </div>
 
           <Magnetic intensity={0.3}>
-            <button className="group relative inline-flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-lg font-bold text-primary-foreground transition-all hover:pr-12 shadow-xl shadow-primary/20">
+            <Link to="/contact" className="group relative inline-flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-lg font-bold text-primary-foreground transition-all hover:pr-12 shadow-xl shadow-primary/20">
               Contact Transport Office
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-2" />
-            </button>
+            </Link>
           </Magnetic>
         </div>
       </motion.section>

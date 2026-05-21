@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "../../ui/button";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { SectionHeading } from "./section-heading.jsx";
@@ -86,10 +87,7 @@ export function AboutSection({ className }) {
           </div>
 
           <div className="flex flex-wrap items-center gap-6">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 h-16 px-10 rounded-2xl text-lg font-bold shadow-xl transition-all duration-300 hover:-translate-y-1">
-              Discover More
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+           
             <div className="flex items-center gap-4 text-sm text-muted-foreground group">
               <div className="w-12 h-12 rounded-full border-2 border-border overflow-hidden group-hover:border-accent transition-colors duration-500">
                 <img src="/images/hero-3.jpg" alt="AICTE" className="w-full h-full object-cover" />

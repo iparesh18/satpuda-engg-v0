@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   BookOpen,
   Layers,
@@ -456,7 +457,7 @@ export function LibrarySection() {
               <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
                 Our library continuously grows to meet the academic needs of students, faculty, and researchers.
               </p>
-              <button className="mt-10 group relative overflow-hidden rounded-full bg-primary px-12 py-5 text-lg font-bold text-primary-foreground transition-all duration-500 hover:pr-16 hover:shadow-2xl hover:shadow-primary/30">
+              <Link to="/our-campus/library" className="mt-10 group relative overflow-hidden rounded-full bg-primary px-12 py-5 text-lg font-bold text-primary-foreground transition-all duration-500 hover:pr-16 hover:shadow-2xl hover:shadow-primary/30 inline-flex items-center">
                 <span className="relative z-10 flex items-center gap-3 transition-transform duration-500 group-hover:-translate-x-2">
                   Explore Collection
                   <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1" />
@@ -466,7 +467,7 @@ export function LibrarySection() {
                 <div className="absolute right-6 top-1/2 -translate-y-1/2 translate-x-12 opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100">
                   <BookOpen className="h-6 w-6" />
                 </div>
-              </button>
+              </Link>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {glanceStats.map(({ icon: Icon, value, label }) => (
@@ -538,10 +539,10 @@ export function LibrarySection() {
             </p>
           </div>
           <Magnetic intensity={0.3}>
-            <button className="group relative inline-flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-lg font-bold text-primary-foreground transition-all hover:pr-12 shadow-xl shadow-primary/20">
+            <Link to="/contact" className="group relative inline-flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-lg font-bold text-primary-foreground transition-all hover:pr-12 shadow-xl shadow-primary/20">
               Ask a Librarian
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </button>
+            </Link>
           </Magnetic>
         </div>
       </motion.section>

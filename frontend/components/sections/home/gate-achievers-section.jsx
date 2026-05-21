@@ -52,11 +52,11 @@ export function GateAchieversSection() {
           />
 
           <Link
-            to="/academics/computer-science-engineering"
+          
             className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:border-primary/40 hover:bg-primary/5"
           >
-            Explore Academics
-            <ArrowRight className="h-4 w-4" />
+           OUR EXCELLENCE
+         
           </Link>
         </div>
 
@@ -90,8 +90,8 @@ export function GateAchieversSection() {
           <div className="relative mx-auto max-w-6xl">
             <div className="relative">
               {/* Fade overlays for side images */}
-              <div className="hidden sm:block pointer-events-none absolute bottom-12 left-0 top-0 z-10 w-16 bg-gradient-to-r from-[#f5f9ff] to-transparent sm:w-24 lg:w-40" />
-              <div className="hidden sm:block pointer-events-none absolute bottom-12 right-0 top-0 z-10 w-16 bg-gradient-to-l from-[#f5f9ff] to-transparent sm:w-24 lg:w-40" />
+              <div className="hidden sm:block pointer-events-none absolute bottom-12 left-0 top-0 z-10 w-16 bg-linear-to-r from-[#f5f9ff] to-transparent sm:w-24 lg:w-40" />
+              <div className="hidden sm:block pointer-events-none absolute bottom-12 right-0 top-0 z-10 w-16 bg-linear-to-l from-[#f5f9ff] to-transparent sm:w-24 lg:w-40" />
 
               <Swiper
                 modules={[EffectCoverflow, Navigation, Autoplay]}
@@ -125,7 +125,7 @@ export function GateAchieversSection() {
             >
               {baseAchievers.map((achiever, idx) => (
                 <SwiperSlide key={idx}>
-                  <div className="group relative mx-auto h-[440px] w-[300px] overflow-hidden rounded-[2.5rem] bg-[#a93026] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(169,48,38,0.25)] sm:h-[460px] sm:w-[310px] lg:h-[480px] lg:w-[320px]">
+                  <div className="group relative mx-auto h-110 w-75 overflow-hidden rounded-[2.5rem] bg-[#a93026] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(169,48,38,0.25)] sm:h-115 sm:w-77.5 lg:h-120 lg:w-80">
                     {/* Icon placeholder */}
                     <div className="absolute right-6 top-6 z-10 opacity-80">
                       <Sparkles className="h-6 w-6 text-white" />
@@ -139,7 +139,7 @@ export function GateAchieversSection() {
                     />
 
                     {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent" />
 
                     <div className="absolute bottom-0 left-0 w-full p-8 text-center">
                       <h3 className="text-2xl font-bold text-white tracking-wide">{achiever.name}</h3>
