@@ -52,7 +52,7 @@ export function GateAchieversSection() {
           />
 
           <Link
-            to="/academics"
+            to="/academics/computer-science-engineering"
             className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:border-primary/40 hover:bg-primary/5"
           >
             Explore Academics
