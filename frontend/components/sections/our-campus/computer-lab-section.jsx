@@ -414,15 +414,6 @@ export function ComputerLabSection() {
                   </motion.div>
                 ))}
               </div>
-
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="mt-14 group relative inline-flex items-center gap-5 rounded-full bg-primary px-14 py-7 text-xl font-black text-primary-foreground transition-all hover:shadow-[0_0_50px_rgba(59,130,246,0.5)]"
-              >
-                Access Lab Resources
-                <ArrowRight className="h-7 w-7 transition-transform group-hover:translate-x-3" />
-              </motion.button>
             </div>
           </div>
         </div>

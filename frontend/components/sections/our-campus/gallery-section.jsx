@@ -161,10 +161,19 @@ export function GallerySection() {
                 transition={{ delay: 0.8, duration: 0.8 }}
                 className="mt-12 flex flex-wrap gap-4"
               >
-                <Link to="/our-campus/gallery" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-10 py-5 text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 group inline-flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() =>
+                    document.getElementById("dome-gallery")?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    })
+                  }
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-10 py-5 text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 group inline-flex items-center gap-2"
+                >
                   Explore Highlights
                   <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
+                </button>
                 <div className="flex items-center gap-3 text-sm font-medium text-muted-foreground ml-2">
                   <span>Our Campus</span>
                   <span className="text-muted-foreground/30">/</span>
@@ -229,6 +238,7 @@ export function GallerySection() {
       </section>
 
       <motion.section
+        id="dome-gallery"
         className="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8"
         initial={{ opacity: 0, y: 22 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -414,43 +424,7 @@ export function GallerySection() {
         </div>
       </motion.section>
 
-      <motion.section
-        className="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8"
-        initial={{ opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <div className="flex flex-col items-center justify-between gap-8 rounded-[40px] border border-border/40 bg-gradient-to-r from-primary/10 to-accent/10 backdrop-blur-xl p-8 sm:flex-row sm:p-12 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 left-0 -mt-20 -ml-20 h-64 w-64 bg-primary/20 rounded-full blur-3xl opacity-30" />
-
-          <div className="relative z-10">
-            <h3 className="text-2xl font-bold text-foreground sm:text-3xl">Want to submit your moments?</h3>
-            <p className="mt-3 text-lg text-muted-foreground max-w-md">Share your stories with the gallery team and get featured on our campus wall.</p>
-            <div className="mt-6 flex flex-wrap gap-6 text-sm text-muted-foreground">
-              <div className="flex items-center gap-3">
-                <Users className="h-4 w-4 text-primary" />
-                Student Stories
-              </div>
-              <div className="flex items-center gap-3">
-                <Calendar className="h-4 w-4 text-primary" />
-                Event Archives
-              </div>
-              <div className="flex items-center gap-3">
-                <MapPin className="h-4 w-4 text-primary" />
-                Campus Landmarks
-              </div>
-            </div>
-          </div>
-
-          <Magnetic intensity={0.3}>
-            <button className="group relative inline-flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-lg font-bold text-primary-foreground transition-all hover:pr-12 shadow-xl shadow-primary/20">
-              Submit to Gallery
-              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-2" />
-            </button>
-          </Magnetic>
-        </div>
-      </motion.section>
+      
     </main>
   );
 }

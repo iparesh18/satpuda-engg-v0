@@ -44,21 +44,25 @@ const aboutHighlights = [
     icon: ShieldCheck,
     title: "Industry-Oriented Curriculum",
     description: "Designed to meet modern mining industry standards.",
+    image: "/images/overview/campus overview.png",
   },
   {
     icon: Building2,
     title: "Advanced Laboratories",
     description: "Well-equipped labs for practical learning and research.",
+    image: "/images/overview/student in lab.png",
   },
   {
     icon: Compass,
     title: "Field Exposure",
     description: "Industrial visits, site training and real-world experience.",
+    image: "/images/overview/campus view.png",
   },
   {
     icon: Users,
     title: "Expert Guidance",
     description: "Learn from experienced faculty and industry professionals.",
+    image: "/images/overview/student in class.png",
   },
 ];
 
@@ -111,12 +115,12 @@ const programData = {
 
 const highlights = [
   {
-    image: "/images/hero-1.jpg",
+    image: "/images/mining-program.jpg",
     title: "Underground & Surface Mining",
     description: "Comprehensive understanding of modern mining techniques.",
   },
   {
-    image: "/images/hero-2.jpg",
+    image: "/images/mining-diploma.jpg",
     title: "Surveying & Exploration",
     description: "Advanced tools and methods for accurate surveying and exploration.",
   },
@@ -254,7 +258,7 @@ export function MiningSection() {
               </p>
               
               <div className="grid sm:grid-cols-2 gap-6">
-                {aboutHighlights.map(({ icon: Icon, title, description }, i) => (
+                {aboutHighlights.map(({ icon: Icon, title, description, image }, i) => (
                   <motion.div
                     key={title}
                     initial={{ opacity: 0, y: 20 }}
@@ -263,8 +267,11 @@ export function MiningSection() {
                     transition={{ delay: i * 0.1 }}
                     className="flex gap-4 p-4 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-colors group shadow-sm hover:shadow-md"
                   >
-                    <div className="h-10 w-10 shrink-0 flex items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                      <Icon className="h-5 w-5" />
+                    <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-border/50 transition-transform group-hover:scale-105">
+                      <img src={image} alt={title} className="h-full w-full object-cover" loading="lazy" />
+                      <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                        <Icon className="h-4 w-4 text-white" />
+                      </div>
                     </div>
                     <div>
                       <h4 className="font-bold text-foreground text-sm">{title}</h4>
@@ -281,9 +288,9 @@ export function MiningSection() {
               viewport={{ once: true }}
               className="relative aspect-square rounded-[3rem] overflow-hidden border-8 border-card shadow-2xl"
             >
-              <img 
-                src="/images/hero-1.jpg" 
-                alt="Mining Operations" 
+              <img
+                src="/images/mining-diploma.jpg"
+                alt="Mining Operations"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-transparent" />
@@ -514,14 +521,7 @@ export function MiningSection() {
                 </div>
               </div>
               
-              <div className="pt-8">
-                <button className="group relative inline-flex items-center gap-4 text-primary font-bold text-lg">
-                  <span className="border-b-2 border-primary/30 group-hover:border-primary transition-all pb-1">Geological Visual Systems</span>
-                  <div className="h-10 w-10 rounded-full border border-primary/30 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
-                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </button>
-              </div>
+             
             </div>
           </div>
         </div>
@@ -564,34 +564,7 @@ export function MiningSection() {
       </section>
 
       {/* CTA Section - Library Inspired */}
-      <motion.section
-        className="mx-auto mt-24 max-w-7xl px-4 sm:px-6 lg:px-8 mb-24"
-        initial={{ opacity: 0, y: 22 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <div className="flex flex-col items-center gap-10 rounded-[40px] border border-border/40 bg-card/40 backdrop-blur-xl p-8 sm:flex-row sm:p-12 shadow-2xl relative overflow-hidden group">
-          <div className="absolute top-0 left-0 -mt-20 -ml-20 h-64 w-64 bg-amber-500/20 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-700" />
-          
-          <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-3xl bg-amber-500/10 text-amber-500 shadow-inner group-hover:rotate-6 transition-transform duration-500">
-            <HardHat className="h-12 w-12" />
-          </div>
-          <div className="flex-1 text-center sm:text-left relative z-10">
-            <p className="text-xs font-bold uppercase tracking-[0.5em] text-amber-500 mb-3">Future of Mining</p>
-            <h3 className="text-3xl font-bold text-foreground tracking-tight sm:text-5xl leading-tight">Shape the Future of Mining</h3>
-            <p className="mt-4 text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              Join a department that powers industries, builds infrastructure and supports a sustainable tomorrow. Your journey in earth sciences starts here.
-            </p>
-          </div>
-          <Magnetic intensity={0.3}>
-            <button className="group relative inline-flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-lg font-bold text-primary-foreground transition-all hover:pr-12 shadow-xl shadow-primary/20 active:scale-95">
-              <span>Explore Programs</span>
-              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </button>
-          </Magnetic>
-        </div>
-      </motion.section>
+
     </main>
   );
 }

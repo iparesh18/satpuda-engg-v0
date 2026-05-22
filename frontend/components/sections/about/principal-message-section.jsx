@@ -114,12 +114,6 @@ export function PrincipalMessageSection() {
                   <p className="text-sm text-muted-foreground">Awards & Honors</p>
                 </div>
               </div>
-              <div className="mt-12">
-                <button className="group/btn relative inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-primary-foreground transition-all hover:pr-10">
-                  <span className="font-semibold text-lg">Read Profile</span>
-                  <Briefcase className="h-5 w-5 transition-transform group-hover/btn:translate-x-1" />
-                </button>
-              </div>
             </div>
           </div>
         </SpotlightCard>

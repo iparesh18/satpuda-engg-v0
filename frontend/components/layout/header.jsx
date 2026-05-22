@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
-import { Menu, X, ChevronDown, Phone, Mail, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Mail, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -74,6 +74,12 @@ export function Header() {
     { label: "Contact", type: "page", href: "/contact" },
   ];
   return (<header className="relative z-50">
+      <style>{`
+        @keyframes admission-blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.35; }
+        }
+      `}</style>
       {/* Red Marquee */}
       <div className="bg-[#b30000] text-white border-b border-red-500 shadow-lg">
         <div className="overflow-hidden py-2">
@@ -113,12 +119,46 @@ export function Header() {
             </a>
           </div>
           <div className="flex items-center gap-4">
-            <span className="hidden sm:inline font-medium">Admission Open 2026-27</span>
+            <Link
+              to="/admissions/admission-form"
+              className="hidden sm:inline font-medium cursor-pointer"
+              style={{ animation: "admission-blink 1.6s infinite" }}
+            >
+              Admission Open 2026-27
+            </Link>
             <div className="flex items-center gap-3">
-              <a href="#" className="hover:opacity-80 transition-opacity"><Facebook className="h-4 w-4" /></a>
-              <a href="#" className="hover:opacity-80 transition-opacity"><Instagram className="h-4 w-4" /></a>
-              <a href="#" className="hover:opacity-80 transition-opacity"><Twitter className="h-4 w-4" /></a>
-              <a href="#" className="hover:opacity-80 transition-opacity"><Youtube className="h-4 w-4" /></a>
+              <a
+                href="https://www.facebook.com/SatpudaEnggPoly"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
+              <a
+                href="https://www.instagram.com/satpuda_engineering/"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <Instagram className="h-4 w-4" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/satpuda-college-of-engineering-and-polytechnic-balaghat-781906352/"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+              <a
+                href="https://www.youtube.com/@satpudaengineering231"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <Youtube className="h-4 w-4" />
+              </a>
             </div>
           </div>
         </div>

@@ -1,7 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, Lightbulb, ShieldCheck, Users, Building2, Telescope, ArrowRight } from "lucide-react";
+import {
+  GraduationCap,
+  Briefcase,
+  Lightbulb,
+  ShieldCheck,
+  Users,
+  Building2,
+  Telescope,
+  ArrowRight,
+} from "lucide-react";
 import { Suspense, lazy } from "react";
 
 const Spline = lazy(() => import("@splinetool/react-spline"));
@@ -15,17 +24,20 @@ const highlights = [
   {
     icon: GraduationCap,
     title: "Practical Learning",
-    description: "Industry-focused curriculum with hands-on experience, modern labs and live projects.",
+    description:
+      "Industry-focused curriculum with hands-on experience, modern labs and live projects.",
   },
   {
     icon: Briefcase,
     title: "Industry Readiness",
-    description: "Training students with the latest technologies, soft skills and entrepreneurial mindset.",
+    description:
+      "Training students with the latest technologies, soft skills and entrepreneurial mindset.",
   },
   {
     icon: Lightbulb,
     title: "Innovation & Research",
-    description: "Promoting creativity, research and problem-solving to drive meaningful change.",
+    description:
+      "Promoting creativity, research and problem-solving to drive meaningful change.",
   },
 ];
 
@@ -118,7 +130,9 @@ export function DirectorsMessageSection() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-background/80 via-transparent to-transparent lg:hidden" />
               <div className="absolute bottom-6 left-6 right-6 lg:hidden">
-                <h2 className="text-3xl font-bold text-white">Mr. Anshul Jaiswal</h2>
+                <h2 className="text-3xl font-bold text-white">
+                  Mr. Anshul Jaiswal
+                </h2>
                 <p className="text-white/80">Director</p>
               </div>
             </div>
@@ -136,26 +150,27 @@ export function DirectorsMessageSection() {
                 </h2>
               </div>
               <div className="mt-8 space-y-4">
-                <p className="text-xl font-medium text-muted-foreground">Ph.D., M.S (Nanoelectronics)</p>
+                <p className="text-xl font-medium text-muted-foreground">
+                  Ph.D., M.S (Nanoelectronics)
+                </p>
                 <p className="text-lg text-muted-foreground/80 leading-relaxed">
-                  A visionary educator and research advocate dedicated to transforming technical education in Balaghat and beyond.
+                  A visionary educator and research advocate dedicated to
+                  transforming technical education in Balaghat and beyond.
                 </p>
               </div>
               <div className="mt-10 grid grid-cols-2 gap-6">
                 <div className="border-l-2 border-primary/30 pl-4">
                   <p className="text-2xl font-bold text-foreground">25+</p>
-                  <p className="text-sm text-muted-foreground">Years Experience</p>
+                  <p className="text-sm text-muted-foreground">
+                    Years Experience
+                  </p>
                 </div>
                 <div className="border-l-2 border-primary/30 pl-4">
                   <p className="text-2xl font-bold text-foreground">150+</p>
-                  <p className="text-sm text-muted-foreground">Projects Guided</p>
+                  <p className="text-sm text-muted-foreground">
+                    Projects Guided
+                  </p>
                 </div>
-              </div>
-              <div className="mt-12">
-                <button className="group/btn relative inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-primary-foreground transition-all hover:pr-10">
-                  <span className="font-semibold text-lg">Read Biography</span>
-                  <ArrowRight className="h-5 w-5 transition-transform group-hover/btn:translate-x-1" />
-                </button>
               </div>
             </div>
           </div>
@@ -167,7 +182,9 @@ export function DirectorsMessageSection() {
 
           <div className="relative z-10">
             <div className="flex items-start gap-6">
-              <span className="text-6xl font-serif text-primary/30 leading-none">“</span>
+              <span className="text-6xl font-serif text-primary/30 leading-none">
+                “
+              </span>
               <div className="max-w-3xl pt-2">
                 <BlurText
                   text="At Satpuda, we believe in building more than careers - we build confident, capable and compassionate human beings."
@@ -205,16 +222,23 @@ export function DirectorsMessageSection() {
 
             <div className="mt-16 flex items-center justify-between">
               <div>
-                <p className="text-5xl font-medium tracking-tighter text-foreground" style={{ fontFamily: "cursive" }}>
+                <p
+                  className="text-5xl font-medium tracking-tighter text-foreground"
+                  style={{ fontFamily: "cursive" }}
+                >
                   Anshul Jaiswal
                 </p>
                 <div className="mt-2 flex items-center gap-2">
                   <div className="h-1 w-8 rounded-full bg-primary" />
-                  <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">Director</p>
+                  <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+                    Director
+                  </p>
                 </div>
               </div>
               <div className="hidden sm:block opacity-20">
-                <p className="text-3xl font-serif italic text-foreground/50">AJ</p>
+                <p className="text-3xl font-serif italic text-foreground/50">
+                  AJ
+                </p>
               </div>
             </div>
           </div>
@@ -230,15 +254,24 @@ export function DirectorsMessageSection() {
       >
         <div className="grid gap-3 rounded-3xl border border-border/40 bg-muted/30 p-4 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map(({ icon: Icon, value, label }) => (
-            <div key={label} className="flex items-center gap-3 px-4 py-4 transition-all duration-300 hover:-translate-y-0.5 lg:border-r lg:border-border/40 lg:last:border-r-0">
+            <div
+              key={label}
+              className="flex items-center gap-3 px-4 py-4 transition-all duration-300 hover:-translate-y-0.5 lg:border-r lg:border-border/40 lg:last:border-r-0"
+            >
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-105">
                 <Icon className="h-5 w-5" />
               </div>
               <div>
                 <p className="text-4xl font-bold leading-none text-foreground tracking-tighter">
-                  <ShinyText text={value} speed={3} color="rgba(214, 11, 11, 0.85)" />
+                  <ShinyText
+                    text={value}
+                    speed={3}
+                    color="rgba(214, 11, 11, 0.85)"
+                  />
                 </p>
-                <p className="mt-2 text-sm font-medium text-muted-foreground uppercase tracking-wide">{label}</p>
+                <p className="mt-2 text-sm font-medium text-muted-foreground uppercase tracking-wide">
+                  {label}
+                </p>
               </div>
             </div>
           ))}
@@ -254,17 +287,24 @@ export function DirectorsMessageSection() {
       >
         <div className="grid gap-6 lg:grid-cols-3 lg:items-stretch">
           {pillars.map(({ title, description, accent, icon: Icon }) => (
-            <article key={title} className="flex h-full flex-col rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)]">
+            <article
+              key={title}
+              className="flex h-full flex-col rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)]"
+            >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-foreground">{title}</h3>
+                  <h3 className="text-2xl font-bold text-foreground">
+                    {title}
+                  </h3>
                   <div className={`mt-2 h-1.5 w-14 rounded-full ${accent}`} />
                 </div>
               </div>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground">{description}</p>
+              <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+                {description}
+              </p>
             </article>
           ))}
         </div>
@@ -278,9 +318,20 @@ export function DirectorsMessageSection() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <div className="grid gap-4 md:grid-cols-3">
-          {["/images/overview/campus building.png", "/images/overview/student in lab.png", "/images/overview/student in class.png"].map((src) => (
-            <div key={src} className="group overflow-hidden rounded-[28px] border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1">
-              <img src={src} alt="Campus life" className="h-60 w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+          {[
+            "/images/overview/campus building.png",
+            "/images/overview/student in lab.png",
+            "/images/overview/student in class.png",
+          ].map((src) => (
+            <div
+              key={src}
+              className="group overflow-hidden rounded-[28px] border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1"
+            >
+              <img
+                src={src}
+                alt="Campus life"
+                className="h-60 w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              />
             </div>
           ))}
         </div>

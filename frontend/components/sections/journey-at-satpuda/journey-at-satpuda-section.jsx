@@ -147,12 +147,19 @@ function HeroSection() {
             </p>
 
             <div className="pt-2">
-              <Magnetic>
-                <button className="inline-flex items-center gap-2 px-6 py-3.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/30">
-                  Discover Our Story
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-              </Magnetic>
+              <button
+                type="button"
+                onClick={() =>
+                  document.getElementById("journey-story")?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  })
+                }
+                className="inline-flex items-center gap-3 bg-accent hover:bg-accent/90 text-accent-foreground h-16 px-10 rounded-2xl text-lg font-bold shadow-2xl transition-all duration-500 hover:-translate-y-1 cursor-pointer"
+              >
+                Discover Our Story
+                <ArrowRight className="w-5 h-5" />
+              </button>
             </div>
           </motion.div>
 
@@ -212,7 +219,7 @@ function HeroSection() {
 
 function ChaptersSection() {
   return (
-    <section className="relative py-32 bg-white">
+    <section id="journey-story" className="relative py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
           <motion.div
@@ -332,6 +339,8 @@ function MemoriesSection() {
 }
 
 function CTASection() {
+  const navigate = useNavigate();
+
   return (
     <section className="relative py-32 bg-gradient-to-b from-white to-blue-50">
       <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
@@ -348,16 +357,15 @@ function CTASection() {
           <p className="text-xl text-gray-600 mb-8">The next story is yours to write.</p>
         </motion.div>
 
-        <Magnetic>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-full hover:shadow-2xl hover:shadow-blue-600/40 transition-all duration-300 text-lg"
-          >
-            Start Your Journey
-            <ArrowRight className="w-6 h-6" />
-          </motion.button>
-        </Magnetic>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => navigate("/admissions/admission-form")}
+          className="inline-flex items-center gap-3 bg-accent hover:bg-accent/90 text-accent-foreground h-16 px-10 rounded-2xl text-lg font-bold shadow-2xl transition-all duration-500 hover:-translate-y-1 cursor-pointer"
+        >
+          Start Your Journey
+          <ArrowRight className="w-6 h-6" />
+        </motion.button>
 
         <p className="text-sm text-gray-500 pt-8">
           Join 500+ students building their future at Satpuda College
