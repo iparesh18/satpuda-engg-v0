@@ -364,7 +364,7 @@ export default function AdmissionFormPage() {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground">Call Us</p>
-                      <p className="text-sm font-semibold text-foreground">+91 6262 604 111</p>
+                      <p className="text-[12px] sm:text-sm font-semibold text-foreground">+91 94258 36824, +91 6262 604 111</p>
                     </div>
                   </div>
                   <Button variant="outline" className="h-9 px-4">
@@ -391,11 +391,11 @@ export default function AdmissionFormPage() {
               </div>
               <div className="text-sm text-muted-foreground flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary" />
-                +91 6262 604 111
+                <span className="text-[11px] sm:text-xs lg:text-sm">+91 94258 36824, +91 6262 604 111</span>
               </div>
               <div className="text-sm text-muted-foreground flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary" />
-                admission@satpuda.ac.in
+                <span className="text-[11px] sm:text-xs lg:text-sm">satpudaengineeringcollege@gmail.com</span>
               </div>
               <Button className="h-10 px-5 bg-primary text-white">
                 Contact Us <ArrowRight className="ml-2 h-4 w-4" />

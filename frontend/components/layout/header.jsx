@@ -114,8 +114,8 @@ export function Header() {
               <span>satpudaengineeringcollege@gmail.com</span>
             </a>
             <a href="tel:+916262604111" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <Phone className="h-4 w-4" />
-              <span>+91-6262604111</span>
+              <Phone className="h-4 w-4 shrink-0" />
+              <span className="text-xs">+91 94258 36824, +91 62626 04111</span>
             </a>
           </div>
           <div className="flex items-center gap-4">
@@ -173,15 +173,15 @@ export function Header() {
             <div className="w-12 h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-white rounded-full p-1.5 shadow-sm overflow-hidden border border-white/20">
               <img src="/logo.png" alt="Satpuda College Logo" className="w-full h-full object-contain" />
             </div>
-            <div className="hidden sm:block">
-              <div className="font-bold text-foreground text-sm lg:text-lg leading-tight uppercase tracking-tighter">
-                <span className="flex items-center gap-1.25">
+            <div className="hidden sm:flex flex-col">
+              <div className="font-bold text-foreground text-sm lg:text-lg leading-tight uppercase tracking-wide w-full">
+                <span className="flex items-center justify-between w-full">
                   <span>Satpuda</span>
                   <span>Engineering</span>
                   <span>College</span>
                 </span>
               </div>
-              <p className="text-[10px] text-muted-foreground uppercase tracking-[0.2em]">Satpuda College of Engineering & Polytechnic</p>
+              <p className="text-[10px] text-muted-foreground uppercase tracking-[0.2em] mt-0.5">Satpuda College of Engineering & Polytechnic</p>
             </div>
           </Link>
 

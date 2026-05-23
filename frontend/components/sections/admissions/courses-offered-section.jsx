@@ -584,7 +584,7 @@ export function CoursesOfferedSection() {
                 <Phone className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
               </div>
               <div>
-                <p className="text-sm font-bold text-foreground">+91 6262 604 111</p>
+                <p className="text-sm font-bold text-foreground">+91 94258 36824, +91 6262 604 111</p>
                 <p className="text-[10px] text-muted-foreground uppercase tracking-widest">Call Us</p>
               </div>
             </div>
@@ -594,7 +594,7 @@ export function CoursesOfferedSection() {
                 <Mail className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
               </div>
               <div>
-                <p className="text-sm font-bold text-foreground">admission@satpuda.ac.in</p>
+                <p className="text-[11px] sm:text-xs font-bold text-foreground">satpudaengineeringcollege@gmail.com</p>
                 <p className="text-[10px] text-muted-foreground uppercase tracking-widest">Email Us</p>
               </div>
             </div>

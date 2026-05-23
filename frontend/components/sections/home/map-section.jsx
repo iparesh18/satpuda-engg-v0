@@ -18,8 +18,8 @@ export function MapSection() {
 
   const contactInfo = [
     { icon: MapPin, label: "Address", value: "Lalbarra - Balaghat Road, Manjhapur, MP 481001", color: "text-blue-500" },
-    { icon: Phone, label: "Phone", value: "+91-7624-267-xxx", color: "text-green-500" },
-    { icon: Mail, label: "Email", value: "info@satpudaengg.edu.in", color: "text-purple-500" },
+    { icon: Phone, label: "Phone", value: "+91 94258 36824, +91 6262 604 111", color: "text-green-500" },
+    { icon: Mail, label: "Email", value: "satpudaengineeringcollege@gmail.com", color: "text-purple-500" },
     { icon: Clock, label: "Hours", value: "Mon - Sat: 9 AM - 5 PM", color: "text-orange-500" },
   ];
 
@@ -57,9 +57,13 @@ export function MapSection() {
                   <div className={`h-12 w-12 sm:h-14 sm:w-14 shrink-0 rounded-xl sm:rounded-2xl ${item.color} bg-opacity-10 flex items-center justify-center`}>
                     <item.icon className={`h-6 w-6 sm:h-7 sm:w-7 ${item.color}`} />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-[10px] sm:text-xs font-bold text-muted-foreground uppercase tracking-widest">{item.label}</p>
-                    <p className="text-sm sm:text-base font-bold text-foreground mt-0.5 sm:mt-1">{item.value}</p>
+                    <p className={`font-bold text-foreground mt-0.5 sm:mt-1 ${
+                      item.label === "Phone" || item.label === "Email" 
+                        ? "text-xs sm:text-sm truncate" 
+                        : "text-sm sm:text-base"
+                    }`}>{item.value}</p>
                   </div>
                 </div>
               ))}
