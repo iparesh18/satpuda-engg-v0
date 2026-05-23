@@ -26,6 +26,8 @@ import ElectricalPage from "../components/pages/academics/electrical-page.jsx";
 import CoursesOfferedPage from "../components/pages/admissions/courses-offered-page.jsx";
 import { JourneyAtSatpudaSection } from "../components/sections/journey-at-satpuda/journey-at-satpuda-section.jsx";
 import { PlacementsPage } from "../components/index.js";
+import EventsNewsPage from "../components/pages/events-news/events-news-page.jsx";
+import UpcomingEventsPage from "../components/pages/events-news/upcoming-events-page.jsx";
 
 import { ThemeProvider } from "../components/shared/theme-provider.jsx";
 
@@ -68,6 +70,10 @@ export default function App() {
           <Route path="/our-campus/gallery" element={<GalleryPage />} />
           <Route path="/placements" element={<PlacementsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+
+          <Route path="/events/recent" element={<EventsNewsPage />} />
+          <Route path="/events-news" element={<EventsNewsPage />} />
+          <Route path="/events/upcoming" element={<UpcomingEventsPage />} />
 
           <Route path="/journey-at-satpuda" element={<JourneyAtSatpudaSection />} />
         </Routes>

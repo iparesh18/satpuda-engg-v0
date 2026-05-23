@@ -70,6 +70,15 @@ export function Header() {
         { label: "Admission Form", type: "page", href: "/admissions/admission-form" }
       ]
     },
+    /* {
+      label: "Events & News",
+      href: "#events",
+      scrollId: "events",
+      dropdown: [
+        { label: "Recent Events", type: "page", href: "/events/recent" },
+        { label: "Upcoming Events", type: "page", href: "/events/upcoming" }
+      ]
+    }, */
     { label: "Placements", type: "page", href: "/placements" },
     { label: "Contact", type: "page", href: "/contact" },
   ];
@@ -173,15 +182,13 @@ export function Header() {
             <div className="w-12 h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-white rounded-full p-1.5 shadow-sm overflow-hidden border border-white/20">
               <img src="/logo.png" alt="Satpuda College Logo" className="w-full h-full object-contain" />
             </div>
-            <div className="hidden sm:flex flex-col">
-              <div className="font-bold text-foreground text-sm lg:text-lg leading-tight uppercase tracking-wide w-full">
-                <span className="flex items-center justify-between w-full">
-                  <span>Satpuda</span>
-                  <span>Engineering</span>
-                  <span>College</span>
-                </span>
+            <div className="hidden sm:flex flex-col justify-center select-none">
+              <div className="font-extrabold text-foreground text-xs sm:text-sm lg:text-[19px] leading-none uppercase tracking-[0.06em]">
+                Satpuda Engineering College
               </div>
-              <p className="text-[10px] text-muted-foreground uppercase tracking-[0.2em] mt-0.5">Satpuda College of Engineering & Polytechnic</p>
+              <p className="text-[8px] sm:text-[9.5px] lg:text-[10.5px] text-muted-foreground uppercase tracking-[0.11em] mt-1 lg:mt-1.5 leading-none font-medium">
+                Satpuda College of Engineering & Polytechnic
+              </p>
             </div>
           </Link>
 
