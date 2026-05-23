@@ -302,7 +302,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-foreground">Phone</p>
-                        <p className="text-sm text-muted-foreground">+91 6262 604 111</p>
+                        <p className="text-sm text-muted-foreground">+91 94258 36824, +91 6262 604 111</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
@@ -311,7 +311,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-foreground">Email</p>
-                        <p className="text-sm text-muted-foreground">admission@satpuda.ac.in</p>
+                        <p className="text-[11px] sm:text-xs text-muted-foreground">satpudaengineeringcollege@gmail.com</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
@@ -333,10 +333,10 @@ export default function ContactPage() {
                   </p>
                   <div className="flex flex-col gap-3 text-sm text-muted-foreground">
                     <span className="flex items-center gap-2">
-                      <Phone className="h-4 w-4 text-primary" /> +91 6262 604 111
+                      <Phone className="h-4 w-4 text-primary shrink-0" /> <span className="text-[12px]">+91 94258 36824, +91 6262 604 111</span>
                     </span>
                     <span className="flex items-center gap-2">
-                      <Mail className="h-4 w-4 text-primary" /> admission@satpuda.ac.in
+                      <Mail className="h-4 w-4 text-primary shrink-0" /> <span className="text-[11px]">satpudaengineeringcollege@gmail.com</span>
                     </span>
                   </div>
                   <Link to="/admissions/admission-form" className="mt-6 inline-flex w-full">
