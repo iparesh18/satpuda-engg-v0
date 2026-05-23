@@ -20,7 +20,7 @@ export function MapSection() {
     { icon: MapPin, label: "Address", value: "Lalbarra - Balaghat Road, Manjhapur, MP 481001", color: "text-blue-500" },
     { icon: Phone, label: "Phone", value: "+91-7624-267-xxx", color: "text-green-500" },
     { icon: Mail, label: "Email", value: "info@satpudaengg.edu.in", color: "text-purple-500" },
-    { icon: Clock, label: "Hours", value: "Mon - Fri: 9 AM - 5 PM", color: "text-orange-500" },
+    { icon: Clock, label: "Hours", value: "Mon - Sat: 9 AM - 5 PM", color: "text-orange-500" },
   ];
 
   return (
@@ -146,7 +146,7 @@ export function MapSection() {
               transition={{ duration: 2, repeat: Infinity }}
               className="h-2 w-2 rounded-full bg-primary"
             />
-            <span>Open Monday to Friday, 9 AM to 5 PM IST</span>
+            <span>Open Monday to Saturday, 9 AM to 5 PM IST</span>
           </div>
         </motion.div>
       </div>

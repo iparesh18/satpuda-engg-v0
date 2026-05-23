@@ -320,7 +320,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-foreground">Office Hours</p>
-                        <p className="text-sm text-muted-foreground">Mon - Fri: 9 AM to 5 PM</p>
+                        <p className="text-sm text-muted-foreground">Mon - Sat: 9 AM to 5 PM</p>
                       </div>
                     </div>
                   </div>

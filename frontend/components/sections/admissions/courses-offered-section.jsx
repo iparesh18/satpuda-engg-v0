@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   GraduationCap, 
@@ -599,8 +600,14 @@ export function CoursesOfferedSection() {
             </div>
 
             <div className="md:ml-auto">
-              <Button variant="outline" className="rounded-xl px-8 border-primary/20 hover:border-primary/50 text-primary group">
-                Contact Us <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <Button
+                asChild
+                variant="outline"
+                className="rounded-xl px-8 border-primary/20 hover:border-primary/50 text-primary group"
+              >
+                <Link to="/contact">
+                  Contact Us <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
             </div>
           </div>

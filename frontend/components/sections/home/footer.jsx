@@ -1,14 +1,35 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Footer() {
+  const campusLinkMap = {
+    "About Us": "/about/overview",
+    Library: "/our-campus/library",
+    Transport: "/our-campus/transport",
+    Gallery: "/our-campus/gallery",
+  };
+
+  const importantLinkMap = {
+    AICTE: "https://aicte.gov.in/",
+    "MP DTE": "https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx",
+    SCHOLARSHIP: "https://www.tribal.mp.gov.in/MPTAAS",
+    "RGPV, Bhopal": "https://www.rgpv.ac.in/",
+  };
+
+  const institutionLinkMap = {
+    "Satpuda Valley Public School": "https://satpudavalleyschool.com/",
+    "Satpuda ITI": "https://satpudaiti.com/campus-balaghat/",
+    "Satpuda Polytechnic": "https://satpudapolytechnic.com/index.php",
+    "Job Sahi": "https://jobsahi.com/",
+  };
+
   const links = {
     ourCampuses: ["About Us", "Library", "Transport", "Gallery"],
     importantLinks: [
       "AICTE",
-      "AICTE Scholarship/Fellowship",
       "MP DTE",
       "SCHOLARSHIP",
       "RGPV, Bhopal",
@@ -57,13 +78,43 @@ export function Footer() {
               <ul className="space-y-3">
                 {col.items.map((link) => (
                   <li key={link}>
-                    <a
-                      href="#"
-                      className="text-sm text-primary-foreground/75 hover:text-accent transition-all duration-300 flex items-center group"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-accent scale-0 group-hover:scale-100 transition-transform mr-2" />
-                      {link}
-                    </a>
+                    {campusLinkMap[link] ? (
+                      <Link
+                        to={campusLinkMap[link]}
+                        className="text-sm text-primary-foreground/75 hover:text-accent transition-all duration-300 flex items-center group"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent scale-0 group-hover:scale-100 transition-transform mr-2" />
+                        {link}
+                      </Link>
+                    ) : importantLinkMap[link] ? (
+                      <a
+                        href={importantLinkMap[link]}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-sm text-primary-foreground/75 hover:text-accent transition-all duration-300 flex items-center group"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent scale-0 group-hover:scale-100 transition-transform mr-2" />
+                        {link}
+                      </a>
+                    ) : institutionLinkMap[link] ? (
+                      <a
+                        href={institutionLinkMap[link]}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-sm text-primary-foreground/75 hover:text-accent transition-all duration-300 flex items-center group"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent scale-0 group-hover:scale-100 transition-transform mr-2" />
+                        {link}
+                      </a>
+                    ) : (
+                      <a
+                        href="#"
+                        className="text-sm text-primary-foreground/75 hover:text-accent transition-all duration-300 flex items-center group"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent scale-0 group-hover:scale-100 transition-transform mr-2" />
+                        {link}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -90,21 +141,32 @@ export function Footer() {
 
           {/* Social Icons */}
           <div className="flex items-center gap-3 mt-5">
-            {Object.entries({
-              Facebook,
-              Instagram,
-              Twitter,
-              Youtube,
-            }).map(([name, Icon]) => (
-              <motion.a
-                key={name}
-                href="#"
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="w-9 h-9 rounded-full bg-primary-foreground/10 text-primary-foreground flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300"
-              >
-                <Icon className="h-4 w-4" />
-              </motion.a>
-            ))}
+            {(() => {
+              const socialLinks = {
+                Facebook: "https://www.facebook.com/SatpudaEnggPoly",
+                Instagram: "https://www.instagram.com/satpuda_engineering/",
+                Linkedin: "https://www.linkedin.com/in/satpuda-college-of-engineering-and-polytechnic-balaghat-781906352/",
+                Youtube: "https://www.youtube.com/@satpudaengineering231",
+              };
+
+              return Object.entries({
+                Facebook,
+                Instagram,
+                Linkedin,
+                Youtube,
+              }).map(([name, Icon]) => (
+                <motion.a
+                  key={name}
+                  href={socialLinks[name]}
+                  target="_blank"
+                  rel="noreferrer"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  className="w-9 h-9 rounded-full bg-primary-foreground/10 text-primary-foreground flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+                >
+                  <Icon className="h-4 w-4" />
+                </motion.a>
+              ));
+            })()}
           </div>
 
           {/* Job Logo */}

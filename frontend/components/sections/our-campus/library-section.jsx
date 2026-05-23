@@ -164,7 +164,14 @@ export function LibrarySection() {
                 transition={{ delay: 0.8, duration: 0.8 }}
                 className="mt-12 flex flex-wrap gap-4"
               >
-                <button 
+                <button
+                  type="button"
+                  onClick={() =>
+                    document.getElementById("digital-archive-discovery")?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    })
+                  }
                   className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-10 py-5 text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 group inline-flex items-center gap-2"
                 >
                   Explore Collection
@@ -296,6 +303,7 @@ export function LibrarySection() {
       </motion.section>
 
       <motion.section
+        id="digital-archive-discovery"
         className="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8"
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -457,17 +465,7 @@ export function LibrarySection() {
               <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
                 Our library continuously grows to meet the academic needs of students, faculty, and researchers.
               </p>
-              <Link to="/our-campus/library" className="mt-10 group relative overflow-hidden rounded-full bg-primary px-12 py-5 text-lg font-bold text-primary-foreground transition-all duration-500 hover:pr-16 hover:shadow-2xl hover:shadow-primary/30 inline-flex items-center">
-                <span className="relative z-10 flex items-center gap-3 transition-transform duration-500 group-hover:-translate-x-2">
-                  Explore Collection
-                  <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1" />
-                </span>
-                {/* Awwwards Style Reveal Layer */}
-                <div className="absolute inset-0 z-0 bg-white opacity-0 transition-opacity duration-500 group-hover:opacity-10" />
-                <div className="absolute right-6 top-1/2 -translate-y-1/2 translate-x-12 opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100">
-                  <BookOpen className="h-6 w-6" />
-                </div>
-              </Link>
+            
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {glanceStats.map(({ icon: Icon, value, label }) => (

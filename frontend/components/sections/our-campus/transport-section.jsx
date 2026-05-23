@@ -124,6 +124,13 @@ export function TransportSection() {
                 className="mt-12 flex flex-wrap gap-4"
               >
                 <button
+                  type="button"
+                  onClick={() =>
+                    document.getElementById("interactive-corridor-map")?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    })
+                  }
                   className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-10 py-5 text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 group inline-flex items-center gap-2"
                 >
                   View Route Schedule
@@ -202,7 +209,10 @@ export function TransportSection() {
               <div className="absolute inset-0 bg-black/10 transition-opacity group-hover:opacity-0" />
             </div>
 
-            <div className="rounded-[32px] border border-primary/20 bg-gradient-to-br from-primary/10 to-accent/5 p-8 backdrop-blur-xl flex flex-col justify-between">
+            <div
+              id="interactive-corridor-map"
+              className="rounded-[32px] border border-primary/20 bg-gradient-to-br from-primary/10 to-accent/5 p-8 backdrop-blur-xl flex flex-col justify-between"
+            >
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.4em] text-primary">Live Route Coverage</p>
                 <h2 className="mt-4 text-3xl font-bold text-foreground">Interactive Corridor Map</h2>

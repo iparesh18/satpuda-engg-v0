@@ -120,12 +120,6 @@ export function SportsSection() {
                 transition={{ delay: 0.8, duration: 0.8 }}
                 className="mt-12 flex flex-wrap gap-4"
               >
-                <button 
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-10 py-5 text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 group inline-flex items-center gap-2"
-                >
-                  Join the Team
-                  <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                </button>
                 <div className="flex items-center gap-3 text-sm font-medium text-muted-foreground ml-2">
                   <span>Home</span>
                   <span className="text-muted-foreground/30">/</span>
@@ -289,14 +283,6 @@ export function SportsSection() {
                   </motion.li>
                 ))}
               </ul>
-
-              <div className="mt-14">
-                <button className="group relative inline-flex items-center gap-4 rounded-full bg-primary px-12 py-5 text-xl font-bold text-primary-foreground transition-all hover:pr-14 hover:shadow-2xl hover:shadow-primary/30">
-                  <span className="relative z-10">Join the Spirit</span>
-                  <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-2 z-10" />
-                  <div className="absolute inset-0 z-0 bg-white opacity-0 transition-opacity duration-500 group-hover:opacity-10" />
-                </button>
-              </div>
             </div>
           </div>
         </div>
@@ -578,12 +564,6 @@ export function SportsSection() {
                 Join our elite teams and represent Satpuda with pride. Whether you are a pro or a beginner, there is a place for you on the field.
               </p>
             </div>
-            <Magnetic intensity={0.3}>
-              <Link to="/our-campus/sports" className="group relative inline-flex items-center gap-4 rounded-full bg-primary px-12 py-6 text-xl font-bold text-primary-foreground transition-all hover:pr-14 shadow-2xl shadow-primary/30">
-                Explore Sports
-                <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-2" />
-              </Link>
-            </Magnetic>
           </div>
         </div>
       </motion.section>

@@ -530,36 +530,6 @@ export function ScholarshipSection() {
           </div>
         </div>
       </motion.section>
-
-      <motion.section
-        className="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8"
-        initial={{ opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <div className="flex flex-col items-center justify-between gap-8 rounded-[40px] border border-border/40 bg-gradient-to-r from-primary/10 to-accent/10 backdrop-blur-xl p-8 sm:flex-row sm:p-12 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 left-0 -mt-20 -ml-20 h-64 w-64 bg-primary/20 rounded-full blur-3xl opacity-30" />
-          
-          <div className="relative z-10 flex items-center gap-6">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/20 text-primary">
-              <Download className="h-8 w-8" />
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold text-foreground sm:text-3xl">Important Information</h3>
-              <p className="mt-2 text-lg text-muted-foreground max-w-md">Download full guidelines and eligibility details for the academic session.</p>
-            </div>
-          </div>
-          
-          <Magnetic intensity={0.3}>
-            <button className="group relative inline-flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-lg font-bold text-primary-foreground transition-all hover:pr-12 shadow-xl shadow-primary/20">
-              Download Guideline
-              <Download className="h-5 w-5 transition-transform group-hover:translate-y-1" />
-            </button>
-          </Magnetic>
-        </div>
-      </motion.section>
-
       <motion.section
         className="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8 mb-20"
         initial={{ opacity: 0, y: 18 }}
@@ -583,10 +553,15 @@ export function ScholarshipSection() {
               </p>
             </div>
             <Magnetic intensity={0.3}>
-              <button className="group relative inline-flex items-center gap-4 rounded-full bg-primary px-12 py-6 text-xl font-bold text-primary-foreground transition-all hover:pr-14 shadow-2xl shadow-primary/30">
+              <a
+                href="https://www.tribal.mp.gov.in/MPTAAS"
+                target="_blank"
+                rel="noreferrer"
+                className="group relative inline-flex items-center gap-4 rounded-full bg-primary px-12 py-6 text-xl font-bold text-primary-foreground transition-all hover:pr-14 shadow-2xl shadow-primary/30"
+              >
                 Apply for Scholarship
                 <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-2" />
-              </button>
+              </a>
             </Magnetic>
           </div>
         </div>
