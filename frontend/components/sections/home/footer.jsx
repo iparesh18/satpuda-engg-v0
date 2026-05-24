@@ -50,7 +50,7 @@ export function Footer() {
 
   return (
     <footer className="bg-primary border-t border-primary/20 text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -128,10 +128,10 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="flex flex-col lg:flex-row gap-8 lg:gap-3 items-center justify-between mt-14"
+          className="flex flex-col lg:flex-row gap-8 lg:gap-3 items-center justify-between mt-8"
         >
           {/* College Logo */}
-          <div className="w-64 sm:w-72 lg:w-80 lg:mt-9">
+          <div className="w-64 sm:w-72 lg:w-80">
             <img
               src="/images/logo.webp"
               alt="Satpuda College of Engineering & Polytechnic"
@@ -140,7 +140,7 @@ export function Footer() {
           </div>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-3 mt-5">
+          <div className="flex items-center gap-3 mt-2">
             {(() => {
               const socialLinks = {
                 Facebook: "https://www.facebook.com/SatpudaEnggPoly",
@@ -170,7 +170,7 @@ export function Footer() {
           </div>
 
           {/* Job Logo */}
-          <div className="mt-6 w-36 sm:w-40">
+          <div className="mt-3 w-36 sm:w-40">
             <img
               src="/images/job.png"
               alt="Job Sahi"
@@ -178,7 +178,7 @@ export function Footer() {
             />
           </div>
 
-          <p className="text-sm text-primary-foreground/70 mt-4 text-center">
+          <p className="text-sm text-primary-foreground/70 mt-2 text-center">
             Excellence in Engineering Education
           </p>
         </motion.div>
@@ -186,7 +186,7 @@ export function Footer() {
 
       {/* Copyright */}
       <div className="border-t border-primary-foreground/15 bg-accent">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5">
           <p className="text-[10px] text-center text-white uppercase tracking-[0.3em]">
             Copyright © 2026 Satpuda College of Engineering & Polytechnic
             Balaghat (M.P.)

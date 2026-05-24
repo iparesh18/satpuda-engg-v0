@@ -131,19 +131,19 @@ export function EventsGallery() {
         {/* Horizontal scroll section */}
         <div
           ref={scrollContainerRef}
-          className="flex overflow-x-auto scroll-smooth gap-6 pb-8 scrollbar-thin scrollbar-thumb-accent/20 scrollbar-track-transparent px-2 -mx-2"
+          className="flex flex-col gap-6 pb-8 px-2 -mx-2 md:flex-row md:overflow-x-auto md:scroll-smooth md:gap-6 md:overflow-y-visible scrollbar-thin scrollbar-thumb-accent/20 scrollbar-track-transparent"
           style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}
         >
           {GALLERY_EVENTS.map((event, index) => (
             <div
               key={index}
-              className="flex-shrink-0 scroll-snap-align-start"
+              className="w-full md:w-auto md:shrink-0 scroll-snap-align-start"
               style={{ scrollSnapAlign: "start" }}
             >
               <Magnetic intensity={0.04}>
                 <div
                   onClick={() => setSelectedImage(event)}
-                  className="w-[300px] md:w-[380px] rounded-[2rem] border border-border/50 bg-card hover:border-accent/40 hover:shadow-2xl transition-all duration-500 group/card cursor-pointer overflow-hidden h-full flex flex-col hover:scale-[1.03] active:scale-98"
+                  className="w-full md:w-[380px] rounded-[2rem] border border-border/50 bg-card hover:border-accent/40 hover:shadow-2xl transition-all duration-500 group/card cursor-pointer overflow-hidden h-full flex flex-col hover:scale-[1.03] active:scale-98"
                 >
                   <SpotlightCard
                     spotlightColor="rgba(214, 11, 11, 0.05)"

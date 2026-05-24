@@ -1,659 +1,710 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Header, Footer } from "../../index.js";
-import SpotlightCard from "../../bits/spotlight-card.jsx";
-import Magnetic from "../../bits/magnetic.jsx";
-import { RegistrationDialog } from "../../sections/events-news/registration-dialog.jsx";
-import { EventDetailsDialog } from "../../sections/events-news/event-details-dialog.jsx";
-import { EventsGallery } from "../../sections/events-news/events-gallery.jsx";
 import {
-  Calendar,
-  MapPin,
-  Clock,
-  Search,
-  SlidersHorizontal,
   ArrowRight,
-  ChevronRight,
-  ChevronLeft,
-  Tv,
-  Presentation,
-  Award,
+  Calendar,
+  Clock,
+  MapPin,
+  Search,
   Sparkles,
+  X,
+  BookOpen,
+  Music,
   Trophy,
   Wrench,
-  Music,
-  BookOpen
+  Presentation,
+  Tv,
+  Award,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
-// Mock Event Data based on the reference UI and Satpuda requirements
-const TODAY_EVENTS = [
+const UPCOMING_EVENTS = [
   {
-    id: "today-1",
+    id: 1,
     title: "AI & ML Workshop",
-    category: "Workshops",
-    date: "MAY 20",
-    description: "Hands-on workshop on AI/ML basics and real-world applications.",
+    date: "2026-05-26",
     time: "10:00 AM - 01:00 PM",
     location: "IT Block, Room 204",
+    description: "Hands-on workshop on AI and machine learning fundamentals, tools, and real-world use cases.",
+    category: "Technical",
     image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070",
-    badgeColor: "bg-green-600 text-white"
   },
   {
-    id: "today-2",
+    id: 2,
     title: "Nritya 2K25",
-    category: "Cultural",
-    date: "MAY 22",
-    description: "A spectacular cultural evening celebrating art, music & dance.",
+    date: "2026-05-28",
     time: "05:00 PM - 09:00 PM",
     location: "Auditorium",
+    description: "A cultural evening featuring student performances, music, dance, and stage arts.",
+    category: "Cultural",
     image: "https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?q=80&w=2070",
-    badgeColor: "bg-red-500 text-white"
   },
   {
-    id: "today-3",
-    title: "HackElite 5.0",
-    category: "Competitions",
-    date: "MAY 24",
-    description: "24-hour hackathon to build innovative tech solutions.",
-    time: "09:00 AM (24 May) - 09:00 AM (25 May)",
-    location: "Innovation Lab",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070",
-    badgeColor: "bg-purple-600 text-white"
-  },
-  {
-    id: "today-4",
+    id: 3,
     title: "Career in Data Science",
-    category: "Seminars",
-    date: "MAY 28",
-    description: "Expert talk on building a career in data science & analytics.",
+    date: "2026-05-30",
     time: "11:00 AM - 12:30 PM",
     location: "Seminar Hall, Block A",
+    description: "An expert session on data science careers, portfolio building, and industry expectations.",
+    category: "Seminar",
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070",
-    badgeColor: "bg-blue-600 text-white"
-  }
+  },
+  {
+    id: 4,
+    title: "HackElite 5.0",
+    date: "2026-05-31",
+    time: "09:00 AM - 09:00 AM",
+    location: "Innovation Lab",
+    description: "A fast-paced 24-hour hackathon for coding, innovation, and collaborative problem solving.",
+    category: "Competition",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070",
+  },
 ];
 
-const PAST_EVENTS = [
+const RECENT_EVENTS = [
   {
-    id: "past-1",
+    id: 101,
     title: "CodeStorm 1.0",
-    category: "Competitions",
-    date: "APR 10",
-    description: "Competitive coding contest for all tech enthusiasts.",
+    date: "2026-04-10",
+    description: "Competitive coding contest that brought together students with strong problem-solving skills.",
+    category: "Competition",
+    image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=2070",
     time: "02:00 PM - 05:00 PM",
     location: "CSE Lab 2",
-    image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=2070",
-    badgeColor: "bg-purple-600 text-white"
   },
   {
-    id: "past-2",
+    id: 102,
     title: "Swaranjali",
+    date: "2026-04-12",
+    description: "An unforgettable music and dance night celebrating campus talent.",
     category: "Cultural",
-    date: "APR 12",
-    description: "An unforgettable night of music and melodies.",
+    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2070",
     time: "06:00 PM - 09:30 PM",
     location: "Open Air Theatre",
-    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2070",
-    badgeColor: "bg-red-500 text-white"
   },
   {
-    id: "past-3",
+    id: 103,
     title: "Sports Meet 2K25",
+    date: "2026-04-05",
+    description: "Annual sports meet with athletics, team games, and energetic participation.",
     category: "Sports",
-    date: "APR 05",
-    description: "Annual sports meet with fun, fitness and fantastic energy.",
+    image: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=2070",
     time: "08:00 AM - 05:00 PM",
     location: "College Grounds",
-    image: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=2070",
-    badgeColor: "bg-red-500 text-white"
   },
   {
-    id: "past-4",
+    id: 104,
     title: "Web Dev Bootcamp",
-    category: "Workshops",
-    date: "APR 30",
-    description: "A hands-on session on modern web development.",
+    date: "2026-04-30",
+    description: "A practical bootcamp on modern web development and UI implementation.",
+    category: "Technical",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2070",
     time: "10:00 AM - 04:00 PM",
     location: "Seminar Hall B",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2070",
-    badgeColor: "bg-green-600 text-white"
   },
   {
-    id: "past-5",
+    id: 105,
     title: "AI Chatbot Seminar",
-    category: "Seminars",
-    date: "MAR 18",
-    description: "Seminar on Generative AI and building custom chatbots.",
+    date: "2026-03-18",
+    description: "Seminar on Generative AI, chatbot workflows, and student use cases.",
+    category: "Seminar",
+    image: "https://images.unsplash.com/photo-1531747118685-ca8fa6e08806?q=80&w=2070",
     time: "11:00 AM - 01:00 PM",
     location: "Auditorium",
-    image: "https://images.unsplash.com/photo-1531747118685-ca8fa6e08806?q=80&w=2070",
-    badgeColor: "bg-blue-600 text-white"
   },
   {
-    id: "past-6",
+    id: 106,
     title: "Robotics Exhibition",
+    date: "2026-03-10",
+    description: "Student-built robot projects and demonstrations from multiple branches.",
     category: "Technical",
-    date: "MAR 10",
-    description: "Displaying student projects on automated and manual robots.",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070",
     time: "10:00 AM - 04:00 PM",
     location: "College Main Lobby",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070",
-    badgeColor: "bg-purple-600 text-white"
+  },
+];
+
+const CATEGORY_META = {
+  Technical: { icon: BookOpen, pill: "bg-[#021545] text-white" },
+  Cultural: { icon: Music, pill: "bg-[#d60b0b] text-white" },
+  Sports: { icon: Trophy, pill: "bg-slate-700 text-white" },
+  Workshop: { icon: Wrench, pill: "bg-[#021545] text-white" },
+  Seminar: { icon: Presentation, pill: "bg-[#d60b0b] text-white" },
+  Webinar: { icon: Tv, pill: "bg-slate-700 text-white" },
+  Competition: { icon: Award, pill: "bg-[#021545] text-white" },
+};
+
+const CALENDAR_MONTH = 4;
+const CALENDAR_YEAR = 2026;
+
+const formatDate = (dateString) =>
+  new Intl.DateTimeFormat("en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(dateString));
+
+const formatShortDate = (dateString) =>
+  new Intl.DateTimeFormat("en-US", {
+    day: "numeric",
+    month: "short",
+  }).format(new Date(dateString));
+
+const buildCalendarGrid = (year, monthIndex) => {
+  const firstDay = new Date(year, monthIndex, 1).getDay();
+  const totalDays = new Date(year, monthIndex + 1, 0).getDate();
+  const cells = Array.from({ length: firstDay }, () => null);
+
+  for (let day = 1; day <= totalDays; day += 1) {
+    cells.push(day);
   }
-];
 
-const CATEGORIES = [
-  { label: "All Events", icon: null },
-  { label: "Technical", icon: BookOpen },
-  { label: "Cultural", icon: Music },
-  { label: "Sports", icon: Trophy },
-  { label: "Workshops", icon: Wrench },
-  { label: "Seminars", icon: Presentation },
-  { label: "Webinars", icon: Tv },
-  { label: "Competitions", icon: Award }
-];
-
-const parseEventDate = (dateStr) => {
-  const parts = dateStr.trim().split(/\s+/);
-  if (parts.length < 2) return new Date();
-  const months = {
-    jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
-    jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11
-  };
-  const month = months[parts[0].toLowerCase()] ?? 4; // default to May
-  const day = parseInt(parts[1], 10) || 1;
-  return new Date(2026, month, day);
+  return cells;
 };
 
 export default function EventsNewsPage() {
-  const [activeFilter, setActiveFilter] = useState("All Events");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [showFilterPanel, setShowFilterPanel] = useState(false);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [isRegOpen, setIsRegOpen] = useState(false);
-  const [selectedEvent, setSelectedEvent] = useState({ title: "", date: "" });
-  const [pastStartIndex, setPastStartIndex] = useState(0);
-
-  // Event details states
-  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
-  const [detailedEvent, setDetailedEvent] = useState(null);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState("All Events");
+  const [query, setQuery] = useState("");
+  const [recentIndex, setRecentIndex] = useState(0);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, []);
 
-  const handleOpenRegistration = (title, date) => {
-    setSelectedEvent({ title, date });
-    setIsRegOpen(true);
+  useEffect(() => {
+    if (!selectedEvent) return undefined;
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setSelectedEvent(null);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [selectedEvent]);
+
+  const upcomingEvents = useMemo(() => {
+    const filtered = UPCOMING_EVENTS.filter((event) => {
+      const categoryMatch = activeCategory === "All Events" || event.category === activeCategory;
+      const queryMatch =
+        query.trim() === "" ||
+        event.title.toLowerCase().includes(query.toLowerCase()) ||
+        event.location.toLowerCase().includes(query.toLowerCase()) ||
+        event.description.toLowerCase().includes(query.toLowerCase());
+
+      return categoryMatch && queryMatch;
+    });
+
+    return filtered;
+  }, [activeCategory, query]);
+
+  const recentEvents = useMemo(() => {
+    const filtered = RECENT_EVENTS.filter((event) => {
+      const categoryMatch = activeCategory === "All Events" || event.category === activeCategory;
+      const queryMatch =
+        query.trim() === "" ||
+        event.title.toLowerCase().includes(query.toLowerCase()) ||
+        event.location.toLowerCase().includes(query.toLowerCase()) ||
+        event.description.toLowerCase().includes(query.toLowerCase());
+
+      return categoryMatch && queryMatch;
+    });
+
+    return filtered;
+  }, [activeCategory, query]);
+
+  const eventsByDay = useMemo(() => {
+    const map = new Map();
+
+    [...upcomingEvents, ...recentEvents].forEach((event) => {
+      const date = new Date(event.date);
+      if (date.getMonth() === CALENDAR_MONTH && date.getFullYear() === CALENDAR_YEAR) {
+        const day = date.getDate();
+        map.set(day, [...(map.get(day) || []), event]);
+      }
+    });
+
+    return map;
+  }, [upcomingEvents, recentEvents]);
+
+  const calendarDays = useMemo(() => buildCalendarGrid(CALENDAR_YEAR, CALENDAR_MONTH), []);
+
+  const today = new Date();
+
+  const openEvent = (event) => setSelectedEvent(event);
+
+  const handleCalendarDayClick = (day) => {
+    const matchedEvents = eventsByDay.get(day);
+    if (matchedEvents?.length) {
+      setSelectedEvent(matchedEvents[0]);
+    }
   };
 
-  const handleOpenDetails = (event) => {
-    setDetailedEvent(event);
-    setIsDetailsOpen(true);
-  };
+  const visibleRecentEvents = recentEvents.slice(recentIndex, recentIndex + 4);
 
-  // Filter & Search Logics
-  const filterAndSearch = (list) => {
-    return list.filter((item) => {
-      const matchesFilter =
-        activeFilter === "All Events" ||
-        item.category.toLowerCase() === activeFilter.toLowerCase();
-      
-      const matchesSearch =
-        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.location.toLowerCase().includes(searchQuery.toLowerCase());
+  const handleRecentShift = (direction) => {
+    if (!recentEvents.length) return;
 
-      const eventDateObj = parseEventDate(item.date);
-      let matchesStartDate = true;
-      let matchesEndDate = true;
-
-      if (startDate) {
-        const start = new Date(startDate);
-        start.setHours(0, 0, 0, 0);
-        const eventCopy = new Date(eventDateObj);
-        eventCopy.setHours(0, 0, 0, 0);
-        matchesStartDate = eventCopy >= start;
-      }
-
-      if (endDate) {
-        const end = new Date(endDate);
-        end.setHours(23, 59, 59, 999);
-        const eventCopy = new Date(eventDateObj);
-        eventCopy.setHours(0, 0, 0, 0);
-        matchesEndDate = eventCopy <= end;
-      }
-
-      return matchesFilter && matchesSearch && matchesStartDate && matchesEndDate;
+    setRecentIndex((current) => {
+      const next = direction === "left" ? current - 1 : current + 1;
+      if (next < 0) return recentEvents.length - 1;
+      if (next >= recentEvents.length) return 0;
+      return next;
     });
   };
 
-  const filteredTodayEvents = filterAndSearch(TODAY_EVENTS);
-  const filteredPastEvents = filterAndSearch(PAST_EVENTS);
-
-  // Past events carousel slider helpers
-  const handlePastNext = () => {
-    if (pastStartIndex + 4 < filteredPastEvents.length) {
-      setPastStartIndex((prev) => prev + 1);
-    }
-  };
-
-  const handlePastPrev = () => {
-    if (pastStartIndex > 0) {
-      setPastStartIndex((prev) => prev - 1);
-    }
-  };
-
-  const visiblePastEvents = filteredPastEvents.slice(pastStartIndex, pastStartIndex + 4);
-
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="min-h-screen bg-[#f5f7fb] flex flex-col">
+      <style>{`
+        @keyframes recent-marquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .recent-marquee-track {
+          animation: recent-marquee 28s linear infinite;
+        }
+        .recent-marquee:hover .recent-marquee-track {
+          animation-play-state: paused;
+        }
+      `}</style>
+
       <Header />
 
-      <main className="flex-grow">
-        {/* HERO SECTION - Dark premium style matching Reference UI 1 */}
-        <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-[#030e2b]">
-          {/* Background image with high quality university building dusk scene */}
-          <div className="absolute inset-0 z-0">
-            <img
-              src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070"
-              alt="Recent events header background"
-              className="w-full h-full object-cover opacity-25 filter brightness-[0.75] contrast-[1.1]"
-            />
-            {/* Cinematic dark gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#030e2b] via-[#030e2b]/85 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#030e2b] via-[#030e2b]/40 to-transparent" />
-            
-            {/* Subtle premium ambient colored glows (no harsh white glow) */}
-            <div className="absolute -top-24 -left-24 w-[500px] h-[500px] bg-accent/8 rounded-full blur-[180px] pointer-events-none" />
-            <div className="absolute -bottom-24 -right-24 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[200px] pointer-events-none" />
-          </div>
-
-          <div className="container mx-auto px-6 py-20 relative z-10">
+      <main className="flex-1">
+        <section className="relative overflow-hidden bg-[linear-gradient(135deg,#021545_0%,#0b1f5b_55%,#d60b0b_180%)] text-white">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(214,11,11,0.25),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.12),transparent_24%)] pointer-events-none" />
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 relative z-10">
             <div className="max-w-3xl">
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="flex items-center gap-2 mb-4"
-              >
-                <span className="h-px w-8 bg-accent" />
-                <span className="text-xs sm:text-sm font-bold tracking-[0.3em] uppercase text-accent-foreground/80">
-                  DISCOVER • CONNECT • GROW
-                </span>
-              </motion.div>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.35em] text-white/80 backdrop-blur-md">
+                <Sparkles className="h-3.5 w-3.5 text-accent" />
+                Satpuda Engineering College Events
+              </span>
+              <h1 className="mt-6 text-4xl font-black tracking-tight sm:text-5xl lg:text-7xl">
+                Events & News
+              </h1>
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-white/75 sm:text-base lg:text-lg">
+                Clean cards, a modern calendar widget, and a smooth mobile-first layout designed for touch devices and
+                professional college presentation.
+              </p>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-5xl md:text-7xl font-black text-white leading-[1.05] tracking-tight uppercase mb-6"
-              >
-                Moments That <br />
-                <span className="text-accent italic heading-underline">Inspire</span> Us.
-              </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-lg md:text-xl text-white/70 font-medium max-w-xl mb-8 leading-relaxed"
-              >
-                Relive the energy, laughter, and achievements from our recent events. Stay tuned to our campus life.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="flex flex-wrap gap-4"
-              >
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <button
+                  type="button"
                   onClick={() => {
-                    const el = document.getElementById("events-section");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                    const target = document.getElementById("upcoming-events-section");
+                    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
                   }}
-                  className="group inline-flex items-center gap-2.5 rounded-2xl bg-accent px-8 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-xl shadow-accent/25 hover:bg-accent/90 transition-all duration-300 hover:scale-105 active:scale-95"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white shadow-xl shadow-accent/25 transition-transform duration-300 hover:scale-[1.02] active:scale-95"
                 >
-                  View All Highlights
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  View Upcoming Events
+                  <ArrowRight className="h-4 w-4" />
                 </button>
 
-                <Link to="/events/upcoming">
-                  <button className="inline-flex items-center gap-2.5 rounded-2xl border border-white/20 hover:border-white/40 bg-white/5 backdrop-blur-md px-8 py-4 text-sm font-bold uppercase tracking-wider text-white hover:bg-white/10 transition-all duration-300 hover:scale-105 active:scale-95">
-                    Upcoming Events
-                    <Calendar className="h-4 w-4 text-accent" />
-                  </button>
+                <Link
+                  to="/events/upcoming"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-md transition-colors hover:bg-white/10"
+                >
+                  Upcoming Events Page
+                  <Calendar className="h-4 w-4 text-accent" />
                 </Link>
-              </motion.div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* RECENT EVENTS CONTAINER */}
-        <section id="events-section" className="py-20 bg-background pb-8">
-          <div className="container mx-auto px-6">
-            
-            {/* SEARCH & FILTERS CONTROLS */}
-            <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-8 mb-12">
-              <div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">Recent Events</h2>
-                <div className="h-1 w-16 bg-accent mt-2 rounded-full" />
-              </div>
-
-              <div className="flex flex-col md:flex-row items-stretch md:items-center gap-4 w-full xl:w-auto">
-                {/* Search Field */}
-                <div className="relative flex-grow md:w-80">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search events..."
-                    className="w-full h-12 pl-11 pr-4 rounded-xl border border-border bg-card text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all"
-                  />
-                </div>
-                {/* Filters Dropdown/Status */}
-                <div
-                  onClick={() => setShowFilterPanel(!showFilterPanel)}
-                  className={`flex items-center justify-center gap-2 px-4 h-12 rounded-xl border border-border bg-card text-sm font-semibold text-foreground hover:bg-muted/50 cursor-pointer transition-all ${
-                    showFilterPanel || startDate || endDate ? "border-accent text-accent" : ""
-                  }`}
-                >
-                  <SlidersHorizontal className="w-4 h-4 text-accent" />
-                  <span>Filters</span>
-                </div>
-              </div>
-            </div>
-
-            {/* EXPANDABLE DATE FILTER PANEL */}
-            <AnimatePresence>
-              {showFilterPanel && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden mb-8"
-                >
-                  <div className="p-6 rounded-2xl border border-border bg-card/65 backdrop-blur-md flex flex-col md:flex-row items-end gap-6">
-                    <div className="flex-1 w-full space-y-2 text-left">
-                      <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground block">
-                        Start Date
-                      </label>
-                      <input
-                        type="date"
-                        value={startDate}
-                        onChange={(e) => setStartDate(e.target.value)}
-                        className="w-full h-11 px-4 rounded-xl border border-border bg-background text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/20"
-                      />
-                    </div>
-                    <div className="flex-1 w-full space-y-2 text-left">
-                      <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground block">
-                        End Date
-                      </label>
-                      <input
-                        type="date"
-                        value={endDate}
-                        onChange={(e) => setEndDate(e.target.value)}
-                        className="w-full h-11 px-4 rounded-xl border border-border bg-background text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/20"
-                      />
-                    </div>
-                    <div className="flex gap-3 w-full md:w-auto shrink-0">
-                      <button
-                        onClick={() => {
-                          setStartDate("");
-                          setEndDate("");
-                        }}
-                        className="flex-1 md:flex-none px-6 h-11 rounded-xl border border-border hover:bg-muted text-xs font-bold uppercase tracking-wider text-muted-foreground transition-all cursor-pointer font-bold"
-                      >
-                        Reset
-                      </button>
-                      <button
-                        onClick={() => setShowFilterPanel(false)}
-                        className="flex-1 md:flex-none px-6 h-11 rounded-xl bg-accent hover:bg-accent/90 text-white text-xs font-bold uppercase tracking-wider transition-all cursor-pointer font-bold"
-                      >
-                        Apply
-                      </button>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            {/* TODAY'S EVENTS SECTION */}
-            <div className="mb-20">
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-foreground">Today's Events</h3>
-                  <div className="h-0.5 w-16 bg-accent rounded-full hidden sm:block" />
-                </div>
-                <span className="text-xs sm:text-sm font-bold text-accent hover:underline flex items-center gap-1 cursor-pointer">
-                  View All Today's Events <ChevronRight className="w-4 h-4" />
-                </span>
-              </div>
-
-              {filteredTodayEvents.length === 0 ? (
-                <div className="text-center py-12 rounded-3xl border border-dashed border-border bg-card/50">
-                  <Sparkles className="w-8 h-8 text-accent/40 mx-auto mb-3" />
-                  <p className="text-muted-foreground font-medium">No events found matching your query today.</p>
-                </div>
-              ) : (
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  <AnimatePresence mode="popLayout">
-                    {filteredTodayEvents.map((event) => (
-                      <motion.div
-                        key={event.id}
-                        layout
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.4 }}
-                      >
-                        <Magnetic intensity={0.06}>
-                          <SpotlightCard
-                            spotlightColor="rgba(214, 11, 11, 0.08)"
-                            className="h-full flex flex-col group overflow-hidden border border-border bg-card/85 backdrop-blur-md rounded-[2rem] hover:border-accent/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
-                          >
-                            {/* Card Image and Badges */}
-                            <div className="relative h-48 w-full overflow-hidden bg-muted">
-                              <img
-                                src={event.image}
-                                alt={event.title}
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
-                              
-                              {/* Date badge top left */}
-                              <div className="absolute top-4 left-4 rounded-xl bg-background/95 backdrop-blur-md border border-border/40 py-2 px-3 flex flex-col items-center justify-center text-center shadow-lg min-w-[3.5rem]">
-                                <span className="text-[10px] font-black text-accent uppercase leading-none tracking-widest">{event.date.split(" ")[0]}</span>
-                                <span className="text-lg font-black text-foreground leading-none mt-1">{event.date.split(" ")[1]}</span>
-                              </div>
-
-                              {/* Category pill bottom left */}
-                              <span className={`absolute bottom-4 left-4 text-[9px] font-black tracking-widest uppercase text-white px-3 py-1 rounded-full ${event.badgeColor}`}>
-                                {event.category}
-                              </span>
-                            </div>
-
-                            {/* Card Content */}
-                            <div className="p-6 flex-grow flex flex-col text-left">
-                              <h4 className="text-lg font-bold text-foreground group-hover:text-accent transition-colors line-clamp-1 mb-2">
-                                {event.title}
-                              </h4>
-                              <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2 mb-6">
-                                {event.description}
-                              </p>
-
-                              <div className="space-y-2 mt-auto text-xs text-muted-foreground/80 font-medium">
-                                <div className="flex items-center gap-2.5">
-                                  <Clock className="w-3.5 h-3.5 text-accent shrink-0" />
-                                  <span>{event.time}</span>
-                                </div>
-                                <div className="flex items-center gap-2.5">
-                                  <MapPin className="w-3.5 h-3.5 text-accent shrink-0" />
-                                  <span className="line-clamp-1">{event.location}</span>
-                                </div>
-                              </div>
-
-                              <div className="border-t border-border/60 mt-5 pt-4">
-                                <button
-                                  onClick={() => handleOpenDetails(event)}
-                                  className="text-xs font-black text-accent hover:text-accent/80 flex items-center gap-1.5 transition-colors uppercase tracking-widest cursor-pointer"
-                                >
-                                  View Details <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                                </button>
-                              </div>
-                            </div>
-                          </SpotlightCard>
-                        </Magnetic>
-                      </motion.div>
-                    ))}
-                  </AnimatePresence>
-                </div>
-              )}
-            </div>
-
-            {/* PAST EVENTS SECTION */}
+        <section id="upcoming-events-section" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16">
+          <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-foreground">Past Events</h3>
-                  <div className="h-0.5 w-16 bg-accent rounded-full hidden sm:block" />
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-xs sm:text-sm font-bold text-accent hover:underline flex items-center gap-1 cursor-pointer">
-                    View All Past Events
-                  </span>
-                  {/* Slider Control buttons if multiple items */}
-                  {filteredPastEvents.length > 4 && (
-                    <div className="flex items-center gap-1.5">
-                      <button
-                        onClick={handlePastPrev}
-                        disabled={pastStartIndex === 0}
-                        className="p-1.5 rounded-lg border border-border bg-card text-foreground hover:bg-muted disabled:opacity-40 transition-all cursor-pointer"
-                      >
-                        <ChevronLeft className="w-4 h-4" />
-                      </button>
-                      <button
-                        onClick={handlePastNext}
-                        disabled={pastStartIndex + 4 >= filteredPastEvents.length}
-                        className="p-1.5 rounded-lg border border-border bg-card text-foreground hover:bg-muted disabled:opacity-40 transition-all cursor-pointer"
-                      >
-                        <ChevronRight className="w-4 h-4" />
-                      </button>
-                    </div>
-                  )}
-                </div>
+              <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent">Upcoming Events</p>
+              <h2 className="mt-3 text-2xl font-black text-foreground sm:text-3xl lg:text-4xl">
+                Learn, participate, and stay connected
+              </h2>
+            </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="relative w-full sm:w-80">
+                <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                  placeholder="Search events..."
+                  className="h-12 w-full rounded-2xl border border-border bg-card pl-11 pr-4 text-sm text-foreground outline-none transition focus:border-accent/40 focus:ring-2 focus:ring-accent/20"
+                />
               </div>
+              <button
+                type="button"
+                onClick={() => setFiltersOpen((prev) => !prev)}
+                className={`inline-flex h-12 items-center justify-center gap-2 rounded-2xl border px-4 text-sm font-semibold transition ${
+                  filtersOpen || activeCategory !== "All Events"
+                    ? "border-accent bg-accent/5 text-accent"
+                    : "border-border bg-card text-foreground hover:bg-muted/50"
+                }`}
+              >
+                <Calendar className="h-4 w-4" />
+                Filters
+              </button>
+            </div>
+          </div>
 
-              {filteredPastEvents.length === 0 ? (
-                <div className="text-center py-12 rounded-3xl border border-dashed border-border bg-card/50">
-                  <Sparkles className="w-8 h-8 text-accent/40 mx-auto mb-3" />
-                  <p className="text-muted-foreground font-medium">No past events found matching your query.</p>
+          {filtersOpen && (
+            <div className="mb-8 rounded-3xl border border-border bg-card/80 p-4 shadow-sm">
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "All Events",
+                  "Technical",
+                  "Cultural",
+                  "Sports",
+                  "Workshop",
+                  "Seminar",
+                  "Webinar",
+                  "Competition",
+                ].map((category) => {
+                  const active = activeCategory === category;
+                  return (
+                    <button
+                      key={category}
+                      type="button"
+                      onClick={() => setActiveCategory(category)}
+                      className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
+                        active
+                          ? "border-[#021545] bg-[#021545] text-white shadow-lg shadow-[#021545]/15"
+                          : "border-border bg-background text-foreground hover:border-accent/40 hover:text-accent"
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,0.75fr)] lg:items-start">
+            <div className="order-1 space-y-8">
+              <div className="rounded-4xl border border-border/70 bg-white p-5 sm:p-6 shadow-[0_18px_50px_rgba(2,21,69,0.08)]">
+                <div className="mb-5 flex items-center justify-between gap-4">
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground sm:text-2xl">Upcoming Events List</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {upcomingEvents.length} event{upcomingEvents.length === 1 ? "" : "s"} available
+                    </p>
+                  </div>
+                  <div className="hidden sm:flex items-center gap-2 rounded-full bg-[#021545]/5 px-3 py-2 text-xs font-bold uppercase tracking-wider text-[#021545]">
+                    <Calendar className="h-4 w-4 text-accent" />
+                    Scroll safe
+                  </div>
                 </div>
-              ) : (
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  <AnimatePresence mode="popLayout">
-                    {visiblePastEvents.map((event) => (
-                      <motion.div
-                        key={event.id}
-                        layout
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.4 }}
-                      >
-                        <Magnetic intensity={0.06}>
-                          <SpotlightCard
-                            spotlightColor="rgba(214, 11, 11, 0.06)"
-                            className="h-full flex flex-col group overflow-hidden border border-border bg-card/85 backdrop-blur-md rounded-[2rem] hover:border-accent/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
-                          >
-                            {/* Card Image and Badges */}
-                            <div className="relative h-48 w-full overflow-hidden bg-muted">
-                              <img
-                                src={event.image}
-                                alt={event.title}
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale hover:grayscale-0"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                              
-                              {/* Date badge */}
-                              <div className="absolute top-4 left-4 rounded-xl bg-background/95 backdrop-blur-md border border-border/40 py-2 px-3 flex flex-col items-center justify-center text-center shadow-lg min-w-[3.5rem]">
-                                <span className="text-[10px] font-black text-accent uppercase leading-none tracking-widest">{event.date.split(" ")[0]}</span>
-                                <span className="text-lg font-black text-foreground leading-none mt-1">{event.date.split(" ")[1]}</span>
-                              </div>
 
-                              {/* Category pill */}
-                              <span className={`absolute bottom-4 left-4 text-[9px] font-black tracking-widest uppercase text-white px-3 py-1 rounded-full ${event.badgeColor}`}>
-                                {event.category}
+                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
+                  {upcomingEvents.map((event) => {
+                    const meta = CATEGORY_META[event.category] || CATEGORY_META.Technical;
+                    const Icon = meta.icon;
+
+                    return (
+                      <motion.button
+                        key={event.id}
+                        type="button"
+                        whileHover={{ y: -2 }}
+                        whileTap={{ scale: 0.99 }}
+                        onClick={() => openEvent(event)}
+                        className="group overflow-hidden rounded-[1.75rem] border border-border bg-[#f9fafc] text-left shadow-sm transition-all hover:border-accent/30 hover:shadow-xl"
+                      >
+                        <div className="flex flex-col sm:flex-row">
+                          <div className="relative h-48 w-full sm:h-auto sm:w-48 shrink-0 overflow-hidden bg-slate-100">
+                            <img
+                              src={event.image}
+                              alt={event.title}
+                              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-linear-to-t from-black/55 to-transparent" />
+                            <div className={`absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest ${meta.pill}`}>
+                              {Icon && <Icon className="h-3.5 w-3.5" />}
+                              {event.category}
+                            </div>
+                          </div>
+
+                          <div className="flex min-w-0 flex-1 flex-col p-5 sm:p-6">
+                            <div className="flex items-start justify-between gap-3">
+                              <div>
+                                <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent">
+                                  {formatShortDate(event.date)}
+                                </p>
+                                <h4 className="mt-2 text-lg font-bold text-foreground transition-colors group-hover:text-[#021545]">
+                                  {event.title}
+                                </h4>
+                              </div>
+                              <span className="rounded-full bg-[#021545]/5 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#021545]">
+                                Upcoming
                               </span>
                             </div>
 
-                            {/* Card Content */}
-                            <div className="p-6 flex-grow flex flex-col text-left">
-                              <h4 className="text-lg font-bold text-foreground group-hover:text-accent transition-colors line-clamp-1 mb-2">
-                                {event.title}
-                              </h4>
-                              <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2 mb-6">
-                                {event.description}
-                              </p>
+                            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                              {event.description}
+                            </p>
 
-                              <div className="space-y-2 mt-auto text-xs text-muted-foreground/80 font-medium">
-                                <div className="flex items-center gap-2.5">
-                                  <Clock className="w-3.5 h-3.5 text-accent shrink-0" />
-                                  <span>{event.time}</span>
-                                </div>
-                                <div className="flex items-center gap-2.5">
-                                  <MapPin className="w-3.5 h-3.5 text-accent shrink-0" />
-                                  <span className="line-clamp-1">{event.location}</span>
-                                </div>
+                            <div className="mt-4 grid gap-2 text-sm text-muted-foreground">
+                              <div className="flex items-center gap-2">
+                                <Clock className="h-4 w-4 shrink-0 text-accent" />
+                                <span>{event.time}</span>
                               </div>
-
-                              <div className="border-t border-border/60 mt-5 pt-4">
-                                <button
-                                  onClick={() => handleOpenDetails(event)}
-                                  className="text-xs font-black text-accent hover:text-accent/80 flex items-center gap-1.5 transition-colors uppercase tracking-widest cursor-pointer"
-                                >
-                                  View Details <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                                </button>
+                              <div className="flex items-center gap-2">
+                                <MapPin className="h-4 w-4 shrink-0 text-accent" />
+                                <span>{event.location}</span>
                               </div>
                             </div>
-                          </SpotlightCard>
-                        </Magnetic>
-                      </motion.div>
-                    ))}
-                  </AnimatePresence>
+
+                            <div className="mt-5 flex items-center justify-between gap-3 border-t border-border/60 pt-4">
+                              <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
+                                Tap for full details
+                              </span>
+                              <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-accent">
+                                View Details <ArrowRight className="h-3.5 w-3.5" />
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.button>
+                    );
+                  })}
                 </div>
-              )}
+              </div>
             </div>
 
+            <aside className="order-2 lg:sticky lg:top-6">
+              <div className="rounded-4xl border border-border/70 bg-white p-5 sm:p-6 shadow-[0_18px_50px_rgba(2,21,69,0.08)]">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent">Calendar</p>
+                    <h3 className="mt-2 text-xl font-bold text-foreground">May 2026</h3>
+                  </div>
+                  <div className="rounded-full bg-[#d60b0b]/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#d60b0b]">
+                    Event days highlighted
+                  </div>
+                </div>
+
+                <div className="mt-6 grid grid-cols-7 gap-2 text-center text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground sm:text-xs">
+                  {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
+                    <div key={day} className="py-1">
+                      {day}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-3 grid grid-cols-7 gap-2">
+                  {calendarDays.map((day, index) => {
+                    if (!day) {
+                      return <div key={`empty-${index}`} className="aspect-square rounded-2xl bg-transparent" />;
+                    }
+
+                    const dayEvents = eventsByDay.get(day) || [];
+                    const isToday = today.getFullYear() === CALENDAR_YEAR && today.getMonth() === CALENDAR_MONTH && today.getDate() === day;
+                    const hasEvent = dayEvents.length > 0;
+
+                    return (
+                      <button
+                        key={day}
+                        type="button"
+                        onClick={() => handleCalendarDayClick(day)}
+                        className={`relative aspect-square rounded-2xl border text-sm font-bold transition-all duration-300 ${
+                          hasEvent
+                            ? "border-[#021545]/15 bg-white text-[#021545] shadow-sm hover:-translate-y-0.5"
+                            : "border-border bg-[#f7f8fc] text-foreground hover:border-accent/40 hover:bg-muted/50"
+                        } ${isToday && !hasEvent ? "ring-2 ring-accent/30" : ""}`}
+                        aria-label={hasEvent ? `Open event on day ${day}` : `Day ${day}`}
+                      >
+                        <span className={`absolute left-2 top-2 text-xs font-bold ${hasEvent ? "text-[#021545]" : ""}`}>
+                          {day}
+                        </span>
+                        {hasEvent && (
+                          <span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-accent" />
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div className="mt-6 rounded-2xl border border-border/60 bg-[#f9fafc] p-4">
+                  <p className="text-sm font-bold text-foreground">Calendar Tips</p>
+                  <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                    <li>• Highlighted dates have events.</li>
+                    <li>• Tap a highlighted date to open the event popup.</li>
+                    <li>• The layout stacks naturally on tablet and mobile.</li>
+                  </ul>
+                </div>
+              </div>
+            </aside>
           </div>
         </section>
 
-        {/* EVENTS GALLERY SECTION */}
-        <EventsGallery />
+        <section className="border-t border-border/60 bg-[#f2f4f8] py-12 sm:py-14 lg:py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent">Recent Events</p>
+                <h3 className="mt-2 text-2xl font-black text-foreground sm:text-3xl">Campus highlights</h3>
+              </div>
+              <p className="max-w-xl text-sm text-muted-foreground">
+                Auto-scrolling cards with hover pause and the same detail popup for a consistent user experience.
+              </p>
+            </div>
+
+            <div className="recent-marquee group overflow-hidden rounded-4xl border border-border bg-white/70 p-4 shadow-[0_18px_50px_rgba(2,21,69,0.06)]">
+              <div className="recent-marquee-track flex w-[200%] gap-4 will-change-transform">
+                {[...recentEvents, ...recentEvents].map((event, index) => (
+                  <motion.button
+                    key={`${event.id}-${index}`}
+                    type="button"
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.99 }}
+                    onClick={() => openEvent(event)}
+                    className="group/recent flex w-72 shrink-0 overflow-hidden rounded-3xl border border-border bg-white text-left shadow-sm transition-all hover:border-accent/30 hover:shadow-xl"
+                  >
+                    <div className="relative h-44 w-full overflow-hidden">
+                      <img
+                        src={event.image}
+                        alt={event.title}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover/recent:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/65 to-transparent" />
+                      <div className="absolute left-4 top-4 rounded-full bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur-md">
+                        {formatShortDate(event.date)}
+                      </div>
+                    </div>
+
+                    <div className="flex flex-1 flex-col p-4">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-accent">
+                        {event.category}
+                      </p>
+                      <h4 className="mt-2 text-base font-bold text-foreground group-hover/recent:text-[#021545]">
+                        {event.title}
+                      </h4>
+                      <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted-foreground">
+                        {event.description}
+                      </p>
+                    </div>
+                  </motion.button>
+                ))}
+              </div>
+
+              <div className="mt-4 flex items-center justify-between gap-3">
+                <button
+                  type="button"
+                  onClick={() => handleRecentShift("left")}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-foreground transition hover:border-accent/40 hover:text-accent"
+                  aria-label="Scroll recent events left"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+                <div className="text-xs font-bold uppercase tracking-[0.25em] text-muted-foreground">
+                  Hover to pause marquee
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleRecentShift("right")}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-foreground transition hover:border-accent/40 hover:text-accent"
+                  aria-label="Scroll recent events right"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
-      {/* Event Details Dialog */}
-      <EventDetailsDialog
-        isOpen={isDetailsOpen}
-        onClose={() => setIsDetailsOpen(false)}
-        event={detailedEvent}
-        onRegister={handleOpenRegistration}
-      />
+      <AnimatePresence>
+        {selectedEvent && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedEvent(null)}
+            className="fixed inset-0 z-100 flex items-center justify-center bg-black/75 px-4 py-6 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.98 }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(event) => event.stopPropagation()}
+              className="relative w-full max-w-3xl overflow-hidden rounded-4xl border border-white/10 bg-white shadow-2xl"
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedEvent(null)}
+                className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white transition hover:bg-black/70"
+                aria-label="Close event details"
+              >
+                <X className="h-4 w-4" />
+              </button>
 
-      {/* Registration Dialog */}
-      <RegistrationDialog
-        isOpen={isRegOpen}
-        onClose={() => setIsRegOpen(false)}
-        eventTitle={selectedEvent.title}
-        eventDate={selectedEvent.date}
-      />
+              <div className="grid max-h-[88vh] grid-cols-1 overflow-y-auto lg:grid-cols-[1.15fr_0.85fr]">
+                <div className="relative min-h-64 bg-slate-100 lg:min-h-full">
+                  <img
+                    src={selectedEvent.image || "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070"}
+                    alt={selectedEvent.title}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/15 to-transparent" />
+                  <div className="absolute left-5 top-5 rounded-full bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur-md">
+                    {selectedEvent.category}
+                  </div>
+                </div>
+
+                <div className="p-6 sm:p-8">
+                  <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent">Event Details</p>
+                  <h3 className="mt-3 text-2xl font-black tracking-tight text-foreground sm:text-3xl">
+                    {selectedEvent.title}
+                  </h3>
+
+                  <div className="mt-5 space-y-3 rounded-2xl border border-border bg-[#f7f8fc] p-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="h-4 w-4 shrink-0 text-accent" />
+                      <span>{formatDate(selectedEvent.date)}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="h-4 w-4 shrink-0 text-accent" />
+                      <span>{selectedEvent.time}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4 shrink-0 text-accent" />
+                      <span>{selectedEvent.location}</span>
+                    </div>
+                  </div>
+
+                  <p className="mt-5 text-sm leading-7 text-foreground/80 sm:text-base">
+                    {selectedEvent.description}
+                  </p>
+
+                  <div className="mt-6 flex">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedEvent(null)}
+                      className="inline-flex w-full items-center justify-center rounded-2xl border border-border bg-white px-5 py-3.5 text-sm font-bold uppercase tracking-wider text-foreground transition hover:bg-muted/40"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
     </div>

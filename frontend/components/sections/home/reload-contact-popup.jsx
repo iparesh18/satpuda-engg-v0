@@ -7,18 +7,37 @@ const DISMISS_KEY = "home-contact-popup-dismissed";
 
 export function ReloadContactPopup() {
   const [open, setOpen] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    const updateViewportState = () => {
+      setIsDesktop(mediaQuery.matches);
+    };
+
+    updateViewportState();
+
     const dismissed = sessionStorage.getItem(DISMISS_KEY) === "1";
-    setOpen(!dismissed);
+    setOpen(mediaQuery.matches && !dismissed);
 
     const clearDismissOnReload = () => {
       sessionStorage.removeItem(DISMISS_KEY);
     };
 
+    mediaQuery.addEventListener("change", updateViewportState);
     window.addEventListener("beforeunload", clearDismissOnReload);
-    return () => window.removeEventListener("beforeunload", clearDismissOnReload);
+    return () => {
+      mediaQuery.removeEventListener("change", updateViewportState);
+      window.removeEventListener("beforeunload", clearDismissOnReload);
+    };
   }, []);
+
+  useEffect(() => {
+    if (!isDesktop) {
+      setOpen(false);
+    }
+  }, [isDesktop]);
 
   const handleClose = () => {
     sessionStorage.setItem(DISMISS_KEY, "1");
@@ -33,7 +52,7 @@ export function ReloadContactPopup() {
 
   return (
     <AnimatePresence>
-      {open ? (
+      {open && isDesktop ? (
         <motion.div
           className="fixed inset-0 flex items-center justify-center bg-black/50 p-4 sm:p-6"
           style={{ zIndex: 9999 }}
