@@ -34,18 +34,17 @@ const stats = [
 
 const btechPrograms = [
   { sno: 1, course: "B.Tech", branch: "Computer Science and Engineering", intake: 180, eligibility: "12th (Maths)" },
-  { sno: 2, course: "B.Tech", branch: "Mechanical Engineering", intake: 60, eligibility: "12th (Maths)" },
-  { sno: 3, course: "B.Tech", branch: "Civil Engineering", intake: 60, eligibility: "12th (Maths)" },
+  { sno: 2, course: "B.Tech", branch: "Civil Engineering", intake: 60, eligibility: "12th (Maths)" },
+  { sno: 3, course: "B.Tech", branch: "Mechanical Engineering", intake: 60, eligibility: "12th (Maths)" },
   { sno: 4, course: "B.Tech", branch: "Electrical Engineering", intake: 60, eligibility: "12th (Maths)" },
-  { sno: 5, course: "B.Tech", branch: "Mining Engineering", intake: 120, eligibility: "12th (Maths)" },
 ];
 
 const diplomaPrograms = [
-  { sno: 6, course: "Diploma", branch: "Computer Science Engineering", intake: 60, eligibility: "10th Pass" },
+  { sno: 5, course: "Diploma", branch: "Computer Science Engineering", intake: 60, eligibility: "10th Pass" },
+  { sno: 6, course: "Diploma", branch: "Civil Engineering", intake: 60, eligibility: "10th Pass" },
   { sno: 7, course: "Diploma", branch: "Mechanical Engineering", intake: 120, eligibility: "10th Pass" },
-  { sno: 8, course: "Diploma", branch: "Civil Engineering", intake: 60, eligibility: "10th Pass" },
-  { sno: 9, course: "Diploma", branch: "Electrical Engineering", intake: 120, eligibility: "10th Pass" },
-  { sno: 10, course: "Diploma", branch: "Mining & Mine Surveying", intake: 120, eligibility: "10th Pass" },
+  { sno: 8, course: "Diploma", branch: "Electrical Engineering", intake: 120, eligibility: "10th Pass" },
+  { sno: 9, course: "Diploma", branch: "Mining & Mine Survey", intake: 120, eligibility: "10th Pass" },
 ];
 
 export function CoursesOfferedSection() {
@@ -76,8 +75,8 @@ export function CoursesOfferedSection() {
         transition={{ duration: 1 }}
       >
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+          <div className="absolute top-0 right-0 w-150 h-150 bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute bottom-0 left-0 w-100 h-100 bg-accent/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
         </div>
 
         <div className="absolute inset-y-0 right-0 w-full lg:w-1/2 opacity-20 pointer-events-none">
@@ -87,7 +86,7 @@ export function CoursesOfferedSection() {
             className="h-full w-full object-cover object-center"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-r from-background via-background/95 to-transparent pointer-events-none" />
         
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div>
@@ -128,7 +127,7 @@ export function CoursesOfferedSection() {
             {stats.map((stat, index) => (
               <motion.div key={index} variants={itemVariants}>
                 <Magnetic intensity={0.2}>
-                  <SpotlightCard className="h-full p-8 group cursor-default transition-all duration-500 hover:border-primary/50 bg-card/60 backdrop-blur-xl rounded-[2rem]">
+                  <SpotlightCard className="h-full p-8 group cursor-default transition-all duration-500 hover:border-primary/50 bg-card/60 backdrop-blur-xl rounded-4xl">
                     <div className="relative">
                       <div className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500`}>
                         <stat.icon className="h-7 w-7" />
@@ -472,7 +471,7 @@ export function CoursesOfferedSection() {
                       boxShadow: ["0 0 20px rgba(59,130,246,0.2)", "0 0 60px rgba(59,130,246,0.4)", "0 0 20px rgba(59,130,246,0.2)"]
                     }}
                     transition={{ duration: 4, repeat: Infinity }}
-                    className="relative z-20 h-32 w-32 rounded-3xl bg-gradient-to-br from-primary to-blue-700 flex items-center justify-center shadow-2xl"
+                    className="relative z-20 h-32 w-32 rounded-3xl bg-linear-to-br from-primary to-blue-700 flex items-center justify-center shadow-2xl"
                   >
                     <GraduationCap className="h-14 w-14 text-white" />
                   </motion.div>

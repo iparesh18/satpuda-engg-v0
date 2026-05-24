@@ -5,6 +5,7 @@ import confetti from "canvas-confetti";
 import { Header, Footer } from "../../index.js";
 import { Link } from "react-router-dom";
 import { Button } from "../../ui/button.jsx";
+import { PROGRAM_OPTIONS, getBranchOptions, buildAdmissionCourse } from "../../shared/admission-options.js";
 import {
   ArrowRight,
   ClipboardList,
@@ -21,7 +22,8 @@ import {
 
 export default function AdmissionFormPage() {
   const initialForm = {
-    course: "",
+    program: "",
+    branch: "",
     fullName: "",
     mobile: "",
     email: "",
@@ -36,19 +38,6 @@ export default function AdmissionFormPage() {
     window.scrollTo(0, 0);
   }, []);
 
-  const courses = [
-    "B.Tech - Computer Science Engineering",
-    "B.Tech - Civil Engineering",
-    "B.Tech - Mechanical Engineering",
-    "B.Tech - Electrical Engineering",
-    "B.Tech - Mining Engineering",
-    "Diploma - Computer Science",
-    "Diploma - Civil Engineering",
-    "Diploma - Mechanical Engineering",
-    "Diploma - Electrical Engineering",
-    "Diploma - Mining Engineering"
-  ];
-
   const infoItems = [
     "All fields marked with * are mandatory.",
     "Ensure that all the details provided are correct.",
@@ -60,7 +49,13 @@ export default function AdmissionFormPage() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => {
+      if (name === "program") {
+        return { ...prev, program: value, branch: "" };
+      }
+
+      return { ...prev, [name]: value };
+    });
   };
 
   const handleReset = () => {
@@ -74,10 +69,23 @@ export default function AdmissionFormPage() {
     setFormStatus(null);
 
     try {
+      const course = buildAdmissionCourse(formData.program, formData.branch);
+
+      if (!course) {
+        throw new Error("Please select a course and branch.");
+      }
+
       const response = await fetch(`${apiBaseUrl}/api/admissions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          course,
+          fullName: formData.fullName,
+          mobile: formData.mobile,
+          email: formData.email,
+          address: formData.address,
+          message: formData.message,
+        })
       });
 
       const payload = await response.json();
@@ -205,17 +213,34 @@ export default function AdmissionFormPage() {
 
                 <form className="space-y-5" onSubmit={handleSubmit}>
                   <div>
-                    <label className="text-sm font-semibold text-foreground">Select Your Course *</label>
+                    <label className="text-sm font-semibold text-foreground">Select Program *</label>
                     <select
-                      name="course"
-                      value={formData.course}
+                      name="program"
+                      value={formData.program}
                       onChange={handleChange}
                       required
                       className="mt-2 w-full h-11 rounded-lg border border-border bg-white px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
                     >
-                      <option value="">-- Select Course --</option>
-                      {courses.map((course) => (
-                        <option key={course} value={course}>{course}</option>
+                      <option value="">-- Select Program --</option>
+                      {PROGRAM_OPTIONS.map((program) => (
+                        <option key={program} value={program}>{program}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="text-sm font-semibold text-foreground">Select Branch *</label>
+                    <select
+                      name="branch"
+                      value={formData.branch}
+                      onChange={handleChange}
+                      required
+                      disabled={!formData.program}
+                      className="mt-2 w-full h-11 rounded-lg border border-border bg-white px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 disabled:cursor-not-allowed disabled:bg-muted/40"
+                    >
+                      <option value="">-- Select Branch --</option>
+                      {getBranchOptions(formData.program).map((branch) => (
+                        <option key={branch} value={branch}>{branch}</option>
                       ))}
                     </select>
                   </div>
