@@ -147,8 +147,8 @@ const parseEventDate = (dateStr) => {
 export function UpcomingEventsList({ onRegister, onViewDetails }) {
   const [activeFilter, setActiveFilter] = useState("All Events");
   const [searchQuery, setSearchQuery] = useState("");
-  const [calendarView, setCalendarView] = useState("Month"); // Month, Week, Day
   const [selectedDate, setSelectedDate] = useState(null);
+  const [currentDate, setCurrentDate] = useState(new Date(2026, 4, 1)); // May 2026
 
   // Date filters states
   const [showFilterPanel, setShowFilterPanel] = useState(false);
@@ -188,34 +188,65 @@ export function UpcomingEventsList({ onRegister, onViewDetails }) {
     return matchesFilter && matchesSearch && matchesStartDate && matchesEndDate;
   });
 
-  // Calendar dates generator for May 2026
-  // May 1st 2026 starts on Friday
-  const startDayOffset = 5; 
-  const totalDays = 31;
-  const prevMonthDays = [26, 27, 28, 29, 30]; // filling empty days at start
-  const nextMonthDays = [1, 2, 3, 4, 5, 6];   // filling empty days at end
+  const handlePrevMonth = () => {
+    setSelectedDate(null);
+    setCurrentDate((prev) => new Date(prev.getFullYear(), prev.getMonth() - 1, 1));
+  };
+
+  const handleNextMonth = () => {
+    setSelectedDate(null);
+    setCurrentDate((prev) => new Date(prev.getFullYear(), prev.getMonth() + 1, 1));
+  };
+
+  const handleResetMonth = () => {
+    setSelectedDate(null);
+    setCurrentDate(new Date(2026, 4, 1));
+  };
+
+  // Calendar dates generator
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
+  const startDayOfWeek = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const daysInPrevMonth = new Date(year, month, 0).getDate();
 
   const calendarDays = [];
 
   // Add prev month trailing days
-  prevMonthDays.forEach((day) => {
-    calendarDays.push({ day, currentMonth: false });
-  });
+  for (let i = startDayOfWeek - 1; i >= 0; i--) {
+    calendarDays.push({
+      day: daysInPrevMonth - i,
+      currentMonth: false,
+      month: month === 0 ? 11 : month - 1,
+      year: month === 0 ? year - 1 : year
+    });
+  }
 
   // Add current month days
-  for (let i = 1; i <= totalDays; i++) {
-    const event = UPCOMING_EVENTS.find((e) => e.dayNumber === i);
+  for (let i = 1; i <= daysInMonth; i++) {
+    const event = UPCOMING_EVENTS.find((e) => {
+      const eDate = parseEventDate(e.date);
+      return eDate.getFullYear() === year && eDate.getMonth() === month && eDate.getDate() === i;
+    });
     calendarDays.push({
       day: i,
       currentMonth: true,
+      month: month,
+      year: year,
       event: event || null
     });
   }
 
-  // Add next month leading days
-  nextMonthDays.forEach((day) => {
-    calendarDays.push({ day, currentMonth: false });
-  });
+  // Add next month leading days to fill up a standard 42-day calendar grid
+  const nextDaysCount = 42 - calendarDays.length;
+  for (let i = 1; i <= nextDaysCount; i++) {
+    calendarDays.push({
+      day: i,
+      currentMonth: false,
+      month: month === 11 ? 0 : month + 1,
+      year: month === 11 ? year + 1 : year
+    });
+  }
 
   const handleDateClick = (dayObj) => {
     if (dayObj.currentMonth && dayObj.event) {
@@ -315,24 +346,20 @@ export function UpcomingEventsList({ onRegister, onViewDetails }) {
           )}
         </AnimatePresence>
 
-        {/* CATEGORIES NAVIGATION */}
-        <div className="flex overflow-x-auto pb-4 mb-12 scrollbar-none -mx-6 px-6 gap-3">
-          {CATEGORIES.map((cat) => {
-            const isActive = activeFilter === cat;
-            return (
-              <button
-                key={cat}
-                onClick={() => setActiveFilter(cat)}
-                className={`px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all duration-300 cursor-pointer ${
-                  isActive
-                    ? "bg-accent text-white shadow-lg shadow-accent/25 scale-105"
-                    : "bg-card border border-border hover:border-accent/40 text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                <span>{cat}</span>
-              </button>
-            );
-          })}
+        {/* MOBILE VIEW CALENDAR BUTTON */}
+        <div className="md:hidden flex justify-center mb-8 w-full">
+          <button
+            onClick={() => {
+              const el = document.getElementById("calendar-section");
+              if (el) {
+                el.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="w-full h-12 rounded-xl bg-accent text-white font-bold text-xs uppercase tracking-widest shadow-lg shadow-accent/25 hover:bg-accent/90 transition-all duration-300 active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <CalendarIcon className="w-4 h-4" />
+            View Calendar
+          </button>
         </div>
 
         {/* SPLIT LAYOUT: LIST ON LEFT, CALENDAR ON RIGHT */}
@@ -438,47 +465,43 @@ export function UpcomingEventsList({ onRegister, onViewDetails }) {
 
           {/* RIGHT COLUMN: EVENT CALENDAR */}
           <SpotlightCard
+            id="calendar-section"
             spotlightColor="rgba(214, 11, 11, 0.04)"
-            className="border border-border bg-card/85 backdrop-blur-md rounded-3xl p-6 shadow-xl"
+            className="border border-border bg-card/85 backdrop-blur-md rounded-3xl p-6 shadow-xl scroll-mt-24"
           >
             <div className="flex flex-col gap-6">
               
-              {/* Calendar Header with line indicator and Month/Week/Day tabs */}
-              <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 border-b border-border/60 pb-5">
+              {/* Calendar Header with line indicator */}
+              <div className="flex items-center justify-between gap-4 border-b border-border/60 pb-5">
                 <div className="flex items-center gap-4">
                   <h3 className="text-lg font-bold text-foreground">Event Calendar</h3>
                   <div className="h-0.5 w-12 bg-accent rounded-full" />
-                </div>
-
-                {/* View togglers */}
-                <div className="flex rounded-lg bg-background p-1 border border-border h-9 shrink-0">
-                  {["Month", "Week", "Day"].map((view) => (
-                    <button
-                      key={view}
-                      onClick={() => setCalendarView(view)}
-                      className={`px-3 text-xs font-bold rounded-md transition-all cursor-pointer ${
-                        calendarView === view
-                          ? "bg-accent text-white shadow-sm"
-                          : "text-muted-foreground hover:text-foreground"
-                      }`}
-                    >
-                      {view}
-                    </button>
-                  ))}
                 </div>
               </div>
 
               {/* Month Navigation */}
               <div className="flex items-center justify-between">
-                <span className="text-base font-bold text-foreground">May 2026</span>
+                <span className="text-base font-bold text-foreground">
+                  {currentDate.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
+                </span>
                 <div className="flex items-center gap-1">
-                  <button className="p-1.5 rounded-lg border border-border bg-background text-muted-foreground hover:text-foreground hover:bg-muted/50 cursor-pointer">
+                  <button
+                    onClick={handlePrevMonth}
+                    className="p-1.5 rounded-lg border border-border bg-background text-muted-foreground hover:text-foreground hover:bg-muted/50 cursor-pointer transition-colors"
+                  >
                     <ChevronLeft className="w-3.5 h-3.5" />
                   </button>
-                  <button className="p-1.5 rounded-lg border border-border bg-background text-muted-foreground hover:text-foreground hover:bg-muted/50 cursor-pointer">
+                  <button
+                    onClick={handleResetMonth}
+                    className="p-1.5 rounded-lg border border-border bg-background text-muted-foreground hover:text-foreground hover:bg-muted/50 cursor-pointer transition-colors"
+                    title="Reset to May 2026"
+                  >
                     <RefreshCw className="w-3.5 h-3.5 text-accent" />
                   </button>
-                  <button className="p-1.5 rounded-lg border border-border bg-background text-muted-foreground hover:text-foreground hover:bg-muted/50 cursor-pointer">
+                  <button
+                    onClick={handleNextMonth}
+                    className="p-1.5 rounded-lg border border-border bg-background text-muted-foreground hover:text-foreground hover:bg-muted/50 cursor-pointer transition-colors"
+                  >
                     <ChevronRight className="w-3.5 h-3.5" />
                   </button>
                 </div>

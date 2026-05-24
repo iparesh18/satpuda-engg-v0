@@ -266,7 +266,7 @@ export default function EventsNewsPage() {
             />
             {/* Cinematic dark gradient overlays */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#030e2b] via-[#030e2b]/85 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#030e2b] via-[#030e2b]/40 to-transparent" />
             
             {/* Subtle premium ambient colored glows (no harsh white glow) */}
             <div className="absolute -top-24 -left-24 w-[500px] h-[500px] bg-accent/8 rounded-full blur-[180px] pointer-events-none" />
@@ -424,31 +424,6 @@ export default function EventsNewsPage() {
                 </motion.div>
               )}
             </AnimatePresence>
-
-            {/* CATEGORIES NAVIGATION */}
-            <div className="flex overflow-x-auto pb-4 mb-12 scrollbar-none -mx-6 px-6 gap-3">
-              {CATEGORIES.map((cat) => {
-                const Icon = cat.icon;
-                const isActive = activeFilter === cat.label;
-                return (
-                  <button
-                    key={cat.label}
-                    onClick={() => {
-                      setActiveFilter(cat.label);
-                      setPastStartIndex(0); // reset page indices
-                    }}
-                    className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all duration-300 cursor-pointer ${
-                      isActive
-                        ? "bg-accent text-white shadow-lg shadow-accent/25 scale-105"
-                        : "bg-card border border-border hover:border-accent/40 text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {Icon && <Icon className={`w-4 h-4 ${isActive ? "text-white" : "text-accent"}`} />}
-                    <span>{cat.label}</span>
-                  </button>
-                );
-              })}
-            </div>
 
             {/* TODAY'S EVENTS SECTION */}
             <div className="mb-20">
