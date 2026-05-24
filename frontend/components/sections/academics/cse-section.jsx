@@ -199,7 +199,7 @@ const facultyMembers = [
     role: "Lecturer",
     subject: "C++",
     degree: "B.Tech",
-    image: "/images/Bhavesh sir.png",
+    image: "/images/bhavesh sir.png",
     badgeTitle: "C++",
     badgeSubtitle: "Programming Pro",
     titlePart1: "Compiling",
