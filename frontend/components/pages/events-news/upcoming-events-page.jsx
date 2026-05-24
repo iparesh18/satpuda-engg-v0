@@ -52,7 +52,7 @@ export default function UpcomingEventsPage() {
             />
             {/* Cinematic dark gradient overlays */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#030e2b] via-[#030e2b]/85 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#030e2b] via-[#030e2b]/40 to-transparent" />
             
             {/* Subtle premium ambient colored glows (no harsh white glow) */}
             <div className="absolute -top-24 -left-24 w-[500px] h-[500px] bg-accent/8 rounded-full blur-[180px] pointer-events-none" />

@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-const SpotlightCard = ({ children, className = "", spotlightColor = "rgba(255, 255, 255, 0.1)" }) => {
+const SpotlightCard = ({ children, className = "", spotlightColor = "rgba(255, 255, 255, 0.1)", ...props }) => {
   const divRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -42,6 +42,7 @@ const SpotlightCard = ({ children, className = "", spotlightColor = "rgba(255, 2
       onFocus={handleFocus}
       onBlur={handleBlur}
       className={`relative overflow-hidden rounded-3xl border border-border bg-card shadow-sm ${className}`}
+      {...props}
     >
       <div
         className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
