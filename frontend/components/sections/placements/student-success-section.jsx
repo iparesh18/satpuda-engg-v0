@@ -27,7 +27,7 @@ const SUCCESS_STORIES = [
   { name: "ADNAN KHAN", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-17.jpeg", package: "3.7 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/lloyds-metals.jpg" },
   { name: "SANJEET PANCHESWAR", company: "GROUP R MINING & EXPLORATION INDIA PVT LTD", photo: "/images/placement/18.jpeg", package: "14.3 LPA", year: "2017", borderColor: "border-purple-600", logo: "/images/group r.jpg" },
   { name: "MITHLESH KHERWAR", company: "GROUP R MINING & EXPLORATION INDIA PVT LTD", photo: "/images/placement/19.jpeg", package: "16.3 LPA", year: "2017", borderColor: "border-blue-600", logo: "/images/group r.jpg" },
-
+  { name: "ASHISH KOLTE", company: "WMW SRL BACAU (EUROPE)", photo: "/images/placement/Ak.png", package: "15.30 LPA", year: "2022", borderColor: "border-green-500", logo: "/images/WMW logo.jpg" }
 ];
 
 export function StudentSuccessSection() {

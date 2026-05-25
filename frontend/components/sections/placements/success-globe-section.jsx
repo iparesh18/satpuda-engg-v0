@@ -106,6 +106,24 @@ const SUCCESS_ITEMS = [
     link: '#',
     title: 'ADNAN KHAN',
     description: 'LLOYDS METALS AND ENERGY LIMITED'
+  },
+  {
+    image: '/images/placement/18.jpeg',
+    link: '#',
+    title: 'SANJEET PANCHESWAR',
+    description: 'GROUP R MINING & EXPLORATION INDIA PVT LTD'
+  },
+  {
+    image: '/images/placement/19.jpeg',
+    link: '#',
+    title: 'MITHLESH KHERWAR',
+    description: 'GROUP R MINING & EXPLORATION INDIA PVT LTD'
+  },
+  {
+    image: '/images/placement/Ak.png',
+    link: '#',
+    title: 'ASHISH KOLTE',
+    description: 'WMW SRL BACAU (EUROPE)'
   }
 ];
 
