@@ -1,6 +1,11 @@
 # Environment variables
 .env*.local
 
+# Ignore frontend and backend env files (explicit)
+frontend/.env
+frontend/.env.*
+backend/.env
+
 # Common ignores
 node_modules
 dist/
