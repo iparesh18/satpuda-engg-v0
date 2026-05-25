@@ -95,14 +95,14 @@ export function ReloadContactPopup() {
     <AnimatePresence>
       {open ? (
         <motion.div
-          className="fixed inset-0 flex items-start justify-center overflow-y-auto bg-black/55 px-3 py-4 sm:items-center sm:px-4 sm:py-6"
+          className="fixed inset-0 flex items-center justify-center bg-black/55 px-3 py-4 sm:px-4 sm:py-6"
           style={{ zIndex: 9999 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="relative mt-4 w-full max-w-5xl overflow-hidden rounded-[1.75rem] border border-white/20 bg-card/95 shadow-2xl backdrop-blur-xl sm:mt-0"
+            className="relative mt-4 w-full max-w-4xl overflow-hidden rounded-[1.75rem] border border-white/20 bg-card/95 shadow-2xl backdrop-blur-xl sm:mt-0"
             initial={{ opacity: 0, y: 20, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.98 }}
@@ -117,110 +117,137 @@ export function ReloadContactPopup() {
               <X className="h-4 w-4" />
             </button>
 
-            <div className="grid max-h-[88vh] grid-cols-1 overflow-y-auto md:max-h-none md:grid-cols-[0.95fr_1.05fr] md:items-stretch">
-              <div className="order-2 p-5 sm:p-6 md:order-1 md:p-7 lg:p-8 xl:p-10">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">Admission Support</p>
-                <h3 className="text-2xl font-bold text-foreground md:text-3xl">Get A Quick Call Back</h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Fill the form and our team will contact you with course, fees, scholarship, and admission guidance.
-                </p>
+            <div className="grid grid-cols-1 md:grid-cols-[0.95fr_1.05fr] md:items-stretch">
+              <div className="order-2 p-4 sm:p-5 md:order-1 md:p-8 lg:p-10 md:flex md:flex-col md:justify-between md:gap-8">
+                <div>
+                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">Admission Support</p>
+                  <h3 className="text-xl font-bold text-foreground md:text-2xl">Get A Quick Call Back</h3>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Fill details for course guidance, scholarship, and fees.
+                  </p>
+                </div>
 
-                <form onSubmit={handleSubmit} className="mt-6 space-y-3">
-                  <div>
-                    <label className="mb-1 block text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Program *</label>
-                    <select
-                      name="program"
-                      value={formData.program}
-                      onChange={handleChange}
-                      required
-                      className="h-11 w-full rounded-xl border border-border/70 bg-background/80 px-3 text-sm text-foreground outline-none ring-0 focus:border-primary"
-                    >
-                      <option value="">-- Select Program --</option>
-                      {PROGRAM_OPTIONS.map((program) => (
-                        <option key={program} value={program}>{program}</option>
-                      ))}
-                    </select>
+                <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+                  <div className="grid grid-cols-1 gap-3 md:gap-4">
+                    {/* Program */}
+                    <div>
+                      <select
+                        name="program"
+                        value={formData.program}
+                        onChange={handleChange}
+                        required
+                        className="h-10 w-full rounded-xl border border-border/70 bg-background/80 px-3 text-xs text-foreground outline-none ring-0 focus:border-primary transition-all duration-200"
+                      >
+                        <option value="">-- Select Program * --</option>
+                        {PROGRAM_OPTIONS.map((program) => (
+                          <option key={program} value={program}>{program}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Branch */}
+                    <div>
+                      <select
+                        name="branch"
+                        value={formData.branch}
+                        onChange={handleChange}
+                        required
+                        disabled={!formData.program}
+                        className="h-10 w-full rounded-xl border border-border/70 bg-background/80 px-3 text-xs text-foreground outline-none ring-0 focus:border-primary disabled:cursor-not-allowed disabled:bg-muted/40 transition-all duration-200"
+                      >
+                        <option value="">-- Select Branch * --</option>
+                        {getBranchOptions(formData.program).map((branch) => (
+                          <option key={branch} value={branch}>{branch}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Full Name */}
+                    <div>
+                      <input
+                        required
+                        name="fullName"
+                        placeholder="Full Name *"
+                        value={formData.fullName}
+                        onChange={handleChange}
+                        className="h-10 w-full rounded-xl border border-border/70 bg-background/80 px-3 text-xs text-foreground outline-none ring-0 placeholder:text-muted-foreground/60 focus:border-primary transition-all duration-200"
+                      />
+                    </div>
+
+                    {/* Phone Number */}
+                    <div>
+                      <input
+                        required
+                        type="tel"
+                        name="phone"
+                        placeholder="Phone Number *"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="h-10 w-full rounded-xl border border-border/70 bg-background/80 px-3 text-xs text-foreground outline-none ring-0 placeholder:text-muted-foreground/60 focus:border-primary transition-all duration-200"
+                      />
+                    </div>
+
+                    {/* Email Address */}
+                    <div>
+                      <input
+                        required
+                        type="email"
+                        name="email"
+                        placeholder="Email Address *"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="h-10 w-full rounded-xl border border-border/70 bg-background/80 px-3 text-xs text-foreground outline-none ring-0 placeholder:text-muted-foreground/60 focus:border-primary transition-all duration-200"
+                      />
+                    </div>
+
+                    {/* Address */}
+                    <div>
+                      <input
+                        required
+                        name="address"
+                        placeholder="Address *"
+                        value={formData.address}
+                        onChange={handleChange}
+                        className="h-10 w-full rounded-xl border border-border/70 bg-background/80 px-3 text-xs text-foreground outline-none ring-0 placeholder:text-muted-foreground/60 focus:border-primary transition-all duration-200"
+                      />
+                    </div>
+
+                    {/* Message */}
+                    <div>
+                      <textarea
+                        name="message"
+                        rows={1.5}
+                        placeholder="Message (optional)"
+                        value={formData.message}
+                        onChange={handleChange}
+                        className="w-full rounded-xl border border-border/70 bg-background/80 px-3 py-2 text-xs text-foreground outline-none ring-0 placeholder:text-muted-foreground/60 focus:border-primary transition-all duration-200 resize-none"
+                      />
+                    </div>
                   </div>
-                  <div>
-                    <label className="mb-1 block text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Branch *</label>
-                    <select
-                      name="branch"
-                      value={formData.branch}
-                      onChange={handleChange}
-                      required
-                      disabled={!formData.program}
-                      className="h-11 w-full rounded-xl border border-border/70 bg-background/80 px-3 text-sm text-foreground outline-none ring-0 focus:border-primary disabled:cursor-not-allowed disabled:bg-muted/40"
-                    >
-                      <option value="">-- Select Branch --</option>
-                      {getBranchOptions(formData.program).map((branch) => (
-                        <option key={branch} value={branch}>{branch}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <input
-                    required
-                    name="fullName"
-                    placeholder="Full Name"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    className="h-11 w-full rounded-xl border border-border/70 bg-background/80 px-3 text-sm text-foreground outline-none ring-0 placeholder:text-muted-foreground focus:border-primary"
-                  />
-                  <input
-                    required
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone Number"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="h-11 w-full rounded-xl border border-border/70 bg-background/80 px-3 text-sm text-foreground outline-none ring-0 placeholder:text-muted-foreground focus:border-primary"
-                  />
-                  <input
-                    required
-                    type="email"
-                    name="email"
-                    placeholder="Email Address"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="h-11 w-full rounded-xl border border-border/70 bg-background/80 px-3 text-sm text-foreground outline-none ring-0 placeholder:text-muted-foreground focus:border-primary"
-                  />
-                  <input
-                    required
-                    name="address"
-                    placeholder="Address"
-                    value={formData.address}
-                    onChange={handleChange}
-                    className="h-11 w-full rounded-xl border border-border/70 bg-background/80 px-3 text-sm text-foreground outline-none ring-0 placeholder:text-muted-foreground focus:border-primary"
-                  />
-                  <textarea
-                    name="message"
-                    rows={3}
-                    placeholder="Message (optional)"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full rounded-xl border border-border/70 bg-background/80 px-3 py-2 text-sm text-foreground outline-none ring-0 placeholder:text-muted-foreground focus:border-primary"
-                  />
+
                   {status && (
                     <p className={`text-xs font-medium ${status.type === "success" ? "text-primary" : "text-[#d60b0b]"}`}>
                       {status.message}
                     </p>
                   )}
+
                   <button
                     type="submit"
-                    className="h-11 w-full rounded-xl bg-primary px-4 text-sm font-semibold text-primary-foreground transition hover:opacity-90"
+                    className="h-10 w-full rounded-xl bg-primary px-4 text-xs font-semibold text-primary-foreground transition hover:opacity-90 shadow-md active:scale-[0.98] cursor-pointer"
                   >
                     Request Callback
                   </button>
                 </form>
               </div>
 
-              <div className="relative order-1 min-h-56 overflow-hidden bg-slate-100 md:order-2 md:min-h-full md:h-full">
+              <div className="relative order-1 h-36 overflow-hidden bg-slate-100 md:order-2 md:h-auto md:min-h-full">
                 <img
                   src="/images/popup.png"
                   alt="Student"
-                  className="h-full w-full object-cover object-center"
+                  className="h-full w-full object-cover object-[center_25%] md:object-center"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 md:p-8 text-white">
+                <div className="hidden md:block absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
+                <div className="hidden md:block absolute inset-x-0 bottom-0 p-4 sm:p-6 md:p-8 text-white">
                   <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-white/80">Satpuda Admission Team</p>
                   <p className="mt-2 max-w-sm text-sm text-white/90">
                     Share your details and the team will follow up with the right course guidance.

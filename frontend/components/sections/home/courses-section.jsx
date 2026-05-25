@@ -276,11 +276,11 @@ export function CoursesSection() {
 
               {/* CTA */}
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                <Link to="/admissions/admission-form" className="flex-1 py-3 px-6 rounded-xl bg-linear-to-r ${currentProgram.color} text-white bg-accent font-semibold hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
+                <Link to="/admissions/admission-form" className="flex-1 py-3 px-6 rounded-xl bg-linear-to-r ${currentProgram.color} text-white bg-accent font-semibold hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 text-center text-[20px]">
                   Apply Now
                 </Link>
                 <Link/>
-                <button className={`flex-1 py-3 px-6 rounded-xl border-2 ${currentProgram.borderColor} ${currentProgram.textColor} font-semibold hover:${currentProgram.bgColor} transition-all duration-300`}>
+                <button className={`flex-1 py-3 px-6 rounded-xl border-2 cursor-pointer text-[20px] ${currentProgram.borderColor} ${currentProgram.textColor} font-semibold hover:${currentProgram.bgColor} transition-all duration-300`} >
                   Download Brochure
                 </button>
               </div>
