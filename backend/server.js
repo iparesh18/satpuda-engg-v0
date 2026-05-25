@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
+const adminRouter = require("./routes/admin.js");
 const admissionsRouter = require("./routes/admissions.js");
 const contactsRouter = require("./routes/contacts.js");
 
@@ -20,6 +21,7 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok" });
 });
 
+app.use("/api/admin", adminRouter);
 app.use("/api/admissions", admissionsRouter);
 app.use("/api/contacts", contactsRouter);
 

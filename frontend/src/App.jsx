@@ -29,6 +29,7 @@ import { PlacementsPage } from "../components/index.js";
 import EventsNewsPage from "../components/pages/events-news/events-news-page.jsx";
 
 import { ThemeProvider } from "../components/shared/theme-provider.jsx";
+import SatpudaSuperpowerPage from "../components/pages/admin/satpuda-superpower-page.jsx";
 
 function ScrollToTop() {
   const location = useLocation();
@@ -41,6 +42,9 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith("/satpuda-superpower");
+
   return (
     <ThemeProvider>
       <ScrollToTop />
@@ -72,12 +76,13 @@ export default function App() {
 
           <Route path="/events/recent" element={<EventsNewsPage />} />
           <Route path="/events-news" element={<EventsNewsPage />} />
+          <Route path="/satpuda-superpower" element={<SatpudaSuperpowerPage />} />
     
 
           <Route path="/journey-at-satpuda" element={<JourneyAtSatpudaSection />} />
         </Routes>
       </RootLayout>
-      <StickyWhatsApp />
+      {!isAdminRoute ? <StickyWhatsApp /> : null}
     </ThemeProvider>
   );
 }
