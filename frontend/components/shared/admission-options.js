@@ -13,6 +13,7 @@ export const BRANCH_OPTIONS = {
     "Civil Engineering",
     "Mechanical Engineering",
     "Electrical Engineering",
+    "Mining Engineering",
   ],
 };
 
