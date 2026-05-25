@@ -8,10 +8,14 @@ import { ArrowRight, Play } from "lucide-react";
 export function HeroSection() {
   const heroImages = [
      "/images/bannerp.jpeg",
-    "/images/banner1.jpeg",
+    "/images/banner1.png",
     "/images/banner3.jpeg",
     "/images/hero-1.jpeg",
      "/images/banner9.jpeg",
+     "/images/hbanner.png",
+     "/images/hbanner2.jpeg",
+     "/images/hbanner3.jpeg",
+     "/images/hbanner4.jpeg",
     
    
   ];
@@ -57,19 +61,19 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative font-inter flex flex-col md:flex-row md:items-center overflow-hidden bg-background md:bg-black">
-      <div className="relative aspect-video md:h-screen md:w-full z-0 w-full overflow-hidden bg-background md:bg-black">
+    <section className="relative font-inter flex flex-col overflow-hidden bg-background">
+      <div className="relative aspect-video md:aspect-auto md:h-[85vh] z-0 w-full overflow-hidden bg-background">
         <motion.div
           className="h-full w-full flex"
           animate={{ x: `-${activeImage * 100}%` }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
           {heroImages.map((src, idx) => (
-            <div key={idx} className="relative w-full h-full md:h-screen shrink-0 overflow-hidden">
+            <div key={idx} className="relative w-full h-full shrink-0 overflow-hidden flex items-center justify-center">
               <img
                 src={src}
                 alt={`banner-${idx}`}
-                className="relative z-10 w-full h-full md:w-full md:h-screen object-contain md:object-fill"
+                className="relative z-10 w-full h-full object-fill"
               />
             </div>
           ))}
@@ -77,15 +81,15 @@ export function HeroSection() {
       </div>
 
       <motion.div
-        className="relative z-20 w-full px-4 py-6 md:absolute md:bottom-0 md:left-0 md:w-full md:px-10 lg:px-16 md:py-16 pointer-events-none"
+        className="relative z-20 w-full px-4 py-6 md:absolute md:bottom-0 md:left-0 md:w-full md:px-16 md:py-16 pointer-events-none"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
-        <div className="relative md:absolute md:left-1/2 md:-translate-x-1/2 md:bottom-10 lg:bottom-10 xl:bottom-12 w-full md:w-auto z-30 pointer-events-auto">
+        <div className="relative md:absolute md:left-1/2 md:-translate-x-1/2 md:bottom-10 xl:bottom-12 w-full md:w-max max-w-[95vw] mx-auto z-30 pointer-events-auto flex justify-center">
           <motion.div
             variants={itemVariants}
-            className="flex flex-col md:flex-row items-stretch md:items-center gap-4 md:gap-8 bg-primary/60 md:bg-primary/45 backdrop-blur-xl border border-white/30 rounded-2xl md:rounded-full px-4 py-4 md:py-3 shadow-2xl shadow-black/35"
+            className="flex flex-col md:flex-row flex-wrap items-stretch md:items-center justify-center gap-4 md:gap-6 bg-primary/60 md:bg-primary/45 backdrop-blur-xl border border-white/30 rounded-2xl md:rounded-full px-4 py-4 md:py-3 shadow-2xl shadow-black/35 w-full md:w-auto"
           >
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-3 h-12 text-sm md:text-base font-bold rounded-xl shadow-lg gap-2 transition-all duration-300 w-full md:w-auto flex justify-center">
               <Link to="/admissions/admission-form">Start Your Journey</Link>

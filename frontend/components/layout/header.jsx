@@ -1,12 +1,25 @@
 "use client";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "../ui/button";
 import { Menu, X, ChevronDown, Phone, Mail, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState({});
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  const isActive = (item) => {
+    if (item.type === "page" && item.href) {
+      if (item.href === "/") return currentPath === "/";
+      return currentPath.startsWith(item.href);
+    }
+    if (item.dropdown) {
+      return item.dropdown.some(subItem => subItem.href && currentPath.startsWith(subItem.href));
+    }
+    return false;
+  };
 
   const handleScroll = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -114,58 +127,53 @@ export function Header() {
       {/* Blue Navbar */}
       <div className="bg-[#021545]/95 backdrop-blur-md border-b border-white/10">
     {/* Top Bar */}
-    <div className="bg-primary text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className="bg-primary text-primary-foreground px-8">
+      <div className="mx-auto px-2 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-10 text-sm">
-          <div className="hidden md:flex items-center gap-6">
-            <a href="mailto:satpudaengineeringcollege@gmail.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          {/* Left Side: Email and Phone */}
+          <div className="flex items-center gap-6">
+            <a href="mailto:satpudaengineeringcollege@gmail.com" className="flex items-center gap-1.5 md:gap-2 hover:opacity-80 transition-opacity">
               <Mail className="h-4 w-4" />
-              <span>satpudaengineeringcollege@gmail.com</span>
+              {/* Only show email text on desktop to save space on mobile, or show a tiny version if really needed. Based on user request, we show the icon on mobile to represent email, and text on desktop. */}
+              <span className="hidden lg:inline">satpudaengineeringcollege@gmail.com</span>
             </a>
-            <a href="tel:+916262604111" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a href="tel:+916262604111" className="hidden md:flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Phone className="h-4 w-4 shrink-0" />
               <span className="text-xs">+91 94258 36824, +91 62626 04111</span>
             </a>
           </div>
+
+          {/* Center: Admission Open (Mobile Only) */}
+          <div className="md:hidden flex-1 flex justify-center items-center px-2">
+            <Link
+              to="/admissions/admission-form"
+              className="font-semibold text-[11px] whitespace-nowrap"
+              style={{ animation: "admission-blink 1.6s infinite" }}
+            >
+              Admission Open -2026-27
+            </Link>
+          </div>
+
+          {/* Right Side: Admission (Desktop) and Socials */}
           <div className="flex items-center gap-4">
             <Link
               to="/admissions/admission-form"
-              className="hidden sm:inline font-medium cursor-pointer"
+              className="hidden md:inline font-medium cursor-pointer"
               style={{ animation: "admission-blink 1.6s infinite" }}
             >
               Admission Open 2026-27
             </Link>
-            <div className="flex items-center gap-3">
-              <a
-                href="https://www.facebook.com/SatpudaEnggPoly"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:opacity-80 transition-opacity"
-              >
+            <div className="flex items-center gap-2.5 md:gap-3">
+              <a href="https://www.facebook.com/SatpudaEnggPoly" target="_blank" rel="noreferrer" className="hover:opacity-80 transition-opacity">
                 <Facebook className="h-4 w-4" />
               </a>
-              <a
-                href="https://www.instagram.com/satpuda_engineering/"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:opacity-80 transition-opacity"
-              >
+              <a href="https://www.instagram.com/satpuda_engineering/" target="_blank" rel="noreferrer" className="hover:opacity-80 transition-opacity">
                 <Instagram className="h-4 w-4" />
               </a>
-              <a
-                href="https://www.linkedin.com/in/satpuda-college-of-engineering-and-polytechnic-balaghat-781906352/"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:opacity-80 transition-opacity"
-              >
+              <a href="https://www.linkedin.com/in/satpuda-college-of-engineering-and-polytechnic-balaghat-781906352/" target="_blank" rel="noreferrer" className="hidden sm:inline hover:opacity-80 transition-opacity">
                 <Linkedin className="h-4 w-4" />
               </a>
-              <a
-                href="https://www.youtube.com/@satpudaengineering231"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:opacity-80 transition-opacity"
-              >
+              <a href="https://www.youtube.com/@satpudaengineering231" target="_blank" rel="noreferrer" className="hover:opacity-80 transition-opacity">
                 <Youtube className="h-4 w-4" />
               </a>
             </div>
@@ -175,43 +183,36 @@ export function Header() {
     </div>
 
     {/* Main Nav */}
-    <nav className="bg-card/95 backdrop-blur-md border-b border-border">
+    <nav className="bg-[#ffffff] border-b border-border px-8">
       <div className="mx-auto px-2 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-12 h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-white rounded-full p-1.5 shadow-sm overflow-hidden border border-white/20">
-              <img src="/logo.png" alt="Satpuda College Logo" className="w-full h-full object-contain" />
-            </div>
-            <div className="hidden sm:flex flex-col justify-center select-none">
-              <div className="font-extrabold text-foreground text-xs sm:text-sm lg:text-[19px] leading-none uppercase tracking-[0.06em]">
-                Satpuda Engineering College
-              </div>
-              <p className="text-[8px] sm:text-[9.5px] lg:text-[10.5px] text-muted-foreground uppercase tracking-[0.11em] mt-1 lg:mt-1.5 leading-none font-medium">
-                Satpuda College of Engineering & Polytechnic
-              </p>
-            </div>
+          <Link to="/" className="flex items-center">
+            <img src="/images/SATPUDA-LOGO.webp" alt="Satpuda College Logo" className="h-12 lg:h-16 w-auto object-contain" />
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => (<div key={item.label} className="relative group">
-              {item.type === "page" ? (
-                <Link
-                  to={item.href}
-                  className="flex items-center gap-1 px-4 py-2 text-[15px] font-semibold text-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary"
-                >
-                  {item.label}
-                  {item.dropdown && <ChevronDown className="h-4 w-4 opacity-50" />}
-                </Link>
-              ) : (
-                <button
-                  onClick={() => handleScroll(item.scrollId)}
-                  className="flex items-center gap-1 px-4 py-2 text-[15px] font-semibold text-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary"
-                >
-                  {item.label}
-                  {item.dropdown && <ChevronDown className="h-4 w-4 opacity-50" />}
-                </button>
-              )}
+          <div className="hidden md:flex items-center gap-0 lg:gap-1">
+            {navItems.map((item) => {
+              const active = isActive(item);
+              return (
+              <div key={item.label} className="relative group">
+                {item.type === "page" ? (
+                  <Link
+                    to={item.href}
+                    className={`flex items-center gap-0.5 lg:gap-1 px-2 lg:px-4 py-1.5 lg:py-2 text-[12px] lg:text-[15px] font-semibold transition-colors rounded-lg hover:bg-secondary ${active ? 'text-accent' : 'text-foreground hover:text-primary'}`}
+                  >
+                    {item.label}
+                    {item.dropdown && <ChevronDown className="h-3 w-3 lg:h-4 lg:w-4 opacity-50" />}
+                  </Link>
+                ) : (
+                  <button
+                    onClick={() => handleScroll(item.scrollId)}
+                    className={`flex items-center gap-0.5 lg:gap-1 px-2 lg:px-4 py-1.5 lg:py-2 text-[12px] lg:text-[15px] font-semibold transition-colors rounded-lg hover:bg-secondary ${active ? 'text-accent' : 'text-foreground hover:text-primary'}`}
+                  >
+                    {item.label}
+                    {item.dropdown && <ChevronDown className="h-3 w-3 lg:h-4 lg:w-4 opacity-50" />}
+                  </button>
+                )}
               {item.dropdown && (<div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="bg-card rounded-xl shadow-xl border border-border p-2 min-w-50">
                   {item.dropdown.map((subItem) => (
@@ -236,17 +237,18 @@ export function Header() {
                   ))}
                 </div>
               </div>)}
-            </div>))}
+              </div>);
+            })}
           </div>
 
           {/* CTA & Mobile Menu */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 lg:gap-3">
             <Link to="/admissions/admission-form">
-              <Button className="hidden sm:inline-flex bg-accent hover:bg-accent/90 text-accent-foreground">
+              <Button className="hidden sm:inline-flex bg-accent hover:bg-accent/90 text-accent-foreground px-3 lg:px-4 text-xs lg:text-sm h-8 lg:h-10">
                 Apply Now
               </Button>
             </Link>
-            <button className="lg:hidden p-2 rounded-lg hover:bg-secondary transition-colors" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <button className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
@@ -254,7 +256,7 @@ export function Header() {
       </div>
 
       {/* Mobile Menu */}
-      {mobileMenuOpen && (<div className="lg:hidden bg-card border-t border-border">
+      {mobileMenuOpen && (<div className="md:hidden bg-card border-t border-border">
         <div className="px-4 py-4 space-y-2">
           {navItems.map((item) => (<div key={item.label}>
             <div className="flex items-center gap-2 rounded-lg hover:bg-secondary transition-colors">

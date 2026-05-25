@@ -68,7 +68,7 @@ export function GateAchieversSection() {
           className="overflow-hidden rounded-3xl border border-border bg-card shadow-[0_20px_45px_rgba(2,10,40,0.16)]"
         >
           <img
-            src="/images/gate.png"
+            src="/images/gate.jpeg"
             alt="Satpuda College GATE 2026 achievers"
             className="h-auto w-full object-contain"
             loading="lazy"
