@@ -63,7 +63,7 @@ export function AdminDataTable({
           </div>
         </div>
 
-        <ScrollArea className="w-full overflow-hidden">
+        <ScrollArea className="w-full overflow-x-auto md:overflow-x-visible">
           <div className="min-w-245">
             <table className="w-full border-separate border-spacing-0">
               <thead className="sticky top-0 z-10 bg-slate-950/95 backdrop-blur-xl">
