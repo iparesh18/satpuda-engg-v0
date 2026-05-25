@@ -26,106 +26,115 @@ import {
 const UPCOMING_EVENTS = [
   {
     id: 1,
-    title: "AI & ML Workshop",
-    date: "2026-05-26",
-    time: "10:00 AM - 01:00 PM",
-    location: "IT Block, Room 204",
-    description: "Hands-on workshop on AI and machine learning fundamentals, tools, and real-world use cases.",
+    title: "Training on Web Development with Python & Django",
+    date: "2026-05-24",
+    time: "11:00 AM - 02:00 PM",
+    location: "Computer Lab, Room F1",
+    description:
+      "Hands-on workshop on Python and machine learning fundamentals, tools, and real-world use cases.",
     category: "Technical",
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070",
+    image:
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070",
   },
-  {
-    id: 2,
-    title: "Nritya 2K25",
-    date: "2026-05-28",
-    time: "05:00 PM - 09:00 PM",
-    location: "Auditorium",
-    description: "A cultural evening featuring student performances, music, dance, and stage arts.",
-    category: "Cultural",
-    image: "https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?q=80&w=2070",
-  },
-  {
-    id: 3,
-    title: "Career in Data Science",
-    date: "2026-05-30",
-    time: "11:00 AM - 12:30 PM",
-    location: "Seminar Hall, Block A",
-    description: "An expert session on data science careers, portfolio building, and industry expectations.",
-    category: "Seminar",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070",
-  },
-  {
-    id: 4,
-    title: "HackElite 5.0",
-    date: "2026-05-31",
-    time: "09:00 AM - 09:00 AM",
-    location: "Innovation Lab",
-    description: "A fast-paced 24-hour hackathon for coding, innovation, and collaborative problem solving.",
-    category: "Competition",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070",
-  },
+  // {
+  //   id: 2,
+  //   title: "Nritya 2K25",
+  //   date: "2026-05-28",
+  //   time: "05:00 PM - 09:00 PM",
+  //   location: "Auditorium",
+  //   description: "A cultural evening featuring student performances, music, dance, and stage arts.",
+  //   category: "Cultural",
+  //   image: "https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?q=80&w=2070",
+  // },
+  // {
+  //   id: 3,
+  //   title: "Career in Data Science",
+  //   date: "2026-05-30",
+  //   time: "11:00 AM - 12:30 PM",
+  //   location: "Seminar Hall, Block A",
+  //   description: "An expert session on data science careers, portfolio building, and industry expectations.",
+  //   category: "Seminar",
+  //   image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070",
+  // },
+  // {
+  //   id: 4,
+  //   title: "HackElite 5.0",
+  //   date: "2026-05-31",
+  //   time: "09:00 AM - 09:00 AM",
+  //   location: "Innovation Lab",
+  //   description: "A fast-paced 24-hour hackathon for coding, innovation, and collaborative problem solving.",
+  //   category: "Competition",
+  //   image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070",
+  // },
 ];
 
 const RECENT_EVENTS = [
   {
     id: 101,
-    title: "CodeStorm 1.0",
+    title: "Free Webinar on Time Management Successfully Conducted",
     date: "2026-04-10",
-    description: "Competitive coding contest that brought together students with strong problem-solving skills.",
-    category: "Competition",
-    image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=2070",
-    time: "02:00 PM - 05:00 PM",
+    description:
+      "A free webinar on time management was successfully conducted, helping participants learn effective strategies to improve productivity and manage time efficiently.",
+    category: "Tech Fest",
+    image: "/images/time-mng-st.webp",
+    time: "02:00 PM - 04:00 PM",
     location: "CSE Lab 2",
   },
   {
     id: 102,
-    title: "Swaranjali",
+    category: "Civil",
+    title: "Civil Engineering Students Initiate Drainage Project in Campus",
+    image: "/images/civil-drainage-st.webp",
     date: "2026-04-12",
-    description: "An unforgettable music and dance night celebrating campus talent.",
-    category: "Cultural",
-    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2070",
+    description:
+      "Civil Engineering students started a campus drainage project to enhance practical learning and water management.",
     time: "06:00 PM - 09:30 PM",
     location: "Open Air Theatre",
   },
   {
     id: 103,
-    title: "Sports Meet 2K25",
+    title: "Industrial Visit to Malajkhand Mines by Mechanical Department",
     date: "2026-04-05",
-    description: "Annual sports meet with athletics, team games, and energetic participation.",
-    category: "Sports",
-    image: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=2070",
+    description:
+      "Industrial visit to Malajkhand Mines organized to provide practical exposure to mining and mechanical operations.",
+    category: "Mechanical",
+    image: "/images/malaj-mine-st.webp",
     time: "08:00 AM - 05:00 PM",
-    location: "College Grounds",
+    location: "Malajkhand Mines",
   },
   {
     id: 104,
-    title: "Web Dev Bootcamp",
+    title: "Educational & Industrial Visit Conducted by Civil & Mining Dept.",
     date: "2026-04-30",
-    description: "A practical bootcamp on modern web development and UI implementation.",
-    category: "Technical",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2070",
+    description:
+      "Civil & Mining Department organized an educational and industrial visit for practical industry exposure.",
+    category: "Civil",
+    image: "/images/educational-ind-st.webp",
     time: "10:00 AM - 04:00 PM",
     location: "Seminar Hall B",
   },
   {
     id: 105,
-    title: "AI Chatbot Seminar",
+    title: "Annual Hackathon 2026 — Students Build Innovative Solutions",
     date: "2026-03-18",
-    description: "Seminar on Generative AI, chatbot workflows, and student use cases.",
-    category: "Seminar",
-    image: "https://images.unsplash.com/photo-1531747118685-ca8fa6e08806?q=80&w=2070",
-    time: "11:00 AM - 01:00 PM",
+    description:
+      "Annual Hackathon 2026 encouraged students to build innovative and real-world technology solutions.",
+    category: "CSE",
+    image: "/images/journey/6.jpeg",
+    time: "11:00 AM - 02:00 PM",
     location: "Auditorium",
   },
   {
     id: 106,
-    title: "Robotics Exhibition",
+    title:
+      "International Rated Chess Tournament Successfully Conducted at Satpuda College",
     date: "2026-03-10",
-    description: "Student-built robot projects and demonstrations from multiple branches.",
-    category: "Technical",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070",
+    description:
+      "An international rated chess tournament was successfully held at Satpuda College.",
+    category: "CSE",
+    image: "/images/chess-tourn-st.webp",
     time: "10:00 AM - 04:00 PM",
-    location: "College Main Lobby",
+    location: "College Auditorium",
   },
 ];
 
@@ -198,7 +207,8 @@ export default function EventsNewsPage() {
 
   const upcomingEvents = useMemo(() => {
     const filtered = UPCOMING_EVENTS.filter((event) => {
-      const categoryMatch = activeCategory === "All Events" || event.category === activeCategory;
+      const categoryMatch =
+        activeCategory === "All Events" || event.category === activeCategory;
       const queryMatch =
         query.trim() === "" ||
         event.title.toLowerCase().includes(query.toLowerCase()) ||
@@ -213,7 +223,8 @@ export default function EventsNewsPage() {
 
   const recentEvents = useMemo(() => {
     const filtered = RECENT_EVENTS.filter((event) => {
-      const categoryMatch = activeCategory === "All Events" || event.category === activeCategory;
+      const categoryMatch =
+        activeCategory === "All Events" || event.category === activeCategory;
       const queryMatch =
         query.trim() === "" ||
         event.title.toLowerCase().includes(query.toLowerCase()) ||
@@ -231,7 +242,10 @@ export default function EventsNewsPage() {
 
     [...upcomingEvents, ...recentEvents].forEach((event) => {
       const date = new Date(event.date);
-      if (date.getMonth() === CALENDAR_MONTH && date.getFullYear() === CALENDAR_YEAR) {
+      if (
+        date.getMonth() === CALENDAR_MONTH &&
+        date.getFullYear() === CALENDAR_YEAR
+      ) {
         const day = date.getDate();
         map.set(day, [...(map.get(day) || []), event]);
       }
@@ -240,7 +254,10 @@ export default function EventsNewsPage() {
     return map;
   }, [upcomingEvents, recentEvents]);
 
-  const calendarDays = useMemo(() => buildCalendarGrid(CALENDAR_YEAR, CALENDAR_MONTH), []);
+  const calendarDays = useMemo(
+    () => buildCalendarGrid(CALENDAR_YEAR, CALENDAR_MONTH),
+    [],
+  );
 
   const today = new Date();
 
@@ -296,16 +313,23 @@ export default function EventsNewsPage() {
                 Events & News
               </h1>
               <p className="mt-5 max-w-2xl text-sm leading-7 text-white/75 sm:text-base lg:text-lg">
-                Clean cards, a modern calendar widget, and a smooth mobile-first layout designed for touch devices and
-                professional college presentation.
+                Clean cards, a modern calendar widget, and a smooth mobile-first
+                layout designed for touch devices and professional college
+                presentation.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <button
                   type="button"
                   onClick={() => {
-                    const target = document.getElementById("upcoming-events-section");
-                    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+                    const target = document.getElementById(
+                      "upcoming-events-section",
+                    );
+                    if (target)
+                      target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
                   }}
                   className="inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white shadow-xl shadow-accent/25 transition-transform duration-300 hover:scale-[1.02] active:scale-95"
                 >
@@ -313,22 +337,21 @@ export default function EventsNewsPage() {
                   <ArrowRight className="h-4 w-4" />
                 </button>
 
-                <Link
-                  to="/events/upcoming"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-md transition-colors hover:bg-white/10"
-                >
-                  Upcoming Events Page
-                  <Calendar className="h-4 w-4 text-accent" />
-                </Link>
+               
               </div>
             </div>
           </div>
         </section>
 
-        <section id="upcoming-events-section" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16">
+        <section
+          id="upcoming-events-section"
+          className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16"
+        >
           <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent">Upcoming Events</p>
+              <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent">
+                Upcoming Events
+              </p>
               <h2 className="mt-3 text-2xl font-black text-foreground sm:text-3xl lg:text-4xl">
                 Learn, participate, and stay connected
               </h2>
@@ -398,9 +421,12 @@ export default function EventsNewsPage() {
               <div className="rounded-4xl border border-border/70 bg-white p-5 sm:p-6 shadow-[0_18px_50px_rgba(2,21,69,0.08)]">
                 <div className="mb-5 flex items-center justify-between gap-4">
                   <div>
-                    <h3 className="text-xl font-bold text-foreground sm:text-2xl">Upcoming Events List</h3>
+                    <h3 className="text-xl font-bold text-foreground sm:text-2xl">
+                      Upcoming Events List
+                    </h3>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      {upcomingEvents.length} event{upcomingEvents.length === 1 ? "" : "s"} available
+                      {upcomingEvents.length} event
+                      {upcomingEvents.length === 1 ? "" : "s"} available
                     </p>
                   </div>
                   <div className="hidden sm:flex items-center gap-2 rounded-full bg-[#021545]/5 px-3 py-2 text-xs font-bold uppercase tracking-wider text-[#021545]">
@@ -411,7 +437,8 @@ export default function EventsNewsPage() {
 
                 <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
                   {upcomingEvents.map((event) => {
-                    const meta = CATEGORY_META[event.category] || CATEGORY_META.Technical;
+                    const meta =
+                      CATEGORY_META[event.category] || CATEGORY_META.Technical;
                     const Icon = meta.icon;
 
                     return (
@@ -428,10 +455,12 @@ export default function EventsNewsPage() {
                             <img
                               src={event.image}
                               alt={event.title}
-                              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                              className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-linear-to-t from-black/55 to-transparent" />
-                            <div className={`absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest ${meta.pill}`}>
+                            <div
+                              className={`absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest ${meta.pill}`}
+                            >
                               {Icon && <Icon className="h-3.5 w-3.5" />}
                               {event.category}
                             </div>
@@ -472,7 +501,8 @@ export default function EventsNewsPage() {
                                 Tap for full details
                               </span>
                               <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-accent">
-                                View Details <ArrowRight className="h-3.5 w-3.5" />
+                                View Details{" "}
+                                <ArrowRight className="h-3.5 w-3.5" />
                               </span>
                             </div>
                           </div>
@@ -488,8 +518,12 @@ export default function EventsNewsPage() {
               <div className="rounded-4xl border border-border/70 bg-white p-5 sm:p-6 shadow-[0_18px_50px_rgba(2,21,69,0.08)]">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent">Calendar</p>
-                    <h3 className="mt-2 text-xl font-bold text-foreground">May 2026</h3>
+                    <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent">
+                      Calendar
+                    </p>
+                    <h3 className="mt-2 text-xl font-bold text-foreground">
+                      May 2026
+                    </h3>
                   </div>
                   <div className="rounded-full bg-[#d60b0b]/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#d60b0b]">
                     Event days highlighted
@@ -497,21 +531,31 @@ export default function EventsNewsPage() {
                 </div>
 
                 <div className="mt-6 grid grid-cols-7 gap-2 text-center text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground sm:text-xs">
-                  {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-                    <div key={day} className="py-1">
-                      {day}
-                    </div>
-                  ))}
+                  {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(
+                    (day) => (
+                      <div key={day} className="py-1">
+                        {day}
+                      </div>
+                    ),
+                  )}
                 </div>
 
                 <div className="mt-3 grid grid-cols-7 gap-2">
                   {calendarDays.map((day, index) => {
                     if (!day) {
-                      return <div key={`empty-${index}`} className="aspect-square rounded-2xl bg-transparent" />;
+                      return (
+                        <div
+                          key={`empty-${index}`}
+                          className="aspect-square rounded-2xl bg-transparent"
+                        />
+                      );
                     }
 
                     const dayEvents = eventsByDay.get(day) || [];
-                    const isToday = today.getFullYear() === CALENDAR_YEAR && today.getMonth() === CALENDAR_MONTH && today.getDate() === day;
+                    const isToday =
+                      today.getFullYear() === CALENDAR_YEAR &&
+                      today.getMonth() === CALENDAR_MONTH &&
+                      today.getDate() === day;
                     const hasEvent = dayEvents.length > 0;
 
                     return (
@@ -524,9 +568,13 @@ export default function EventsNewsPage() {
                             ? "border-[#021545]/15 bg-white text-[#021545] shadow-sm hover:-translate-y-0.5"
                             : "border-border bg-[#f7f8fc] text-foreground hover:border-accent/40 hover:bg-muted/50"
                         } ${isToday && !hasEvent ? "ring-2 ring-accent/30" : ""}`}
-                        aria-label={hasEvent ? `Open event on day ${day}` : `Day ${day}`}
+                        aria-label={
+                          hasEvent ? `Open event on day ${day}` : `Day ${day}`
+                        }
                       >
-                        <span className={`absolute left-2 top-2 text-xs font-bold ${hasEvent ? "text-[#021545]" : ""}`}>
+                        <span
+                          className={`absolute left-2 top-2 text-xs font-bold ${hasEvent ? "text-[#021545]" : ""}`}
+                        >
                           {day}
                         </span>
                         {hasEvent && (
@@ -538,7 +586,9 @@ export default function EventsNewsPage() {
                 </div>
 
                 <div className="mt-6 rounded-2xl border border-border/60 bg-[#f9fafc] p-4">
-                  <p className="text-sm font-bold text-foreground">Calendar Tips</p>
+                  <p className="text-sm font-bold text-foreground">
+                    Calendar Tips
+                  </p>
                   <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                     <li>• Highlighted dates have events.</li>
                     <li>• Tap a highlighted date to open the event popup.</li>
@@ -554,11 +604,16 @@ export default function EventsNewsPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent">Recent Events</p>
-                <h3 className="mt-2 text-2xl font-black text-foreground sm:text-3xl">Campus highlights</h3>
+                <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent">
+                  Recent Events
+                </p>
+                <h3 className="mt-2 text-2xl font-black text-foreground sm:text-3xl">
+                  Campus highlights
+                </h3>
               </div>
               <p className="max-w-xl text-sm text-muted-foreground">
-                Auto-scrolling cards with hover pause and the same detail popup for a consistent user experience.
+                Auto-scrolling cards with hover pause and the same detail popup
+                for a consistent user experience.
               </p>
             </div>
 
@@ -655,9 +710,12 @@ export default function EventsNewsPage() {
               <div className="grid max-h-[88vh] grid-cols-1 overflow-y-auto lg:grid-cols-[1.15fr_0.85fr]">
                 <div className="relative min-h-64 bg-slate-100 lg:min-h-full">
                   <img
-                    src={selectedEvent.image || "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070"}
+                    src={
+                      selectedEvent.image ||
+                      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070"
+                    }
                     alt={selectedEvent.title}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-contain "
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/15 to-transparent" />
                   <div className="absolute left-5 top-5 rounded-full bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur-md">
@@ -666,7 +724,9 @@ export default function EventsNewsPage() {
                 </div>
 
                 <div className="p-6 sm:p-8">
-                  <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent">Event Details</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent">
+                    Event Details
+                  </p>
                   <h3 className="mt-3 text-2xl font-black tracking-tight text-foreground sm:text-3xl">
                     {selectedEvent.title}
                   </h3>
