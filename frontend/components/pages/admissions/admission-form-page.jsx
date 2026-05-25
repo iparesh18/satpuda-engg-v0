@@ -45,7 +45,7 @@ export default function AdmissionFormPage() {
     "For any queries, please contact the admission office."
   ];
 
-  const apiBaseUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const apiBaseUrl = import.meta.env.VITE_API_URL || "";
 
   const handleChange = (event) => {
     const { name, value } = event.target;
