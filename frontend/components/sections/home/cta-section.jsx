@@ -14,7 +14,7 @@ const newsItems = [
     title: "Free Webinar on Time Management Successfully Conducted",
     author: "admin",
     date: "Apr 2024",
-    image: "/images/banner1.jpeg",
+    image: "/images/time-mng-st.webp",
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const newsItems = [
     title: "Industrial Visit to Malajkhand Mines by Mechanical Department",
     author: "admin",
     date: "Mar 2024",
-    image: "/images/hero-3.jpg",
+    image: "/images/malaj-mine-st.webp",
   },
   {
     id: 3,
@@ -34,7 +34,7 @@ const newsItems = [
     title: "Civil Engineering Students Initiate Drainage Project in Campus",
     author: "admin",
     date: "Feb 2024",
-    image: "/images/banner2.jpeg",
+    image: "/images/civil-drainage-st.webp",
   },
   {
     id: 4,
@@ -44,7 +44,7 @@ const newsItems = [
     title: "Educational & Industrial Visit Conducted by Civil & Mining Dept.",
     author: "admin",
     date: "Jan 2024",
-    image: "/images/banner0.jpeg",
+    image: "/images/educational-ind-st.webp",
   },
   {
     id: 5,
@@ -54,17 +54,17 @@ const newsItems = [
     title: "Annual Hackathon 2024 — Students Build Innovative Solutions",
     author: "admin",
     date: "Dec 2023",
-    image: "/images/banner3.jpeg",
+    image: "/images/journey/6.jpeg",
   },
   {
     id: 6,
-    category: "Campus",
-    categoryColor: "text-accent",
-    tag: "Achievement",
-    title: "Satpuda Polytechnic Achieves State Rank in GATE 2024",
+    category: "CSE",
+    categoryColor: "text-primary",
+    tag: "Sports",
+    title: "International Rated Chess Tournament Successfully Conducted at Satpuda College",
     author: "admin",
-    date: "Nov 2023",
-    image: "/images/hero-5.jpg",
+    date: "May 2026",
+    image: "/images/chess-tourn-st.webp",
   },
 ];
 
