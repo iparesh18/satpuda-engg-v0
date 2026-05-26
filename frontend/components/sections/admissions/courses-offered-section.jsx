@@ -37,14 +37,15 @@ const btechPrograms = [
   { sno: 2, course: "B.Tech", branch: "Civil Engineering", intake: 60, eligibility: "12th (Maths)" },
   { sno: 3, course: "B.Tech", branch: "Mechanical Engineering", intake: 60, eligibility: "12th (Maths)" },
   { sno: 4, course: "B.Tech", branch: "Electrical Engineering", intake: 60, eligibility: "12th (Maths)" },
+  { sno: 5, course: "B.Tech", branch: "Mining Engineering", intake: 120, eligibility: "12th (Maths)" },
 ];
 
 const diplomaPrograms = [
-  { sno: 5, course: "Diploma", branch: "Computer Science Engineering", intake: 60, eligibility: "10th Pass" },
-  { sno: 6, course: "Diploma", branch: "Civil Engineering", intake: 60, eligibility: "10th Pass" },
-  { sno: 7, course: "Diploma", branch: "Mechanical Engineering", intake: 120, eligibility: "10th Pass" },
-  { sno: 8, course: "Diploma", branch: "Electrical Engineering", intake: 120, eligibility: "10th Pass" },
-  { sno: 9, course: "Diploma", branch: "Mining & Mine Survey", intake: 120, eligibility: "10th Pass" },
+  { sno: 6, course: "Diploma", branch: "Computer Science Engineering", intake: 60, eligibility: "10th Pass" },
+  { sno: 7, course: "Diploma", branch: "Civil Engineering", intake: 60, eligibility: "10th Pass" },
+  { sno: 8, course: "Diploma", branch: "Mechanical Engineering", intake: 120, eligibility: "10th Pass" },
+  { sno: 9, course: "Diploma", branch: "Electrical Engineering", intake: 120, eligibility: "10th Pass" },
+  { sno: 10, course: "Diploma", branch: "Mining & Mine Survey", intake: 120, eligibility: "10th Pass" },
 ];
 
 export function CoursesOfferedSection() {

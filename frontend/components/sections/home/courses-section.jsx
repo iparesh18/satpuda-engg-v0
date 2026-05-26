@@ -20,7 +20,8 @@ const programs = [
     highlights: ["AI & Machine Learning", "Full Stack Development", "Cybersecurity", "Cloud Computing"],
     diplomaHighlights: ["Programming Basics", "Web Development", "Hardware & Networking", "Database Management"],
     duration: "4 Years",
-    seats: 120,
+    seats: 180,
+    diplomaSeats: 60,
     image: "/images/courses/Btech CSE.jpeg",
     diplomaImage: "/images/courses/Btech CSE.jpeg"
   },
@@ -38,7 +39,8 @@ const programs = [
     highlights: ["Mine Planning", "Mineral Processing", "Safety Management", "Geo-Exploration"],
     diplomaHighlights: ["Mine Surveying", "Surface Mining", "Geology Basics", "Mine Safety"],
     duration: "4 Years",
-    seats: 60,
+    seats: 120,
+    diplomaSeats: 120,
     image: "/images/courses/Btech mining.jpeg",
     diplomaImage: "/images/courses/Btech mining.jpeg"
   },
@@ -57,6 +59,7 @@ const programs = [
     diplomaHighlights: ["Surveying", "Construction Tech", "Civil Drafting", "Building Materials"],
     duration: "4 Years",
     seats: 60,
+    diplomaSeats: 60,
     image: "/images/courses/Btech Civil.jpeg",
     diplomaImage: "/images/courses/Btech Civil.jpeg"
   },
@@ -75,6 +78,7 @@ const programs = [
     diplomaHighlights: ["Machine Operation", "Manufacturing", "Maintenance", "AutoCAD Basics"],
     duration: "4 Years",
     seats: 60,
+    diplomaSeats: 120,
     image: "/images/courses/Btech mechanical.jpeg",
     diplomaImage: "/images/courses/Btech mechanical.jpeg"
   },
@@ -93,6 +97,7 @@ const programs = [
     diplomaHighlights: ["Circuit Wiring", "Equipment Maintenance", "Power Systems", "Electrical Safety"],
     duration: "4 Years",
     seats: 60,
+    diplomaSeats: 120,
     image: "/images/courses/Btech electrician.jpeg",
     diplomaImage: "/images/courses/Btech electrician.jpeg"
   },
@@ -125,6 +130,10 @@ export function CoursesSection() {
 
   const getProgramImage = (program) => {
     return activeDegree === "diploma" ? program.diplomaImage : program.image;
+  };
+
+  const getProgramSeats = (program) => {
+    return activeDegree === "diploma" ? program.diplomaSeats : program.seats;
   };
 
   return (<section className="bg-background py-16 sm:py-18 lg:py-20">
@@ -269,7 +278,7 @@ export function CoursesSection() {
                   <Users className={`h-5 w-5 text-blue-600`} />
                   <div>
                     <p className="text-xs text-muted-foreground">Total Seats</p>
-                    <p className="font-bold text-foreground">{currentProgram.seats}</p>
+                    <p className="font-bold text-foreground">{getProgramSeats(currentProgram)}</p>
                   </div>
                 </div>
               </div>

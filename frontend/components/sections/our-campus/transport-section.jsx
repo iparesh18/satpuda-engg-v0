@@ -49,11 +49,19 @@ const overviewCards = [
 ];
 
 const routeNodes = [
-  { id: "R-01", label: "Balaghat", left: "12%", top: "22%" },
-  { id: "R-07", label: "Gondia", left: "64%", top: "18%" },
-  { id: "R-12", label: "Seoni", left: "82%", top: "50%" },
-  { id: "R-18", label: "Katangi", left: "36%", top: "60%" },
-  { id: "R-21", label: "Chhindwara", left: "18%", top: "74%" },
+  { id: "R-01", label: "Garra Station", left: "10%", top: "25%" },
+  { id: "R-02", label: "Manegaon", left: "20%", top: "50%" },
+  { id: "R-03", label: "Bharweli", left: "30%", top: "20%" },
+  { id: "R-04", label: "Saleteka", left: "40%", top: "45%" },
+  { id: "R-05", label: "Kirnapur", left: "50%", top: "15%" },
+  { id: "R-06", label: "Budhi", left: "60%", top: "55%" },
+  { id: "R-07", label: "Khairlanji", left: "70%", top: "25%" },
+  { id: "R-08", label: "Waraseoni", left: "80%", top: "60%" },
+  { id: "R-09", label: "Lalbarra", left: "90%", top: "35%" },
+  { id: "R-10", label: "Beni", left: "15%", top: "75%" },
+  { id: "R-11", label: "Katangi", left: "35%", top: "70%" },
+  { id: "R-12", label: "Mohgaon", left: "55%", top: "80%" },
+  { id: "R-13", label: "Dongarmali", left: "75%", top: "85%" },
 ];
 
 export function TransportSection() {

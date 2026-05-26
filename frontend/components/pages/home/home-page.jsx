@@ -18,15 +18,15 @@ export default function HomePage() {
         <AboutSection />
       </section>
 
+      {/* 5. Courses/Programs */}
+      <section id="courses">
+        <CoursesSection />
+      </section>
       {/* 4. GATE Achievers */}
       <section id="gate-achievers">
         <GateAchieversSection />
       </section>
       
-      {/* 5. Courses/Programs */}
-      <section id="courses">
-        <CoursesSection />
-      </section>
 
       {/* 5b. Blue Information Marquee */}
       <BlueInfoMarqueeSection />

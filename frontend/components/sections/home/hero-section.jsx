@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "../../ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Play } from "lucide-react";
 
 export function HeroSection() {
   const heroImages = [
@@ -24,10 +24,18 @@ export function HeroSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveImage((prev) => (prev + 1) % heroImages.length);
-    }, 5000); // change every 10s
+    }, 4000); 
 
     return () => clearInterval(interval);
   }, [heroImages.length]);
+
+  const handleNext = () => {
+    setActiveImage((prev) => (prev + 1) % heroImages.length);
+  };
+
+  const handlePrev = () => {
+    setActiveImage((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  };
 
   // Preload images to avoid white flash between slides
   useEffect(() => {
@@ -64,7 +72,8 @@ export function HeroSection() {
     <section className="relative font-inter flex flex-col overflow-hidden bg-background">
       <div className="relative aspect-video lg:aspect-auto lg:h-[85vh] z-0 w-full overflow-hidden bg-background">
         <motion.div
-          className="h-full w-full flex"
+          className="h-full w-full flex transform-gpu"
+          style={{ willChange: "transform" }}
           animate={{ x: `-${activeImage * 100}%` }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
@@ -78,6 +87,33 @@ export function HeroSection() {
             </div>
           ))}
         </motion.div>
+
+        {/* Manual Navigation */}
+        <button
+          onClick={handlePrev}
+          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-border bg-white/90 backdrop-blur-sm text-foreground shadow-sm transition-all hover:border-primary/40 hover:bg-primary/5 hover:text-primary"
+        >
+          <ChevronLeft className="h-6 w-6 sm:h-8 sm:w-8" strokeWidth={1.5} />
+        </button>
+        <button
+          onClick={handleNext}
+          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-border bg-white/90 backdrop-blur-sm text-foreground shadow-sm transition-all hover:border-primary/40 hover:bg-primary/5 hover:text-primary"
+        >
+          <ChevronRight className="h-6 w-6 sm:h-8 sm:w-8" strokeWidth={1.5} />
+        </button>
+
+        {/* Pagination Dots */}
+        <div className="absolute bottom-4 md:bottom-[120px] lg:bottom-[140px] left-1/2 -translate-x-1/2 z-30 flex gap-2">
+          {heroImages.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveImage(idx)}
+              className={`h-2.5 rounded-full transition-all duration-300 shadow-sm ${
+                activeImage === idx ? "w-8 bg-primary" : "w-2.5 bg-white/80 hover:bg-white"
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
       <motion.div
