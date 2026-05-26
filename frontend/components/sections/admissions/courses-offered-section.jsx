@@ -553,10 +553,12 @@ export function CoursesOfferedSection() {
                   </p>
                 </div>
               </div>
-              <Button className="h-16 px-10 rounded-2xl bg-primary hover:bg-primary/90 text-primary-foreground group">
-                <Download className="mr-3 h-6 w-6 group-hover:translate-y-1 transition-transform" />
-                <span className="text-lg font-bold">Download Brochure</span>
-              </Button>
+              <a href="/SCEP-BROCHURE.pdf" download="SCEP-BROCHURE.pdf">
+                <Button className="h-16 px-10 rounded-2xl bg-primary hover:bg-primary/90 text-primary-foreground group cursor-pointer w-full sm:w-auto">
+                  <Download className="mr-3 h-6 w-6 group-hover:translate-y-1 transition-transform" />
+                  <span className="text-lg font-bold">Download Brochure</span>
+                </Button>
+              </a>
             </div>
             {/* Background Decoration */}
             <div className="absolute top-0 right-0 -mr-20 -mt-20 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />

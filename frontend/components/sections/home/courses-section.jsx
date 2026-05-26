@@ -280,9 +280,9 @@ export function CoursesSection() {
                   Apply Now
                 </Link>
                 <Link/>
-                <button className={`flex-1 py-3 px-6 rounded-xl border-2 cursor-pointer text-[20px] ${currentProgram.borderColor} ${currentProgram.textColor} font-semibold hover:${currentProgram.bgColor} transition-all duration-300`} >
+                <a href="/SCEP-BROCHURE.pdf" download="SCEP-BROCHURE.pdf" className={`flex-1 text-center py-3 px-6 rounded-xl border-2 cursor-pointer text-[20px] ${currentProgram.borderColor} ${currentProgram.textColor} font-semibold hover:${currentProgram.bgColor} transition-all duration-300`} >
                   Download Brochure
-                </button>
+                </a>
               </div>
             </div>
           </motion.div>

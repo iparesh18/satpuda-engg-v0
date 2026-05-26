@@ -3,11 +3,12 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Navigation, Autoplay } from "swiper/modules";
+import { EffectCoverflow, Navigation, Autoplay, Pagination } from "swiper/modules";
 import { SectionHeading } from "./section-heading.jsx";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const baseAchievers = [
   { name: "DEWANG MALEWAR", company: "FIRST STEP INNOVATION", image: "/images/placement/company-01.jpeg" },
@@ -27,8 +28,6 @@ const baseAchievers = [
   { name: "NAVEEN GAJBHIYE", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-15.jpeg" },
   { name: "VIJESH KUMAR", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-16.jpeg" },
   { name: "ADNAN KHAN", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-17.jpeg" },
-  { name: "SANJEET PANCHESWAR", company: "GROUP R MINING & EXPLORATION INDIA PVT LTD.", image: "/images/placement/18.jpeg" },
-  { name: "MITHLESH KHERWAR", company: "GROUP R MINING & EXPLORATION INDIA PVT LTD.", image: "/images/placement/19.jpeg" },
 ];
 
 export function GateAchieversSection() {
@@ -45,10 +44,10 @@ export function GateAchieversSection() {
           <SectionHeading
             align="left"
             eyebrow="Achievement Spotlight"
-            title="GATE 2026 Achievers"
+            title="Proud Moments of Satpuda"
             description="Celebrating students who qualified in GATE with outstanding ranks and dedication."
                        className="mx-0 max-w-2xl"
-            highlights={['GATE', 'Achievers']}
+            highlights={['Proud', 'Satpuda']}
           />
 
           <Link
@@ -65,14 +64,57 @@ export function GateAchieversSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="overflow-hidden rounded-3xl border border-border bg-card shadow-[0_20px_45px_rgba(2,10,40,0.16)]"
+          className="relative mx-auto w-full max-w-6xl px-0 sm:px-16"
         >
-          <img
-            src="/images/gate.jpeg"
-            alt="Satpuda College GATE 2026 achievers"
-            className="h-auto w-full object-contain"
-            loading="lazy"
-          />
+          <Swiper
+            modules={[Navigation, Autoplay, Pagination]}
+            navigation={{
+              prevEl: ".achievement-prev",
+              nextEl: ".achievement-next",
+            }}
+            pagination={{ 
+              clickable: true,
+              el: '.achievement-pagination',
+            }}
+            loop={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            spaceBetween={30}
+            slidesPerView={1}
+            className="overflow-hidden rounded-3xl border border-border bg-card shadow-[0_20px_45px_rgba(2,10,40,0.16)]"
+          >
+            {[
+              "/images/gate.jpeg",
+              "/images/ashish kolte banner.jpeg",
+              "/images/ranveer sharma banner.jpeg",
+              "/images/mithlesh kherwar banner.jpeg",
+              "/images/sanjeet pancheswar banner.jpeg",
+            ].map((src, idx) => (
+              <SwiperSlide key={idx}>
+                <div className="w-full aspect-video flex items-center justify-center overflow-hidden rounded-3xl">
+                  <img
+                    src={src}
+                    alt={`Achievement Spotlight ${idx + 1}`}
+                    className="w-full h-full object-fill"
+                    loading="lazy"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          
+          {/* Custom Pagination */}
+          <div className="achievement-pagination mt-6 flex justify-center gap-2" />
+          
+          {/* Custom Navigation Arrows */}
+          <button className="achievement-prev absolute left-2 sm:left-0 top-[45%] z-20 flex h-10 w-10 sm:h-12 sm:w-12 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-white/90 backdrop-blur-sm text-foreground shadow-sm transition-all hover:border-primary/40 hover:bg-primary/5 hover:text-primary">
+            <ArrowLeft className="h-5 w-5 sm:h-6 sm:w-6" />
+          </button>
+          <button className="achievement-next absolute right-2 sm:right-0 top-[45%] z-20 flex h-10 w-10 sm:h-12 sm:w-12 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-white/90 backdrop-blur-sm text-foreground shadow-sm transition-all hover:border-primary/40 hover:bg-primary/5 hover:text-primary">
+            <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6" />
+          </button>
         </motion.div>
       </div>
     </section>

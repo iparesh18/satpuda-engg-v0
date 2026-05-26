@@ -618,7 +618,7 @@ export default function EventsNewsPage() {
             </div>
 
             <div className="recent-marquee group overflow-hidden rounded-4xl border border-border bg-white/70 p-4 shadow-[0_18px_50px_rgba(2,21,69,0.06)]">
-              <div className="recent-marquee-track flex w-[200%] gap-4 will-change-transform">
+              <div className="recent-marquee-track flex w-max gap-4 will-change-transform animate-marquee-smooth pause-on-hover">
                 {[...recentEvents, ...recentEvents].map((event, index) => (
                   <motion.button
                     key={`${event.id}-${index}`}
@@ -626,9 +626,9 @@ export default function EventsNewsPage() {
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.99 }}
                     onClick={() => openEvent(event)}
-                    className="group/recent flex w-72 shrink-0 overflow-hidden rounded-3xl border border-border bg-white text-left shadow-sm transition-all hover:border-accent/30 hover:shadow-xl"
+                    className="group/recent flex flex-col w-72 shrink-0 overflow-hidden rounded-3xl border border-border bg-white text-left shadow-sm transition-all hover:border-accent/30 hover:shadow-xl"
                   >
-                    <div className="relative h-44 w-full overflow-hidden">
+                    <div className="relative h-44 w-full overflow-hidden shrink-0">
                       <img
                         src={event.image}
                         alt={event.title}
@@ -654,28 +654,18 @@ export default function EventsNewsPage() {
                   </motion.button>
                 ))}
               </div>
-
-              <div className="mt-4 flex items-center justify-between gap-3">
-                <button
-                  type="button"
-                  onClick={() => handleRecentShift("left")}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-foreground transition hover:border-accent/40 hover:text-accent"
-                  aria-label="Scroll recent events left"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </button>
-                <div className="text-xs font-bold uppercase tracking-[0.25em] text-muted-foreground">
-                  Hover to pause marquee
-                </div>
-                <button
-                  type="button"
-                  onClick={() => handleRecentShift("right")}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-foreground transition hover:border-accent/40 hover:text-accent"
-                  aria-label="Scroll recent events right"
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </button>
-              </div>
+              <style dangerouslySetInnerHTML={{ __html: `
+                @keyframes marquee-smooth {
+                  0% { transform: translateX(0); }
+                  100% { transform: translateX(calc(-50% - 0.5rem)); }
+                }
+                .animate-marquee-smooth {
+                  animation: marquee-smooth 40s linear infinite;
+                }
+                .pause-on-hover:hover {
+                  animation-play-state: paused;
+                }
+              `}} />
             </div>
           </div>
         </section>
@@ -707,46 +697,46 @@ export default function EventsNewsPage() {
                 <X className="h-4 w-4" />
               </button>
 
-              <div className="grid max-h-[88vh] grid-cols-1 overflow-y-auto lg:grid-cols-[1.15fr_0.85fr]">
-                <div className="relative min-h-64 bg-slate-100 lg:min-h-full">
+              <div className="grid max-h-[95vh] grid-cols-1 overflow-y-auto lg:grid-cols-[1fr_1fr]">
+                <div className="relative h-40 sm:h-52 lg:h-auto lg:min-h-full bg-slate-100 shrink-0">
                   <img
                     src={
                       selectedEvent.image ||
                       "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070"
                     }
                     alt={selectedEvent.title}
-                    className="h-full w-full object-contain "
+                    className="h-full w-full object-contain"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/15 to-transparent" />
-                  <div className="absolute left-5 top-5 rounded-full bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur-md">
+                  <div className="absolute left-4 top-4 rounded-full bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur-md">
                     {selectedEvent.category}
                   </div>
                 </div>
 
-                <div className="p-6 sm:p-8">
-                  <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent">
+                <div className="p-4 sm:p-6 lg:p-8 flex flex-col justify-center">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-accent">
                     Event Details
                   </p>
-                  <h3 className="mt-3 text-2xl font-black tracking-tight text-foreground sm:text-3xl">
+                  <h3 className="mt-1 text-lg sm:text-xl lg:text-2xl font-black tracking-tight text-foreground">
                     {selectedEvent.title}
                   </h3>
 
-                  <div className="mt-5 space-y-3 rounded-2xl border border-border bg-[#f7f8fc] p-4 text-sm text-muted-foreground">
+                  <div className="mt-3 space-y-1.5 sm:space-y-2 rounded-2xl border border-border bg-[#f7f8fc] p-3 text-xs sm:text-sm text-muted-foreground">
                     <div className="flex items-center gap-2">
-                      <Calendar className="h-4 w-4 shrink-0 text-accent" />
+                      <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-accent" />
                       <span>{formatDate(selectedEvent.date)}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Clock className="h-4 w-4 shrink-0 text-accent" />
+                      <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-accent" />
                       <span>{selectedEvent.time}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 shrink-0 text-accent" />
-                      <span>{selectedEvent.location}</span>
+                      <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-accent" />
+                      <span className="line-clamp-1">{selectedEvent.location}</span>
                     </div>
                   </div>
 
-                  <p className="mt-5 text-sm leading-7 text-foreground/80 sm:text-base">
+                  <p className="mt-3 text-[13px] sm:text-sm leading-relaxed text-foreground/80">
                     {selectedEvent.description}
                   </p>
 

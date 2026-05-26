@@ -62,7 +62,7 @@ export function HeroSection() {
 
   return (
     <section className="relative font-inter flex flex-col overflow-hidden bg-background">
-      <div className="relative aspect-video md:aspect-auto md:h-[85vh] z-0 w-full overflow-hidden bg-background">
+      <div className="relative aspect-video lg:aspect-auto lg:h-[85vh] z-0 w-full overflow-hidden bg-background">
         <motion.div
           className="h-full w-full flex"
           animate={{ x: `-${activeImage * 100}%` }}

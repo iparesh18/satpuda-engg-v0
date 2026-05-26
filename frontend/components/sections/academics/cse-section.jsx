@@ -208,9 +208,22 @@ const facultyMembers = [
     titlePart4: "Performance.",
   },
   {
+    name: "Mr. Satish",
+    role: "Assistant Professor",
+    subject: "Maths",
+    degree: "M.Sc",
+    image: "/images/satish sir.png",
+    badgeTitle: "Mathematics",
+    badgeSubtitle: "Expert",
+    titlePart1: "Solving",
+    titlePart2: "Problems.",
+    titlePart3: "Teaching",
+    titlePart4: "Logic.",
+  },
+  {
     name: "Mr. Dolchand Neware",
     role: "Assistant Professor",
-    subject: "Mathematics",
+    subject: "Operting System",
     degree: "M.Tech",
     image: "/images/neware sir.png",
     badgeTitle: "Applied",
@@ -249,7 +262,7 @@ const facultyMembers = [
   {
     name: "Miss Tripti Chouhan",
     role: "Assistant Professor",
-    subject: "Operating System",
+    subject: "Applied Maths",
     degree: "M.Tech",
     image: "/images/tripti mam.png",
     badgeTitle: "Operating",
@@ -297,7 +310,8 @@ const facultyMembers = [
     titlePart2: "Software.",
     titlePart3: "Leading",
     titlePart4: "Teams.",
-  }
+  },
+  
 ];
 
 export function CSESection() {
