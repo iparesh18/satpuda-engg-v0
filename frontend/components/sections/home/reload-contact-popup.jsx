@@ -102,7 +102,7 @@ export function ReloadContactPopup() {
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="relative mt-4 w-full max-w-4xl overflow-hidden rounded-[1.75rem] border border-white/20 bg-card/95 shadow-2xl backdrop-blur-xl sm:mt-0"
+            className="relative mt-4 w-full max-w-2xl overflow-hidden rounded-[1.75rem] border border-white/20 bg-card/95 shadow-2xl backdrop-blur-xl sm:mt-0"
             initial={{ opacity: 0, y: 20, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.98 }}
@@ -117,18 +117,17 @@ export function ReloadContactPopup() {
               <X className="h-4 w-4" />
             </button>
 
-            <div className="grid grid-cols-1 md:grid-cols-[0.95fr_1.05fr] md:items-stretch">
-              <div className="order-2 p-4 sm:p-5 md:order-1 md:p-8 lg:p-10 md:flex md:flex-col md:justify-between md:gap-8">
-                <div>
-                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">Admission Support</p>
-                  <h3 className="text-xl font-bold text-foreground md:text-2xl">Get A Quick Call Back</h3>
-                  <p className="mt-1 text-xs text-muted-foreground">
-                    Fill details for course guidance, scholarship, and fees.
-                  </p>
-                </div>
+            <div className="p-4 sm:p-5 md:p-6 lg:p-7">
+              <div className="mb-4 sm:mb-5">
+                <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">Admission Support</p>
+                <h3 className="text-xl font-bold text-foreground md:text-2xl">Get A Quick Call Back</h3>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Fill details for course guidance, scholarship, and fees.
+                </p>
+              </div>
 
-                <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
-                  <div className="grid grid-cols-1 gap-3 md:gap-4">
+              <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+                  <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4">
                     {/* Program */}
                     <div>
                       <select
@@ -188,7 +187,7 @@ export function ReloadContactPopup() {
                     </div>
 
                     {/* Email Address */}
-                    <div>
+                    <div className="md:col-span-2">
                       <input
                         required
                         type="email"
@@ -201,7 +200,7 @@ export function ReloadContactPopup() {
                     </div>
 
                     {/* Address */}
-                    <div>
+                    <div className="md:col-span-2">
                       <input
                         required
                         name="address"
@@ -213,7 +212,7 @@ export function ReloadContactPopup() {
                     </div>
 
                     {/* Message */}
-                    <div>
+                    <div className="md:col-span-2">
                       <textarea
                         name="message"
                         rows={1.5}
@@ -239,21 +238,6 @@ export function ReloadContactPopup() {
                   </button>
                 </form>
               </div>
-
-              <div className="relative order-1 h-36 overflow-hidden bg-slate-100 md:order-2 md:h-auto md:min-h-full">
-                <img
-                  src="/images/popup.webp"
-                  alt="Student"
-                  className="h-full w-full object-cover object-[center_25%] md:object-center" loading="lazy" />
-                <div className="hidden md:block absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
-                <div className="hidden md:block absolute inset-x-0 bottom-0 p-4 sm:p-6 md:p-8 text-white">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-white/80">Satpuda Admission Team</p>
-                  <p className="mt-2 max-w-sm text-sm text-white/90">
-                    Share your details and the team will follow up with the right course guidance.
-                  </p>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </motion.div>
       ) : null}
