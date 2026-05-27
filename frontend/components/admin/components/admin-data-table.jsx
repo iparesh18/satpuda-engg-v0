@@ -18,7 +18,7 @@ function DataCell({ column, value, onCopyValue }) {
         title="Copy cell value"
       >
         <span className="flex items-start gap-2">
-          <span className="min-w-0 flex-1 whitespace-pre-wrap wrap-break-word leading-6 text-slate-100">
+              <span className="min-w-0 flex-1 whitespace-pre-wrap break-words leading-6 text-slate-100">
             {displayValue}
           </span>
           <Copy className="mt-0.5 h-3.5 w-3.5 shrink-0 text-slate-500 opacity-0 transition group-hover:opacity-100" />
@@ -63,9 +63,9 @@ export function AdminDataTable({
           </div>
         </div>
 
-        <ScrollArea className="w-full overflow-x-auto md:overflow-x-visible">
-          <div className="min-w-245">
-            <table className="w-full border-separate border-spacing-0">
+            <ScrollArea className="w-full overflow-x-auto">
+              <div className="min-w-max">
+                <table className="w-full border-separate border-spacing-0 table-auto">
               <thead className="sticky top-0 z-10 bg-slate-950/95 backdrop-blur-xl">
                 <tr>
                   {columns.map((column) => {

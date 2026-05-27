@@ -51,8 +51,8 @@ export default function SatpudaSuperpowerPage() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const desktopShellClass = sidebarCollapsed
-    ? "mx-auto grid min-h-screen w-full max-w-440 lg:grid-cols-[88px_minmax(0,1fr)] 2xl:grid-cols-[88px_minmax(0,1fr)]"
-    : "mx-auto grid min-h-screen w-full max-w-440 lg:grid-cols-[300px_minmax(0,1fr)] 2xl:grid-cols-[320px_minmax(0,1fr)]";
+    ? "mx-auto grid min-h-screen w-full lg:grid-cols-[88px_minmax(0,1fr)] 2xl:grid-cols-[88px_minmax(0,1fr)]"
+    : "mx-auto grid min-h-screen w-full lg:grid-cols-[300px_minmax(0,1fr)] 2xl:grid-cols-[320px_minmax(0,1fr)]";
 
   useEffect(() => {
     if (!overview?.collections?.length) {

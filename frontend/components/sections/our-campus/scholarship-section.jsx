@@ -213,7 +213,7 @@ export function ScholarshipSection() {
             >
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-card">
                 <motion.img
-                  src="/images/overview/smart library.png"
+                  src="/images/overview/smart library.webp"
                   alt="Scholarship Hero"
                   className="w-full h-[500px] object-cover"
                   whileHover={{ scale: 1.05 }}
@@ -300,7 +300,7 @@ export function ScholarshipSection() {
             className="overflow-hidden rounded-[40px] border border-border/40 bg-card shadow-2xl group relative"
             whileHover={{ y: -8 }}
           >
-            <img src="/images/overview/student in lab.png" alt="Success Story" className="h-80 w-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            <img src="/images/overview/student in lab.webp" alt="Success Story" className="h-80 w-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="absolute bottom-8 left-8 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
               <p className="text-sm font-bold tracking-widest uppercase mb-1">Success Stories</p>

@@ -242,10 +242,9 @@ export function ReloadContactPopup() {
 
               <div className="relative order-1 h-36 overflow-hidden bg-slate-100 md:order-2 md:h-auto md:min-h-full">
                 <img
-                  src="/images/popup.png"
+                  src="/images/popup.webp"
                   alt="Student"
-                  className="h-full w-full object-cover object-[center_25%] md:object-center"
-                />
+                  className="h-full w-full object-cover object-[center_25%] md:object-center" loading="lazy" />
                 <div className="hidden md:block absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
                 <div className="hidden md:block absolute inset-x-0 bottom-0 p-4 sm:p-6 md:p-8 text-white">
                   <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-white/80">Satpuda Admission Team</p>

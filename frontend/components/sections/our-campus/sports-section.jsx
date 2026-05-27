@@ -44,16 +44,16 @@ const facilities = [
 ];
 
 const sportsOffered = [
-  { title: "Cricket", image: "/images/overview/campus building.png", icon: Medal },
-  { title: "Football", image: "/images/overview/campus overview.png", icon: Target },
-  { title: "Volleyball", image: "/images/overview/student in class.png", icon: Activity },
-  { title: "Badminton", image: "/images/overview/campus view.png", icon: Zap },
-  { title: "Basketball", image: "/images/overview/student in lab.png", icon: Dribbble },
-  { title: "Table Tennis", image: "/images/overview/smart library.png", icon: Timer },
-  { title: "Chess", image: "/images/overview/college library.png", icon: Sparkles },
-  { title: "Athletics", image: "/images/overview/campus life.png", icon: Activity },
-  { title: "Kabaddi", image: "/images/overview/campus overview.png", icon: Users },
-  { title: "Yoga & Fitness", image: "/images/overview/student in class.png", icon: Heart },
+  { title: "Cricket", image: "/images/overview/campus building.webp", icon: Medal },
+  { title: "Football", image: "/images/overview/campus overview.webp", icon: Target },
+  { title: "Volleyball", image: "/images/overview/student in class.webp", icon: Activity },
+  { title: "Badminton", image: "/images/overview/campus view.webp", icon: Zap },
+  { title: "Basketball", image: "/images/overview/student in lab.webp", icon: Dribbble },
+  { title: "Table Tennis", image: "/images/overview/smart library.webp", icon: Timer },
+  { title: "Chess", image: "/images/overview/smart library.webp", icon: Sparkles },
+  { title: "Athletics", image: "/images/overview/campus view.webp", icon: Activity },
+  { title: "Kabaddi", image: "/images/overview/campus overview.webp", icon: Users },
+  { title: "Yoga & Fitness", image: "/images/overview/student in class.webp", icon: Heart },
 ];
 
 export function SportsSection() {
@@ -138,7 +138,7 @@ export function SportsSection() {
             >
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-card group">
                 <motion.img
-                  src="/images/overview/campus view.png"
+                  src="/images/overview/campus view.webp"
                   alt="Sports Excellence"
                   className="w-full h-[500px] object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
@@ -244,7 +244,7 @@ export function SportsSection() {
           <div className="grid lg:grid-cols-2">
             <div className="relative h-[400px] lg:h-full overflow-hidden">
               <motion.img 
-                src="/images/overview/sports and activity.png" 
+                src="/images/overview/sports and activity.webp" 
                 alt="Sports Character" 
                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 style={{
@@ -491,16 +491,16 @@ export function SportsSection() {
 
         <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {[
-            { title: "Cricket", img: "/images/overview/sports and activity.png" },
-            { title: "Football", img: "/images/overview/campus view.png" },
-            { title: "Volleyball", img: "/images/overview/event and culture.png" },
-            { title: "Badminton", img: "/images/overview/student in class.png" },
-            { title: "Basketball", img: "/images/overview/campus overview.png" },
-            { title: "Table Tennis", img: "/images/overview/smart library.png" },
-            { title: "Chess", img: "/images/overview/student in lab.png" },
-            { title: "Athletics", img: "/images/overview/campus building.png" },
-            { title: "Kabaddi", img: "/images/overview/event and culture.png" },
-            { title: "Yoga & Fitness", img: "/images/overview/sports and activity.png" },
+            { title: "Cricket", img: "/images/overview/sports and activity.webp" },
+            { title: "Football", img: "/images/overview/campus view.webp" },
+            { title: "Volleyball", img: "/images/overview/event and culture.webp" },
+            { title: "Badminton", img: "/images/overview/student in class.webp" },
+            { title: "Basketball", img: "/images/overview/campus overview.webp" },
+            { title: "Table Tennis", img: "/images/overview/smart library.webp" },
+            { title: "Chess", img: "/images/overview/student in lab.webp" },
+            { title: "Athletics", img: "/images/overview/campus building.webp" },
+            { title: "Kabaddi", img: "/images/overview/event and culture.webp" },
+            { title: "Yoga & Fitness", img: "/images/overview/sports and activity.webp" },
           ].map((sport, i) => (
             <Magnetic key={sport.title} intensity={window.innerWidth > 1024 ? 0.2 : 0}>
               <motion.div 

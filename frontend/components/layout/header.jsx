@@ -187,7 +187,7 @@ export function Header() {
       <div className="mx-auto px-2 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link to="/" className="flex items-center">
-            <img src="/images/SATPUDA-LOGO.webp" alt="Satpuda College Logo" className="h-12 lg:h-16 w-auto object-contain" />
+            <img src="/images/SATPUDA-LOGO.webp" alt="Satpuda College Logo" className="h-12 lg:h-16 w-auto object-contain" loading="lazy" />
           </Link>
 
           {/* Desktop Nav */}

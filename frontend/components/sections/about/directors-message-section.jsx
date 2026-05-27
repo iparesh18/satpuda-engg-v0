@@ -126,8 +126,7 @@ export function DirectorsMessageSection() {
               <img
                 src="/images/director.webp"
                 alt="Mr. Anshul Jaiswal"
-                className="h-full w-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
-              />
+                className="h-full w-full object-cover object-top transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-linear-to-t from-background/80 via-transparent to-transparent lg:hidden" />
               <div className="absolute bottom-6 left-6 right-6 lg:hidden">
                 <h2 className="text-3xl font-bold text-white">
@@ -319,9 +318,9 @@ export function DirectorsMessageSection() {
       >
         <div className="grid gap-4 md:grid-cols-3">
           {[
-            "/images/overview/campus building.png",
-            "/images/overview/student in lab.png",
-            "/images/overview/student in class.png",
+            "/images/overview/campus building.webp",
+            "/images/overview/student in lab.webp",
+            "/images/overview/student in class.webp",
           ].map((src) => (
             <div
               key={src}
@@ -330,8 +329,7 @@ export function DirectorsMessageSection() {
               <img
                 src={src}
                 alt="Campus life"
-                className="h-60 w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-              />
+                className="h-60 w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
             </div>
           ))}
         </div>

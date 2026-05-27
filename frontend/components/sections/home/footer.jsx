@@ -160,8 +160,7 @@ export function Footer() {
               <img
                 src="/images/logo.webp"
                 alt="Satpuda College of Engineering & Polytechnic"
-                className="w-72 sm:w-80 h-auto object-contain"
-              />
+                className="w-72 sm:w-80 h-auto object-contain" loading="lazy" />
             </div>
 
             {/* Center: Copyright */}
@@ -174,8 +173,7 @@ export function Footer() {
               <img
                 src="/images/google play.webp"
                 alt="Get it on Google Play"
-                className="h-10 sm:h-12 w-auto object-contain cursor-pointer transition-transform hover:scale-105"
-              />
+                className="h-10 sm:h-12 w-auto object-contain cursor-pointer transition-transform hover:scale-105" loading="lazy" />
             </div>
           </div>
         </div>

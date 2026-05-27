@@ -44,25 +44,25 @@ const aboutHighlights = [
     icon: ShieldCheck,
     title: "Industry-Ready Curriculum",
     description: "Program aligned with modern manufacturing, automation and design standards.",
-    image: "/images/overview/campus overview.png",
+    image: "/images/overview/campus overview.webp",
   },
   {
     icon: DraftingCompass,
     title: "Design & Analysis",
     description: "Practical training in machine design, drafting and engineering analysis.",
-    image: "/images/overview/student in lab.png",
+    image: "/images/overview/student in lab.webp",
   },
   {
     icon: Activity,
     title: "Workshop Immersion",
     description: "Extensive workshop and lab sessions for real engineering problem-solving.",
-    image: "/images/overview/campus view.png",
+    image: "/images/overview/campus view.webp",
   },
   {
     icon: Users,
     title: "Mentored Development",
     description: "Guidance from experienced faculty for technical and career growth.",
-    image: "/images/overview/student in class.png",
+    image: "/images/overview/student in class.webp",
   },
 ];
 
@@ -115,22 +115,22 @@ const programData = {
 
 const highlights = [
   {
-    image: "/images/mechanical-program.jpg",
+    image: "/images/mechanical-program.webp",
     title: "Advanced Workshops",
     description: "Precision machining, fitting and fabrication with modern equipment.",
   },
   {
-    image: "/images/mechanical-diploma.jpg",
+    image: "/images/mechanical-diploma.webp",
     title: "CAD/CAM Studios",
     description: "Digital design, modeling and manufacturing workflows for real-world applications.",
   },
   {
-    image: "/images/hero-4.jpg",
+    image: "/images/hero-4.webp",
     title: "Thermal Engineering Labs",
     description: "Practical understanding of engines, heat transfer and fluid systems.",
   },
   {
-    image: "/images/hero-5.jpg",
+    image: "/images/hero-5.webp",
     title: "Innovation Projects",
     description: "Student-led mechanical builds focused on efficiency and performance.",
   },
@@ -190,10 +190,9 @@ export function MechanicalSection() {
               className="relative aspect-square lg:aspect-video rounded-[2.5rem] overflow-hidden border border-border/50 group"
             >
               <img
-                src="/images/hero-3.jpg"
+                src="/images/hero-3.webp"
                 alt="Mechanical Engineering"
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent" />
             </motion.div>
           </div>
@@ -279,10 +278,9 @@ export function MechanicalSection() {
               className="relative aspect-square rounded-[3rem] overflow-hidden border-8 border-card shadow-2xl"
             >
               <img
-                src="/images/mechanical-program.jpg"
+                src="/images/mechanical-program.webp"
                 alt="Mechanical Projects"
-                className="w-full h-full object-cover"
-              />
+                className="w-full h-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
             </motion.div>
           </div>
@@ -360,7 +358,7 @@ export function MechanicalSection() {
                 className="group relative overflow-hidden rounded-[2.5rem] bg-card border border-border/50 transition-all hover:-translate-y-2 hover:shadow-2xl"
               >
                 <div className="h-48 overflow-hidden">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                 </div>
                 <div className="p-8 text-left">
                   <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{item.title}</h3>

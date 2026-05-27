@@ -12,7 +12,7 @@ const CHAPTERS = [
     title: "The First Step",
     subtitle: "CHAPTER 1",
     description: "New place. New people. Same dreams in every heart.",
-    image: "/images/journey/1.jpeg",
+    image: "/images/journey/1.webp",
     icon: BookOpen,
     color: "from-blue-500/20 to-blue-600/20",
     iconBg: "bg-blue-500"
@@ -23,7 +23,7 @@ const CHAPTERS = [
     title: "The Confusion",
     subtitle: "CHAPTER 2",
     description: "So many paths. So many questions. Finding direction wasn't easy.",
-    image: "/images/journey/2.jpeg",
+    image: "/images/journey/2.webp",
     icon: HelpCircle,
     color: "from-purple-500/20 to-purple-600/20",
     iconBg: "bg-purple-500"
@@ -34,7 +34,7 @@ const CHAPTERS = [
     title: "The Deep Dive",
     subtitle: "CHAPTER 3",
     description: "Late nights. Endless bugs. But every line of code made us stronger.",
-    image: "/images/journey/3.jpeg",
+    image: "/images/journey/3.webp",
     icon: Zap,
     color: "from-pink-500/20 to-pink-600/20",
     iconBg: "bg-pink-500"
@@ -45,7 +45,7 @@ const CHAPTERS = [
     title: "The Power of Collaboration",
     subtitle: "CHAPTER 4",
     description: "We learned. We collaborated. We built together.",
-    image: "/images/journey/4.jpeg",
+    image: "/images/journey/4.webp",
     icon: Users,
     color: "from-orange-500/20 to-orange-600/20",
     iconBg: "bg-orange-500"
@@ -56,7 +56,7 @@ const CHAPTERS = [
     title: "The Breakthrough",
     subtitle: "CHAPTER 5",
     description: "That one project. That one moment. That changed everything.",
-    image: "/images/journey/5.jpeg",
+    image: "/images/journey/5.webp",
     icon: Award,
     color: "from-green-500/20 to-green-600/20",
     iconBg: "bg-green-500"
@@ -67,7 +67,7 @@ const CHAPTERS = [
     title: "The Moment We Made It",
     subtitle: "CHAPTER 6",
     description: "From classrooms to careers. From learners to professionals.",
-    image: "/images/journey/6.jpeg",
+    image: "/images/journey/6.webp",
     icon: Sparkles,
     color: "from-indigo-500/20 to-indigo-600/20",
     iconBg: "bg-indigo-500"
@@ -75,12 +75,12 @@ const CHAPTERS = [
 ];
 
 const MEMORIES = [
-  { image: "/images/journey/1.jpeg", title: "Class of 2026" },
-  { image: "/images/journey/2.jpeg", title: "Tech Fest 2025" },
-  { image: "/images/journey/3.jpeg", title: "Project Launch" },
-  { image: "/images/journey/4.jpeg", title: "Placement Drive" },
-  { image: "/images/journey/5.jpeg", title: "Campus Life" },
-  { image: "/images/journey/6.jpeg", title: "Graduation" },
+  { image: "/images/journey/1.webp", title: "Class of 2026" },
+  { image: "/images/journey/2.webp", title: "Tech Fest 2025" },
+  { image: "/images/journey/3.webp", title: "Project Launch" },
+  { image: "/images/journey/4.webp", title: "Placement Drive" },
+  { image: "/images/journey/5.webp", title: "Campus Life" },
+  { image: "/images/journey/6.webp", title: "Graduation" },
 ];
 
 function JourneyNavbar() {
@@ -111,10 +111,9 @@ function HeroSection() {
       {/* Right Background Image */}
       <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[55%] z-0">
         <img
-          src="/images/overview/campus view.png"
+          src="/images/overview/campus view.webp"
           alt="Satpuda College Building"
-          className="w-full h-full object-cover"
-        />
+          className="w-full h-full object-cover" loading="lazy" />
         {/* Gradient fade to blend with left side white background */}
         <div className="absolute inset-y-0 left-0 w-32 lg:w-64 bg-gradient-to-r from-white via-white/80 to-transparent z-10" />
         {/* Gradient fade from bottom for small screens */}
@@ -252,8 +251,7 @@ function ChaptersSection() {
                   <img
                     src={chapter.image}
                     alt={chapter.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 </div>
 
@@ -325,8 +323,7 @@ function MemoriesSection() {
               <img
                 src={memory.image}
                 alt={memory.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
                 <p className="text-white font-bold opacity-0 group-hover:opacity-100 transition-opacity">{memory.title}</p>
               </div>

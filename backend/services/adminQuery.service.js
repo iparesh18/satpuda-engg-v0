@@ -135,6 +135,11 @@ function buildQueryFilter(config, query) {
       continue;
     }
 
+    if (definition.mode === "prefix") {
+      filter[definition.field] = { $regex: `^${escapedValue}(\s|-|$)`, $options: "i" };
+      continue;
+    }
+
     filter[definition.field] = { $regex: escapedValue, $options: "i" };
   }
 
@@ -149,11 +154,25 @@ function buildDistinctValueMap(config, records) {
       continue;
     }
 
+    if (Array.isArray(definition.options) && definition.options.length) {
+      distinctMap[definition.key] = [...definition.options];
+      continue;
+    }
+
     const values = new Set();
     for (const record of records) {
       const fieldValue = record?.[definition.field];
       if (typeof fieldValue === "string" && fieldValue.trim()) {
-        values.add(fieldValue.trim());
+        const normalizedValue = fieldValue.trim();
+        if (definition.mode === "prefix") {
+          const prefix = normalizedValue.split(/\s*-\s*/)[0]?.trim();
+          if (prefix) {
+            values.add(prefix);
+          }
+          continue;
+        }
+
+        values.add(normalizedValue);
       }
     }
 

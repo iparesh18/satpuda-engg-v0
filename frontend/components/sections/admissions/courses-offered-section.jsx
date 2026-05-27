@@ -82,10 +82,9 @@ export function CoursesOfferedSection() {
 
         <div className="absolute inset-y-0 right-0 w-full lg:w-1/2 opacity-20 pointer-events-none">
           <img
-            src="/images/overview/campus building.png"
+            src="/images/overview/campus building.webp"
             alt="Campus Building"
-            className="h-full w-full object-cover object-center"
-          />
+            className="h-full w-full object-cover object-center" loading="lazy" />
         </div>
         <div className="absolute inset-0 bg-linear-to-r from-background via-background/95 to-transparent pointer-events-none" />
         

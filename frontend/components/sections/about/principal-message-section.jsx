@@ -18,10 +18,10 @@ const stats = [
 ];
 
 const gallery = [
-  "/images/overview/campus building.png",
-  "/images/overview/student in lab.png",
-  "/images/overview/smart library.png",
-  "/images/overview/campus view.png",
+  "/images/overview/campus building.webp",
+  "/images/overview/student in lab.webp",
+  "/images/overview/smart library.webp",
+  "/images/overview/campus view.webp",
 ];
 
 export function PrincipalMessageSection() {
@@ -36,10 +36,9 @@ export function PrincipalMessageSection() {
       >
         <div className="absolute inset-y-0 right-0 w-full sm:w-4/5 lg:w-[52%] opacity-20">
           <img
-            src="/images/overview/campus overview.png"
+            src="/images/overview/campus overview.webp"
             alt="Campus backdrop"
-            className="h-full w-full object-cover object-right"
-          />
+            className="h-full w-full object-cover object-right" loading="lazy" />
         </div>
         <div className="absolute inset-0 bg-linear-to-r from-background via-background/96 to-background/88" />
         <div className="relative mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-end lg:px-8">
@@ -75,10 +74,9 @@ export function PrincipalMessageSection() {
           <div className="flex flex-col lg:flex-row">
             <div className="relative h-125 w-full overflow-hidden lg:h-150 lg:w-[45%]">
               <img
-                src="/principal.png"
+                src="/principal.webp"
                 alt="Principal portrait"
-                className="h-full w-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
-              />
+                className="h-full w-full object-cover object-top transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-linear-to-t from-background/80 via-transparent to-transparent lg:hidden" />
               <div className="absolute bottom-6 left-6 right-6 lg:hidden">
                 <h2 className="text-3xl font-bold text-white">Prof. (Dr.) Ashok Kumar Gupta</h2>
@@ -207,7 +205,7 @@ export function PrincipalMessageSection() {
         <div className="grid gap-4 md:grid-cols-4">
           {gallery.map((src) => (
             <div key={src} className="group overflow-hidden rounded-[28px] border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1">
-              <img src={src} alt="Campus life" className="h-56 w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+              <img src={src} alt="Campus life" className="h-56 w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
             </div>
           ))}
         </div>

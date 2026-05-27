@@ -53,46 +53,46 @@ const awards = [
 
 const galleryImages = [
   {
-    src: "/images/overview/campus overview.png",
+    src: "/images/overview/campus overview.webp",
     title: "Golden Hour Campus",
     tag: "Architecture"
   },
   {
-    src: "/images/overview/student in class.png",
+    src: "/images/overview/student in class.webp",
     title: "Active Learning",
     tag: "Academics"
   },
   {
-    src: "/images/overview/event and culture.png",
+    src: "/images/overview/event and culture.webp",
     title: "Festive Nights",
     tag: "Events"
   },
   {
-    src: "/images/overview/sports and activity.png",
+    src: "/images/overview/sports and activity.webp",
     title: "Athletic Spirit",
     tag: "Sports"
   },
   {
-    src: "/images/overview/student in lab.png",
+    src: "/images/overview/student in lab.webp",
     title: "Innovation Lab",
     tag: "Labs"
   },
   {
-    src: "/images/overview/campus building.png",
+    src: "/images/overview/campus building.webp",
     title: "Landmark View",
     tag: "Campus"
   }
 ];
 
 const domeImages = [
-  { src: "/images/overview/campus view.png", alt: "Open greens" },
-  { src: "/images/overview/smart library.png", alt: "Knowledge hub" },
-  { src: "/images/overview/college bus.png", alt: "Transport" },
-  { src: "/images/overview/event and culture.png", alt: "Cultural pulse" },
-  { src: "/images/overview/sports and activity.png", alt: "Champions" },
-  { src: "/images/overview/campus overview.png", alt: "Campus overview" },
-  { src: "/images/overview/student in class.png", alt: "Student learning" },
-  { src: "/images/overview/student in lab.png", alt: "Innovation lab" }
+  { src: "/images/overview/campus view.webp", alt: "Open greens" },
+  { src: "/images/overview/smart library.webp", alt: "Knowledge hub" },
+  { src: "/images/overview/college bus.webp", alt: "Transport" },
+  { src: "/images/overview/event and culture.webp", alt: "Cultural pulse" },
+  { src: "/images/overview/sports and activity.webp", alt: "Champions" },
+  { src: "/images/overview/campus overview.webp", alt: "Campus overview" },
+  { src: "/images/overview/student in class.webp", alt: "Student learning" },
+  { src: "/images/overview/student in lab.webp", alt: "Innovation lab" }
 ];
 
 
@@ -190,7 +190,7 @@ export function GallerySection() {
             >
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-card">
                 <motion.img
-                  src="/images/overview/campus overview.png"
+                  src="/images/overview/campus overview.webp"
                   alt="Gallery hero"
                   className="w-full h-[500px] object-cover"
                   whileHover={{ scale: 1.05 }}
@@ -412,8 +412,7 @@ export function GallerySection() {
               <img
                 src={item.src}
                 alt={item.title}
-                className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              />
+                className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
                 <p className="text-xs font-bold uppercase tracking-widest text-white/70">{item.tag}</p>

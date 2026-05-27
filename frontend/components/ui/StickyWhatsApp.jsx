@@ -30,10 +30,9 @@ const StickyWhatsApp = () => {
         "
       >
         <img
-          src='/whatsapp.png'
+          src='/whatsapp.webp'
           alt="WhatsApp"
-          className="w-7 h-7 md:w-8 md:h-8"
-        />
+          className="w-7 h-7 md:w-8 md:h-8" loading="lazy" />
       </div>
     </a>
   );

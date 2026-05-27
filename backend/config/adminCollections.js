@@ -11,14 +11,27 @@ const COLLECTIONS = {
     filterDefinitions: [
       { key: "dateFrom", field: "createdAt", label: "Date From", type: "date", mode: "gte" },
       { key: "dateTo", field: "createdAt", label: "Date To", type: "date", mode: "lte" },
-      { key: "course", field: "course", label: "Course", type: "select", mode: "equals" },
+      { key: "program", field: "course", label: "Program", type: "select", mode: "prefix", options: ["Diploma", "B.Tech"] },
+      { key: "course", field: "course", label: "Course", type: "select", mode: "equals", options: [
+        "Diploma - Computer Science Engineering",
+        "Diploma - Civil Engineering",
+        "Diploma - Mechanical Engineering",
+        "Diploma - Electrical Engineering",
+        "Diploma - Mining and Mine Survey",
+        "B.Tech - Computer Science Engineering",
+        "B.Tech - Civil Engineering",
+        "B.Tech - Mechanical Engineering",
+        "B.Tech - Electrical Engineering",
+        "B.Tech - Mining Engineering"
+      ] },
       { key: "email", field: "email", label: "Email", type: "text", mode: "contains" },
       { key: "mobile", field: "mobile", label: "Mobile", type: "text", mode: "contains" }
     ],
     sortableFields: ["createdAt", "updatedAt", "course", "fullName", "email", "mobile"],
-    columnOrder: ["course", "fullName", "mobile", "email", "address", "message", "createdAt", "updatedAt"],
+    columnOrder: ["course", "branch", "fullName", "mobile", "email", "address", "message", "createdAt", "updatedAt"],
     fieldLabels: {
       course: "Course",
+      branch: "Branch",
       fullName: "Full Name",
       mobile: "Mobile",
       email: "Email",
@@ -40,7 +53,14 @@ const COLLECTIONS = {
     filterDefinitions: [
       { key: "dateFrom", field: "createdAt", label: "Date From", type: "date", mode: "gte" },
       { key: "dateTo", field: "createdAt", label: "Date To", type: "date", mode: "lte" },
-      { key: "inquiryType", field: "inquiryType", label: "Inquiry Type", type: "select", mode: "equals" },
+      { key: "inquiryType", field: "inquiryType", label: "Inquiry Type", type: "select", mode: "equals", options: [
+        "Admission",
+        "Courses & Fees",
+        "Scholarship",
+        "Campus Visit",
+        "Placements",
+        "Other"
+      ] },
       { key: "email", field: "email", label: "Email", type: "text", mode: "contains" },
       { key: "mobile", field: "phone", label: "Mobile", type: "text", mode: "contains" }
     ],
@@ -50,7 +70,7 @@ const COLLECTIONS = {
       fullName: "Full Name",
       email: "Email",
       phone: "Mobile",
-      inquiryType: "Inquiry Type",
+      inquiryType: "Purpose",
       subject: "Subject",
       message: "Message",
       createdAt: "Created At",

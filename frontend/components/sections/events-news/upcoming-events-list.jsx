@@ -397,8 +397,7 @@ export function UpcomingEventsList({ onRegister, onViewDetails }) {
                               <img
                                 src={event.image}
                                 alt={event.title}
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                              />
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                               {/* Date Badge over image */}
                               <div className="absolute top-3 left-3 rounded-lg bg-background/95 backdrop-blur-md border border-border/40 py-1.5 px-2 flex flex-col items-center justify-center text-center shadow-md min-w-[2.8rem]">
                                 <span className="text-[9px] font-black text-accent uppercase leading-none tracking-wider">{event.date.split(" ")[0]}</span>

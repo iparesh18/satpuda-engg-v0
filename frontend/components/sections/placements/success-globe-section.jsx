@@ -6,121 +6,121 @@ import { MousePointer2 } from "lucide-react";
 
 const SUCCESS_ITEMS = [
   {
-    image: '/images/placement/company-01.jpeg',
+    image: '/images/placement/company-01.webp',
     link: '#',
     title: 'DEWANG MALEWAR',
     description: 'FIRST STEP INNOVATION'
   },
   {
-    image: '/images/placement/company-02.jpeg',
+    image: '/images/placement/company-02.webp',
     link: '#',
     title: 'VISHAKHA BAGHELE',
     description: 'FIRST STEP INNOVATION'
   },
   {
-    image: '/images/placement/company-03.jpeg',
+    image: '/images/placement/company-03.webp',
     link: '#',
     title: 'PREKSHA DWIVEDI',
     description: 'FIRST STEP INNOVATION'
   },
   {
-    image: '/images/placement/company-04.jpeg',
+    image: '/images/placement/company-04.webp',
     link: '#',
     title: 'ANKUSH NANDAGOULI',
     description: 'FIRST STEP INNOVATION'
   },
   {
-    image: '/images/placement/company-05.jpeg',
+    image: '/images/placement/company-05.webp',
     link: '#',
     title: 'RAJNEESH ASHWALE',
     description: 'FIRST STEP INNOVATION'
   },
   {
-    image: '/images/placement/company-06.jpeg',
+    image: '/images/placement/company-06.webp',
     link: '#',
     title: 'ABHISHEK MANESHWAR',
     description: 'GR INFRAPROJECTS LTD.'
   },
   {
-    image: '/images/placement/company-07.jpeg',
+    image: '/images/placement/company-07.webp',
     link: '#',
     title: 'RANVEER SHARMA',
     description: 'LLOYDS METALS AND ENERGY LIMITED'
   },
   {
-    image: '/images/placement/company-08.jpeg',
+    image: '/images/placement/company-08.webp',
     link: '#',
     title: 'HARSHIT SELOKAR',
     description: 'GR INFRAPROJECTS LTD.'
   },
   {
-    image: '/images/placement/company-09.jpeg',
+    image: '/images/placement/company-09.webp',
     link: '#',
     title: 'ANKIT BANDHE',
     description: 'LLOYDS METALS AND ENERGY LIMITED'
   },
   {
-    image: '/images/placement/company-10.jpeg',
+    image: '/images/placement/company-10.webp',
     link: '#',
     title: 'HIMANSHU DORAS',
     description: 'GR INFRAPROJECTS LTD.'
   },
   {
-    image: '/images/placement/company-11.jpeg',
+    image: '/images/placement/company-11.webp',
     link: '#',
     title: 'DISHANT THAKRE',
     description: 'LLOYDS METALS AND ENERGY LIMITED'
   },
   {
-    image: '/images/placement/company-12.jpeg',
+    image: '/images/placement/company-12.webp',
     link: '#',
     title: 'OM DUBEY',
     description: 'GR INFRAPROJECTS LTD.'
   },
   {
-    image: '/images/placement/company-13.jpeg',
+    image: '/images/placement/company-13.webp',
     link: '#',
     title: 'VINENDRA PAGARWAR',
     description: 'GR INFRAPROJECTS LTD.'
   },
   {
-    image: '/images/placement/company-14.jpeg',
+    image: '/images/placement/company-14.webp',
     link: '#',
     title: 'DIPANSHU',
     description: 'LLOYDS METALS AND ENERGY LIMITED'
   },
   {
-    image: '/images/placement/company-15.jpeg',
+    image: '/images/placement/company-15.webp',
     link: '#',
     title: 'NAVEEN GAJBHIYE',
     description: 'GR INFRAPROJECTS LTD.'
   },
   {
-    image: '/images/placement/company-16.jpeg',
+    image: '/images/placement/company-16.webp',
     link: '#',
     title: 'VIJESH KUMAR',
     description: 'LLOYDS METALS AND ENERGY LIMITED'
   },
   {
-    image: '/images/placement/company-17.jpeg',
+    image: '/images/placement/company-17.webp',
     link: '#',
     title: 'ADNAN KHAN',
     description: 'LLOYDS METALS AND ENERGY LIMITED'
   },
   {
-    image: '/images/placement/18.jpeg',
+    image: '/images/placement/18.webp',
     link: '#',
     title: 'SANJEET PANCHESWAR',
     description: 'GROUP R MINING & EXPLORATION INDIA PVT LTD'
   },
   {
-    image: '/images/placement/19.jpeg',
+    image: '/images/placement/19.webp',
     link: '#',
     title: 'MITHLESH KHERWAR',
     description: 'GROUP R MINING & EXPLORATION INDIA PVT LTD'
   },
   {
-    image: '/images/placement/Ak.png',
+    image: '/images/placement/Ak.webp',
     link: '#',
     title: 'ASHISH KOLTE',
     description: 'WMW SRL BACAU (EUROPE)'

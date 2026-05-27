@@ -7,15 +7,15 @@ import { ArrowRight, ChevronLeft, ChevronRight, Play } from "lucide-react";
 
 export function HeroSection() {
   const heroImages = [
-     "/images/bannerp.jpeg",
-    "/images/banner1.png",
-    "/images/banner3.jpeg",
-    "/images/hero-1.jpeg",
-     "/images/banner9.jpeg",
-     "/images/hbanner.png",
-     "/images/hbanner2.jpeg",
-     "/images/hbanner3.jpeg",
-     "/images/hbanner4.jpeg",
+     "/images/bannerp.webp",
+    "/images/banner1.webp",
+    "/images/banner3.webp",
+    "/images/hero-1.webp",
+     "/images/banner9.webp",
+     "/images/hbanner.webp",
+     "/images/hbanner2.webp",
+     "/images/hbanner3.webp",
+     "/images/hbanner4.webp",
     
    
   ];
@@ -82,8 +82,7 @@ export function HeroSection() {
               <img
                 src={src}
                 alt={`banner-${idx}`}
-                className="relative z-10 w-full h-full object-fill"
-              />
+                className="relative z-10 w-full h-full object-fill" loading="lazy" />
             </div>
           ))}
         </motion.div>

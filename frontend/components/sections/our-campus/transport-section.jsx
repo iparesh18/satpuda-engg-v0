@@ -160,7 +160,7 @@ export function TransportSection() {
             >
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-card">
                 <motion.img
-                  src="/images/overview/college bus.png"
+                  src="/images/overview/college bus.webp"
                   alt="Transport overview"
                   className="w-full h-[500px] object-cover"
                   whileHover={{ scale: 1.05 }}
@@ -213,7 +213,7 @@ export function TransportSection() {
 
           <div className="grid gap-10 lg:grid-cols-[1.1fr,0.9fr]">
             <div className="group relative overflow-hidden rounded-[32px] border border-border/40 bg-card shadow-2xl aspect-video">
-              <img src="/images/overview/campus view.png" alt="Transport fleet" className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+              <img src="/images/overview/campus view.webp" alt="Transport fleet" className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-black/10 transition-opacity group-hover:opacity-0" />
             </div>
 
@@ -364,7 +364,7 @@ export function TransportSection() {
             className="overflow-hidden rounded-[32px] border border-border/40 bg-card shadow-2xl group"
             whileHover={{ y: -8 }}
           >
-            <img src="/images/overview/student in class.png" alt="Bus arrival" className="h-64 w-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            <img src="/images/overview/student in class.webp" alt="Bus arrival" className="h-64 w-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
               <p className="text-sm font-bold tracking-widest uppercase">Safe Boarding</p>
@@ -374,7 +374,7 @@ export function TransportSection() {
             className="overflow-hidden rounded-[32px] border border-border/40 bg-card shadow-2xl group"
             whileHover={{ y: -8 }}
           >
-            <img src="/images/overview/campus building.png" alt="Bus interior" className="h-64 w-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            <img src="/images/overview/campus building.webp" alt="Bus interior" className="h-64 w-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
               <p className="text-sm font-bold tracking-widest uppercase">Modern Infrastructure</p>

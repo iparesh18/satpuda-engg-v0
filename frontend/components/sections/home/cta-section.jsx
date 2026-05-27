@@ -54,7 +54,7 @@ const newsItems = [
     title: "Annual Hackathon 2024 — Students Build Innovative Solutions",
     author: "admin",
     date: "Dec 2026",
-    image: "/images/journey/6.jpeg",
+    image: "/images/journey/6.webp",
   },
   {
     id: 6,

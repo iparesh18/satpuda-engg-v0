@@ -82,8 +82,8 @@ export function EventsGallery() {
   return (
     <section className="relative py-24 bg-background overflow-hidden flex flex-col border-t border-border/40">
       {/* Background Decorative Elements */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 hidden h-125 w-125 rounded-full bg-primary/5 blur-[120px] pointer-events-none md:block" />
+      <div className="absolute bottom-0 right-1/4 hidden h-125 w-125 rounded-full bg-accent/5 blur-[120px] pointer-events-none md:block" />
 
       {/* Header Content */}
       <div className="container mx-auto px-6 mb-16 relative z-10 text-center">
@@ -143,23 +143,22 @@ export function EventsGallery() {
               <Magnetic intensity={0.04}>
                 <div
                   onClick={() => setSelectedImage(event)}
-                  className="w-full md:w-[380px] rounded-[2rem] border border-border/50 bg-card hover:border-accent/40 hover:shadow-2xl transition-all duration-500 group/card cursor-pointer overflow-hidden h-full flex flex-col hover:scale-[1.03] active:scale-98"
+                  className="w-full md:w-95 rounded-4xl border border-border/50 bg-card hover:border-accent/40 hover:shadow-2xl transition-all duration-500 group/card cursor-pointer overflow-hidden h-full flex flex-col hover:scale-[1.03] active:scale-98"
                 >
                   <SpotlightCard
                     spotlightColor="rgba(214, 11, 11, 0.05)"
                     className="flex flex-col h-full"
                   >
                     {/* Cover Photo */}
-                    <div className="relative w-full h-[200px] md:h-[240px] overflow-hidden bg-muted shrink-0">
+                    <div className="relative w-full h-50 md:h-60 overflow-hidden bg-muted shrink-0">
                       <img
                         src={event.image}
                         alt={event.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-85" />
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" loading="lazy" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-85" />
 
                       {/* Floating Badge */}
-                      <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center gap-1.5">
+                      <div className="absolute top-4 left-4 flex items-center gap-1.5 rounded-full border border-white/10 bg-black/40 px-3 py-1 backdrop-blur-sm md:backdrop-blur-md">
                         <Tag className="w-3 h-3 text-accent" />
                         <span className="text-[9px] font-bold text-white uppercase tracking-wider">{event.category}</span>
                       </div>
@@ -173,7 +172,7 @@ export function EventsGallery() {
                     </div>
 
                     {/* Content Section */}
-                    <div className="p-6 flex flex-col flex-grow text-left">
+                    <div className="p-6 flex flex-col grow text-left">
                       <h4 className="text-xl md:text-2xl font-bold tracking-tight text-foreground leading-tight mb-2 group-hover/card:text-accent transition-colors">
                         {event.title}
                       </h4>
@@ -203,7 +202,7 @@ export function EventsGallery() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-md cursor-zoom-out"
+            className="fixed inset-0 z-100 flex items-center justify-center bg-black/90 p-4 backdrop-blur-md cursor-zoom-out"
           >
             <button
               onClick={() => setSelectedImage(null)}
@@ -219,13 +218,12 @@ export function EventsGallery() {
               exit={{ scale: 0.9, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 120 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-4xl max-h-[85vh] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950/80 shadow-2xl p-2 cursor-default"
+              className="relative max-w-4xl max-h-[85vh] w-full overflow-hidden rounded-4xl border border-white/10 bg-zinc-950/80 shadow-2xl p-2 cursor-default"
             >
               <img
                 src={selectedImage.image}
                 alt={selectedImage.title}
-                className="w-full h-auto max-h-[60vh] object-contain rounded-2xl mx-auto shadow-inner"
-              />
+                className="w-full h-auto max-h-[60vh] object-contain rounded-2xl mx-auto shadow-inner" loading="lazy" />
               <div className="p-6 md:p-8 text-left bg-zinc-950/50 backdrop-blur-xs">
                 <div className="flex items-center gap-3 mb-2 flex-wrap">
                   <span className="text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 bg-accent text-white rounded-full">

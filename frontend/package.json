@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "images:webp": "node scripts/convert-images-to-webp.mjs"
   },
   "dependencies": {
     "@chenglou/pretext": "^0.0.7",
@@ -67,6 +68,7 @@
     "react-resizable-panels": "^2.1.7",
     "react-router-dom": "^7.15.0",
     "recharts": "2.15.0",
+    "sharp": "^0.34.5",
     "sonner": "^1.7.1",
     "swiper": "^12.1.4",
     "tailwind-merge": "^3.5.0",

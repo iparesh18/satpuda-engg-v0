@@ -159,10 +159,9 @@ export function MissionVisionSection() {
           style={{ transformStyle: "preserve-3d" }}
         >
           <img
-            src="/images/overview/student in class.png"
+            src="/images/overview/student in class.webp"
             alt="Students on campus"
-            className="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-[1.03] sm:h-96"
-          />
+            className="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-[1.03] sm:h-96" loading="lazy" />
         </motion.div>
         <motion.div
           whileHover={{ rotateX: 3, rotateY: 3, y: -6 }}
@@ -240,10 +239,9 @@ export function MissionVisionSection() {
           style={{ transformStyle: "preserve-3d" }}
         >
           <img
-            src="/images/overview/campus building.png"
+            src="/images/overview/campus building.webp"
             alt="Campus community"
-            className="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-[1.03] sm:h-96"
-          />
+            className="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-[1.03] sm:h-96" loading="lazy" />
         </motion.div>
       </motion.section>
 

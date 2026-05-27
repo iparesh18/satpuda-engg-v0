@@ -14,14 +14,14 @@ export function PlacementsSection() {
   ];
 
   const companies = [
-    { name: "Mahindra", logo: "/images/mahindra logo.png" },
-    { name: "Suzuki", logo: "/images/suzuki logo.png" },
-    { name: "Hero", logo: "/images/Hero logo.png" },
-    { name: "Tata", logo: "/images/tata.png" },
-    { name: "Apollo", logo: "/images/apollo logo.png" },
-    { name: "Eicher", logo: "/images/eicher logo.png" },
-    { name: "Volvo", logo: "/images/volvo logo.jpg" },
-    { name: "MRF", logo: "/images/mrf.png" },
+    { name: "Mahindra", logo: "/images/mahindra logo.webp" },
+    { name: "Suzuki", logo: "/images/suzuki logo.webp" },
+    { name: "Hero", logo: "/images/Hero logo.webp" },
+    { name: "Tata", logo: "/images/tata.webp" },
+    { name: "Apollo", logo: "/images/apollo logo.webp" },
+    { name: "Eicher", logo: "/images/eicher logo.webp" },
+    { name: "Volvo", logo: "/images/volvo logo.webp" },
+    { name: "MRF", logo: "/images/mrf.webp" },
   ];
 
   const containerVariants = {
@@ -129,8 +129,7 @@ export function PlacementsSection() {
                         <img 
                           src={company.logo} 
                           alt={company.name} 
-                          className="w-full h-full object-contain filter group-hover:scale-110 transition-transform duration-300" 
-                        />
+                          className="w-full h-full object-contain filter group-hover:scale-110 transition-transform duration-300" loading="lazy" />
                       </motion.div>
                     </div>
                   );

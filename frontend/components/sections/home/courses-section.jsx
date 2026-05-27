@@ -22,8 +22,8 @@ const programs = [
     duration: "4 Years",
     seats: 180,
     diplomaSeats: 60,
-    image: "/images/courses/Btech CSE.jpeg",
-    diplomaImage: "/images/courses/Btech CSE.jpeg"
+    image: "/images/courses/Btech CSE.webp",
+    diplomaImage: "/images/courses/Btech CSE.webp"
   },
   {
     id: "mining",
@@ -41,8 +41,8 @@ const programs = [
     duration: "4 Years",
     seats: 120,
     diplomaSeats: 120,
-    image: "/images/courses/Btech mining.jpeg",
-    diplomaImage: "/images/courses/Btech mining.jpeg"
+    image: "/images/courses/Btech mining.webp",
+    diplomaImage: "/images/courses/Btech mining.webp"
   },
   {
     id: "civil",
@@ -60,8 +60,8 @@ const programs = [
     duration: "4 Years",
     seats: 60,
     diplomaSeats: 60,
-    image: "/images/courses/Btech Civil.jpeg",
-    diplomaImage: "/images/courses/Btech Civil.jpeg"
+    image: "/images/courses/Btech Civil.webp",
+    diplomaImage: "/images/courses/Btech Civil.webp"
   },
   {
     id: "mechanical",
@@ -79,8 +79,8 @@ const programs = [
     duration: "4 Years",
     seats: 60,
     diplomaSeats: 120,
-    image: "/images/courses/Btech mechanical.jpeg",
-    diplomaImage: "/images/courses/Btech mechanical.jpeg"
+    image: "/images/courses/Btech mechanical.webp",
+    diplomaImage: "/images/courses/Btech mechanical.webp"
   },
   {
     id: "electrical",
@@ -98,8 +98,8 @@ const programs = [
     duration: "4 Years",
     seats: 60,
     diplomaSeats: 120,
-    image: "/images/courses/Btech electrician.jpeg",
-    diplomaImage: "/images/courses/Btech electrician.jpeg"
+    image: "/images/courses/Btech electrician.webp",
+    diplomaImage: "/images/courses/Btech electrician.webp"
   },
 ];
 export function CoursesSection() {
@@ -233,7 +233,7 @@ export function CoursesSection() {
           >
             {/* Image Header */}
             <div className="relative h-64 overflow-hidden">
-              <img src={getProgramImage(currentProgram)} alt={getProgramName(currentProgram)} className="w-full h-full object-cover" />
+              <img src={getProgramImage(currentProgram)} alt={getProgramName(currentProgram)} className="w-full h-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent dark:from-black/80 dark:via-black/20" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <div className="flex items-center gap-3">

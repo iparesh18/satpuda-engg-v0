@@ -120,7 +120,7 @@ const RECENT_EVENTS = [
     description:
       "Annual Hackathon 2026 encouraged students to build innovative and real-world technology solutions.",
     category: "CSE",
-    image: "/images/journey/6.jpeg",
+    image: "/images/journey/6.webp",
     time: "11:00 AM - 02:00 PM",
     location: "Auditorium",
   },
@@ -455,8 +455,7 @@ export default function EventsNewsPage() {
                             <img
                               src={event.image}
                               alt={event.title}
-                              className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
-                            />
+                              className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                             <div className="absolute inset-0 bg-linear-to-t from-black/55 to-transparent" />
                             <div
                               className={`absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest ${meta.pill}`}
@@ -632,8 +631,7 @@ export default function EventsNewsPage() {
                       <img
                         src={event.image}
                         alt={event.title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover/recent:scale-105"
-                      />
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover/recent:scale-105" loading="lazy" />
                       <div className="absolute inset-0 bg-linear-to-t from-black/65 to-transparent" />
                       <div className="absolute left-4 top-4 rounded-full bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur-md">
                         {formatShortDate(event.date)}
@@ -705,8 +703,7 @@ export default function EventsNewsPage() {
                       "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070"
                     }
                     alt={selectedEvent.title}
-                    className="h-full w-full object-contain"
-                  />
+                    className="h-full w-full object-contain" loading="lazy" />
                   <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/15 to-transparent" />
                   <div className="absolute left-4 top-4 rounded-full bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur-md">
                     {selectedEvent.category}

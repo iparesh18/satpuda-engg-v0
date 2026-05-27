@@ -44,25 +44,25 @@ const aboutHighlights = [
     icon: ShieldCheck,
     title: "Industry-Oriented Curriculum",
     description: "Designed to meet modern mining industry standards.",
-    image: "/images/overview/campus overview.png",
+    image: "/images/overview/campus overview.webp",
   },
   {
     icon: Building2,
     title: "Advanced Laboratories",
     description: "Well-equipped labs for practical learning and research.",
-    image: "/images/overview/student in lab.png",
+    image: "/images/overview/student in lab.webp",
   },
   {
     icon: Compass,
     title: "Field Exposure",
     description: "Industrial visits, site training and real-world experience.",
-    image: "/images/overview/campus view.png",
+    image: "/images/overview/campus view.webp",
   },
   {
     icon: Users,
     title: "Expert Guidance",
     description: "Learn from experienced faculty and industry professionals.",
-    image: "/images/overview/student in class.png",
+    image: "/images/overview/student in class.webp",
   },
 ];
 
@@ -115,22 +115,22 @@ const programData = {
 
 const highlights = [
   {
-    image: "/images/mining-program.jpg",
+    image: "/images/mining-program.webp",
     title: "Underground & Surface Mining",
     description: "Comprehensive understanding of modern mining techniques.",
   },
   {
-    image: "/images/mining-diploma.jpg",
+    image: "/images/mining-diploma.webp",
     title: "Surveying & Exploration",
     description: "Advanced tools and methods for accurate surveying and exploration.",
   },
   {
-    image: "/images/hero-3.jpg",
+    image: "/images/hero-3.webp",
     title: "Mineral Processing",
     description: "Learn extraction, beneficiation and processing of minerals.",
   },
   {
-    image: "/images/hero-4.jpg",
+    image: "/images/hero-4.webp",
     title: "Safety & Sustainability",
     description: "Focus on mine safety, environmental protection and sustainable practices.",
   },
@@ -192,10 +192,9 @@ export function MiningSection() {
               className="relative aspect-square lg:aspect-video rounded-[2.5rem] overflow-hidden border border-border/50 group shadow-2xl"
             >
               <img 
-                src="/images/hero-3.jpg" 
+                src="/images/hero-3.webp" 
                 alt="Mining Engineering" 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-linear-to-t from-background/60 via-transparent to-transparent" />
               <div className="absolute bottom-8 left-8">
                 <div className="flex items-center gap-3 p-3 rounded-2xl bg-black/40 backdrop-blur-md border border-white/10">
@@ -289,10 +288,9 @@ export function MiningSection() {
               className="relative aspect-square rounded-[3rem] overflow-hidden border-8 border-card shadow-2xl"
             >
               <img
-                src="/images/mining-diploma.jpg"
+                src="/images/mining-diploma.webp"
                 alt="Mining Operations"
-                className="w-full h-full object-cover"
-              />
+                className="w-full h-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-transparent" />
             </motion.div>
           </div>
@@ -375,8 +373,7 @@ export function MiningSection() {
                   <img 
                     src={item.image} 
                     alt={item.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                 </div>
                 <div className="p-8 text-left">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary mb-4 -mt-12 relative z-10 border-4 border-card">

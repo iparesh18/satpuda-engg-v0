@@ -10,105 +10,105 @@ export function TestimonialsSection() {
       role: "B.Tech CSE, 2024",
       company: "Placed at TCS",
       quote: "The faculty and placement cell at Satpuda College helped me secure my dream job. The practical training was exceptional.",
-      image: "/images/faculty_male.png"
+      image: "/images/faculty_male.webp"
     },
     {
       name: "Priya Patel",
       role: "B.Tech Civil, 2023",
       company: "Placed at L&T",
       quote: "Amazing infrastructure and supportive environment. The college prepared me well for industry challenges.",
-      image: "/images/faculty_female.png"
+      image: "/images/faculty_female.webp"
     },
     {
       name: "Amit Kumar",
       role: "Diploma ME, 2024",
       company: "Placed at Suzuki",
       quote: "From hands-on workshops to industry visits, every experience at Satpuda shaped my career path.",
-      image: "/images/faculty_male.png"
+      image: "/images/faculty_male.webp"
     },
     {
       name: "Anjali Verma",
       role: "B.Tech EE, 2024",
       company: "Placed at Mahindra",
       quote: "Labs, projects, and mentoring gave me confidence to work on real-world electrical systems.",
-      image: "/images/faculty_female.png"
+      image: "/images/faculty_female.webp"
     },
     {
       name: "Vikas Singh",
       role: "B.Tech ME, 2023",
       company: "Placed at Tata Motors",
       quote: "The workshop training and faculty guidance made me job-ready from day one.",
-      image: "/images/faculty_male.png"
+      image: "/images/faculty_male.webp"
     },
     {
       name: "Neha Choudhary",
       role: "B.Tech CSE, 2025",
       company: "Intern at Infosys",
       quote: "Supportive mentors and strong fundamentals helped me crack my internship interviews.",
-      image: "/images/faculty_female.png"
+      image: "/images/faculty_female.webp"
     },
     {
       name: "Rohit Tiwari",
       role: "Diploma EE, 2024",
       company: "Placed at MRF",
       quote: "Practical sessions and clear concepts turned me into a confident technician.",
-      image: "/images/faculty_male.png"
+      image: "/images/faculty_male.webp"
     },
     {
       name: "Sneha Joshi",
       role: "B.Tech Civil, 2024",
       company: "Placed at GR Infraprojects",
       quote: "Field visits and lab work gave me hands-on exposure that companies value.",
-      image: "/images/faculty_female.png"
+      image: "/images/faculty_female.webp"
     },
     {
       name: "Karan Malviya",
       role: "B.Tech Mining, 2023",
       company: "Placed at Lloyds Metals",
       quote: "Industry-oriented training and site exposure shaped my mining career.",
-      image: "/images/faculty_male.png"
+      image: "/images/faculty_male.webp"
     },
     {
       name: "Meera Kulkarni",
       role: "Diploma CSE, 2024",
       company: "Placed at Job Sahi",
       quote: "Project-based learning helped me build a strong portfolio early.",
-      image: "/images/faculty_female.png"
+      image: "/images/faculty_female.webp"
     },
     {
       name: "Arjun Patel",
       role: "B.Tech EE, 2023",
       company: "Placed at Eicher",
       quote: "The faculty made complex concepts easy and the labs built real skills.",
-      image: "/images/faculty_male.png"
+      image: "/images/faculty_male.webp"
     },
     {
       name: "Pooja Thakur",
       role: "B.Tech CSE, 2024",
       company: "Placed at Wipro",
       quote: "Placements were well organized and the training sessions were excellent.",
-      image: "/images/faculty_female.png"
+      image: "/images/faculty_female.webp"
     },
     {
       name: "Siddharth Rao",
       role: "Diploma Civil, 2023",
       company: "Placed at L&T",
       quote: "Great balance of theory and practice, plus very supportive faculty.",
-      image: "/images/faculty_male.png"
+      image: "/images/faculty_male.webp"
     },
     {
       name: "Isha Sharma",
       role: "B.Tech ME, 2024",
       company: "Placed at Suzuki",
       quote: "Workshops and competitions improved my problem-solving and teamwork skills.",
-      image: "/images/faculty_female.png"
+      image: "/images/faculty_female.webp"
     },
     {
       name: "Manish Yadav",
       role: "B.Tech Mining, 2024",
       company: "Placed at Apollo",
       quote: "Campus training and guidance prepared me for both interviews and on-site work.",
-      image: "/images/faculty_male.png"
+      image: "/images/faculty_male.webp"
     }
   ];
   return (<section className="bg-background py-16 sm:py-18 lg:py-20 overflow-hidden">
@@ -140,7 +140,7 @@ export function TestimonialsSection() {
                     {`"${testimonial.quote}"`}
                   </p>
                   <div className="flex items-center gap-5">
-                    <img src={testimonial.image} alt={testimonial.name} width={64} height={64} className="w-16 h-16 rounded-2xl object-cover border-2 border-border group-hover:border-accent transition-colors duration-500" />
+                    <img src={testimonial.image} alt={testimonial.name} width={64} height={64} className="w-16 h-16 rounded-2xl object-cover border-2 border-border group-hover:border-accent transition-colors duration-500" loading="lazy" />
                     <div>
                       <p className="font-bold text-foreground text-lg leading-none mb-1">{testimonial.name}</p>
                       <p className="text-xs text-muted-foreground uppercase tracking-widest">{testimonial.role}</p>
@@ -177,7 +177,7 @@ export function TestimonialsSection() {
               {`"${testimonial.quote}"`}
             </p>
             <div className="flex items-center gap-4">
-              <img src={testimonial.image} alt={testimonial.name} width={56} height={56} className="w-14 h-14 rounded-xl object-cover border-2 border-border" />
+              <img src={testimonial.image} alt={testimonial.name} width={56} height={56} className="w-14 h-14 rounded-xl object-cover border-2 border-border" loading="lazy" />
               <div>
                 <p className="font-bold text-foreground text-base leading-none mb-1">{testimonial.name}</p>
                 <p className="text-[10px] text-muted-foreground uppercase tracking-widest">{testimonial.role}</p>

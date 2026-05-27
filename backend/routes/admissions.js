@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
   try {
-    const { course, fullName, mobile, email, address, message } = req.body || {};
+    const { course, branch, fullName, mobile, email, address, message } = req.body || {};
 
     if (!course || !fullName || !mobile || !email || !address) {
       return res.status(400).json({ error: "Missing required fields." });
@@ -13,6 +13,7 @@ router.post("/", async (req, res) => {
 
     const admission = await Admission.create({
       course,
+      branch,
       fullName,
       mobile,
       email,

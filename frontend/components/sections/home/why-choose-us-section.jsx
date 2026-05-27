@@ -13,27 +13,27 @@ import "swiper/css/pagination";
 const slides = [
   {
     title: "Learning That Stays Practical",
-    image: "/images/hero-1.jpeg",
+    image: "/images/hero-1.webp",
   },
   {
     title: "Hands-On Lab Culture",
-    image: "/images/overview/student in lab.png",
+    image: "/images/overview/student in lab.webp",
   },
   {
     title: "Campus Built for Growth",
-    image: "/images/overview/campus view.png",
+    image: "/images/overview/campus view.webp",
   },
   {
     title: "Modern Campus Infrastructure",
-    image: "/images/overview/campus building.png",
+    image: "/images/overview/campus building.webp",
   },
   {
     title: "Smart Library & Study Zones",
-    image: "/images/overview/smart library.png",
+    image: "/images/overview/smart library.webp",
   },
   {
     title: "Events, Sports & College Life",
-    image: "/images/overview/sports and activity.png",
+    image: "/images/overview/sports and activity.webp",
   },
 ];
 

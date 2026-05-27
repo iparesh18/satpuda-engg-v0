@@ -44,25 +44,25 @@ const aboutHighlights = [
     icon: ShieldCheck,
     title: "Industry-Aligned Curriculum",
     description: "Coursework aligned with power, automation and electronics industry needs.",
-    image: "/images/overview/campus view.png",
+    image: "/images/overview/campus view.webp",
   },
   {
     icon: CircuitBoard,
     title: "Circuit & System Design",
     description: "Strong practical training in circuit analysis, control and embedded systems.",
-    image: "/images/overview/student in lab.png",
+    image: "/images/overview/student in lab.webp",
   },
   {
     icon: Activity,
     title: "Lab-Centered Learning",
     description: "Hands-on exposure through machines, measurements and power labs.",
-    image: "/images/overview/campus overview.png",
+    image: "/images/overview/campus overview.webp",
   },
   {
     icon: Users,
     title: "Mentored Growth",
     description: "Continuous guidance from faculty for technical and professional development.",
-    image: "/images/overview/student in class.png",
+    image: "/images/overview/student in class.webp",
   },
 ];
 
@@ -115,22 +115,22 @@ const programData = {
 
 const highlights = [
   {
-    image: "/images/electrical-program.jpg",
+    image: "/images/electrical-program.webp",
     title: "Power System Labs",
     description: "Analyze generation, transmission and distribution systems through practical setups.",
   },
   {
-    image: "/images/electrical-diploma.jpg",
+    image: "/images/electrical-diploma.webp",
     title: "Automation Studios",
     description: "PLC, control panels and industrial automation workflows for modern plants.",
   },
   {
-    image: "/images/hero-4.jpg",
+    image: "/images/hero-4.webp",
     title: "Machine Labs",
     description: "Hands-on experience with AC/DC machines, drives and performance testing.",
   },
   {
-    image: "/images/hero-5.jpg",
+    image: "/images/hero-5.webp",
     title: "Renewable Projects",
     description: "Student-led projects in solar integration and energy-efficient solutions.",
   },
@@ -190,10 +190,9 @@ export function ElectricalSection() {
               className="relative aspect-square lg:aspect-video rounded-[2.5rem] overflow-hidden border border-border/50 group"
             >
               <img
-                src="/images/electrical-diploma.jpg"
+                src="/images/electrical-diploma.webp"
                 alt="Electrical Engineering"
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent" />
             </motion.div>
           </div>
@@ -279,10 +278,9 @@ export function ElectricalSection() {
               className="relative aspect-square rounded-[3rem] overflow-hidden border-8 border-card shadow-2xl"
             >
               <img
-                src="/images/electrical-diploma.jpg"
+                src="/images/electrical-diploma.webp"
                 alt="Electrical Projects"
-                className="w-full h-full object-cover"
-              />
+                className="w-full h-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-linear-to-tr from-primary/20 to-transparent" />
             </motion.div>
           </div>
@@ -360,7 +358,7 @@ export function ElectricalSection() {
                 className="group relative overflow-hidden rounded-[2.5rem] bg-card border border-border/50 transition-all hover:-translate-y-2 hover:shadow-2xl"
               >
                 <div className="h-48 overflow-hidden">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                 </div>
                 <div className="p-8 text-left">
                   <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{item.title}</h3>

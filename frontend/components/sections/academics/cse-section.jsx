@@ -45,25 +45,25 @@ const aboutHighlights = [
     icon: ShieldCheck,
     title: "Industry-Oriented Curriculum",
     description: "Designed to meet industry standards and future demands.",
-    image: "/images/overview/student in class.png",
+    image: "/images/overview/student in class.webp",
   },
   {
     icon: Cpu,
     title: "Hands-on Learning",
     description: "Modern labs, live projects and real-time applications.",
-    image: "/images/overview/student in lab.png",
+    image: "/images/overview/student in lab.webp",
   },
   {
     icon: Lightbulb,
     title: "Innovation & Research",
     description: "Encouraging projects, publications and creative thinking.",
-    image: "/images/overview/smart library.png",
+    image: "/images/overview/smart library.webp",
   },
   {
     icon: Users,
     title: "Expert Guidance",
     description: "Learn from experienced faculty and industry mentors.",
-    image: "/images/overview/campus view.png",
+    image: "/images/overview/campus view.webp",
   },
 ];
 
@@ -116,22 +116,22 @@ const programData = {
 
 const highlights = [
   {
-    image: "/images/overview/student in lab.png",
+    image: "/images/overview/student in lab.webp",
     title: "Advanced Laboratories",
     description: "State-of-the-art labs and systems for practical learning.",
   },
   {
-    image: "/images/overview/student in class.png",
+    image: "/images/overview/student in class.webp",
     title: "Student Projects",
     description: "Building innovative solutions to real-world problems.",
   },
   {
-    image: "/images/hero-3.jpg",
+    image: "/images/hero-3.webp",
     title: "Workshops & Seminars",
     description: "Industry experts share insights on latest technologies.",
   },
   {
-    image: "/images/hero-4.jpg",
+    image: "/images/hero-4.webp",
     title: "Achievements",
     description: "Celebrating excellence in coding, competitions and innovation.",
   },
@@ -146,7 +146,7 @@ const hodData = {
     "B.E(IT), M.Tech(CSE), MBA(HR), PhD(CSE), B.Ed",
   badgeTitle: "15+ Years of",
   badgeSubtitle: "Academic Excellence",
-  image: "/images/hod_cse.png",
+  image: "/images/hod_cse.webp",
 
   titlePart1: "Shaping",
   titlePart2: "Future Engineers.",
@@ -160,7 +160,7 @@ const facultyMembers = [
     role: "Assistant Professor",
     subject: "OOPS",
     degree: "M.Tech",
-    image: "/images/ajay_sir.png",
+    image: "/images/ajay_sir.webp",
     badgeTitle: "Object-Oriented",
     badgeSubtitle: "Design Expert",
     titlePart1: "Structuring",
@@ -173,7 +173,7 @@ const facultyMembers = [
     role: "Assistant Professor",
     subject: "Paython",
     degree: "MCA",
-    image: "/images/deepak_sir.png",
+    image: "/images/deepak_sir.webp",
     badgeTitle: "Python",
     badgeSubtitle: "Programming Expert",
     titlePart1: "Automating",
@@ -186,7 +186,7 @@ const facultyMembers = [
     role: "Lacturer",
     subject: "Web Development",
     degree: "M.Tech",
-    image: "/images/nikesh sir.png",
+    image: "/images/nikesh sir.webp",
     badgeTitle: "Frontend",
     badgeSubtitle: "Development",
     titlePart1: "Building",
@@ -199,7 +199,7 @@ const facultyMembers = [
     role: "Lecturer",
     subject: "C++",
     degree: "B.Tech",
-    image: "/images/bhavesh sir.png",
+    image: "/images/bhavesh sir.webp",
     badgeTitle: "C++",
     badgeSubtitle: "Programming Pro",
     titlePart1: "Compiling",
@@ -212,7 +212,7 @@ const facultyMembers = [
     role: "Assistant Professor",
     subject: "Maths",
     degree: "M.Sc",
-    image: "/images/satish sir.png",
+    image: "/images/satish sir.webp",
     badgeTitle: "Mathematics",
     badgeSubtitle: "Expert",
     titlePart1: "Solving",
@@ -225,7 +225,7 @@ const facultyMembers = [
     role: "Assistant Professor",
     subject: "Operting System",
     degree: "M.Tech",
-    image: "/images/neware sir.png",
+    image: "/images/neware sir.webp",
     badgeTitle: "Applied",
     badgeSubtitle: "Mathematics",
     titlePart1: "Solving",
@@ -238,7 +238,7 @@ const facultyMembers = [
     role: "Assistant Professor",
     subject: "Data Structure",
     degree: "M.Tech",
-    image: "/images/Rashmii mam.png",
+    image: "/images/Rashmii mam.webp",
     badgeTitle: "Data",
     badgeSubtitle: "Structures Expert",
     titlePart1: "Organizing",
@@ -251,7 +251,7 @@ const facultyMembers = [
     role: "Assistant Professor",
     subject: "DBMS",
     degree: "M.Tech",
-    image: "/images/Ankita mam.png",
+    image: "/images/Ankita mam.webp",
     badgeTitle: "Database",
     badgeSubtitle: "Management Specialist",
     titlePart1: "Structuring",
@@ -264,7 +264,7 @@ const facultyMembers = [
     role: "Assistant Professor",
     subject: "Applied Maths",
     degree: "M.Tech",
-    image: "/images/tripti mam.png",
+    image: "/images/tripti mam.webp",
     badgeTitle: "Operating",
     badgeSubtitle: "Systems Expert",
     titlePart1: "Managing",
@@ -277,7 +277,7 @@ const facultyMembers = [
     role: "Assistant Professor",
     subject: "COA",
     degree: "M.Tech",
-    image: "/images/dipali-mam.png",
+    image: "/images/dipali-mam.webp",
     badgeTitle: "System",
     badgeSubtitle: "Architecture",
     titlePart1: "Designing",
@@ -290,7 +290,7 @@ const facultyMembers = [
     role: "Assistant Professor",
     subject: "TOC",
     degree: "B.Tech",
-    image: "/images/sakshi mam.png",
+    image: "/images/sakshi mam.webp",
     badgeTitle: "Automata",
     badgeSubtitle: "Theory Specialist",
     titlePart1: "Computing",
@@ -303,7 +303,7 @@ const facultyMembers = [
     role: "Lecturer",
     subject: "Software Engineering",
     degree: "B.Tech",
-    image: "/images/payal mam.png",
+    image: "/images/payal mam.webp",
     badgeTitle: "Agile",
     badgeSubtitle: "Master",
     titlePart1: "Designing",
@@ -372,10 +372,9 @@ export function CSESection() {
               className="relative aspect-square lg:aspect-video rounded-[2.5rem] overflow-hidden border border-border/50 group"
             >
               <img 
-                src="/images/hero-5.jpg" 
+                src="/images/hero-5.webp" 
                 alt="CSE Department" 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent" />
             </motion.div>
           </div>
@@ -463,10 +462,9 @@ export function CSESection() {
               className="relative aspect-square rounded-[3rem] overflow-hidden border-8 border-card shadow-2xl"
             >
               <img 
-                src="/images/hero-4.jpg" 
+                src="/images/hero-4.webp" 
                 alt="Students in Lab" 
-                className="w-full h-full object-cover"
-              />
+                className="w-full h-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
             </motion.div>
           </div>
@@ -575,8 +573,7 @@ export function CSESection() {
                         <img 
                           src={faculty.image} 
                           alt={faculty.name} 
-                          className="w-full h-full object-cover object-top transition-transform group-hover:scale-105 duration-500" 
-                        />
+                          className="w-full h-full object-cover object-top transition-transform group-hover:scale-105 duration-500" loading="lazy" />
                         <div className="absolute top-2 right-2 h-7 w-7 bg-white rounded-full flex items-center justify-center shadow-sm">
                           <Users className="h-3.5 w-3.5 text-primary" />
                         </div>
@@ -665,7 +662,7 @@ export function CSESection() {
                     transition={{ duration: 0.5, ease: "easeOut" }}
                     className="absolute bottom-0 lg:bottom-[-4rem] right-0 lg:right-[-4rem] w-[65%] sm:w-[55%] lg:w-[70%] max-w-[550px] pointer-events-none z-10"
                   >
-                    <img src={selectedFaculty.image} alt={selectedFaculty.name} className="w-full h-auto object-contain object-bottom mix-blend-darken drop-shadow-[0_20px_30px_rgba(0,0,0,0.15)] origin-bottom-right scale-[1.1] lg:scale-[1.15]" />
+                    <img src={selectedFaculty.image} alt={selectedFaculty.name} className="w-full h-auto object-contain object-bottom mix-blend-darken drop-shadow-[0_20px_30px_rgba(0,0,0,0.15)] origin-bottom-right scale-[1.1] lg:scale-[1.15]" loading="lazy" />
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -694,8 +691,7 @@ export function CSESection() {
                   <img 
                     src={item.image} 
                     alt={item.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                 </div>
                 <div className="p-8 text-left">
                   <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{item.title}</h3>

@@ -26,18 +26,18 @@ export function AboutSection({ className }) {
           <div className="grid grid-cols-2 gap-6">
             <div className="space-y-6">
               <motion.div whileHover={{ scale: 1.02 }} className="rounded-3xl overflow-hidden h-48 lg:h-72 shadow-2xl border border-border">
-                <img src="/images/hero-1.jpeg" alt="Campus" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                <img src="/images/hero-1.webp" alt="Campus" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
               </motion.div>
               <motion.div whileHover={{ scale: 1.02 }} className="rounded-3xl overflow-hidden h-32 lg:h-48 shadow-2xl border border-border">
-                <img src="/images/hero-8.jpeg" alt="Library" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                <img src="/images/hero-8.webp" alt="Library" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
               </motion.div>
             </div>
             <div className="space-y-6 pt-12">
               <motion.div whileHover={{ scale: 1.02 }} className="rounded-3xl overflow-hidden h-32 lg:h-48 shadow-2xl border border-border">
-                <img src="/images/hero-7.jpeg" alt="Lab" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                <img src="/images/hero-7.webp" alt="Lab" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
               </motion.div>
               <motion.div whileHover={{ scale: 1.02 }} className="rounded-3xl overflow-hidden h-48 lg:h-72 shadow-2xl border border-border">
-                <img src="/images/hero-6.jpeg" alt="Students" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                <img src="/images/hero-6.webp" alt="Students" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
               </motion.div>
             </div>
           </div>
@@ -90,7 +90,7 @@ export function AboutSection({ className }) {
            
             <div className="flex items-center gap-4 text-sm text-muted-foreground group">
               <div className="w-12 h-12 rounded-full border-2 border-border overflow-hidden group-hover:border-accent transition-colors duration-500">
-                <img src="/images/hero-3.jpg" alt="AICTE" className="w-full h-full object-cover" />
+                <img src="/images/hero-3.webp" alt="AICTE" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <span className="font-semibold uppercase tracking-widest text-[10px]">AICTE Approved</span>
             </div>

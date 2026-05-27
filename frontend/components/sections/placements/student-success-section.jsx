@@ -8,26 +8,26 @@ import Magnetic from "../../bits/magnetic.jsx";
 import BlurText from "../../bits/blur-text.jsx";
 
 const SUCCESS_STORIES = [
-  { name: "DEWANG MALEWAR", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-01.jpeg", package: "4.0 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/first step innovation.png" },
-  { name: "VISHAKHA BAGHELE", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-02.jpeg", package: "4.0 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/first step innovation.png" },
-  { name: "PREKSHA DWIVEDI", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-03.jpeg", package: "4.0 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/first step innovation.png" },
-  { name: "ANKUSH NANDAGOULI", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-04.jpeg", package: "4.0 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/first step innovation.png" },
-  { name: "RAJNEESH ASHWALE", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-05.jpeg", package: "4.0 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/first step innovation.png" },
-  { name: "ABHISHEK MANESHWAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-06.jpeg", package: "3.25 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.png" },
-  { name: "RANVEER SHARMA", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-07.jpeg", package: "5.5 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/lloyds-metals.jpg" },
-  { name: "HARSHIT SELOKAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-08.jpeg", package: "3.25 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/gr infraproject ltd.png" },
-  { name: "ANKIT BANDHE", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-09.jpeg", package: "3.7 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/lloyds-metals.jpg" },
-  { name: "HIMANSHU DORAS", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-10.jpeg", package: "3.25 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/gr infraproject ltd.png" },
-  { name: "DISHANT THAKRE", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-11.jpeg", package: "3.7 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/lloyds-metals.jpg" },
-  { name: "OM DUBEY", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-12.jpeg", package: "3.25 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.png" },
-  { name: "VINENDRA PAGARWAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-13.jpeg", package: "3.25 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/gr infraproject ltd.png" },
-  { name: "DIPANSHU", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-14.jpeg", package: "3.7 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/lloyds-metals.jpg" },
-  { name: "NAVEEN GAJBHIYE", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-15.jpeg", package: "3.25 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.png" },
-  { name: "VIJESH KUMAR", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-16.jpeg", package: "3.7 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/lloyds-metals.jpg" },
-  { name: "ADNAN KHAN", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-17.jpeg", package: "3.7 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/lloyds-metals.jpg" },
-  { name: "SANJEET PANCHESWAR", company: "GROUP R MINING & EXPLORATION INDIA PVT LTD", photo: "/images/placement/18.jpeg", package: "14.3 LPA", year: "2017", borderColor: "border-purple-600", logo: "/images/group r.jpg" },
-  { name: "MITHLESH KHERWAR", company: "GROUP R MINING & EXPLORATION INDIA PVT LTD", photo: "/images/placement/19.jpeg", package: "16.3 LPA", year: "2017", borderColor: "border-blue-600", logo: "/images/group r.jpg" },
-  { name: "ASHISH KOLTE", company: "WMW SRL BACAU (EUROPE)", photo: "/images/placement/Ak.png", package: "15.30 LPA", year: "2022", borderColor: "border-green-500", logo: "/images/WMW logo.jpg" }
+  { name: "DEWANG MALEWAR", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-01.webp", package: "4.0 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/first step innovation.webp" },
+  { name: "VISHAKHA BAGHELE", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-02.webp", package: "4.0 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/first step innovation.webp" },
+  { name: "PREKSHA DWIVEDI", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-03.webp", package: "4.0 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/first step innovation.webp" },
+  { name: "ANKUSH NANDAGOULI", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-04.webp", package: "4.0 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/first step innovation.webp" },
+  { name: "RAJNEESH ASHWALE", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-05.webp", package: "4.0 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/first step innovation.webp" },
+  { name: "ABHISHEK MANESHWAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-06.webp", package: "3.25 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.webp" },
+  { name: "RANVEER SHARMA", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-07.webp", package: "5.5 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/lloyds-metals.webp" },
+  { name: "HARSHIT SELOKAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-08.webp", package: "3.25 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/gr infraproject ltd.webp" },
+  { name: "ANKIT BANDHE", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-09.webp", package: "3.7 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/lloyds-metals.webp" },
+  { name: "HIMANSHU DORAS", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-10.webp", package: "3.25 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/gr infraproject ltd.webp" },
+  { name: "DISHANT THAKRE", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-11.webp", package: "3.7 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/lloyds-metals.webp" },
+  { name: "OM DUBEY", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-12.webp", package: "3.25 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.webp" },
+  { name: "VINENDRA PAGARWAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-13.webp", package: "3.25 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/gr infraproject ltd.webp" },
+  { name: "DIPANSHU", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-14.webp", package: "3.7 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/lloyds-metals.webp" },
+  { name: "NAVEEN GAJBHIYE", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-15.webp", package: "3.25 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.webp" },
+  { name: "VIJESH KUMAR", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-16.webp", package: "3.7 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/lloyds-metals.webp" },
+  { name: "ADNAN KHAN", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-17.webp", package: "3.7 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/lloyds-metals.webp" },
+  { name: "SANJEET PANCHESWAR", company: "GROUP R MINING & EXPLORATION INDIA PVT LTD", photo: "/images/placement/18.webp", package: "14.3 LPA", year: "2017", borderColor: "border-purple-600", logo: "/images/group r.webp" },
+  { name: "MITHLESH KHERWAR", company: "GROUP R MINING & EXPLORATION INDIA PVT LTD", photo: "/images/placement/19.webp", package: "16.3 LPA", year: "2017", borderColor: "border-blue-600", logo: "/images/group r.webp" },
+  { name: "ASHISH KOLTE", company: "WMW SRL BACAU (EUROPE)", photo: "/images/placement/Ak.webp", package: "15.30 LPA", year: "2022", borderColor: "border-green-500", logo: "/images/WMW logo.webp" }
 ];
 
 export function StudentSuccessSection() {
@@ -83,14 +83,14 @@ export function StudentSuccessSection() {
                 <div className={`w-[280px] sm:w-[350px] md:w-[400px] h-auto p-0 rounded-[2rem] overflow-hidden bg-white shadow-xl flex flex-col group border-b-4 ${story.borderColor} transition-transform duration-500 hover:-translate-y-2`}>
                   {/* Top Image Part */}
                   <div className="relative h-[200px] sm:h-[250px] md:h-[280px] w-full bg-gray-100">
-                    <img src={story.photo} alt={story.name} className="w-full h-full object-cover object-[50%_15%]" />
+                    <img src={story.photo} alt={story.name} className="w-full h-full object-cover object-[50%_15%]" loading="lazy" />
                   </div>
 
                   {/* Bottom White Part */}
                   <div className="relative bg-white pt-10 pb-6 px-6 flex-grow flex flex-col">
                     {/* Company Logo Floating */}
                     <div className="absolute -top-8 left-6 w-16 h-16 bg-white rounded-xl shadow-lg border border-gray-100 flex items-center justify-center p-2 z-10 overflow-hidden">
-                      <img src={story.logo} alt={story.company} className="w-full h-full object-contain" />
+                      <img src={story.logo} alt={story.company} className="w-full h-full object-contain" loading="lazy" />
                     </div>
 
                     {/* Name & Company */}

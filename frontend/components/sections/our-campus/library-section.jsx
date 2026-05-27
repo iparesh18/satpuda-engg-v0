@@ -74,22 +74,22 @@ const spaces = [
   {
     title: "Group Study Area",
     description: "Collaborate and learn together in well-designed spaces.",
-    image: "/images/overview/student in class.png",
+    image: "/images/overview/student in class.webp",
   },
   {
     title: "Silent Zone",
     description: "Peaceful environment for deep focus and concentration.",
-    image: "/images/overview/campus overview.png",
+    image: "/images/overview/campus overview.webp",
   },
   {
     title: "Digital Library",
     description: "Computers with digital access to global knowledge.",
-    image: "/images/overview/student in lab.png",
+    image: "/images/overview/student in lab.webp",
   },
   {
     title: "Reading Lounge",
     description: "Relax, read and refresh in our comfortable lounge.",
-    image: "/images/overview/smart library.png",
+    image: "/images/overview/smart library.webp",
   },
 ];
 
@@ -193,7 +193,7 @@ export function LibrarySection() {
             >
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-card group">
                 <motion.img
-                  src="/images/overview/smart library.png"
+                  src="/images/overview/smart library.webp"
                   alt="Library Hero"
                   className="w-full h-[500px] object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
@@ -286,7 +286,7 @@ export function LibrarySection() {
             className="overflow-hidden rounded-[40px] border border-border/40 bg-card shadow-2xl group relative"
             whileHover={{ y: -8 }}
           >
-            <img src="/images/overview/smart library.png" alt="Library Culture" className="h-80 w-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            <img src="/images/overview/smart library.webp" alt="Library Culture" className="h-80 w-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="absolute bottom-8 left-8 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
               <p className="text-sm font-bold tracking-widest uppercase mb-1">Academic Sanctuary</p>
@@ -504,7 +504,7 @@ export function LibrarySection() {
           {spaces.map((space) => (
             <SpotlightCard key={space.title} className="group overflow-hidden rounded-[2.5rem] border-none bg-card/40 p-0 shadow-2xl transition-all hover:-translate-y-2">
               <div className="h-48 overflow-hidden relative">
-                <img src={space.image} alt={space.title} className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                <img src={space.image} alt={space.title} className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
               <div className="p-8">

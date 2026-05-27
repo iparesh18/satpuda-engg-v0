@@ -44,25 +44,25 @@ const aboutHighlights = [
     icon: ShieldCheck,
     title: "Industry-Aligned Curriculum",
     description: "Modern syllabus aligned with infrastructure and smart-city demands.",
-    image: "/images/overview/campus building.png",
+    image: "/images/overview/campus building.webp",
   },
   {
     icon: DraftingCompass,
     title: "Design & Planning",
     description: "Hands-on training in structural design and surveying workflows.",
-    image: "/images/overview/campus overview.png",
+    image: "/images/overview/campus overview.webp",
   },
   {
     icon: Activity,
     title: "Field Exposure",
     description: "Site visits and practical learning with real construction contexts.",
-    image: "/images/overview/campus view.png",
+    image: "/images/overview/campus view.webp",
   },
   {
     icon: Users,
     title: "Mentored Growth",
     description: "Continuous guidance from experienced faculty and professionals.",
-    image: "/images/overview/student in class.png",
+    image: "/images/overview/student in class.webp",
   },
 ];
 
@@ -115,22 +115,22 @@ const programData = {
 
 const highlights = [
   {
-    image: "/images/civil-program.jpg",
+    image: "/images/civil-program.webp",
     title: "Structural Design Studios",
     description: "Design safe and efficient structures with modern engineering tools.",
   },
   {
-    image: "/images/civil-diploma.jpg",
+    image: "/images/civil-diploma.webp",
     title: "Surveying & Mapping",
     description: "Advanced survey instruments and digital terrain mapping workflows.",
   },
   {
-    image: "/images/hero-3.jpg",
+    image: "/images/hero-3.webp",
     title: "Construction Labs",
     description: "Material testing, concrete technology and quality evaluation practices.",
   },
   {
-    image: "/images/hero-4.jpg",
+    image: "/images/hero-4.webp",
     title: "Project Excellence",
     description: "Student-led civil projects addressing real infrastructure challenges.",
   },
@@ -190,10 +190,9 @@ export function CivilSection() {
               className="relative aspect-square lg:aspect-video rounded-[2.5rem] overflow-hidden border border-border/50 group"
             >
               <img
-                src="/images/hero-5.jpg"
+                src="/images/hero-5.webp"
                 alt="Civil Engineering"
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent" />
             </motion.div>
           </div>
@@ -278,7 +277,7 @@ export function CivilSection() {
               viewport={{ once: true }}
               className="relative aspect-square rounded-[3rem] overflow-hidden border-8 border-card shadow-2xl"
             >
-              <img src="/images/hero-4.jpg" alt="Civil Projects" className="w-full h-full object-cover" />
+              <img src="/images/hero-4.webp" alt="Civil Projects" className="w-full h-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
             </motion.div>
           </div>
@@ -356,7 +355,7 @@ export function CivilSection() {
                 className="group relative overflow-hidden rounded-[2.5rem] bg-card border border-border/50 transition-all hover:-translate-y-2 hover:shadow-2xl"
               >
                 <div className="h-48 overflow-hidden">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                 </div>
                 <div className="p-8 text-left">
                   <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{item.title}</h3>

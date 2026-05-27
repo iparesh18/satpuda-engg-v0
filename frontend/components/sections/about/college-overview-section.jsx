@@ -77,25 +77,25 @@ export function CollegeOverviewSection() {
     {
       title: "Smart Library",
       description: "A rich collection of resources for knowledge and research.",
-      image: "/images/overview/smart library.png",
+      image: "/images/overview/smart library.webp",
       span: "lg:col-span-2 lg:row-span-2",
     },
     {
       title: "Advanced Labs",
       description: "Hands-on practice with modern technology.",
-      image: "/images/overview/student in lab.png",
+      image: "/images/overview/student in lab.webp",
       span: "lg:col-span-1 lg:row-span-1",
     },
     {
       title: "Sports & Activities",
       description: "Encouraging sportsmanship and teamwork.",
-      image: "/images/overview/sports and activity.png",
+      image: "/images/overview/sports and activity.webp",
       span: "lg:col-span-1 lg:row-span-1",
     },
     {
       title: "Events & Culture",
       description: "Celebrating talent, culture, and creativity.",
-      image: "/images/overview/event and culture.png",
+      image: "/images/overview/event and culture.webp",
       span: "lg:col-span-2 lg:row-span-1",
     },
   ];
@@ -112,10 +112,9 @@ export function CollegeOverviewSection() {
       >
         <div className="absolute inset-y-0 right-0 w-full sm:w-4/5 lg:w-[52%] opacity-10">
           <img
-            src="/images/overview/campus overview.png"
+            src="/images/overview/campus overview.webp"
             alt="Campus backdrop"
-            className="h-full w-full object-cover object-right"
-          />
+            className="h-full w-full object-cover object-right" loading="lazy" />
         </div>
         <div className="absolute inset-0 bg-linear-to-r from-background via-background/96 to-background/88 lg:from-background lg:via-background/90 lg:to-transparent" />
         
@@ -164,7 +163,7 @@ export function CollegeOverviewSection() {
             >
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-card">
                 <motion.img
-                  src="/images/overview/campus overview.png"
+                  src="/images/overview/campus overview.webp"
                   alt="Campus overview"
                   className="w-full h-125 object-cover"
                   whileHover={{ scale: 1.05 }}
@@ -270,10 +269,9 @@ export function CollegeOverviewSection() {
               className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-3/4"
             >
               <img
-                src="/images/overview/student in class.png"
+                src="/images/overview/student in class.webp"
                 alt="Students in class"
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-              />
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" loading="lazy" />
             </motion.div>
             <motion.div 
               initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
@@ -283,10 +281,9 @@ export function CollegeOverviewSection() {
               className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-3/4 mt-8"
             >
               <img
-                src="/images/overview/student in lab.png"
+                src="/images/overview/student in lab.webp"
                 alt="Students lab"
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-              />
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" loading="lazy" />
             </motion.div>
           </div>
         </div>
@@ -444,10 +441,9 @@ export function CollegeOverviewSection() {
               whileHover={{ skewY: 0.5 }}
             >
               <img
-                src="/images/overview/campus view.png"
+                src="/images/overview/campus view.webp"
                 alt="Campus view"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-              />
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" loading="lazy" />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
               <div className="absolute bottom-6 left-6">
                 <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold text-slate-900 shadow-xl">
@@ -466,10 +462,9 @@ export function CollegeOverviewSection() {
                 whileHover={{ rotate: -1 }}
               >
                 <img
-                  src="/images/overview/college bus.png"
+                  src="/images/overview/college bus.webp"
                   alt="Campus bus"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                />
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" loading="lazy" />
               </motion.div>
               <motion.div 
                 className="rounded-3xl overflow-hidden shadow-xl border-4 border-white group relative h-52.5"
@@ -480,10 +475,9 @@ export function CollegeOverviewSection() {
                 whileHover={{ rotate: 1 }}
               >
                 <img
-                  src="/images/overview/campus building.png"
+                  src="/images/overview/campus building.webp"
                   alt="Campus building"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                />
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" loading="lazy" />
               </motion.div>
             </div>
           </div>

@@ -11,23 +11,23 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const baseAchievers = [
-  { name: "DEWANG MALEWAR", company: "FIRST STEP INNOVATION", image: "/images/placement/company-01.jpeg" },
-  { name: "VISHAKHA BAGHELE", company: "FIRST STEP INNOVATION", image: "/images/placement/company-02.jpeg" },
-  { name: "PREKSHA DWIVEDI", company: "FIRST STEP INNOVATION", image: "/images/placement/company-03.jpeg" },
-  { name: "ANKUSH NANDAGOULI", company: "FIRST STEP INNOVATION", image: "/images/placement/company-04.jpeg" },
-  { name: "RAJNEESH ASHWALE", company: "FIRST STEP INNOVATION", image: "/images/placement/company-05.jpeg" },
-  { name: "ABHISHEK MANESHWAR", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-06.jpeg" },
-  { name: "RANVEER SHARMA", company: "LLOYDS METALS AND ENERGY LIMITED", image: "/images/placement/company-07.jpeg" },
-  { name: "HARSHIT SELOKAR", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-08.jpeg" },
-  { name: "ANKIT BANDHE", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-09.jpeg" },
-  { name: "HIMANSHU DORAS", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-10.jpeg" },
-  { name: "DISHANT THAKRE", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-11.jpeg" },
-  { name: "OM DUBEY", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-12.jpeg" },
-  { name: "VINENDRA PAGARWAR", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-13.jpeg" },
-  { name: "DIPANSHU", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-14.jpeg" },
-  { name: "NAVEEN GAJBHIYE", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-15.jpeg" },
-  { name: "VIJESH KUMAR", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-16.jpeg" },
-  { name: "ADNAN KHAN", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-17.jpeg" },
+  { name: "DEWANG MALEWAR", company: "FIRST STEP INNOVATION", image: "/images/placement/company-01.webp" },
+  { name: "VISHAKHA BAGHELE", company: "FIRST STEP INNOVATION", image: "/images/placement/company-02.webp" },
+  { name: "PREKSHA DWIVEDI", company: "FIRST STEP INNOVATION", image: "/images/placement/company-03.webp" },
+  { name: "ANKUSH NANDAGOULI", company: "FIRST STEP INNOVATION", image: "/images/placement/company-04.webp" },
+  { name: "RAJNEESH ASHWALE", company: "FIRST STEP INNOVATION", image: "/images/placement/company-05.webp" },
+  { name: "ABHISHEK MANESHWAR", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-06.webp" },
+  { name: "RANVEER SHARMA", company: "LLOYDS METALS AND ENERGY LIMITED", image: "/images/placement/company-07.webp" },
+  { name: "HARSHIT SELOKAR", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-08.webp" },
+  { name: "ANKIT BANDHE", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-09.webp" },
+  { name: "HIMANSHU DORAS", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-10.webp" },
+  { name: "DISHANT THAKRE", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-11.webp" },
+  { name: "OM DUBEY", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-12.webp" },
+  { name: "VINENDRA PAGARWAR", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-13.webp" },
+  { name: "DIPANSHU", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-14.webp" },
+  { name: "NAVEEN GAJBHIYE", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-15.webp" },
+  { name: "VIJESH KUMAR", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-16.webp" },
+  { name: "ADNAN KHAN", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-17.webp" },
 ];
 
 export function GateAchieversSection() {
@@ -86,11 +86,11 @@ export function GateAchieversSection() {
             className="overflow-hidden rounded-3xl border border-border bg-card shadow-[0_20px_45px_rgba(2,10,40,0.16)]"
           >
             {[
-              "/images/gate.jpeg",
-              "/images/ashish kolte banner.jpeg",
-              "/images/ranveer sharma banner.jpeg",
-              "/images/mithlesh kherwar banner.jpeg",
-              "/images/sanjeet pancheswar banner.jpeg",
+              "/images/gate.webp",
+              "/images/ashish kolte banner.webp",
+              "/images/ranveer sharma banner.webp",
+              "/images/mithlesh kherwar banner.webp",
+              "/images/sanjeet pancheswar banner.webp",
             ].map((src, idx) => (
               <SwiperSlide key={idx}>
                 <div className="w-full aspect-video flex items-center justify-center overflow-hidden rounded-3xl">

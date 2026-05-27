@@ -4,15 +4,15 @@ import DomeGallery from "../../bits/DomeGallery.jsx";
 import { SectionHeading } from "./section-heading.jsx";
 
 const domeImages = [
-  { src: "/images/hero-1.jpeg", alt: "Campus overview" },
-  { src: "/images/overview/campus view.png", alt: "Campus view" },
-  { src: "/images/k-1.JPG", alt: "Campus building" },
-  { src: "/images/overview/student in class.png", alt: "Students in class" },
-  { src: "/images/hero-7.jpeg", alt: "Students in lab" },
-  { src: "/images/overview/smart library.png", alt: "Smart library" },
-  { src: "/images/overview/sports and activity.png", alt: "Sports and activity" },
-  { src: "/images/k-0.jpg", alt: "Events and culture" },
-  { src: "/images/overview/college bus.png", alt: "College bus" },
+  { src: "/images/hero-1.webp", alt: "Campus overview" },
+  { src: "/images/overview/campus view.webp", alt: "Campus view" },
+  { src: "/images/k-1.webp", alt: "Campus building" },
+  { src: "/images/overview/student in class.webp", alt: "Students in class" },
+  { src: "/images/hero-7.webp", alt: "Students in lab" },
+  { src: "/images/overview/smart library.webp", alt: "Smart library" },
+  { src: "/images/overview/sports and activity.webp", alt: "Sports and activity" },
+  { src: "/images/k-0.webp", alt: "Events and culture" },
+  { src: "/images/overview/college bus.webp", alt: "College bus" },
 ];
 
 export function DomeGallerySection() {

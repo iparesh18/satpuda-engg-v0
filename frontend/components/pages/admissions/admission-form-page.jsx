@@ -80,6 +80,7 @@ export default function AdmissionFormPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           course,
+          branch: formData.branch,
           fullName: formData.fullName,
           mobile: formData.mobile,
           email: formData.email,
@@ -180,7 +181,7 @@ export default function AdmissionFormPage() {
             <div className="mt-10 bg-white/80 backdrop-blur-md border border-border/60 rounded-2xl shadow-sm px-6 py-5 grid md:grid-cols-[auto_1fr] gap-6 items-center">
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-xl bg-white shadow-sm border border-border flex items-center justify-center">
-                  <img src="/logo.png" alt="Satpuda College" className="w-10 h-10 object-contain" />
+                  <img src="/logo.webp" alt="Satpuda College" className="w-10 h-10 object-contain" loading="lazy" />
                 </div>
                 <div>
                   <p className="font-semibold text-foreground">Satpuda College of Engineering and Polytechnic</p>
@@ -314,7 +315,7 @@ export default function AdmissionFormPage() {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      className="mt-2 w-full min-h-[120px] rounded-lg border border-border bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/30"
+                      className="mt-2 w-full min-h-30 rounded-lg border border-border bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/30"
                       placeholder="Enter your message..."
                     />
                   </div>

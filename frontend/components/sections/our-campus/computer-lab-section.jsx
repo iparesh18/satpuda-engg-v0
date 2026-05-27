@@ -53,10 +53,9 @@ export function ComputerLabSection() {
       >
         <div className="absolute inset-y-0 right-0 w-full sm:w-4/5 lg:w-[52%] opacity-20">
           <img
-            src="/images/overview/campus overview.png"
+            src="/images/overview/campus overview.webp"
             alt="Campus backdrop"
-            className="h-full w-full object-cover object-right"
-          />
+            className="h-full w-full object-cover object-right" loading="lazy" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/96 to-background/88" />
         <div className="relative mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-end lg:px-8">
@@ -141,10 +140,9 @@ export function ComputerLabSection() {
           >
             <div className="overflow-hidden rounded-[2.5rem] border-4 border-card shadow-2xl shadow-primary/5">
               <img
-                src="/images/overview/student in lab.png"
+                src="/images/overview/student in lab.webp"
                 alt="Students in Computer Lab"
-                className="h-[500px] w-full object-cover transition-transform duration-700 hover:scale-105 lg:h-[600px]"
-              />
+                className="h-[500px] w-full object-cover transition-transform duration-700 hover:scale-105 lg:h-[600px]" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none" />
             </div>
             {/* Floating Badge */}

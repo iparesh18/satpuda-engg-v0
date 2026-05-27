@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "./section-heading.jsx";
 
 const companies = [
-  { name: "Tata", src: "/images/tata.png" },
-  { name: "Mahindra", src: "/images/mahindra logo.png" },
-  { name: "Volvo", src: "/images/volvo logo.jpg" },
-  { name: "Eicher", src: "/images/eicher logo.png" },
-  { name: "Suzuki", src: "/images/suzuki logo.png" },
-  { name: "Apollo", src: "/images/apollo logo.png" },
-  { name: "MRF", src: "/images/mrf.png" },
+  { name: "Tata", src: "/images/tata.webp" },
+  { name: "Mahindra", src: "/images/mahindra logo.webp" },
+  { name: "Volvo", src: "/images/volvo logo.webp" },
+  { name: "Eicher", src: "/images/eicher logo.webp" },
+  { name: "Suzuki", src: "/images/suzuki logo.webp" },
+  { name: "Apollo", src: "/images/apollo logo.webp" },
+  { name: "MRF", src: "/images/mrf.webp" },
 ];
 
 const marqueeTrack = [...companies, ...companies];
