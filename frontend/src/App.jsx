@@ -27,6 +27,9 @@ import CoursesOfferedPage from "../components/pages/admissions/courses-offered-p
 import { JourneyAtSatpudaSection } from "../components/sections/journey-at-satpuda/journey-at-satpuda-section.jsx";
 import { PlacementsPage } from "../components/index.js";
 import EventsNewsPage from "../components/pages/events-news/events-news-page.jsx";
+import PrivacyPolicyPage from "../components/pages/privacy-policy/privacy-policy-page.jsx";
+import FeeStructurePage from "../components/pages/admissions/fee-structure-page.jsx";
+
 
 import { ThemeProvider } from "../components/shared/theme-provider.jsx";
 import SatpudaSuperpowerPage from "../components/pages/admin/satpuda-superpower-page.jsx";
@@ -73,6 +76,8 @@ export default function App() {
           <Route path="/our-campus/gallery" element={<GalleryPage />} />
           <Route path="/placements" element={<PlacementsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/fee-structure" element={<FeeStructurePage />} />
 
           <Route path="/events/recent" element={<EventsNewsPage />} />
           <Route path="/events-news" element={<EventsNewsPage />} />

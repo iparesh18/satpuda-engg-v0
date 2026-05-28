@@ -14,6 +14,8 @@ export function Footer() {
     Library: "/our-campus/library",
     Transport: "/our-campus/transport",
     Gallery: "/our-campus/gallery",
+    "Privacy Policy": "/privacy-policy",
+    "Fee Structure": "/fee-structure",
   };
 
   const importantLinkMap = {
@@ -34,7 +36,7 @@ export function Footer() {
     { icon: MapPin, label: "Address", value: "Lalbarra - Balaghat Road, Manjhapur, MP 481001" },
     { icon: Phone, label: "Phone", value: "+91 94258 36824, +91 6262 604 111" },
     { icon: Mail, label: "Email", value: "satpudaengineeringcollege@gmail.com" },
-    { icon: Clock, label: "Hours", value: "Mon - Sat: 9 AM - 5 PM" },
+    { icon: Clock, label: "Hours", value: "Mon - Sat: 10 AM - 5 PM" },
   ];
 
   const handleCopyAddress = async () => {
