@@ -86,6 +86,7 @@ export function GateAchieversSection() {
             className="overflow-hidden rounded-3xl border border-border bg-card shadow-[0_20px_45px_rgba(2,10,40,0.16)]"
           >
             {[
+              "/images/intern-banner.webp",
               "/images/gate.webp",
               "/images/ashish kolte banner.webp",
               "/images/ranveer sharma banner.webp",

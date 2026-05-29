@@ -1,0 +1,519 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { 
+  Facebook, 
+  Instagram, 
+  Youtube, 
+  Users, 
+  Building2, 
+  Trophy, 
+  Megaphone, 
+  CalendarDays, 
+  ArrowRight,
+  Heart,
+  MessageCircle,
+  Send,
+  Bookmark,
+  Share2,
+  ThumbsUp,
+  Camera,
+  Play
+} from "lucide-react";
+
+// --- FACEBOOK CARD ---
+function FacebookCard() {
+  return (
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 28 },
+        show: { opacity: 1, y: 0 },
+      }}
+      whileHover={{ y: -8 }}
+      transition={{ type: "spring", stiffness: 170, damping: 18 }}
+      className="group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white p-5 shadow-[0_24px_80px_rgba(2,21,69,0.08)]"
+    >
+      <div>
+        {/* Header */}
+        <div className="flex items-center justify-between pb-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#1877F2] text-white shadow-md shadow-blue-100">
+              <Facebook className="h-6 w-6" fill="currentColor" strokeWidth={0} />
+            </div>
+            <div>
+              <div className="flex items-center gap-1.5">
+                <h3 className="text-base font-bold text-slate-800">Facebook Updates</h3>
+                <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-[#1877F2] text-white">
+                  <svg className="h-2.5 w-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+              </div>
+              <p className="text-xs text-slate-400">Latest posts & announcements</p>
+            </div>
+          </div>
+          <div className="text-[#1877F2] bg-blue-50/50 p-2 rounded-full border border-blue-100/50 hover:scale-105 transition-transform cursor-pointer">
+            <ThumbsUp className="h-4.5 w-4.5" fill="currentColor" strokeWidth={0} />
+          </div>
+        </div>
+
+        {/* Content Box */}
+        <div className="rounded-2xl border border-slate-100 bg-white h-[380px] overflow-hidden shadow-inner flex justify-center">
+          <iframe
+            title="Satpuda College Facebook Feed"
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSatpudaEnggPoly&tabs=timeline&width=340&height=380&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false&appId"
+            className="w-full h-full border-0"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            loading="lazy"
+            style={{ border: 0, overflow: "hidden" }}
+          />
+        </div>
+      </div>
+
+      {/* Primary Link Button */}
+      <a
+        href="https://www.facebook.com/SatpudaEnggPoly"
+        target="_blank"
+        rel="noreferrer"
+        className="group/btn relative mt-5 flex w-full items-center justify-between rounded-2xl bg-[#1877F2] px-5 py-3.5 text-xs font-semibold text-white shadow-md shadow-blue-100 transition-all duration-300 hover:bg-blue-700 hover:shadow-lg"
+      >
+        <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full" />
+        <div className="relative flex items-center gap-2">
+          <Facebook className="h-4.5 w-4.5" fill="currentColor" strokeWidth={0} />
+          <span>Visit Facebook Page</span>
+        </div>
+        <ArrowRight className="relative h-4.5 w-4.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
+      </a>
+    </motion.div>
+  );
+}
+
+// --- INSTAGRAM CARD ---
+function InstagramCard() {
+  const posts = [
+    "/images/banner0.webp",
+    "/images/journey/1.webp",
+    "/images/journey/2.webp",
+    "/images/journey/3.webp",
+    "/images/journey/4.webp",
+    "/images/journey/5.webp"
+  ];
+
+  return (
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 28 },
+        show: { opacity: 1, y: 0 },
+      }}
+      whileHover={{ y: -8 }}
+      transition={{ type: "spring", stiffness: 170, damping: 18 }}
+      className="group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white p-5 shadow-[0_24px_80px_rgba(2,21,69,0.08)]"
+    >
+      <div>
+        {/* Header */}
+        <div className="flex items-center justify-between pb-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-[#833AB4] via-[#FD1D1D] to-[#F56040] text-white shadow-md shadow-pink-100">
+              <Instagram className="h-6 w-6" />
+            </div>
+            <div>
+              <div className="flex items-center gap-1.5">
+                <h3 className="text-base font-bold text-slate-800">Instagram Highlights</h3>
+                <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-[#1877F2] text-white">
+                  <svg className="h-2.5 w-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+              </div>
+              <p className="text-xs text-slate-400">Moments, memories & campus life</p>
+            </div>
+          </div>
+          <div className="text-[#FD1D1D] bg-pink-50/50 p-2 rounded-full border border-pink-100/50 hover:scale-105 transition-transform cursor-pointer">
+            <Camera className="h-4.5 w-4.5" />
+          </div>
+        </div>
+
+        {/* Content Box */}
+        <div className="rounded-2xl border border-slate-100 bg-slate-50/80 p-3">
+          {/* Profile Header */}
+          <div className="flex items-center justify-between bg-white px-2 py-2.5 rounded-xl border border-slate-100/50 shadow-sm">
+            <div className="flex items-center gap-2">
+              <div className="h-8.5 w-8.5 rounded-full border border-pink-500 p-[1.5px] flex-shrink-0">
+                <div className="h-full w-full overflow-hidden rounded-full bg-slate-50">
+                  <img src="/images/logo.webp" alt="Satpuda Logo" className="h-full w-full object-contain" />
+                </div>
+              </div>
+              <div>
+                <h4 className="text-[10px] font-bold text-slate-800 leading-tight">satpuda_engineering_college</h4>
+                <p className="text-[8px] text-slate-400">1,234 followers</p>
+              </div>
+            </div>
+            <a
+              href="https://www.instagram.com/satpuda_engineering/"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-lg bg-blue-500 px-3 py-1 text-[9px] font-bold text-white transition hover:bg-blue-600 shadow-sm cursor-pointer"
+            >
+              Follow
+            </a>
+          </div>
+
+          {/* 3x2 Grid */}
+          <div className="mt-3.5 grid grid-cols-3 gap-1.5">
+            {posts.map((src, i) => (
+              <div key={i} className="aspect-square w-full overflow-hidden rounded-lg bg-slate-100 relative group/grid cursor-pointer shadow-sm">
+                <img
+                  src={src}
+                  alt={`Instagram Post ${i}`}
+                  className="h-full w-full object-cover transition duration-300 group-hover/grid:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/grid:opacity-100 transition-opacity flex items-center justify-center text-white">
+                  <Heart className="h-4.5 w-4.5 fill-white strokeWidth={0}" />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Actions Footer */}
+          <div className="mt-3.5 flex items-center justify-between border-t border-slate-100 pt-2 px-1">
+            <div className="flex gap-3 text-slate-600">
+              <button className="hover:text-red-500 transition-colors cursor-pointer">
+                <Heart className="h-4.5 w-4.5" />
+              </button>
+              <button className="hover:text-blue-500 transition-colors cursor-pointer">
+                <MessageCircle className="h-4.5 w-4.5" />
+              </button>
+              <button className="hover:text-green-500 transition-colors cursor-pointer">
+                <Send className="h-4.5 w-4.5" />
+              </button>
+            </div>
+
+            {/* Pagination Carousel Indicator */}
+            <div className="flex gap-1">
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+              <span className="h-1.5 w-1.5 rounded-full bg-slate-300" />
+              <span className="h-1.5 w-1.5 rounded-full bg-slate-300" />
+              <span className="h-1.5 w-1.5 rounded-full bg-slate-300" />
+              <span className="h-1.5 w-1.5 rounded-full bg-slate-300" />
+            </div>
+
+            <button className="text-slate-600 hover:text-yellow-500 transition-colors cursor-pointer">
+              <Bookmark className="h-4.5 w-4.5" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Primary Link Button */}
+      <a
+        href="https://www.instagram.com/satpuda_engineering/"
+        target="_blank"
+        rel="noreferrer"
+        className="group/btn relative mt-5 flex w-full items-center justify-between rounded-2xl bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F56040] px-5 py-3.5 text-xs font-semibold text-white shadow-md shadow-pink-100 transition-all duration-300 hover:opacity-95 hover:shadow-lg"
+      >
+        <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full" />
+        <div className="relative flex items-center gap-2">
+          <Instagram className="h-4.5 w-4.5" />
+          <span>Visit Instagram Page</span>
+        </div>
+        <ArrowRight className="relative h-4.5 w-4.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
+      </a>
+    </motion.div>
+  );
+}
+
+// --- YOUTUBE CARD ---
+function YouTubeCard() {
+  const uploads = [
+    {
+      title: "Technovanza 2K24 - Annual Tech Fest Highlights",
+      views: "1.2K views",
+      time: "2 weeks ago",
+      duration: "4:32",
+      thumbnail: "/images/chess-tourn-st.webp"
+    },
+    {
+      title: "Induction Program 2024 - Welcoming Our Freshers",
+      views: "980 views",
+      time: "1 month ago",
+      duration: "6:15",
+      thumbnail: "/images/time-mng-st.webp"
+    },
+    {
+      title: "Engineer's Day Celebration 2024",
+      views: "1.5K views",
+      time: "2 months ago",
+      duration: "3:45",
+      thumbnail: "/images/educational-ind-st.webp"
+    }
+  ];
+
+  return (
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 28 },
+        show: { opacity: 1, y: 0 },
+      }}
+      whileHover={{ y: -8 }}
+      transition={{ type: "spring", stiffness: 170, damping: 18 }}
+      className="group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white p-5 shadow-[0_24px_80px_rgba(2,21,69,0.08)]"
+    >
+      <div>
+        {/* Header */}
+        <div className="flex items-center justify-between pb-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#FF0000] text-white shadow-md shadow-red-100">
+              <Youtube className="h-6 w-6" fill="currentColor" strokeWidth={0} />
+            </div>
+            <div>
+              <div className="flex items-center gap-1.5">
+                <h3 className="text-base font-bold text-slate-800">YouTube Videos</h3>
+                <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-[#1877F2] text-white">
+                  <svg className="h-2.5 w-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+              </div>
+              <p className="text-xs text-slate-400">Events, programs & campus stories</p>
+            </div>
+          </div>
+          <div className="text-[#FF0000] bg-red-50/50 p-2 rounded-full border border-red-100/50 hover:scale-105 transition-transform cursor-pointer">
+            <Play className="h-4.5 w-4.5" fill="currentColor" />
+          </div>
+        </div>
+
+        {/* Content Box */}
+        <div className="rounded-2xl border border-slate-100 bg-slate-50/80 p-3">
+          {/* Channel Header Banner */}
+          <div className="flex items-center justify-between bg-[#1f1f1f] px-3 py-2.5 rounded-xl border border-white/5 shadow-sm text-white">
+            <div className="flex items-center gap-2 min-w-0">
+              <div className="h-8 w-8 overflow-hidden rounded-full border border-white/10 bg-white flex-shrink-0">
+                <img src="/images/logo.webp" alt="Satpuda Logo" className="h-full w-full object-contain" />
+              </div>
+              <div className="min-w-0">
+                <h4 className="text-[9.5px] font-bold leading-tight line-clamp-1">Satpuda College of Engineering & Polytechnic</h4>
+                <p className="text-[8px] text-slate-400">Uploads</p>
+              </div>
+            </div>
+            <button className="text-slate-400 hover:text-white transition-colors flex-shrink-0 cursor-pointer">
+              <svg className="h-4.5 w-4.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Videos List */}
+          <div className="mt-3.5 space-y-2.5">
+            {uploads.map((vid, idx) => (
+              <a
+                key={idx}
+                href="https://www.youtube.com/@satpudaengineering231"
+                target="_blank"
+                rel="noreferrer"
+                className="flex gap-3 bg-white p-2 rounded-xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.01)] group/vid cursor-pointer transition hover:border-red-200 hover:shadow-sm"
+              >
+                {/* Thumbnail Container */}
+                <div className="relative h-15 w-24 shrink-0 overflow-hidden rounded-lg bg-slate-100 shadow-inner">
+                  <img
+                    src={vid.thumbnail}
+                    alt={vid.title}
+                    className="h-full w-full object-cover transition duration-300 group-hover/vid:scale-105"
+                    loading="lazy"
+                  />
+                  {/* Hover icon */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/25 opacity-0 group-hover/vid:opacity-100 transition-opacity">
+                    <div className="rounded-full bg-[#FF0000] p-1.5 text-white shadow-md">
+                      <Play className="h-2.5 w-2.5 fill-white" strokeWidth={0} />
+                    </div>
+                  </div>
+                  {/* Timestamp duration badge */}
+                  <span className="absolute bottom-1 right-1 rounded bg-black/80 px-1 py-0.5 text-[7.5px] font-bold text-white leading-none">
+                    {vid.duration}
+                  </span>
+                </div>
+
+                {/* Details */}
+                <div className="flex flex-col justify-center min-w-0">
+                  <h5 className="text-[10px] font-bold leading-snug text-slate-800 line-clamp-2 transition-colors group-hover/vid:text-[#FF0000]">
+                    {vid.title}
+                  </h5>
+                  <p className="mt-1 text-[8px] text-slate-400 font-medium">
+                    {vid.views} • {vid.time}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Primary Link Button */}
+      <a
+        href="https://www.youtube.com/@satpudaengineering231"
+        target="_blank"
+        rel="noreferrer"
+        className="group/btn relative mt-5 flex w-full items-center justify-between rounded-2xl bg-[#FF0000] px-5 py-3.5 text-xs font-semibold text-white shadow-md shadow-red-100 transition-all duration-300 hover:bg-red-700 hover:shadow-lg"
+      >
+        <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full" />
+        <div className="relative flex items-center gap-2">
+          <Youtube className="h-4.5 w-4.5" fill="currentColor" strokeWidth={0} />
+          <span>Visit YouTube Channel</span>
+        </div>
+        <ArrowRight className="relative h-4.5 w-4.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
+      </a>
+    </motion.div>
+  );
+}
+
+// --- HELPER PLUS ICON ---
+function PlusIcon(props) {
+  return (
+    <svg {...props} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+    </svg>
+  );
+}
+
+// --- MAIN SECTION COMPONENT ---
+function SocialMediaSection() {
+  const features = [
+    {
+      icon: Users,
+      title: "Strong Community",
+      description: "Join our growing online family"
+    },
+    {
+      icon: Megaphone,
+      title: "Instant Updates",
+      description: "Get the latest news & alerts"
+    },
+    {
+      icon: CalendarDays,
+      title: "Event Highlights",
+      description: "Never miss any important event"
+    },
+    {
+      icon: Trophy,
+      title: "Proud Achievements",
+      description: "Celebrating our milestones"
+    }
+  ];
+
+  return (
+    <section className="relative overflow-hidden bg-[#F3F8FE] py-16 sm:py-20 lg:py-24">
+      {/* Background decorations */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(2,21,69,0.08),transparent_30%),radial-gradient(circle_at_bottom,rgba(34,139,230,0.04),transparent_25%)]" />
+
+      <div className="pointer-events-none absolute -right-16 top-16 h-44 w-44 rounded-full bg-sky-300/20 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-12 left-6 h-52 w-52 rounded-full bg-primary/10 blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0, y: 24 },
+            show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+          }}
+          className="mx-auto max-w-3xl text-center"
+        >
+          {/* Eyebrow Pill */}
+          <div className="flex items-center justify-center gap-3">
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-150 bg-white/95 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#021545] shadow-[0_4px_12px_rgba(2,21,69,0.04)] backdrop-blur">
+              <Users className="h-3.5 w-3.5 text-blue-600" />
+              <span>Our Social Media</span>
+            </div>
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+          </div>
+
+          {/* Title with yellow curved underline */}
+          <h2 className="mt-5 text-4xl font-extrabold tracking-tight text-[#021545] sm:text-5xl lg:text-6xl">
+            Stay Connected With{" "}
+            <span className="relative inline-block text-blue-600 pb-1">
+              Satpuda
+              <svg className="absolute bottom-0 left-0 h-2.5 w-full text-amber-500" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <path d="M0,5 Q50,10 100,5" stroke="currentColor" strokeWidth="4.5" fill="none" strokeLinecap="round" />
+              </svg>
+            </span>
+          </h2>
+
+          {/* Description */}
+          <p className="mx-auto mt-4 max-w-2.5xl text-sm leading-relaxed text-slate-500 sm:text-base lg:text-lg">
+            Follow Satpuda College of Engineering & Polytechnic, Balaghat on our official social platforms for latest updates, achievements, events, campus life, placements and much more.
+          </p>
+
+          {/* Divider */}
+          <div className="mt-5 flex items-center justify-center gap-4">
+            <span className="h-px w-20 bg-gradient-to-r from-transparent via-blue-200 to-transparent sm:w-28" />
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-blue-200 bg-white text-blue-600 shadow-sm shadow-blue-50/50">
+              <Building2 className="h-4.5 w-4.5" />
+            </span>
+            <span className="h-px w-20 bg-gradient-to-r from-transparent via-blue-200 to-transparent sm:w-28" />
+          </div>
+        </motion.div>
+
+        {/* 3 Columns Social Grid */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{
+            hidden: {},
+            show: {
+              transition: { staggerChildren: 0.12 },
+            },
+          }}
+          className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+        >
+          <FacebookCard />
+          <InstagramCard />
+          <YouTubeCard />
+        </motion.div>
+
+        {/* Bottom Dark Blue Highlight Bar */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{
+            hidden: { opacity: 0, y: 28 },
+            show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+          }}
+          className="mt-12 overflow-hidden rounded-[2.25rem] border border-[#021545] bg-[#021545] shadow-[0_24px_80px_rgba(2,21,69,0.18)]"
+        >
+          <div className="flex flex-col gap-6 px-6 py-5 lg:flex-row lg:items-stretch lg:justify-between lg:gap-8">
+            {/* Features Columns */}
+            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:flex-1">
+              {features.map((feature, idx) => (
+                <div key={idx} className="flex items-center gap-3.5 rounded-2xl border border-white/5 bg-white/5 px-4.5 py-3.5 text-white">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-blue-600 shadow-md shadow-black/10">
+                    <feature.icon className="h-5 w-5" strokeWidth={2.5} />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-bold tracking-tight text-white leading-tight">{feature.title}</h3>
+                    <p className="mt-0.5 text-xs text-slate-300 leading-snug">{feature.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Handwritten script on right */}
+            <div className="flex shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-center text-white lg:min-w-[240px]">
+              <p className="font-script text-3xl leading-tight tracking-wide text-white">
+                Stay connected.
+                <br />
+                <span className="text-amber-400">Stay inspired.</span>
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+export { SocialMediaSection };

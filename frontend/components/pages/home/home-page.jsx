@@ -1,4 +1,4 @@
-import { Header, HeroSection, StatsBar, AboutSection, GateAchieversSection, CoursesSection, BlueInfoMarqueeSection, WhyChooseUsSection, PlacementsSection, CompanyMarquee, RedInfoMarqueeSection, DomeGallerySection, TestimonialsSection, CTASection, Footer } from "../../index.js";
+import { Header, HeroSection, StatsBar, AboutSection, GateAchieversSection, CoursesSection, BlueInfoMarqueeSection, WhyChooseUsSection, PlacementsSection, CompanyMarquee, RedInfoMarqueeSection, DomeGallerySection, TestimonialsSection, CTASection, SocialMediaSection, Footer } from "../../index.js";
 import { ReloadContactPopup } from "../../sections/home/reload-contact-popup.jsx";
 import { ArrowUp } from "lucide-react";
 
@@ -53,6 +53,9 @@ export default function HomePage() {
       
       {/* 9. CTA Section - Drive conversions */}
       <CTASection />
+
+      {/* Social Media Updates and Feed Section */}
+      {/* <SocialMediaSection /> */}
       
       {/* 10. Footer - Always last */}
       <section id="contact">

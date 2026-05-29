@@ -11,6 +11,7 @@ export { TestimonialsSection } from "./sections/home/testimonials-section.jsx";
 export { CTASection } from "./sections/home/cta-section.jsx";
 export { MapSection } from "./sections/home/map-section.jsx";
 export { Footer } from "./sections/home/footer.jsx";
+export { SocialMediaSection } from "./sections/home/social-media-section.jsx";
 export { CoursesSection } from "./sections/home/courses-section.jsx";
 export { CompanyMarquee } from "./sections/home/company-marquee.jsx";
 export { DomeGallerySection } from "./sections/home/dome-gallery-section.jsx";
