@@ -1,5 +1,6 @@
 const express = require("express");
 const Admission = require("../models/Admission.js");
+const { sendEnquiryEmail } = require("../services/enquiryEmail.service.js");
 
 const router = express.Router();
 
@@ -19,6 +20,24 @@ router.post("/", async (req, res) => {
       email,
       address,
       message
+    });
+
+    sendEnquiryEmail({
+      title: `New Admission Enquiry - ${fullName}`,
+      summary: `A new admission form submission was received from ${fullName}.`,
+      replyTo: email,
+      fields: [
+        { label: "Full Name", value: fullName },
+        { label: "Email", value: email },
+        { label: "Mobile", value: mobile },
+        { label: "Course", value: course },
+        { label: "Branch", value: branch },
+        { label: "Address", value: address },
+        { label: "Message", value: message },
+        { label: "Submitted At", value: admission.createdAt }
+      ]
+    }).catch((error) => {
+      console.error("[mail] Failed to send admission enquiry email:", error);
     });
 
     return res.status(201).json({
