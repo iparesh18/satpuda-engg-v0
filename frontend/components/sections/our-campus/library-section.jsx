@@ -94,31 +94,6 @@ const spaces = [
 ];
 
 export function LibrarySection() {
-  const [shelfFocus, setShelfFocus] = useState(50);
-  const [isDraggingShelf, setIsDraggingShelf] = useState(false);
-
-  const updateShelfFocus = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = ((event.clientX - rect.left) / rect.width) * 100;
-    setShelfFocus(Math.min(100, Math.max(0, x)));
-  };
-
-  const handleShelfDown = (event) => {
-    event.currentTarget.setPointerCapture(event.pointerId);
-    setIsDraggingShelf(true);
-    updateShelfFocus(event);
-  };
-
-  const handleShelfMove = (event) => {
-    if (!isDraggingShelf) {
-      return;
-    }
-    updateShelfFocus(event);
-  };
-
-  const handleShelfUp = () => {
-    setIsDraggingShelf(false);
-  };
 
   return (
     <main className="bg-background pb-20">
@@ -327,125 +302,52 @@ export function LibrarySection() {
         </div>
       </motion.section>
 
+
+
+      {/* Library Experience Video Section */}
       <motion.section
         className="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8"
-        initial={{ opacity: 0, y: 18 }}
+        initial={{ opacity: 0, y: 22 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div
-          className="group relative overflow-hidden rounded-[40px] border border-border/40 bg-card/40 backdrop-blur-xl p-8 shadow-2xl sm:p-12"
-          onPointerMove={updateShelfFocus}
-          onPointerLeave={handleShelfUp}
-        >
-          <div
-            className="pointer-events-none absolute inset-0 opacity-80"
-            style={{
-              background: `radial-gradient(circle at ${shelfFocus}% 50%, rgba(59,130,246,0.25), transparent 60%)`,
-            }}
-          />
-          <div className="relative grid gap-12 lg:grid-cols-[1fr,1.2fr] lg:items-center">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="h-px w-8 bg-primary" />
-                <span className="text-xs font-black uppercase tracking-[0.4em] text-primary">Knowledge Experience</span>
-              </div>
-              <h3 className="text-4xl font-bold text-foreground tracking-tight sm:text-5xl">Digital Archive Discovery</h3>
-              <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-                Experience the intersection of physical and digital wisdom. Interact with our virtual archive to discover resource clusters lighting up the library ecosystem.
-              </p>
-              
-              <div className="mt-10 grid grid-cols-2 gap-4">
-                <div className="rounded-3xl border border-primary/20 bg-primary/5 p-5 backdrop-blur-sm transition-all group-hover:bg-primary/10">
-                  <p className="text-sm font-bold text-primary uppercase tracking-widest">Active Search</p>
-                  <p className="mt-1 text-2xl font-black text-foreground">1,240+</p>
-                </div>
-                <div className="rounded-3xl border border-border/40 bg-background/40 p-5 backdrop-blur-sm transition-all group-hover:bg-background/60">
-                  <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Global Sync</p>
-                  <p className="mt-1 text-2xl font-black text-foreground">86.4%</p>
-                </div>
-              </div>
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-12">
+          <div className="flex flex-col items-center mb-6">
+            <div className="flex items-center gap-3">
+              <div className="h-px w-12 bg-primary/40" />
+              <span className="text-xs font-bold uppercase tracking-[0.4em] text-primary">
+                Our Library Experience
+              </span>
+              <div className="h-px w-12 bg-primary/40" />
             </div>
+            <BookOpen className="h-4 w-4 text-primary mt-2 opacity-80" />
+          </div>
+          <h2 className="text-4xl font-bold text-foreground sm:text-5xl md:text-6xl tracking-tight mb-4">
+            Explore Our Knowledge Hub
+          </h2>
+          <h3 className="text-xl sm:text-2xl font-semibold text-primary mb-6">
+            Discover, Learn & Grow Beyond Classrooms
+          </h3>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Our library serves as the intellectual heart of the campus, providing students with access to extensive academic resources, digital learning materials, research journals, and a peaceful study environment. Explore our modern facilities through the virtual tour below and experience a space designed to inspire knowledge, innovation, and academic excellence.
+          </p>
+        </div>
 
-            {/* Interactive 3D Shelf Visual */}
-            <div className="relative h-[350px] sm:h-[450px] overflow-hidden rounded-[3rem] border border-border/40 bg-background/40 backdrop-blur-md group/shelf">
-              {/* Virtual Books Grid */}
-              <div className="absolute inset-0 p-8 grid grid-cols-12 gap-2 opacity-40 transition-opacity duration-700 group-hover/shelf:opacity-100">
-                {[...Array(60)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    animate={{
-                      height: [ "60%", "85%", "70%", "90%", "65%" ][i % 5],
-                      opacity: Math.abs(shelfFocus - (i / 60) * 100) < 15 ? 1 : 0.4,
-                      scale: Math.abs(shelfFocus - (i / 60) * 100) < 15 ? 1.05 : 1,
-                    }}
-                    transition={{
-                      duration: 0.3,
-                      ease: "easeOut"
-                    }}
-                    className={`rounded-sm w-full border-l border-white/10 ${
-                      i % 7 === 0 ? "bg-primary" : 
-                      i % 11 === 0 ? "bg-accent" : 
-                      "bg-card"
-                    } shadow-lg`}
-                    style={{
-                      marginTop: i % 3 === 0 ? "auto" : "0",
-                      filter: Math.abs(shelfFocus - (i / 60) * 100) < 15 ? "brightness(1.5) drop-shadow(0 0 10px rgba(59,130,246,0.5))" : "none"
-                    }}
-                  />
-                ))}
-              </div>
-
-              {/* Floating Metadata HUD */}
-              <motion.div 
-                className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
-                style={{ left: `${shelfFocus}%` }}
-              >
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ 
-                    opacity: 1, 
-                    scale: 1,
-                    x: shelfFocus > 80 ? -180 : 20
-                  }}
-                  className="rounded-2xl border border-primary/30 bg-background/90 p-4 backdrop-blur-xl shadow-2xl min-w-[160px]"
-                >
-                  <p className="text-[10px] font-black uppercase tracking-widest text-primary mb-1">Section Hub</p>
-                  <p className="text-sm font-bold text-foreground">
-                    {shelfFocus < 20 ? "Engineering Core" : 
-                     shelfFocus < 40 ? "Research & Journals" : 
-                     shelfFocus < 60 ? "Digital Humanities" : 
-                     shelfFocus < 80 ? "Sci-Tech Archive" : "Global Repositories"}
-                  </p>
-                  <div className="mt-2 flex items-center gap-2">
-                    <div className="h-1 w-full bg-primary/20 rounded-full overflow-hidden">
-                      <motion.div 
-                        className="h-full bg-primary"
-                        animate={{ width: `${Math.random() * 40 + 60}%` }}
-                        transition={{ duration: 1, repeat: Infinity, repeatType: "mirror" }}
-                      />
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-
-              {/* Cinematic Scan Line */}
-              <motion.div 
-                className="absolute inset-y-0 w-px bg-gradient-to-b from-transparent via-primary to-transparent opacity-50"
-                style={{ left: `${shelfFocus}%` }}
-              />
-              
-              <div className="absolute bottom-8 left-8 right-8 flex items-center justify-between pointer-events-none">
-                <div className="flex items-center gap-2 rounded-full border border-border/40 bg-background/60 px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-                  <Search className="h-3 w-3" />
-                  Scanner Active
-                </div>
-                <div className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground opacity-50">
-                  Slide to Discover
-                </div>
-              </div>
-            </div>
+        <div className="relative rounded-[2rem] sm:rounded-[3rem] p-2 bg-gradient-to-b from-primary/40 to-primary/5 shadow-2xl mx-auto max-w-5xl">
+          <div className="absolute inset-0 bg-primary/10 rounded-[2rem] sm:rounded-[3rem] blur-xl" />
+          <div className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2.5rem] border border-primary/20 bg-card aspect-video shadow-2xl">
+            <video 
+              className="w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src="/videos/library tour.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div className="absolute inset-0 bg-black/10 pointer-events-none" />
           </div>
         </div>
       </motion.section>
