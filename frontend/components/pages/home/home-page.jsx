@@ -55,7 +55,7 @@ export default function HomePage() {
       <CTASection />
 
       {/* Social Media Updates and Feed Section */}
-      {/* <SocialMediaSection /> */}
+      <SocialMediaSection />
       
       {/* 10. Footer - Always last */}
       <section id="contact">

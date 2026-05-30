@@ -24,6 +24,14 @@ const BTECH_FEES = [
   { sNo: "5.", branch: "Mining Engineering", fee: "₹55,000/-" },
 ];
 
+const BTECH_LATERAL_FEES = [
+  { sNo: "1.", branch: "Civil Engineering", fee: "₹45,000/-" },
+  { sNo: "2.", branch: "Electrical Engineering", fee: "₹45,000/-" },
+  { sNo: "3.", branch: "Mechanical Engineering", fee: "₹45,000/-" },
+  { sNo: "4.", branch: "Computer Science & Engineering", fee: "₹45,000/-" },
+  { sNo: "5.", branch: "Mining Engineering", fee: "₹45,000/-" },
+];
+
 const DIPLOMA_FEES = [
   { sNo: "1.", branch: "Civil Engineering", fee: "₹35,000/-" },
   { sNo: "2.", branch: "Electrical Engineering", fee: "₹35,000/-" },
@@ -212,6 +220,85 @@ export default function FeeStructurePage() {
                 </motion.div>
               )}
 
+              {/* B.Tech Lateral Section */}
+              {(activeTab === "all" || activeTab === "btech") && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4 }}
+                  className="bg-white rounded-3xl border border-slate-100 shadow-[0_2px_20px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col md:flex-row mt-8"
+                >
+                  {/* Left Sidebar */}
+                  <div className="bg-slate-50/50 border-b md:border-b-0 md:border-r border-slate-100 md:w-64 shrink-0 flex flex-col items-center justify-center p-5 md:p-8 text-center">
+                    {/* Mobile = row | Desktop = column */}
+                    <div className="flex items-center justify-center md:flex-col gap-3 md:gap-5 w-full">
+                      <div className="h-14 w-14 md:h-24 md:w-24 bg-[#021545]/5 text-[#021545] rounded-full flex items-center justify-center shrink-0">
+                        <GraduationCap className="h-7 w-7 md:h-12 md:w-12" />
+                      </div>
+                      <div className="flex flex-col items-start md:items-center text-left md:text-center">
+                        <h2 className="text-xl md:text-2xl font-bold text-[#021545] leading-none mb-1">B.Tech <br className="hidden md:block" />Lateral</h2>
+                        <p className="text-[10px] md:text-xs text-slate-500 font-medium mt-1 md:mb-6">(3 Years, 6 Semesters)</p>
+                      </div>
+                    </div>
+                    
+                    <div className="w-full h-px bg-slate-200 my-4 md:mb-6"></div>
+                    
+                    <h3 className="text-[#021545] text-sm md:text-base font-semibold mb-1 md:mb-2">Eligibility</h3>
+                    <p className="text-xs md:text-sm text-slate-600">
+                      Diploma / B.Sc Pass
+                    </p>
+
+                    <div className="mt-4 md:mt-8 bg-white border border-[#021545]/10 rounded-xl px-3 py-2 md:px-4 md:py-3 flex items-center justify-center md:justify-start gap-2 md:gap-3 shadow-sm w-full mx-auto">
+                      <FileText className="h-4 w-4 md:h-5 md:w-5 text-[#021545] shrink-0" />
+                      <div className="text-left">
+                        <p className="text-[9px] md:text-[10px] text-slate-500 font-bold uppercase tracking-wider">Academic Year</p>
+                        <p className="text-xs md:text-sm font-bold text-[#021545]">2025-26</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Content */}
+                  <div className="flex-1 p-4 sm:p-6 lg:p-8">
+                    <div className="overflow-hidden rounded-xl border border-slate-100">
+                      <table className="w-full text-left border-collapse">
+                        <thead>
+                          <tr className="bg-[#021545] text-white">
+                            <th className="py-3 px-3 sm:py-4 sm:px-5 font-semibold text-xs sm:text-sm">S.No.</th>
+                            <th className="py-3 px-3 sm:py-4 sm:px-5 font-semibold text-xs sm:text-sm">Branch</th>
+                            <th className="py-3 px-3 sm:py-4 sm:px-5 font-semibold text-xs sm:text-sm text-right">Per Year Fees</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100 bg-white">
+                          {BTECH_LATERAL_FEES.map((item, idx) => (
+                            <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
+                              <td className="py-3 px-3 sm:py-4 sm:px-5 text-xs sm:text-sm font-medium text-slate-500">{item.sNo}</td>
+                              <td className="py-3 px-3 sm:py-4 sm:px-5 text-xs sm:text-sm font-medium text-slate-800 break-words">{item.branch}</td>
+                              <td className="py-3 px-3 sm:py-4 sm:px-5 text-xs sm:text-sm font-bold text-slate-700 text-right whitespace-nowrap">{item.fee}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div className="mt-6 bg-slate-50/80 border border-slate-100 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start gap-4">
+                      <div className="h-12 w-12 rounded-full bg-[#021545]/5 flex items-center justify-center shrink-0 text-[#021545]">
+                        <GraduationCap className="h-6 w-6" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-[#021545] mb-2">Additional Charges</h4>
+                        <div className="text-sm text-slate-600 space-y-1.5">
+                          <p><strong>₹1,500/-</strong> (Registration Fee)</p>
+                          <p>Includes 1st-Year Uniform + Scholarship</p>
+                          <p>(OBC - ₹30,000/- | SC/ST - ₹50,000/-) Approx</p>
+                          <p className="pt-2 text-xs font-medium text-slate-500 mt-2 block border-t border-slate-200">Bus Facility for All Branches | Available for All Years</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
               {/* Diploma Section */}
               {(activeTab === "all" || activeTab === "diploma") && (
                 <motion.div
@@ -230,6 +317,83 @@ export default function FeeStructurePage() {
                       </div>
                       <div className="flex flex-col items-start md:items-center text-left md:text-center">
                         <h2 className="text-xl md:text-3xl font-bold text-emerald-700 leading-none">Diploma</h2>
+                        <p className="text-[10px] md:text-xs text-slate-500 font-medium mt-1 md:mb-6">(3 Years, 6 Semesters)</p>
+                      </div>
+                    </div>
+                    
+                    <div className="w-full h-px bg-slate-200 my-4 md:mb-6"></div>
+                    
+                    <h3 className="text-emerald-700 text-sm md:text-base font-semibold mb-1 md:mb-2">Eligibility</h3>
+                    <p className="text-xs md:text-sm text-slate-600">
+                      10th Pass
+                    </p>
+
+                    <div className="mt-4 md:mt-8 bg-white border border-emerald-100 rounded-xl px-3 py-2 md:px-4 md:py-3 flex items-center justify-center md:justify-start gap-2 md:gap-3 shadow-sm w-full mx-auto">
+                      <FileText className="h-4 w-4 md:h-5 md:w-5 text-emerald-600 shrink-0" />
+                      <div className="text-left">
+                        <p className="text-[9px] md:text-[10px] text-slate-500 font-bold uppercase tracking-wider">Academic Year</p>
+                        <p className="text-xs md:text-sm font-bold text-emerald-800">2025-26</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Content */}
+                  <div className="flex-1 p-4 sm:p-6 lg:p-8">
+                    <div className="overflow-hidden rounded-xl border border-slate-100">
+                      <table className="w-full text-left border-collapse">
+                        <thead>
+                          <tr className="bg-emerald-700 text-white">
+                            <th className="py-3 px-3 sm:py-4 sm:px-5 font-semibold text-xs sm:text-sm">S.No.</th>
+                            <th className="py-3 px-3 sm:py-4 sm:px-5 font-semibold text-xs sm:text-sm">Branch</th>
+                            <th className="py-3 px-3 sm:py-4 sm:px-5 font-semibold text-xs sm:text-sm text-right">Per Year Fees</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100 bg-white">
+                          {DIPLOMA_FEES.map((item, idx) => (
+                            <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
+                              <td className="py-3 px-3 sm:py-4 sm:px-5 text-xs sm:text-sm font-medium text-slate-500">{item.sNo}</td>
+                              <td className="py-3 px-3 sm:py-4 sm:px-5 text-xs sm:text-sm font-medium text-slate-800 break-words">{item.branch}</td>
+                              <td className="py-3 px-3 sm:py-4 sm:px-5 text-xs sm:text-sm font-bold text-slate-700 text-right whitespace-nowrap">{item.fee}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div className="mt-6 bg-emerald-50/50 border border-emerald-100 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start gap-4">
+                      <div className="h-12 w-12 rounded-full bg-emerald-100 flex items-center justify-center shrink-0 text-emerald-600">
+                        <Award className="h-6 w-6" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-emerald-800 mb-2">Scholarship</h4>
+                        <div className="text-sm text-slate-600 space-y-1.5">
+                          <p>(OBC - ₹10,000/- to 12,000/-) Approx</p>
+                          <p>(SC/ST - ₹25,000/- to 30,000/-) Approx</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Diploma Lateral Section */}
+              {(activeTab === "all" || activeTab === "diploma") && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4 }}
+                  className="bg-white rounded-3xl border border-slate-100 shadow-[0_2px_20px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col md:flex-row mt-8"
+                >
+                  {/* Left Sidebar */}
+                  <div className="bg-slate-50/50 border-b md:border-b-0 md:border-r border-slate-100 md:w-64 shrink-0 flex flex-col items-center justify-center p-5 md:p-8 text-center">
+                    {/* Mobile = row | Desktop = column */}
+                    <div className="flex items-center justify-center md:flex-col gap-3 md:gap-5 w-full">
+                      <div className="h-14 w-14 md:h-24 md:w-24 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center shrink-0">
+                        <ScrollText className="h-7 w-7 md:h-12 md:w-12" />
+                      </div>
+                      <div className="flex flex-col items-start md:items-center text-left md:text-center">
+                        <h2 className="text-xl md:text-2xl font-bold text-emerald-700 leading-none mb-1">Diploma <br className="hidden md:block"/>Lateral</h2>
                         <p className="text-[10px] md:text-xs text-slate-500 font-medium mt-1 md:mb-6">(2 Years, 4 Semesters)</p>
                       </div>
                     </div>
@@ -238,7 +402,7 @@ export default function FeeStructurePage() {
                     
                     <h3 className="text-emerald-700 text-sm md:text-base font-semibold mb-1 md:mb-2">Eligibility</h3>
                     <p className="text-xs md:text-sm text-slate-600">
-                      2 Years ITI<br className="hidden md:block"/>Passout Only
+                      12th / ITI Pass
                     </p>
 
                     <div className="mt-4 md:mt-8 bg-white border border-emerald-100 rounded-xl px-3 py-2 md:px-4 md:py-3 flex items-center justify-center md:justify-start gap-2 md:gap-3 shadow-sm w-full mx-auto">

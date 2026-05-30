@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { 
   Facebook, 
@@ -23,6 +24,8 @@ import {
 
 // --- FACEBOOK CARD ---
 function FacebookCard() {
+  const [isInteractive, setIsInteractive] = useState(false);
+
   return (
     <motion.div
       variants={{
@@ -58,7 +61,21 @@ function FacebookCard() {
         </div>
 
         {/* Content Box */}
-        <div className="rounded-2xl border border-slate-100 bg-white h-[380px] overflow-hidden shadow-inner flex justify-center">
+        <div 
+          className="rounded-2xl border border-slate-100 bg-white h-[380px] overflow-hidden shadow-inner flex justify-center relative group/frame"
+          onMouseLeave={() => setIsInteractive(false)}
+        >
+          {/* Mobile Overlay to prevent scroll trapping */}
+          {!isInteractive && (
+            <div 
+              className="absolute inset-0 z-10 md:hidden bg-black/5 flex items-center justify-center cursor-pointer"
+              onClick={() => setIsInteractive(true)}
+            >
+               <div className="bg-black/70 text-white text-[10px] px-3 py-1.5 rounded-full font-medium shadow-lg backdrop-blur-sm">
+                 Tap to scroll
+               </div>
+            </div>
+          )}
           <iframe
             title="Satpuda College Facebook Feed"
             src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSatpudaEnggPoly&tabs=timeline&width=340&height=380&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false&appId"
@@ -225,29 +242,27 @@ function InstagramCard() {
 
 // --- YOUTUBE CARD ---
 function YouTubeCard() {
-  const uploads = [
-    {
-      title: "Technovanza 2K24 - Annual Tech Fest Highlights",
-      views: "1.2K views",
-      time: "2 weeks ago",
-      duration: "4:32",
-      thumbnail: "/images/chess-tourn-st.webp"
-    },
-    {
-      title: "Induction Program 2024 - Welcoming Our Freshers",
-      views: "980 views",
-      time: "1 month ago",
-      duration: "6:15",
-      thumbnail: "/images/time-mng-st.webp"
-    },
-    {
-      title: "Engineer's Day Celebration 2024",
-      views: "1.5K views",
-      time: "2 months ago",
-      duration: "3:45",
-      thumbnail: "/images/educational-ind-st.webp"
-    }
-  ];
+  const [videos, setVideos] = useState([]);
+  const [activeVideoId, setActiveVideoId] = useState(null);
+  const [isListInteractive, setIsListInteractive] = useState(false);
+
+  useEffect(() => {
+    fetch('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.youtube.com%2Ffeeds%2Fvideos.xml%3Fchannel_id%3DUCm0GZ9f3VX-fde4YuM3lkLg')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.items && data.items.length > 0) {
+          const vids = data.items.slice(0, 15).map(item => ({
+            id: item.guid.replace('yt:video:', ''),
+            title: item.title,
+            thumbnail: item.thumbnail,
+            pubDate: new Date(item.pubDate).toLocaleDateString()
+          }));
+          setVideos(vids);
+          setActiveVideoId(vids[0].id);
+        }
+      })
+      .catch(err => console.error("Error fetching YouTube feed", err));
+  }, []);
 
   return (
     <motion.div
@@ -263,8 +278,8 @@ function YouTubeCard() {
         {/* Header */}
         <div className="flex items-center justify-between pb-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#FF0000] text-white shadow-md shadow-red-100">
-              <Youtube className="h-6 w-6" fill="currentColor" strokeWidth={0} />
+            <div className="flex h-12 w-12 items-center justify-center p-1 rounded-xl bg-slate-50 border border-slate-100 shadow-sm">
+              <img src="/youtube.webp" alt="YouTube Logo" className="h-full w-full object-contain" />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
@@ -284,37 +299,49 @@ function YouTubeCard() {
         </div>
 
         {/* Content Box */}
-        <div className="rounded-2xl border border-slate-100 bg-slate-50/80 p-3">
-          {/* Channel Header Banner */}
-          <div className="flex items-center justify-between bg-[#1f1f1f] px-3 py-2.5 rounded-xl border border-white/5 shadow-sm text-white">
-            <div className="flex items-center gap-2 min-w-0">
-              <div className="h-8 w-8 overflow-hidden rounded-full border border-white/10 bg-white flex-shrink-0">
-                <img src="/images/logo.webp" alt="Satpuda Logo" className="h-full w-full object-contain" />
+        <div className="rounded-2xl border border-slate-100 bg-slate-50/80 p-2 flex flex-col gap-2 h-[380px]">
+          {/* Main Video Player */}
+          <div className="rounded-xl overflow-hidden bg-black aspect-video relative shadow-sm border border-slate-200 shrink-0">
+            {activeVideoId ? (
+              <iframe
+                title="Satpuda College YouTube Channel"
+                src={`https://www.youtube.com/embed/${activeVideoId}?autoplay=0`}
+                className="w-full h-full border-0 absolute inset-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center text-slate-500 text-sm">
+                Loading videos...
               </div>
-              <div className="min-w-0">
-                <h4 className="text-[9.5px] font-bold leading-tight line-clamp-1">Satpuda College of Engineering & Polytechnic</h4>
-                <p className="text-[8px] text-slate-400">Uploads</p>
-              </div>
-            </div>
-            <button className="text-slate-400 hover:text-white transition-colors flex-shrink-0 cursor-pointer">
-              <svg className="h-4.5 w-4.5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
-              </svg>
-            </button>
+            )}
           </div>
 
-          {/* Videos List */}
-          <div className="mt-3.5 space-y-2.5">
-            {uploads.map((vid, idx) => (
-              <a
-                key={idx}
-                href="https://www.youtube.com/@satpudaengineering231"
-                target="_blank"
-                rel="noreferrer"
-                className="flex gap-3 bg-white p-2 rounded-xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.01)] group/vid cursor-pointer transition hover:border-red-200 hover:shadow-sm"
+          {/* Video List */}
+          <div 
+            className="flex flex-col gap-2 overflow-y-auto min-h-0 pr-1 flex-1 relative group/list"
+            onMouseLeave={() => setIsListInteractive(false)}
+          >
+            {/* Mobile Overlay to prevent scroll trapping */}
+            {!isListInteractive && (
+              <div 
+                className="absolute inset-0 z-10 md:hidden bg-black/5 flex items-center justify-center cursor-pointer"
+                onClick={() => setIsListInteractive(true)}
+              >
+                 <div className="bg-black/70 text-white text-[10px] px-3 py-1.5 rounded-full font-medium shadow-lg backdrop-blur-sm">
+                   Tap to scroll
+                 </div>
+              </div>
+            )}
+            
+            {videos.map((vid) => (
+              <div
+                key={vid.id}
+                onClick={() => setActiveVideoId(vid.id)}
+                className={`flex gap-3 bg-white p-2 rounded-xl border ${activeVideoId === vid.id ? 'border-red-400 bg-red-50' : 'border-slate-100'} shadow-[0_2px_8px_rgba(0,0,0,0.01)] group/vid cursor-pointer transition hover:border-red-200 hover:shadow-sm`}
               >
                 {/* Thumbnail Container */}
-                <div className="relative h-15 w-24 shrink-0 overflow-hidden rounded-lg bg-slate-100 shadow-inner">
+                <div className="relative h-12 w-20 shrink-0 overflow-hidden rounded-lg bg-slate-100 shadow-inner">
                   <img
                     src={vid.thumbnail}
                     alt={vid.title}
@@ -323,26 +350,22 @@ function YouTubeCard() {
                   />
                   {/* Hover icon */}
                   <div className="absolute inset-0 flex items-center justify-center bg-black/25 opacity-0 group-hover/vid:opacity-100 transition-opacity">
-                    <div className="rounded-full bg-[#FF0000] p-1.5 text-white shadow-md">
-                      <Play className="h-2.5 w-2.5 fill-white" strokeWidth={0} />
+                    <div className="rounded-full bg-[#FF0000] p-1 text-white shadow-md">
+                      <Play className="h-2 w-2 fill-white" strokeWidth={0} />
                     </div>
                   </div>
-                  {/* Timestamp duration badge */}
-                  <span className="absolute bottom-1 right-1 rounded bg-black/80 px-1 py-0.5 text-[7.5px] font-bold text-white leading-none">
-                    {vid.duration}
-                  </span>
                 </div>
 
                 {/* Details */}
                 <div className="flex flex-col justify-center min-w-0">
-                  <h5 className="text-[10px] font-bold leading-snug text-slate-800 line-clamp-2 transition-colors group-hover/vid:text-[#FF0000]">
+                  <h5 className={`text-[10px] font-bold leading-snug line-clamp-2 transition-colors ${activeVideoId === vid.id ? 'text-red-600' : 'text-slate-800'} group-hover/vid:text-[#FF0000]`}>
                     {vid.title}
                   </h5>
                   <p className="mt-1 text-[8px] text-slate-400 font-medium">
-                    {vid.views} • {vid.time}
+                    {vid.pubDate}
                   </p>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>
@@ -350,7 +373,7 @@ function YouTubeCard() {
 
       {/* Primary Link Button */}
       <a
-        href="https://www.youtube.com/@satpudaengineering231"
+        href="https://www.youtube.com/channel/UCm0GZ9f3VX-fde4YuM3lkLg"
         target="_blank"
         rel="noreferrer"
         className="group/btn relative mt-5 flex w-full items-center justify-between rounded-2xl bg-[#FF0000] px-5 py-3.5 text-xs font-semibold text-white shadow-md shadow-red-100 transition-all duration-300 hover:bg-red-700 hover:shadow-lg"
@@ -401,7 +424,7 @@ function SocialMediaSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#F3F8FE] py-16 sm:py-20 lg:py-24">
+    <section className="relative overflow-hidden bg-[#f5f9ff] py-16 sm:py-20 lg:py-24">
       {/* Background decorations */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(2,21,69,0.08),transparent_30%),radial-gradient(circle_at_bottom,rgba(34,139,230,0.04),transparent_25%)]" />
 
