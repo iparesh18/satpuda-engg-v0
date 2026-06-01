@@ -57,7 +57,7 @@ const aboutHighlights = [
     icon: Lightbulb,
     title: "Innovation & Research",
     description: "Encouraging projects, publications and creative thinking.",
-    image: "/images/overview/smart library.webp",
+    image: "/images/overview/e-library-st.jpeg",
   },
   {
     icon: Users,
@@ -121,17 +121,17 @@ const highlights = [
     description: "State-of-the-art labs and systems for practical learning.",
   },
   {
-    image: "/images/overview/student in class.webp",
+    image: "/images/overview/car-st.webp",
     title: "Student Projects",
     description: "Building innovative solutions to real-world problems.",
   },
   {
-    image: "/images/hero-3.webp",
+    image: "/images/overview/seminar-st.webp",
     title: "Workshops & Seminars",
     description: "Industry experts share insights on latest technologies.",
   },
   {
-    image: "/images/hero-4.webp",
+    image: "/images/journey/6.jpeg",
     title: "Achievements",
     description: "Celebrating excellence in coding, competitions and innovation.",
   },
@@ -372,7 +372,7 @@ export function CSESection() {
               className="relative aspect-square lg:aspect-video rounded-[2.5rem] overflow-hidden border border-border/50 group"
             >
               <img 
-                src="/images/hero-5.webp" 
+                src="/images/overview/cse-hero-st.webp" 
                 alt="CSE Department" 
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent" />
@@ -462,7 +462,7 @@ export function CSESection() {
               className="relative aspect-square rounded-[3rem] overflow-hidden border-8 border-card shadow-2xl"
             >
               <img 
-                src="/images/hero-4.webp" 
+                src="/images/overview/cs-lab-st.webp" 
                 alt="Students in Lab" 
                 className="w-full h-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />

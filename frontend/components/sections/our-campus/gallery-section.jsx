@@ -53,35 +53,30 @@ const awards = [
 
 const galleryImages = [
   {
-    src: "/images/overview/campus overview.webp",
+    src: "/images/overview/architect-st.webp",
     title: "Golden Hour Campus",
     tag: "Architecture"
   },
   {
-    src: "/images/overview/student in class.webp",
+    src: "/images/overview/learn-env-st.webp",
     title: "Active Learning",
     tag: "Academics"
   },
   {
-    src: "/images/overview/event and culture.webp",
+    src: "/images/overview/event-cult-st.webp",
     title: "Festive Nights",
     tag: "Events"
   },
   {
-    src: "/images/overview/sports and activity.webp",
+    src: "/images/overview/sp-cen-st.webp",
     title: "Athletic Spirit",
     tag: "Sports"
   },
   {
-    src: "/images/overview/student in lab.webp",
+    src: "/images/overview/car-st.webp",
     title: "Innovation Lab",
     tag: "Labs"
   },
-  {
-    src: "/images/overview/campus building.webp",
-    title: "Landmark View",
-    tag: "Campus"
-  }
 ];
 
 const domeImages = [
