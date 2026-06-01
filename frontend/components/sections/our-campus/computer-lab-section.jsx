@@ -174,7 +174,7 @@ export function ComputerLabSection() {
           >
             <div className="overflow-hidden rounded-[2.5rem] border-4 border-card shadow-2xl shadow-primary/5">
               <img
-                src="/images/overview/student in lab.webp"
+                src="/images/overview/cs-lab-st.webp"
                 alt="Students in Computer Lab"
                 className="h-[500px] w-full object-cover transition-transform duration-700 hover:scale-105 lg:h-[600px]" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none" />
@@ -457,8 +457,8 @@ export function ComputerLabSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent flex items-end p-6">
                 <div>
-                  <h4 className="text-white text-lg font-bold tracking-tight">Active Practical Training</h4>
-                  <p className="text-white/80 text-xs mt-1">Students getting hands-on programming guide.</p>
+                  <h4 className="text-white text-lg font-bold tracking-tight">Collaborative Learning Sessions</h4>
+                  <p className="text-white/80 text-xs mt-1">Students actively participating in discussions and practical learning activities.</p>
                 </div>
               </div>
             </motion.div>
@@ -482,8 +482,8 @@ export function ComputerLabSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent flex items-end p-5">
                   <div>
-                    <h4 className="text-white text-base font-bold tracking-tight">High-Performance Workspaces</h4>
-                    <p className="text-white/80 text-[10px] mt-0.5">Optimized environment for developers.</p>
+                    <h4 className="text-white text-base font-bold tracking-tight">Advanced Computing Facilities</h4>
+                    <p className="text-white/80 text-[10px] mt-0.5">Modern infrastructure supporting coding, research, and technical innovation.</p>
                   </div>
                 </div>
               </motion.div>
@@ -504,8 +504,8 @@ export function ComputerLabSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent flex items-end p-5">
                   <div>
-                    <h4 className="text-white text-base font-bold tracking-tight">Smart Lab Infrastructure</h4>
-                    <p className="text-white/80 text-[10px] mt-0.5">Full coverage wifi and digital board assists.</p>
+                    <h4 className="text-white text-base font-bold tracking-tight">Project Development Activities</h4>
+                    <p className="text-white/80 text-[10px] mt-0.5">Hands-on project work fostering creativity, teamwork, and problem-solving skills.</p>
                   </div>
                 </div>
               </motion.div>
@@ -522,15 +522,15 @@ export function ComputerLabSection() {
               className="overflow-hidden rounded-3xl border border-border shadow-lg relative group h-[300px] md:h-[480px]"
             >
               <img 
-                src="/images/journey/2.webp" 
+                src="/images/overview/learn-env-st.webp" 
                 alt="Code display" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent flex items-end p-6">
                 <div>
-                  <h4 className="text-white text-lg font-bold tracking-tight">Advanced Software Environment</h4>
-                  <p className="text-white/80 text-xs mt-1">Robust system configuration for machine learning & web coding.</p>
+                  <h4 className="text-white text-lg font-bold tracking-tight">Industry-Ready Learning Environment</h4>
+                  <p className="text-white/80 text-xs mt-1">Preparing students for real-world technology challenges through practical exposure.</p>
                 </div>
               </div>
             </motion.div>
