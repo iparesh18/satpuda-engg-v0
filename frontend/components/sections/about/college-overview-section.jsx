@@ -77,7 +77,7 @@ export function CollegeOverviewSection() {
     {
       title: "Smart Library",
       description: "A rich collection of resources for knowledge and research.",
-      image: "/images/overview/smart library.webp",
+      image: "/images/overview/lib-girl-st.webp",
       span: "lg:col-span-2 lg:row-span-2",
     },
     {
@@ -89,13 +89,13 @@ export function CollegeOverviewSection() {
     {
       title: "Sports & Activities",
       description: "Encouraging sportsmanship and teamwork.",
-      image: "/images/overview/sports and activity.webp",
+      image: "/images/overview/sport-tenis-st.webp",
       span: "lg:col-span-1 lg:row-span-1",
     },
     {
       title: "Events & Culture",
       description: "Celebrating talent, culture, and creativity.",
-      image: "/images/overview/event and culture.webp",
+      image: "/images/overview/event-cult-st.webp",
       span: "lg:col-span-2 lg:row-span-1",
     },
   ];

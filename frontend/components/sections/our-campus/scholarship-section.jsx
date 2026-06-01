@@ -181,7 +181,7 @@ export function ScholarshipSection() {
             >
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-card">
                 <motion.img
-                  src="/images/overview/smart library.webp"
+                  src="/images/overview/scholarship.webp"
                   alt="Scholarship Hero"
                   className="w-full h-[500px] object-cover"
                   whileHover={{ scale: 1.05 }}
@@ -264,17 +264,7 @@ export function ScholarshipSection() {
         </div>
 
         <div className="grid gap-6">
-          <motion.div 
-            className="overflow-hidden rounded-[40px] border border-border/40 bg-card shadow-2xl group relative"
-            whileHover={{ y: -8 }}
-          >
-            <img src="/images/overview/student in lab.webp" alt="Success Story" className="h-80 w-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="absolute bottom-8 left-8 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-              <p className="text-sm font-bold tracking-widest uppercase mb-1">Success Stories</p>
-              <h4 className="text-2xl font-bold">Academic Excellence</h4>
-            </div>
-          </motion.div>
+         
           
           <SpotlightCard className="group relative overflow-hidden rounded-[40px] border-none bg-gradient-to-br from-primary/10 to-accent/5 p-10 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
             {/* Background Decorative Mesh */}
