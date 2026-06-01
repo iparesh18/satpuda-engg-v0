@@ -50,19 +50,19 @@ const aboutHighlights = [
     icon: DraftingCompass,
     title: "Design & Planning",
     description: "Hands-on training in structural design and surveying workflows.",
-    image: "/images/overview/campus overview.webp",
+    image: "/images/courses/civ-des-st.jpg",
   },
   {
     icon: Activity,
     title: "Field Exposure",
     description: "Site visits and practical learning with real construction contexts.",
-    image: "/images/overview/campus view.webp",
+    image: "/images/courses/civ-fld-st.jpg",
   },
   {
     icon: Users,
     title: "Mentored Growth",
     description: "Continuous guidance from experienced faculty and professionals.",
-    image: "/images/overview/student in class.webp",
+    image: "/images/courses/civ-ment-st.jpg",
   },
 ];
 
@@ -115,22 +115,22 @@ const programData = {
 
 const highlights = [
   {
-    image: "/images/civil-program.webp",
+    image: "/images/courses/civ-des-st.jpg",
     title: "Structural Design Studios",
     description: "Design safe and efficient structures with modern engineering tools.",
   },
   {
-    image: "/images/civil-diploma.webp",
+    image: "/images/overview/learn-env-st.webp",
     title: "Surveying & Mapping",
     description: "Advanced survey instruments and digital terrain mapping workflows.",
   },
   {
-    image: "/images/hero-3.webp",
+    image: "/images/courses/civ-lab-st.webp",
     title: "Construction Labs",
     description: "Material testing, concrete technology and quality evaluation practices.",
   },
   {
-    image: "/images/hero-4.webp",
+    image: "/images/courses/civ-prj-st.webp",
     title: "Project Excellence",
     description: "Student-led civil projects addressing real infrastructure challenges.",
   },
@@ -190,7 +190,7 @@ export function CivilSection() {
               className="relative aspect-square lg:aspect-video rounded-[2.5rem] overflow-hidden border border-border/50 group"
             >
               <img
-                src="/images/hero-5.webp"
+                src="/images/overview/learn-env-st.webp"
                 alt="Civil Engineering"
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent" />
@@ -277,7 +277,7 @@ export function CivilSection() {
               viewport={{ once: true }}
               className="relative aspect-square rounded-[3rem] overflow-hidden border-8 border-card shadow-2xl"
             >
-              <img src="/images/hero-4.webp" alt="Civil Projects" className="w-full h-full object-cover" loading="lazy" />
+              <img src="/images/courses/civil-cen-st.webp" alt="Civil Projects" className="w-full h-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
             </motion.div>
           </div>
