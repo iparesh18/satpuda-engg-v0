@@ -83,7 +83,7 @@ export function CollegeOverviewSection() {
     {
       title: "Advanced Labs",
       description: "Hands-on practice with modern technology.",
-      image: "/images/overview/student in lab.webp",
+      image: "/images/overview/lab-st.webp",
       span: "lg:col-span-1 lg:row-span-1",
     },
     {

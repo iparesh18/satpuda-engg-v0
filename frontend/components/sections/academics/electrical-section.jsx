@@ -50,19 +50,19 @@ const aboutHighlights = [
     icon: CircuitBoard,
     title: "Circuit & System Design",
     description: "Strong practical training in circuit analysis, control and embedded systems.",
-    image: "/images/overview/student in lab.webp",
+    image: "/images/courses/elec-cir-st.png",
   },
   {
     icon: Activity,
     title: "Lab-Centered Learning",
     description: "Hands-on exposure through machines, measurements and power labs.",
-    image: "/images/overview/campus overview.webp",
+    image: "/images/courses/elec-lab-st.webp",
   },
   {
     icon: Users,
     title: "Mentored Growth",
     description: "Continuous guidance from faculty for technical and professional development.",
-    image: "/images/overview/student in class.webp",
+    image: "/images/courses/elec-cen-st.webp",
   },
 ];
 
@@ -115,22 +115,22 @@ const programData = {
 
 const highlights = [
   {
-    image: "/images/electrical-program.webp",
+    image: "/images/courses/elec-lab-st.webp",
     title: "Power System Labs",
     description: "Analyze generation, transmission and distribution systems through practical setups.",
   },
   {
-    image: "/images/electrical-diploma.webp",
+    image: "/images/courses/elec-auto-st.webp",
     title: "Automation Studios",
     description: "PLC, control panels and industrial automation workflows for modern plants.",
   },
   {
-    image: "/images/hero-4.webp",
+    image: "/images/courses/elec-cir-st.png",
     title: "Machine Labs",
     description: "Hands-on experience with AC/DC machines, drives and performance testing.",
   },
   {
-    image: "/images/hero-5.webp",
+    image: "/images/courses/elec-ren-st.jpg",
     title: "Renewable Projects",
     description: "Student-led projects in solar integration and energy-efficient solutions.",
   },
@@ -190,7 +190,7 @@ export function ElectricalSection() {
               className="relative aspect-square lg:aspect-video rounded-[2.5rem] overflow-hidden border border-border/50 group"
             >
               <img
-                src="/images/electrical-diploma.webp"
+                src="/images/courses/elect-hero-st.webp"
                 alt="Electrical Engineering"
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent" />
@@ -278,7 +278,7 @@ export function ElectricalSection() {
               className="relative aspect-square rounded-[3rem] overflow-hidden border-8 border-card shadow-2xl"
             >
               <img
-                src="/images/electrical-diploma.webp"
+                src="/images/courses/elec-cen-st.webp"
                 alt="Electrical Projects"
                 className="w-full h-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-linear-to-tr from-primary/20 to-transparent" />

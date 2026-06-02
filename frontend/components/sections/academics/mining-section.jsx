@@ -56,13 +56,13 @@ const aboutHighlights = [
     icon: Compass,
     title: "Field Exposure",
     description: "Industrial visits, site training and real-world experience.",
-    image: "/images/overview/campus view.webp",
+    image: "/images/courses/min-expo-st.webp",
   },
   {
     icon: Users,
     title: "Expert Guidance",
     description: "Learn from experienced faculty and industry professionals.",
-    image: "/images/overview/student in class.webp",
+    image: "/images/courses/min-exp-st.webp",
   },
 ];
 
@@ -115,22 +115,22 @@ const programData = {
 
 const highlights = [
   {
-    image: "/images/mining-program.webp",
+    image: "/images/courses/min-expo-st.webp",
     title: "Underground & Surface Mining",
     description: "Comprehensive understanding of modern mining techniques.",
   },
   {
-    image: "/images/mining-diploma.webp",
+    image: "/images/courses/min-exp-st.webp",
     title: "Surveying & Exploration",
     description: "Advanced tools and methods for accurate surveying and exploration.",
   },
   {
-    image: "/images/hero-3.webp",
+    image: "/images/courses/min-cen-st.webp",
     title: "Mineral Processing",
     description: "Learn extraction, beneficiation and processing of minerals.",
   },
   {
-    image: "/images/hero-4.webp",
+    image: "/images/courses/min-hel-st.webp",
     title: "Safety & Sustainability",
     description: "Focus on mine safety, environmental protection and sustainable practices.",
   },
@@ -192,7 +192,7 @@ export function MiningSection() {
               className="relative aspect-square lg:aspect-video rounded-[2.5rem] overflow-hidden border border-border/50 group shadow-2xl"
             >
               <img 
-                src="/images/hero-3.webp" 
+                src="/images/courses/mining-hero-st.webp" 
                 alt="Mining Engineering" 
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-linear-to-t from-background/60 via-transparent to-transparent" />
@@ -288,7 +288,7 @@ export function MiningSection() {
               className="relative aspect-square rounded-[3rem] overflow-hidden border-8 border-card shadow-2xl"
             >
               <img
-                src="/images/mining-diploma.webp"
+                src="/images/courses/min-cen-st.webp"
                 alt="Mining Operations"
                 className="w-full h-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-transparent" />

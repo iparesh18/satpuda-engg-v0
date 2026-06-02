@@ -244,7 +244,7 @@ export function SportsSection() {
           <div className="grid lg:grid-cols-2">
             <div className="relative h-[400px] lg:h-full overflow-hidden">
               <motion.img 
-                src="/images/overview/sports and activity.webp" 
+                src="/images/overview/sp-cen-st.webp" 
                 alt="Sports Character" 
                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 style={{
