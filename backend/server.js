@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 const adminRouter = require("./routes/admin.js");
 const admissionsRouter = require("./routes/admissions.js");
 const contactsRouter = require("./routes/contacts.js");
+const { verifySmtp } = require("./services/enquiryEmail.service.js");
 
 dotenv.config();
 
@@ -31,6 +32,7 @@ mongoose
     console.log("MongoDB connected");
     app.listen(port, () => {
       console.log(`Server running on http://localhost:${port}`);
+      verifySmtp();
     });
   })
   .catch((error) => {

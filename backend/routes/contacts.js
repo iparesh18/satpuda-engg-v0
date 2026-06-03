@@ -9,21 +9,17 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  try {
-    const { fullName, email, phone, inquiryType, subject, message } = req.body || {};
+  const { fullName, email, phone, inquiryType, subject, message } = req.body || {};
+  console.log(`[contact] Received submission from ${email || "unknown"}`);
 
+  try {
     if (!fullName || !email || !phone || !inquiryType || !message) {
+      console.warn("[contact] Rejected — missing required fields");
       return res.status(400).json({ error: "Missing required fields." });
     }
 
-    const contact = await Contact.create({
-      fullName,
-      email,
-      phone,
-      inquiryType,
-      subject,
-      message
-    });
+    const contact = await Contact.create({ fullName, email, phone, inquiryType, subject, message });
+    console.log(`[contact] Saved to DB — id: ${contact._id}`);
 
     sendEnquiryEmail({
       title: `New Contact Enquiry - ${fullName}`,
@@ -39,7 +35,7 @@ router.post("/", async (req, res) => {
         { label: "Submitted At", value: contact.createdAt }
       ]
     }).catch((error) => {
-      console.error("[mail] Failed to send contact enquiry email:", error);
+      console.error("[mail] Failed to send contact enquiry email:", error.message, { code: error.code });
     });
 
     return res.status(201).json({
@@ -47,6 +43,7 @@ router.post("/", async (req, res) => {
       message: "Thanks for reaching out. We'll get back to you shortly."
     });
   } catch (error) {
+    console.error("[contact] Error:", error.message);
     return res.status(500).json({ error: "Failed to submit contact form." });
   }
 });

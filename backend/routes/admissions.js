@@ -5,22 +5,17 @@ const { sendEnquiryEmail } = require("../services/enquiryEmail.service.js");
 const router = express.Router();
 
 router.post("/", async (req, res) => {
-  try {
-    const { course, branch, fullName, mobile, email, address, message } = req.body || {};
+  const { course, branch, fullName, mobile, email, address, message } = req.body || {};
+  console.log(`[admission] Received submission from ${email || "unknown"}`);
 
+  try {
     if (!course || !fullName || !mobile || !email || !address) {
+      console.warn("[admission] Rejected — missing required fields");
       return res.status(400).json({ error: "Missing required fields." });
     }
 
-    const admission = await Admission.create({
-      course,
-      branch,
-      fullName,
-      mobile,
-      email,
-      address,
-      message
-    });
+    const admission = await Admission.create({ course, branch, fullName, mobile, email, address, message });
+    console.log(`[admission] Saved to DB — id: ${admission._id}`);
 
     sendEnquiryEmail({
       title: `New Admission Enquiry - ${fullName}`,
@@ -37,7 +32,7 @@ router.post("/", async (req, res) => {
         { label: "Submitted At", value: admission.createdAt }
       ]
     }).catch((error) => {
-      console.error("[mail] Failed to send admission enquiry email:", error);
+      console.error("[mail] Failed to send admission enquiry email:", error.message, { code: error.code });
     });
 
     return res.status(201).json({
@@ -45,6 +40,7 @@ router.post("/", async (req, res) => {
       message: "Application submitted successfully."
     });
   } catch (error) {
+    console.error("[admission] Error:", error.message);
     return res.status(500).json({ error: "Failed to submit application." });
   }
 });
