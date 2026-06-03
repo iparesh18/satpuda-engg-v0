@@ -109,9 +109,9 @@ const applicationSteps = [
 export function ScholarshipSection() {
 
   return (
-    <main className="bg-background pb-20">
+    <main className="bg-background pb-6 sm:pb-8 lg:pb-10">
       <motion.section
-        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-32 pb-16 lg:pt-36 lg:pb-24"
+        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-6 sm:pt-8 lg:pt-10 pb-10 sm:pb-20 lg:pb-24"
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -369,7 +369,7 @@ export function ScholarshipSection() {
         </div>
       </motion.section>
       <motion.section
-        className="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8 mb-20"
+        className="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8 lg:mb-10"
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

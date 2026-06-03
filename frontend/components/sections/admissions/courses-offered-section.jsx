@@ -67,10 +67,10 @@ export function CoursesOfferedSection() {
   };
 
   return (
-    <main className="bg-background pb-20 overflow-hidden">
+    <main className="bg-background overflow-hidden">
       {/* Hero Section */}
       <motion.section
-        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-40 pb-16 lg:pt-48 lg:pb-24"
+        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-6 sm:pt-8 lg:pt-10 pb-10 sm:pb-20 lg:pb-24"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -567,7 +567,7 @@ export function CoursesOfferedSection() {
       </section>
 
       {/* Help Section */}
-      <section className="mt-12 mb-20">
+      <section className="mt-12 mb-8 lg:mb-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 items-center gap-8 p-8 rounded-3xl border border-border bg-card/50">
             <div className="flex items-center gap-4">

@@ -76,10 +76,10 @@ function LabVideoPlayer() {
 
 export function ComputerLabSection() {
   return (
-    <main className="bg-background pb-20">
+    <main className="bg-background pb-6 sm:pb-8 lg:pb-10">
       {/* Hero Section */}
       <motion.section
-        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-32 pb-10 lg:pt-28 lg:pb-12"
+        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-6 sm:pt-8 lg:pt-10 pb-10 sm:pb-20 lg:pb-24"
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -408,7 +408,7 @@ export function ComputerLabSection() {
       </section>
 
       {/* Section 3: Lab Gallery Asymmetric Grid */}
-      <section className="relative overflow-hidden py-20 lg:py-24 border-t border-border/40">
+      <section className="relative overflow-hidden pt-20 lg:pt-24 pb-6 sm:pb-8 lg:pb-10 border-t border-border/40">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.03),transparent_40%)]" />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

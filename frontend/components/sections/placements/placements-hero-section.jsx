@@ -13,7 +13,7 @@ export function PlacementsHeroSection() {
   ];
 
   return (
-    <section className="relative min-h-[70vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-background">
+    <section className="relative min-h-[70vh] flex items-center justify-center pt-6 sm:pt-8 lg:pt-10 pb-10 sm:pb-20 lg:pb-24 overflow-hidden bg-background">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 left-1/4 w-[40rem] h-[40rem] bg-primary/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />

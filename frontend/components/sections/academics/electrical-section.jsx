@@ -142,7 +142,7 @@ export function ElectricalSection() {
   return (
     <main className="bg-background overflow-hidden">
       <motion.section
-        className="relative pt-16 pb-20 sm:pt-20 lg:pt-24 lg:pb-32"
+        className="relative pt-6 sm:pt-8 lg:pt-10 pb-10 sm:pb-20 lg:pb-24"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -342,7 +342,7 @@ export function ElectricalSection() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="pt-24 pb-8 lg:pb-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-primary font-semibold tracking-widest uppercase text-sm">Department Highlights</span>
           <h2 className="text-4xl font-bold text-foreground mt-4 mb-16 sm:text-5xl tracking-tight">Design. Control. Empower.</h2>
