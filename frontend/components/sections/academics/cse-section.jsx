@@ -171,7 +171,7 @@ const facultyMembers = [
   {
     name: "Mr.Deepak Kumar Thakur",
     role: "Assistant Professor",
-    subject: "Paython",
+    subject: "Python",
     degree: "MCA",
     image: "/images/deepak_sir.webp",
     badgeTitle: "Python",
