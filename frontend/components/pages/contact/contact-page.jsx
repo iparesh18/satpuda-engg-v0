@@ -79,7 +79,7 @@ export default function ContactPage() {
     <div>
       <Header />
 
-      <main className="bg-background pt-0 pb-20 sm:pt-20 lg:pt-0">
+      <main className="bg-background pt-0 sm:pt-20 lg:pt-0">
         {/* Hero */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-background to-accent/10" />
@@ -149,7 +149,7 @@ export default function ContactPage() {
         </section>
 
         {/* Contact Section */}
-        <section className="py-12">
+        <section className="pt-12 pb-8 lg:pb-10">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8">
               {/* Contact Form */}

@@ -107,7 +107,7 @@ function JourneyNavbar() {
 
 function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-white pt-24 pb-32 lg:pb-0 overflow-hidden flex flex-col lg:block">
+    <section className="relative min-h-screen bg-white pt-6 sm:pt-8 lg:pt-10 pb-10 sm:pb-20 lg:pb-24 overflow-hidden flex flex-col lg:block">
       {/* Right Background Image */}
       <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[55%] z-0">
         <img

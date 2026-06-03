@@ -339,7 +339,7 @@ export function CivilSection() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="pt-24 pb-8 lg:pb-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-primary font-semibold tracking-widest uppercase text-sm">Department Highlights</span>
           <h2 className="text-4xl font-bold text-foreground mt-4 mb-16 sm:text-5xl tracking-tight">Design. Build. Transform.</h2>

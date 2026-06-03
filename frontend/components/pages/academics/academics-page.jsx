@@ -132,7 +132,7 @@ export default function AcademicsPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-primary/5">
+        <section className="pt-20 pb-8 lg:pb-10 bg-primary/5">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-4xl font-semibold tracking-[-0.04em] text-foreground mb-4">
               Ready to Pursue Your <span className="text-primary">Engineering Dream</span>?

@@ -101,7 +101,7 @@ export function CollegeOverviewSection() {
   ];
 
   return (
-    <main className="bg-background min-h-screen">
+    <main className="bg-background min-h-screen pb-6 sm:pb-8 lg:pb-10">
       {/* Premium Hero Section */}
       <motion.section
         className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-6 sm:pt-8 lg:pt-10 pb-10 sm:pb-20 lg:pb-24"
@@ -197,7 +197,7 @@ export function CollegeOverviewSection() {
         </div>
       </motion.section>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-background pb-6 sm:pb-8 lg:pb-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-background">
 
 
         {/* Who We Are */}

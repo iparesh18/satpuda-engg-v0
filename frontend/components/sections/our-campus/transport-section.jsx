@@ -71,7 +71,7 @@ export function TransportSection() {
     <main className="bg-background pb-6 sm:pb-8 lg:pb-10">
       <style>{``}</style>
       <motion.section
-        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-6 sm:pt-8 lg:pt-10 pb-16 lg:pb-24"
+        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-6 sm:pt-8 lg:pt-10 pb-10 sm:pb-20 lg:pb-24"
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

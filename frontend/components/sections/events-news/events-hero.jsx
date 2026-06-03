@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export function EventsHero() {
   return (
-    <section className="pt-32 pb-16 relative overflow-hidden bg-background">
+    <section className="pt-6 sm:pt-8 lg:pt-10 pb-10 sm:pb-20 lg:pb-24 relative overflow-hidden bg-background">
       {/* Background patterns */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
         <div className="absolute top-10 left-10 w-64 h-64 bg-primary rounded-full blur-[100px]" />
