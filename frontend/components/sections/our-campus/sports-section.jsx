@@ -50,7 +50,7 @@ const sportsOffered = [
   { title: "Badminton", image: "/images/overview/campus view.webp", icon: Zap },
   { title: "Basketball", image: "/images/overview/student in lab.webp", icon: Dribbble },
   { title: "Table Tennis", image: "/images/overview/smart library.webp", icon: Timer },
-  { title: "Chess", image: "/images/overview/smart library.webp", icon: Sparkles },
+  { title: "Chess", image: "/images/overview/chess-st.webp", icon: Sparkles },
   { title: "Athletics", image: "/images/overview/campus view.webp", icon: Activity },
   { title: "Kabaddi", image: "/images/overview/campus overview.webp", icon: Users },
   { title: "Yoga & Fitness", image: "/images/overview/student in class.webp", icon: Heart },
@@ -138,7 +138,7 @@ export function SportsSection() {
             >
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-card group">
                 <motion.img
-                  src="/images/overview/campus view.webp"
+                  src="/images/overview/sport-tenis-st.webp"
                   alt="Sports Excellence"
                   className="w-full h-[500px] object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
@@ -244,7 +244,7 @@ export function SportsSection() {
           <div className="grid lg:grid-cols-2">
             <div className="relative h-[400px] lg:h-full overflow-hidden">
               <motion.img 
-                src="/images/overview/sports and activity.webp" 
+                src="/images/overview/sp-cen-st.webp" 
                 alt="Sports Character" 
                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 style={{
@@ -491,16 +491,17 @@ export function SportsSection() {
 
         <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {[
-            { title: "Cricket", img: "/images/overview/sports and activity.webp" },
-            { title: "Football", img: "/images/overview/campus view.webp" },
+            { title: "Kabaddi", img: "/images/overview/cricket-st.webp" },
+          { title: "Cricket", img: "/images/overview/kabadi-st.jpg" },
             { title: "Volleyball", img: "/images/overview/event and culture.webp" },
-            { title: "Badminton", img: "/images/overview/student in class.webp" },
-            { title: "Basketball", img: "/images/overview/campus overview.webp" },
-            { title: "Table Tennis", img: "/images/overview/smart library.webp" },
-            { title: "Chess", img: "/images/overview/student in lab.webp" },
-            { title: "Athletics", img: "/images/overview/campus building.webp" },
-            { title: "Kabaddi", img: "/images/overview/event and culture.webp" },
-            { title: "Yoga & Fitness", img: "/images/overview/sports and activity.webp" },
+            { title: "Table tennis", img: "/images/overview/sport-tenis-st.webp" },
+               { title: "Chess", img: "/images/overview/chess-st.webp" },
+                { title: "Kabaddi", img: "/images/overview/cricket-st.webp" },
+            { title: "Cricket", img: "/images/overview/kabadi-st.jpg" },
+            { title: "Volleyball", img: "/images/overview/event and culture.webp" },
+            { title: "Table tennis", img: "/images/overview/sport-tenis-st.webp" },
+               { title: "Chess", img: "/images/overview/chess-st.webp" },
+         
           ].map((sport, i) => (
             <Magnetic key={sport.title} intensity={window.innerWidth > 1024 ? 0.2 : 0}>
               <motion.div 

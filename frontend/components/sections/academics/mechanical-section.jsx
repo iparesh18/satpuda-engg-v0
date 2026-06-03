@@ -56,13 +56,13 @@ const aboutHighlights = [
     icon: Activity,
     title: "Workshop Immersion",
     description: "Extensive workshop and lab sessions for real engineering problem-solving.",
-    image: "/images/overview/campus view.webp",
+    image: "/images/courses/mech-shp-st.webp",
   },
   {
     icon: Users,
     title: "Mentored Development",
     description: "Guidance from experienced faculty for technical and career growth.",
-    image: "/images/overview/student in class.webp",
+    image: "/images/courses/mech-cad-st.jpg",
   },
 ];
 
@@ -115,22 +115,22 @@ const programData = {
 
 const highlights = [
   {
-    image: "/images/mechanical-program.webp",
+    image: "/images/courses/mech-shp-st.webp",
     title: "Advanced Workshops",
     description: "Precision machining, fitting and fabrication with modern equipment.",
   },
   {
-    image: "/images/mechanical-diploma.webp",
+    image: "/images/courses/mech-cad-st.jpg",
     title: "CAD/CAM Studios",
     description: "Digital design, modeling and manufacturing workflows for real-world applications.",
   },
   {
-    image: "/images/hero-4.webp",
+    image: "/images/courses/mech-therm-st.jpg",
     title: "Thermal Engineering Labs",
     description: "Practical understanding of engines, heat transfer and fluid systems.",
   },
   {
-    image: "/images/hero-5.webp",
+    image: "/images/overview/car-st.webp",
     title: "Innovation Projects",
     description: "Student-led mechanical builds focused on efficiency and performance.",
   },
@@ -190,7 +190,7 @@ export function MechanicalSection() {
               className="relative aspect-square lg:aspect-video rounded-[2.5rem] overflow-hidden border border-border/50 group"
             >
               <img
-                src="/images/hero-3.webp"
+                src="/images/overview/car-st.webp"
                 alt="Mechanical Engineering"
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent" />
@@ -278,7 +278,7 @@ export function MechanicalSection() {
               className="relative aspect-square rounded-[3rem] overflow-hidden border-8 border-card shadow-2xl"
             >
               <img
-                src="/images/mechanical-program.webp"
+                src="/images/courses/mech-cen-st.jpg"
                 alt="Mechanical Projects"
                 className="w-full h-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />

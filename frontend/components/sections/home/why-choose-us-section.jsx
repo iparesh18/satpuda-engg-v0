@@ -17,23 +17,23 @@ const slides = [
   },
   {
     title: "Hands-On Lab Culture",
-    image: "/images/overview/student in lab.webp",
+    image: "/images/overview/lab-st.webp",
   },
   {
     title: "Campus Built for Growth",
-    image: "/images/overview/campus view.webp",
+    image: "/images/overview/cmapus-st.jpeg",
   },
   {
-    title: "Modern Campus Infrastructure",
-    image: "/images/overview/campus building.webp",
+    title: "Campus Experiences",
+    image: "/images/overview/cps-st.png",
   },
   {
     title: "Smart Library & Study Zones",
-    image: "/images/overview/smart library.webp",
+    image: "/images/overview/e-library-st.jpeg",
   },
   {
     title: "Events, Sports & College Life",
-    image: "/images/overview/sports and activity.webp",
+    image: "/images/overview/sport-tenis-st.webp",
   },
 ];
 
