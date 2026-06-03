@@ -142,7 +142,7 @@ export function MechanicalSection() {
   return (
     <main className="bg-background overflow-hidden">
       <motion.section
-        className="relative pt-16 pb-20 sm:pt-20 lg:pt-24 lg:pb-32"
+        className="relative pt-6 sm:pt-8 lg:pt-10 pb-10 sm:pb-20 lg:pb-24"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}

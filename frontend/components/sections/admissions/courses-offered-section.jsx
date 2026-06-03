@@ -67,7 +67,7 @@ export function CoursesOfferedSection() {
   };
 
   return (
-    <main className="bg-background pb-20 overflow-hidden">
+    <main className="bg-background pb-6 sm:pb-8 lg:pb-10 overflow-hidden">
       {/* Hero Section */}
       <motion.section
         className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-40 pb-16 lg:pt-48 lg:pb-24"

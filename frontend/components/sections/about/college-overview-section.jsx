@@ -104,7 +104,7 @@ export function CollegeOverviewSection() {
     <main className="bg-background min-h-screen">
       {/* Premium Hero Section */}
       <motion.section
-        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-16 pb-16 sm:pt-20 lg:pt-24 lg:pb-24"
+        className="relative overflow-hidden border-b border-border/70 bg-card/40 pt-6 sm:pt-8 lg:pt-10 pb-10 sm:pb-20 lg:pb-24"
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -197,7 +197,7 @@ export function CollegeOverviewSection() {
         </div>
       </motion.section>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-background pb-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-background pb-6 sm:pb-8 lg:pb-10">
 
 
         {/* Who We Are */}
