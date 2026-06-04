@@ -21,7 +21,7 @@ const SUCCESS_ITEMS = [
     image: '/images/placement/company-03.webp',
     link: '#',
     title: 'PREKSHA DWIVEDI',
-    description: 'FIRST STEP INNOVATION'
+    description: 'ZENUS GROUP'
   },
   {
     image: '/images/placement/company-04.webp',
@@ -124,6 +124,54 @@ const SUCCESS_ITEMS = [
     link: '#',
     title: 'ASHISH KOLTE',
     description: 'WMW SRL BACAU (EUROPE)'
+  },
+  {
+    image: '/images/placement/abhay rahangdale.webp',
+    link: '#',
+    title: 'ABHAY RAHANGDALE',
+    description: 'ZENUS GROUP'
+  },
+  {
+    image: '/images/placement/gagan patle.webp',
+    link: '#',
+    title: 'GAGAN PATLE',
+    description: 'ZENUS GROUP'
+  },
+  {
+    image: '/images/placement/himanshu patle.webp',
+    link: '#',
+    title: 'HIMANSHU PATLE',
+    description: 'ZENUS GROUP'
+  },
+  {
+    image: '/images/placement/praful bithle.webp',
+    link: '#',
+    title: 'PRAFUL BITHLE',
+    description: 'ZENUS GROUP'
+  },
+  {
+    image: '/images/placement/tarun bisen.webp',
+    link: '#',
+    title: 'TARUN BISEN',
+    description: 'ZENUS GROUP'
+  },
+  {
+    image: '/images/placement/vinendra pagarwar.webp',
+    link: '#',
+    title: 'VINENDRA PAGARWAR',
+    description: 'ZENUS GROUP'
+  },
+  {
+    image: '/images/placement/yash Shrivastava.webp',
+    link: '#',
+    title: 'YASH SHRIVASTAVA',
+    description: 'ZENUS GROUP'
+  },
+  {
+    image: '/images/placement/yojna pardhi.webp',
+    link: '#',
+    title: 'YOJNA PARDHI',
+    description: 'ZENUS GROUP'
   }
 ];
 

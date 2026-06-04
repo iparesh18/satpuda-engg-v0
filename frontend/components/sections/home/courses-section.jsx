@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Monitor, Mountain, Building2, Cog, Zap, ArrowRight, Clock, Users, Sparkles } from "lucide-react";
 import Magnetic from "../../bits/magnetic.jsx";
+import GlareHover from "../../bits/GlareHover.jsx";
 import { SectionHeading } from "./section-heading.jsx";
 import { Link } from "react-router-dom";
 const programs = [
@@ -134,6 +135,17 @@ export function CoursesSection() {
 
   const getProgramSeats = (program) => {
     return activeDegree === "diploma" ? program.diplomaSeats : program.seats;
+  };
+
+  const getProgramRoute = (program) => {
+    switch (program.id) {
+      case 'cse': return '/academics/computer-science-engineering';
+      case 'mining': return '/academics/mining-engineering';
+      case 'civil': return '/academics/civil-engineering';
+      case 'mechanical': return '/academics/mechanical-engineering';
+      case 'electrical': return '/academics/electrical-engineering';
+      default: return '/academics';
+    }
   };
 
   return (<section className="bg-background py-16 sm:py-18 lg:py-20">
@@ -284,14 +296,41 @@ export function CoursesSection() {
               </div>
 
               {/* CTA */}
-              <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                <Link to="/admissions/admission-form" className="flex-1 py-3 px-6 rounded-xl bg-linear-to-r ${currentProgram.color} text-white bg-accent font-semibold hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 text-center text-[20px]">
-                  Apply Now
+              <div className="mt-6 flex flex-col lg:flex-row gap-3">
+                
+                <Link to="/admissions/admission-form" className="flex-1 relative z-10 block group">
+                  <GlareHover
+                    width="100%"
+                    height="100%"
+                    background="linear-gradient(to right, #e60000, #ff3333)"
+                    borderRadius="0.75rem"
+                    borderColor="transparent"
+                    glareOpacity={0.4}
+                    transitionDuration={600}
+                    className="hover:shadow-xl hover:shadow-red-500/30 transition-all duration-300 group-hover:scale-[1.02] group-active:scale-[0.98]"
+                  >
+                    <div className="w-full h-full py-3 px-2 text-white font-bold text-center text-[15px] sm:text-[18px] flex items-center justify-center">
+                      Apply Now
+                    </div>
+                  </GlareHover>
                 </Link>
-                <Link/>
-                <a href="/SCEP-BROCHURE.pdf" download="SCEP-BROCHURE.pdf" className={`flex-1 text-center py-3 px-6 rounded-xl border-2 cursor-pointer text-[20px] ${currentProgram.borderColor} ${currentProgram.textColor} font-semibold hover:${currentProgram.bgColor} transition-all duration-300`} >
-                  Download Brochure
-                </a>
+
+                <div className="flex-1 relative z-10">
+                  <Magnetic intensity={0.15}>
+                    <Link to={getProgramRoute(currentProgram)} className={`w-full block relative overflow-hidden group text-center py-3 px-2 rounded-xl border-2 cursor-pointer text-[15px] sm:text-[18px] ${currentProgram.borderColor} ${currentProgram.textColor} font-semibold transition-all duration-300 flex items-center justify-center bg-white/50 backdrop-blur-sm shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-95`}>
+                      <span className={`absolute inset-0 w-full h-full ${currentProgram.bgColor} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></span>
+                      <span className="relative z-10">View Course</span>
+                    </Link>
+                  </Magnetic>
+                </div>
+                <div className="flex-1 relative z-10">
+                  <Magnetic intensity={0.15}>
+                    <a href="/SCEP-BROCHURE.pdf" download="SCEP-BROCHURE.pdf" className={`w-full block relative overflow-hidden group text-center py-3 px-2 rounded-xl border-2 cursor-pointer text-[15px] sm:text-[18px] ${currentProgram.borderColor} ${currentProgram.textColor} font-semibold transition-all duration-300 flex items-center justify-center bg-white/50 backdrop-blur-sm shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-95`} >
+                      <span className={`absolute inset-0 w-full h-full ${currentProgram.bgColor} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></span>
+                      <span className="relative z-10">Download Brochure</span>
+                    </a>
+                  </Magnetic>
+                </div>
               </div>
             </div>
           </motion.div>

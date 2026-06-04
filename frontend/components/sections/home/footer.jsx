@@ -59,8 +59,6 @@ export function Footer() {
     ],
     admissions: [
       "Privacy Policy",
-      "Anti-Ragging Affidavit",
-      "Mandatory Disclosure",
       "Fee Structure",
     ],
     institutions: [
@@ -85,7 +83,7 @@ export function Footer() {
             <img
               src="/images/logo.webp"
               alt="Satpuda College of Engineering & Polytechnic"
-              className="w-48 sm:w-52 h-auto object-contain"
+              className="mr-10 w-60 sm:w-72 h-auto object-contain"
               loading="lazy"
             />
             
