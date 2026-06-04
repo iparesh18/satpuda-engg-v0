@@ -16,7 +16,7 @@ import {
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../ui/card.jsx";
 import { formatAdminDate } from "../utils/format.js";
 
-const CHART_COLORS = ["#22d3ee", "#34d399", "#f59e0b", "#a78bfa"];
+const CHART_COLORS = ["#021545", "#d60b0b", "#2563eb", "#f59e0b"];
 
 export function AdminCharts({ charts, collections }) {
   const overviewRows = collections.map((collection) => ({
@@ -34,32 +34,33 @@ export function AdminCharts({ charts, collections }) {
 
   return (
     <div className="grid gap-4 2xl:grid-cols-[1.5fr_0.95fr] xl:grid-cols-[1.6fr_1fr]">
-      <Card className="border-white/10 bg-white/5 text-white shadow-2xl shadow-slate-950/30 backdrop-blur-xl">
+      <Card className="border-slate-200 bg-white text-slate-900 shadow-xl shadow-slate-900/5">
         <CardHeader>
-          <CardTitle className="text-white">Submission trend</CardTitle>
-          <CardDescription className="text-slate-300">Rolling activity across the last 7 days.</CardDescription>
+          <CardTitle className="text-[#021545]">Submission trend</CardTitle>
+          <CardDescription className="text-slate-500">Rolling activity across the last 7 days.</CardDescription>
         </CardHeader>
         <CardContent className="h-80">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={lineSeries}>
               <defs>
                 <linearGradient id="adminTotalGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#22d3ee" stopOpacity={0.5} />
-                  <stop offset="95%" stopColor="#22d3ee" stopOpacity={0.05} />
+                  <stop offset="5%" stopColor="#021545" stopOpacity={0.35} />
+                  <stop offset="95%" stopColor="#021545" stopOpacity={0.03} />
                 </linearGradient>
               </defs>
-              <CartesianGrid stroke="rgba(255,255,255,0.08)" vertical={false} />
-              <XAxis dataKey="label" stroke="#94a3b8" tickLine={false} axisLine={false} />
-              <YAxis stroke="#94a3b8" tickLine={false} axisLine={false} />
+              <CartesianGrid stroke="rgba(2,21,69,0.08)" vertical={false} />
+              <XAxis dataKey="label" stroke="#64748b" tickLine={false} axisLine={false} />
+              <YAxis stroke="#64748b" tickLine={false} axisLine={false} />
               <Tooltip
                 contentStyle={{
-                  background: "rgba(15, 23, 42, 0.95)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  background: "#ffffff",
+                  border: "1px solid #e2e8f0",
                   borderRadius: 16,
-                  color: "#fff"
+                  color: "#021545",
+                  boxShadow: "0 10px 30px rgba(2,21,69,0.08)"
                 }}
               />
-              <Area type="monotone" dataKey="total" stroke="#22d3ee" fill="url(#adminTotalGradient)" strokeWidth={3} />
+              <Area type="monotone" dataKey="total" stroke="#021545" fill="url(#adminTotalGradient)" strokeWidth={3} />
               {(charts?.trendSeries || []).map((series, index) => (
                 <Line
                   key={series.key}
@@ -76,23 +77,24 @@ export function AdminCharts({ charts, collections }) {
         </CardContent>
       </Card>
 
-      <Card className="border-white/10 bg-white/5 text-white shadow-2xl shadow-slate-950/30 backdrop-blur-xl">
+      <Card className="border-slate-200 bg-white text-slate-900 shadow-xl shadow-slate-900/5">
         <CardHeader>
-          <CardTitle className="text-white">Collection distribution</CardTitle>
-          <CardDescription className="text-slate-300">Total entries per MongoDB collection.</CardDescription>
+          <CardTitle className="text-[#021545]">Collection distribution</CardTitle>
+          <CardDescription className="text-slate-500">Total entries per MongoDB collection.</CardDescription>
         </CardHeader>
         <CardContent className="h-80">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={overviewRows} layout="vertical">
-              <CartesianGrid stroke="rgba(255,255,255,0.08)" horizontal={false} />
-              <XAxis type="number" stroke="#94a3b8" tickLine={false} axisLine={false} />
-              <YAxis type="category" dataKey="name" stroke="#94a3b8" tickLine={false} axisLine={false} width={90} />
+              <CartesianGrid stroke="rgba(2,21,69,0.08)" horizontal={false} />
+              <XAxis type="number" stroke="#64748b" tickLine={false} axisLine={false} />
+              <YAxis type="category" dataKey="name" stroke="#64748b" tickLine={false} axisLine={false} width={90} />
               <Tooltip
                 contentStyle={{
-                  background: "rgba(15, 23, 42, 0.95)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  background: "#ffffff",
+                  border: "1px solid #e2e8f0",
                   borderRadius: 16,
-                  color: "#fff"
+                  color: "#021545",
+                  boxShadow: "0 10px 30px rgba(2,21,69,0.08)"
                 }}
               />
               <Bar dataKey="total" radius={[0, 12, 12, 0]}>

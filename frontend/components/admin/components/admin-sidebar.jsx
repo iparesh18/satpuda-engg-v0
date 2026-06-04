@@ -13,17 +13,17 @@ export function AdminSidebar({
   onToggleCollapse
 }) {
   return (
-    <aside className={`flex h-full flex-col border-r border-white/10 bg-slate-950/80 backdrop-blur-xl transition-[width] duration-300 ${collapsed ? "w-22" : "w-80"}`}>
-      <div className="border-b border-white/10 p-4">
+    <aside className={`flex h-full flex-col border-r border-slate-200 bg-white backdrop-blur-xl transition-[width] duration-300 ${collapsed ? "w-22" : "w-80"}`}>
+      <div className="border-b border-slate-200 p-4">
         <div className={`mb-4 flex ${collapsed ? "flex-col items-center gap-3" : "items-start gap-3"}`}>
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-linear-to-br from-cyan-400/20 to-emerald-400/20 text-cyan-200 shadow-lg shadow-cyan-500/10">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#021545] text-white shadow-lg shadow-[#021545]/20">
             <Database className="h-5 w-5" />
           </div>
           {!collapsed ? (
             <div>
-              <p className="text-xs uppercase tracking-[0.32em] text-cyan-200/70">Satpuda Admin</p>
-              <h1 className="mt-1 text-lg font-semibold text-white">Database Control</h1>
-              <p className="text-sm text-slate-400">Public admin dashboard</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#d60b0b]">Satpuda Admin</p>
+              <h1 className="mt-1 text-lg font-semibold text-[#021545]">Database Control</h1>
+              <p className="text-sm text-slate-500">Public admin dashboard</p>
             </div>
           ) : null}
         </div>
@@ -32,7 +32,7 @@ export function AdminSidebar({
           <Button
             type="button"
             variant="outline"
-            className={`border-white/10 bg-white/5 text-slate-100 hover:bg-white/10 ${collapsed ? "w-full justify-center px-0" : "flex-1 justify-start"}`}
+            className={`border-slate-200 bg-white text-[#021545] hover:bg-slate-100 ${collapsed ? "w-full justify-center px-0" : "flex-1 justify-start"}`}
             onClick={onRefresh}
             title="Refresh dashboard"
           >
@@ -44,7 +44,7 @@ export function AdminSidebar({
             <Button
               type="button"
               variant="outline"
-              className={`border-white/10 bg-white/5 text-slate-100 hover:bg-white/10 ${collapsed ? "w-full justify-center px-0" : "shrink-0"}`}
+              className={`border-slate-200 bg-white text-[#021545] hover:bg-slate-100 ${collapsed ? "w-full justify-center px-0" : "shrink-0"}`}
               onClick={onToggleCollapse}
               title={collapsed ? "Open sidebar" : "Close sidebar"}
             >
@@ -59,8 +59,8 @@ export function AdminSidebar({
         <div className={`space-y-2 p-4 ${collapsed ? "px-3" : ""}`}>
           {loading ? (
             <div className="space-y-3">
-              <Skeleton className="h-10 w-full rounded-xl bg-white/5" />
-              <Skeleton className="h-10 w-full rounded-xl bg-white/5" />
+              <Skeleton className="h-10 w-full rounded-xl bg-slate-100" />
+              <Skeleton className="h-10 w-full rounded-xl bg-slate-100" />
             </div>
           ) : (
             collections.map((collection) => {
@@ -73,8 +73,8 @@ export function AdminSidebar({
                   onClick={() => onSelectCollection(collection.key)}
                   className={`w-full rounded-xl border px-3 py-2 text-left text-sm transition-all duration-200 ${
                     isActive
-                      ? "border-cyan-400/40 bg-white/10 text-white"
-                      : "border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10"
+                      ? "border-[#021545] bg-[#021545] font-medium text-white shadow-sm shadow-[#021545]/20"
+                      : "border-slate-200 bg-white text-slate-700 hover:border-[#021545]/30 hover:bg-slate-50"
                   }`}
                 >
                   <span className="block truncate font-medium">{collection.label}</span>

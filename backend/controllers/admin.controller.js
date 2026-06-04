@@ -16,6 +16,31 @@ async function getAdminCollection(req, res) {
   }
 }
 
+async function deleteAdminRecord(req, res) {
+  try {
+    const config = getAdminCollectionConfig(req.params.collectionName);
+
+    if (!config) {
+      return res.status(404).json({ error: "Collection not found." });
+    }
+
+    const { id } = req.params;
+    if (!id || !id.match(/^[0-9a-fA-F]{24}$/)) {
+      return res.status(400).json({ error: "Invalid record id." });
+    }
+
+    const deleted = await config.model.findByIdAndDelete(id).lean();
+
+    if (!deleted) {
+      return res.status(404).json({ error: "Record not found." });
+    }
+
+    return res.json({ success: true, id });
+  } catch (error) {
+    return res.status(500).json({ error: "Failed to delete record." });
+  }
+}
+
 async function getAdminOverview(req, res) {
   try {
     const payload = await buildOverview();
@@ -38,5 +63,6 @@ async function getAdminOverview(req, res) {
 
 module.exports = {
   getAdminCollection,
-  getAdminOverview
+  getAdminOverview,
+  deleteAdminRecord
 };

@@ -20,7 +20,7 @@ export function AdminToolbar({
   const columns = collection?.columns || [];
 
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/5 p-4 shadow-2xl shadow-slate-950/30 backdrop-blur-xl">
+    <div className="rounded-3xl border border-slate-200 bg-white p-4 shadow-xl shadow-slate-900/5">
       <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
         <div className="grid flex-1 gap-3 md:grid-cols-[1.5fr_1fr_1fr_auto]">
           <label className="relative block">
@@ -30,12 +30,12 @@ export function AdminToolbar({
               value={query.search}
               onChange={(event) => onQueryChange("search", event.target.value)}
               placeholder="Global search in visible collection..."
-              className="h-11 border-white/10 bg-slate-950/50 pl-9 text-white placeholder:text-slate-400"
+              className="h-11 border-slate-200 bg-slate-50 pl-9 text-slate-900 placeholder:text-slate-400"
             />
           </label>
 
           <Select value={query.sortBy} onValueChange={(value) => onQueryChange("sortBy", value)}>
-            <SelectTrigger className="h-11 w-full border-white/10 bg-slate-950/50 text-white">
+            <SelectTrigger className="h-11 w-full border-slate-200 bg-slate-50 text-slate-900">
               <SelectValue placeholder="Sort by" />
             </SelectTrigger>
             <SelectContent>
@@ -51,7 +51,7 @@ export function AdminToolbar({
           </Select>
 
           <Select value={query.sortOrder} onValueChange={(value) => onQueryChange("sortOrder", value)}>
-            <SelectTrigger className="h-11 w-full border-white/10 bg-slate-950/50 text-white">
+            <SelectTrigger className="h-11 w-full border-slate-200 bg-slate-50 text-slate-900">
               <SelectValue placeholder="Order" />
             </SelectTrigger>
             <SelectContent>
@@ -62,8 +62,7 @@ export function AdminToolbar({
 
           <Button
             type="button"
-            variant="outline"
-            className="h-11 border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+            className="h-11 bg-[#021545] text-white hover:bg-[#021545]/90"
             onClick={onRefresh}
             disabled={loading}
           >
@@ -76,7 +75,7 @@ export function AdminToolbar({
           <Button
             type="button"
             variant="outline"
-            className="border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+            className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100"
             onClick={onResetFilters}
           >
             <Filter className="h-4 w-4" />
@@ -85,7 +84,7 @@ export function AdminToolbar({
           <Button
             type="button"
             variant="outline"
-            className="border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+            className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100"
             onClick={onExportCsv}
             disabled={loading}
           >
@@ -95,7 +94,7 @@ export function AdminToolbar({
           <Button
             type="button"
             variant="outline"
-            className="border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+            className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100"
             onClick={onExportXlsx}
             disabled={loading}
           >
@@ -105,19 +104,19 @@ export function AdminToolbar({
         </div>
       </div>
 
-      <Separator className="my-4 bg-white/10" />
+      <Separator className="my-4 bg-slate-200" />
 
       <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
         {filterDefinitions.map((definition) => {
           if (definition.type === "date") {
             return (
               <label key={definition.key} className="space-y-2">
-                <span className="text-xs uppercase tracking-[0.24em] text-slate-400">{definition.label}</span>
+                <span className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">{definition.label}</span>
                 <Input
                   type="date"
                   value={query[definition.key]}
                   onChange={(event) => onQueryChange(definition.key, event.target.value)}
-                  className="h-10 border-white/10 bg-slate-950/50 text-white"
+                  className="h-10 border-slate-200 bg-slate-50 text-slate-900"
                 />
               </label>
             );
@@ -127,9 +126,9 @@ export function AdminToolbar({
             const options = filterOptions[definition.key] || [];
             return (
               <label key={definition.key} className="space-y-2">
-                <span className="text-xs uppercase tracking-[0.24em] text-slate-400">{definition.label}</span>
+                <span className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">{definition.label}</span>
                 <Select value={query[definition.key] || "all"} onValueChange={(value) => onQueryChange(definition.key, value === "all" ? "" : value)}>
-                  <SelectTrigger className="h-10 w-full border-white/10 bg-slate-950/50 text-white">
+                  <SelectTrigger className="h-10 w-full border-slate-200 bg-slate-50 text-slate-900">
                     <SelectValue placeholder={`All ${definition.label.toLowerCase()}`} />
                   </SelectTrigger>
                   <SelectContent>
@@ -147,12 +146,12 @@ export function AdminToolbar({
 
           return (
             <label key={definition.key} className="space-y-2">
-              <span className="text-xs uppercase tracking-[0.24em] text-slate-400">{definition.label}</span>
+              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">{definition.label}</span>
               <Input
                 value={query[definition.key]}
                 onChange={(event) => onQueryChange(definition.key, event.target.value)}
                 placeholder={`Filter by ${definition.label.toLowerCase()}`}
-                className="h-10 border-white/10 bg-slate-950/50 text-white placeholder:text-slate-400"
+                className="h-10 border-slate-200 bg-slate-50 text-slate-900 placeholder:text-slate-400"
               />
             </label>
           );
@@ -160,8 +159,8 @@ export function AdminToolbar({
       </div>
 
       <div className="mt-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <div className="flex items-center gap-2 text-sm text-slate-300">
-          <SlidersHorizontal className="h-4 w-4 text-cyan-300" />
+        <div className="flex items-center gap-2 text-sm text-slate-500">
+          <SlidersHorizontal className="h-4 w-4 text-[#d60b0b]" />
           <span>Dynamic filters, sorting, pagination, and export controls stay in sync with the active collection.</span>
         </div>
         <div className="text-sm text-slate-400">

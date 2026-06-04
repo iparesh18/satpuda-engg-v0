@@ -41,3 +41,10 @@ export function fetchAdminOverview(apiBaseUrl, options = {}) {
 export function fetchAdminCollection(apiBaseUrl, collectionKey, params = {}, options = {}) {
   return requestJson(buildAdminApiUrl(apiBaseUrl, `/api/admin/${collectionKey}`, params), options);
 }
+
+export function deleteAdminRecord(apiBaseUrl, collectionKey, recordId, options = {}) {
+  return requestJson(buildAdminApiUrl(apiBaseUrl, `/api/admin/${collectionKey}/${recordId}`), {
+    method: "DELETE",
+    ...options
+  });
+}
