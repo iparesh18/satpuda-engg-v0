@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -18,7 +18,9 @@ import {
   Star,
   Zap,
   Coffee,
-  Globe
+  Globe,
+  X,
+  Phone
 } from "lucide-react";
 import BlurText from "../../bits/blur-text.jsx";
 import Magnetic from "../../bits/magnetic.jsx";
@@ -94,6 +96,7 @@ const spaces = [
 ];
 
 export function LibrarySection() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   return (
     <main className="bg-background pb-6 sm:pb-8 lg:pb-10">
@@ -361,28 +364,27 @@ export function LibrarySection() {
       >
         <div className="rounded-[40px] border border-border/40 bg-card/40 backdrop-blur-md p-8 sm:p-12 relative overflow-hidden shadow-2xl">
           <div className="grid gap-12 lg:grid-cols-[0.8fr,1.2fr] lg:items-center">
-            <div>
+            <div className="text-center lg:text-left">
               <p className="text-xs font-semibold uppercase tracking-[0.4em] text-primary">Library at a Glance</p>
               <h3 className="mt-4 text-4xl font-bold text-foreground tracking-tight leading-tight">Resources that Inspire Success</h3>
-              <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+              <p className="mt-6 text-lg text-muted-foreground leading-relaxed mx-auto lg:mx-0 max-w-xl">
                 Our library continuously grows to meet the academic needs of students, faculty, and researchers.
               </p>
-            
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {glanceStats.map(({ icon: Icon, value, label }) => (
                 <SpotlightCard
                   key={label}
-                  className="group flex flex-col items-center justify-center rounded-[2.5rem] border-none bg-background/40 p-8 text-center transition-all duration-500 hover:-translate-y-2"
+                  className="group flex flex-col items-center justify-center rounded-[2.5rem] border-none bg-background/40 p-8 text-center transition-all duration-500 hover:-translate-y-2 w-full"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-white">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-white mx-auto">
                     <Icon className="h-7 w-7" />
                   </div>
-                  <div className="mt-6">
-                    <p className="text-3xl font-black text-foreground tracking-tighter">
-                      <ShinyText text={value} speed={3} color="#d60b0b" />
+                  <div className="mt-6 flex flex-col items-center justify-center w-full text-center">
+                    <p className="text-3xl font-black text-foreground tracking-tighter text-center">
+                      <ShinyText text={value} speed={3} color="#d60b0b" className="text-center block mx-auto" />
                     </p>
-                    <p className="mt-2 text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em]">{label}</p>
+                    <p className="mt-2 text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] text-center w-full">{label}</p>
                   </div>
                 </SpotlightCard>
               ))}
@@ -439,13 +441,80 @@ export function LibrarySection() {
             </p>
           </div>
           <Magnetic intensity={0.3}>
-            <Link to="/contact" className="group relative inline-flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-lg font-bold text-primary-foreground transition-all hover:pr-12 shadow-xl shadow-primary/20">
+            <button onClick={() => setIsPopupOpen(true)} className="group relative inline-flex w-full sm:w-auto items-center justify-center text-center gap-3 rounded-full bg-primary px-10 py-5 text-lg font-bold text-primary-foreground transition-all hover:pr-12 shadow-xl shadow-primary/20">
               Ask a Librarian
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Link>
+            </button>
           </Magnetic>
         </div>
       </motion.section>
+
+      <AnimatePresence>
+        {isPopupOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="w-full max-w-sm relative z-50"
+            >
+              <SpotlightCard className="relative overflow-hidden rounded-[3rem] border border-border/50 bg-background/80 backdrop-blur-2xl text-center shadow-2xl">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-40 bg-primary/15 blur-[60px] pointer-events-none" />
+
+                <button
+                  onClick={() => setIsPopupOpen(false)}
+                  className="absolute top-6 left-6 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-border/50 bg-background/80 text-muted-foreground shadow-lg backdrop-blur-md transition-all hover:border-primary/50 hover:bg-primary/10 hover:text-primary group"
+                >
+                  <X className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-90 group-hover:scale-110" />
+                </button>
+
+                <div className="p-10 pt-12">
+                  <div className="relative mx-auto mt-4 mb-6 h-36 w-36 overflow-hidden rounded-[2.5rem] p-1.5 group/img">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-primary via-primary/50 to-transparent opacity-50 group-hover/img:rotate-180 transition-transform duration-1000 ease-in-out" />
+                    <img
+                      src="https://images.unsplash.com/photo-1594312915251-48db9280c8f1?q=80&w=250&auto=format&fit=crop"
+                      alt="Head Librarian"
+                      className="relative h-full w-full rounded-[2.2rem] object-cover transition-transform duration-700 group-hover/img:scale-105"
+                    />
+                  </div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <h4 className="text-3xl font-extrabold tracking-tight text-foreground">Meera Joshi</h4>
+                    <p className="text-sm font-bold uppercase tracking-widest text-primary mb-6 mt-2">Head Librarian</p>
+                    
+                    <div className="flex flex-col items-center gap-4">
+                      <div className="flex items-center gap-3 rounded-2xl border border-primary/20 bg-primary/5 px-6 py-3 w-full justify-center">
+                        <span className="font-mono text-lg font-semibold tracking-wide text-foreground">+91 88776 65544</span>
+                      </div>
+
+                      <a 
+                        href="tel:+918877665544" 
+                        className="group/call relative flex w-full items-center justify-center gap-3 rounded-2xl bg-primary px-8 py-4 text-lg font-bold text-primary-foreground transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] overflow-hidden"
+                      >
+                        <span className="relative z-10 flex items-center gap-2">
+                          <Phone className="h-5 w-5 transition-transform duration-300 group-hover/call:-rotate-12 group-hover/call:scale-110" />
+                          Call Librarian
+                        </span>
+                        <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/call:translate-y-0 transition-transform duration-300 ease-in-out" />
+                      </a>
+                    </div>
+                  </motion.div>
+                </div>
+              </SpotlightCard>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }

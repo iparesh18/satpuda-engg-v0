@@ -1,13 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, Clock, Copy, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from "lucide-react";
+import { Clock, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function Footer() {
-  const [copied, setCopied] = useState(false);
-  const [isMapInteractive, setIsMapInteractive] = useState(false);
 
   const campusLinkMap = {
     "About Us": "/about/overview",
@@ -30,23 +27,6 @@ export function Footer() {
     "Satpuda ITI": "https://satpudaiti.com/campus-balaghat/",
     "Satpuda Polytechnic": "https://satpudapolytechnic.com/index.php",
     "Job Sahi": "https://jobsahi.com/",
-  };
-
-  const contactItems = [
-    { icon: MapPin, label: "Address", value: "Lalbarra - Balaghat Road, Manjhapur, MP 481001" },
-    { icon: Phone, label: "Phone", value: "+91 94258 36824, +91 6262 604 111" },
-    { icon: Mail, label: "Email", value: "satpudaengineeringcollege@gmail.com" },
-    { icon: Clock, label: "Hours", value: "Mon - Sat: 10 AM - 5 PM" },
-  ];
-
-  const handleCopyAddress = async () => {
-    try {
-      await navigator.clipboard.writeText("Lalbarra - Balaghat Road, Manjhapur, Madhya Pradesh 481001");
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1800);
-    } catch {
-      setCopied(false);
-    }
   };
 
   const links = {
@@ -76,7 +56,7 @@ export function Footer() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-8 lg:gap-10"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-8 lg:gap-10"
         >
           {/* Column 1: Logo + Social Links + Play/App store buttons */}
           <div className="flex flex-col gap-4">
@@ -188,102 +168,46 @@ export function Footer() {
               </ul>
             </div>
           ))}
-        </motion.div>
-      </div>
 
-      <div className="border-t border-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-stretch">
-            {/* Left: Contact Details Card */}
-            <motion.div
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              className="flex-1 rounded-2xl border border-border/70 bg-white p-4 shadow-sm"
-            >
-              <div className="flex items-start justify-between gap-4 flex-col sm:flex-row">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Contact</p>
-                  <h3 className="mt-1.5 text-xl font-semibold text-foreground">Get in touch</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Lalbarra - Balaghat Road, Manjhapur, MP 481001
-                  </p>
-                </div>
+          {/* Column 6: Get In Touch */}
+          <div>
+            <h4 className="font-bold text-[15px] mb-3 sm:mb-6 text-foreground">
+              Get In Touch
+            </h4>
+            <ul className="space-y-3 sm:space-y-4">
+              <li className="flex items-center gap-3 text-[13px] text-muted-foreground group">
+                <MapPin className="h-4 w-4 shrink-0 text-accent transition-transform group-hover:scale-110" />
+                <span>Lalbarra - Balaghat Road, Manjhapur, MP 481001</span>
+              </li>
+              <li className="flex items-center gap-3 text-[13px] text-muted-foreground group">
+                <Phone className="h-4 w-4 shrink-0 text-accent transition-transform group-hover:scale-110" />
+                <span>+91 94258 36824, +91 6262 604 111</span>
+              </li>
+              <li className="flex items-center gap-3 text-[13px] text-muted-foreground group">
+                <Mail className="h-4 w-4 shrink-0 text-accent transition-transform group-hover:scale-110" />
+                <span>satpudaengineeringcollege@gmail.com</span>
+              </li>
+            </ul>
 
-                <div className="flex flex-wrap gap-2">
-                  <button
-                    type="button"
-                    onClick={handleCopyAddress}
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary transition hover:border-primary hover:bg-primary/10"
-                  >
-                    {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                    {copied ? "Copied" : "Copy Address"}
-                  </button>
-                  <a
-                    href="https://maps.google.com/?q=Satpuda+College+of+Engineering+Balaghat"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:opacity-95"
-                  >
-                    Get Directions
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
-                </div>
-              </div>
-
-              <div className="mt-4 grid grid-cols-1 gap-2">
-                {contactItems.map((item) => (
-                  <div key={item.label} className="flex w-full items-start gap-3 rounded-xl border border-border/60 bg-slate-50 px-3 py-3 sm:px-4">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                      <item.icon className="h-4 w-4" />
-                    </div>
-                    <div className="min-w-0 flex-1 flex flex-col gap-0.5">
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500 leading-none">
-                        {item.label}
-                      </p>
-                      <p className="text-xs leading-snug text-foreground sm:text-sm break-words">
-                        {item.value}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Right: Map Card */}
-            <motion.div
-              initial={{ opacity: 0, x: 16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              className="relative overflow-hidden rounded-2xl border border-border/70 bg-slate-100 shadow-sm min-h-48 sm:min-h-56 lg:w-[38%]"
-              onMouseLeave={() => setIsMapInteractive(false)}
-            >
-              {!isMapInteractive ? (
-                <button
-                  type="button"
-                  onClick={() => setIsMapInteractive(true)}
-                  className="absolute inset-0 z-10 flex items-center justify-center bg-transparent"
-                  aria-label="Enable map interaction"
-                >
-                  <span className="rounded-full border border-border bg-white/95 px-4 py-2 text-sm font-medium text-foreground shadow-sm">
-                    Tap to interact with map
-                  </span>
-                </button>
-              ) : null}
-
+            {/* Map in responsive view only */}
+            <div className="mt-6 lg:hidden relative overflow-hidden rounded-xl border border-border/70 bg-slate-100 shadow-sm h-48 w-full">
               <iframe
                 title="Satpuda College location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3703.8404414348593!2d80.14880717505493!3d21.82509498003108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2a592263486c99%3A0xa4123dec04965bfb!2sSatpuda%20College%20of%20Engineering%20and%20Polytechnic%2C%20Balaghat!5e0!3m2!1sen!2sin!4v1778579078581!5m2!1sen!2sin"
-                className={`absolute inset-0 h-full w-full ${isMapInteractive ? "" : "pointer-events-none"}`}
+                className="absolute inset-0 h-full w-full"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-            </motion.div>
+            </div>
           </div>
+        </motion.div>
+      </div>
 
-          <div className="mt-4 flex flex-col items-center justify-center border-t border-border pt-4">
+      <div className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+          <div className="flex flex-col items-center justify-center">
             <div className="text-[13px] text-muted-foreground text-center">
               Copyright © 2026. All Rights Reserved.
             </div>

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { 
   Monitor, 
   Settings, 
@@ -17,12 +18,16 @@ import {
   VolumeX,
   Maximize,
   Pause,
-  Laptop
+  Laptop,
+  ArrowRight,
+  X,
+  Phone
 } from "lucide-react";
 
 import SplitText from "../../bits/split-text.jsx";
 import BlurText from "../../bits/blur-text.jsx";
 import SpotlightCard from "../../bits/spotlight-card.jsx";
+import Magnetic from "../../bits/magnetic.jsx";
 
 const features = [
   {
@@ -75,6 +80,8 @@ function LabVideoPlayer() {
 }
 
 export function ComputerLabSection() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   return (
     <main className="bg-background pb-6 sm:pb-8 lg:pb-10">
       {/* Hero Section */}
@@ -539,6 +546,97 @@ export function ComputerLabSection() {
 
         </div>
       </section>
+
+      <motion.section
+        className="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8 lg:mb-10"
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <div className="flex flex-col items-center justify-between gap-8 rounded-[40px] border border-border/40 bg-gradient-to-r from-primary/10 to-accent/10 backdrop-blur-xl p-8 sm:flex-row sm:p-12 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 left-0 -mt-20 -ml-20 h-64 w-64 bg-primary/20 rounded-full blur-3xl opacity-30" />
+
+          <div className="relative z-10 text-center sm:text-left">
+            <h3 className="text-2xl font-bold text-foreground sm:text-3xl">Need IT or Lab Assistance?</h3>
+            <p className="mt-3 text-lg text-muted-foreground max-w-md mx-auto sm:mx-0">Our technical support team is ready to help with system issues, software configurations, and network access.</p>
+          </div>
+
+          <Magnetic intensity={0.3}>
+            <button onClick={() => setIsPopupOpen(true)} className="group relative inline-flex w-full sm:w-auto items-center justify-center text-center gap-3 rounded-full bg-primary px-10 py-5 text-lg font-bold text-primary-foreground transition-all hover:pr-12 shadow-xl shadow-primary/20">
+              Contact IT Helpdesk
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-2" />
+            </button>
+          </Magnetic>
+        </div>
+      </motion.section>
+
+      <AnimatePresence>
+        {isPopupOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="w-full max-w-sm relative z-50"
+            >
+              <SpotlightCard className="relative overflow-hidden rounded-[3rem] border border-border/50 bg-background/80 backdrop-blur-2xl text-center shadow-2xl">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-40 bg-primary/15 blur-[60px] pointer-events-none" />
+
+                <button
+                  onClick={() => setIsPopupOpen(false)}
+                  className="absolute top-6 left-6 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-border/50 bg-background/80 text-muted-foreground shadow-lg backdrop-blur-md transition-all hover:border-primary/50 hover:bg-primary/10 hover:text-primary group"
+                >
+                  <X className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-90 group-hover:scale-110" />
+                </button>
+
+                <div className="p-10 pt-12">
+                  <div className="relative mx-auto mt-4 mb-6 h-36 w-36 overflow-hidden rounded-[2.5rem] p-1.5 group/img">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-primary via-primary/50 to-transparent opacity-50 group-hover/img:rotate-180 transition-transform duration-1000 ease-in-out" />
+                    <img
+                      src="/images/asif khan.webp"
+                      alt="IT Administrator"
+                      className="relative h-full w-full rounded-[2.2rem] object-cover object-center transition-transform duration-700 group-hover/img:scale-105"
+                    />
+                  </div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <h4 className="text-3xl font-extrabold tracking-tight text-foreground">Asif Khan</h4>
+                    <p className="text-[11px] font-bold uppercase tracking-widest text-primary mb-6 mt-2 leading-tight">IT Infrastructure & Network Administrator</p>
+                    
+                    <div className="flex flex-col items-center gap-4">
+                      <div className="flex items-center gap-3 rounded-2xl border border-primary/20 bg-primary/5 px-6 py-3 w-full justify-center">
+                        <span className="font-mono text-lg font-semibold tracking-wide text-foreground">+91 9131850615</span>
+                      </div>
+
+                      <a 
+                        href="tel:+919131850615" 
+                        className="group/call relative flex w-full items-center justify-center gap-3 rounded-2xl bg-primary px-8 py-4 text-lg font-bold text-primary-foreground transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] overflow-hidden"
+                      >
+                        <span className="relative z-10 flex items-center gap-2">
+                          <Phone className="h-5 w-5 transition-transform duration-300 group-hover/call:-rotate-12 group-hover/call:scale-110" />
+                          Call Support
+                        </span>
+                        <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/call:translate-y-0 transition-transform duration-300 ease-in-out" />
+                      </a>
+                    </div>
+                  </motion.div>
+                </div>
+              </SpotlightCard>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </main>
   );

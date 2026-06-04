@@ -7,10 +7,9 @@ import { ArrowRight, ChevronLeft, ChevronRight, Play } from "lucide-react";
 
 export function HeroSection() {
   const heroImages = [
-     "/images/bannerp.webp",
-    "/images/banner1.webp",
-    "/images/banner3.webp",
-    "/images/hero-1.webp",
+    "/images/bannerp.webp",
+    "/images/zenus banner.webp",
+    "/images/internship.webp",
      "/images/banner9.webp",
      "/images/hbanner.webp",
      "/images/hbanner2.webp",
