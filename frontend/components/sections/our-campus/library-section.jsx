@@ -478,8 +478,8 @@ export function LibrarySection() {
                   <div className="relative mx-auto mt-4 mb-6 h-36 w-36 overflow-hidden rounded-[2.5rem] p-1.5 group/img">
                     <div className="absolute inset-0 bg-gradient-to-tr from-primary via-primary/50 to-transparent opacity-50 group-hover/img:rotate-180 transition-transform duration-1000 ease-in-out" />
                     <img
-                      src="https://images.unsplash.com/photo-1594312915251-48db9280c8f1?q=80&w=250&auto=format&fit=crop"
-                      alt="Head Librarian"
+                      src="/images/prashant mishra.webp"
+                      alt="Librarian Head"
                       className="relative h-full w-full rounded-[2.2rem] object-cover transition-transform duration-700 group-hover/img:scale-105"
                     />
                   </div>
@@ -489,8 +489,8 @@ export function LibrarySection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
                   >
-                    <h4 className="text-3xl font-extrabold tracking-tight text-foreground">Meera Joshi</h4>
-                    <p className="text-sm font-bold uppercase tracking-widest text-primary mb-6 mt-2">Head Librarian</p>
+                    <h4 className="text-3xl font-extrabold tracking-tight text-foreground">Prashant Mishra</h4>
+                    <p className="text-sm font-bold uppercase tracking-widest text-primary mb-6 mt-2">Librarian Head</p>
                     
                     <div className="flex flex-col items-center gap-4">
                       <div className="flex items-center gap-3 rounded-2xl border border-primary/20 bg-primary/5 px-6 py-3 w-full justify-center">

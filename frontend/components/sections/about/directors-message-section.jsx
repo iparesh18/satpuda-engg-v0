@@ -225,7 +225,7 @@ export function DirectorsMessageSection() {
                   className="text-5xl font-medium tracking-tighter text-foreground"
                   style={{ fontFamily: "cursive" }}
                 >
-                  Anshul Jaiswal
+                  Mr. Anshul Jaiswal
                 </p>
                 <div className="mt-2 flex items-center gap-2">
                   <div className="h-1 w-8 rounded-full bg-primary" />

@@ -158,7 +158,7 @@ const facultyMembers = [
   {
     name: "Mr. Ajay Garg",
     role: "Assistant Professor",
-    subject: "OOPS",
+    subject: "Deep Learning",
     degree: "M.Tech",
     image: "/images/ajay_sir.webp",
     badgeTitle: "Object-Oriented",
@@ -171,7 +171,7 @@ const facultyMembers = [
   {
     name: "Mr.Deepak Kumar Thakur",
     role: "Assistant Professor",
-    subject: "Python",
+    subject: "Machine Learning",
     degree: "MCA",
     image: "/images/deepak_sir.webp",
     badgeTitle: "Python",

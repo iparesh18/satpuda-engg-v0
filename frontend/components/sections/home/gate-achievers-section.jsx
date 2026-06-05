@@ -34,7 +34,7 @@ const baseAchievers = [
   { name: "DIPANSHU", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-14.webp" },
   { name: "NAVEEN GAJBHIYE", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-15.webp" },
   { name: "VIJESH KUMAR", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-16.webp" },
-  { name: "YASH SHRIVASTAVA", company: "ZENUS GROUP", image: "/images/placement/yash shrivastava.webp" },
+  { name: "YASH SHRIVASTAVA", company: "ZENUS GROUP", image: "/images/placement/yash Shrivastava.webp" },
   { name: "ADNAN KHAN", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-17.webp" },
 ];
 

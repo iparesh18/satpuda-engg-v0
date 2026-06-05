@@ -107,14 +107,16 @@ function FacebookCard() {
 
 // --- INSTAGRAM CARD ---
 function InstagramCard() {
-  const posts = [
-    "/images/banner0.webp",
-    "/images/journey/1.webp",
-    "/images/journey/2.webp",
-    "/images/journey/3.webp",
-    "/images/journey/4.webp",
-    "/images/journey/5.webp"
-  ];
+  const [isInteractive, setIsInteractive] = useState(false);
+
+  useEffect(() => {
+    if (!document.querySelector('script[src="https://elfsightcdn.com/platform.js"]')) {
+      const script = document.createElement("script");
+      script.src = "https://elfsightcdn.com/platform.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
 
   return (
     <motion.div
@@ -151,74 +153,22 @@ function InstagramCard() {
         </div>
 
         {/* Content Box */}
-        <div className="rounded-2xl border border-slate-100 bg-slate-50/80 p-3">
-          {/* Profile Header */}
-          <div className="flex items-center justify-between bg-white px-2 py-2.5 rounded-xl border border-slate-100/50 shadow-sm">
-            <div className="flex items-center gap-2">
-              <div className="h-8.5 w-8.5 rounded-full border border-pink-500 p-[1.5px] flex-shrink-0">
-                <div className="h-full w-full overflow-hidden rounded-full bg-slate-50">
-                  <img src="/images/logo.webp" alt="Satpuda Logo" className="h-full w-full object-contain" />
-                </div>
-              </div>
-              <div>
-                <h4 className="text-[10px] font-bold text-slate-800 leading-tight">satpuda_engineering_college</h4>
-                <p className="text-[8px] text-slate-400">1,234 followers</p>
-              </div>
-            </div>
-            <a
-              href="https://www.instagram.com/satpuda_engineering/"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-lg bg-blue-500 px-3 py-1 text-[9px] font-bold text-white transition hover:bg-blue-600 shadow-sm cursor-pointer"
+        <div 
+          className="rounded-2xl border border-slate-100 bg-slate-50/80 h-[380px] overflow-y-auto overflow-x-hidden flex justify-center shadow-inner relative group/frame custom-scrollbar"
+          onMouseLeave={() => setIsInteractive(false)}
+        >
+          {/* Mobile Overlay to prevent scroll trapping */}
+          {!isInteractive && (
+            <div 
+              className="absolute inset-0 z-10 md:hidden bg-black/5 flex items-center justify-center cursor-pointer"
+              onClick={() => setIsInteractive(true)}
             >
-              Follow
-            </a>
-          </div>
-
-          {/* 3x2 Grid */}
-          <div className="mt-3.5 grid grid-cols-3 gap-1.5">
-            {posts.map((src, i) => (
-              <div key={i} className="aspect-square w-full overflow-hidden rounded-lg bg-slate-100 relative group/grid cursor-pointer shadow-sm">
-                <img
-                  src={src}
-                  alt={`Instagram Post ${i}`}
-                  className="h-full w-full object-cover transition duration-300 group-hover/grid:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/grid:opacity-100 transition-opacity flex items-center justify-center text-white">
-                  <Heart className="h-4.5 w-4.5 fill-white strokeWidth={0}" />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Actions Footer */}
-          <div className="mt-3.5 flex items-center justify-between border-t border-slate-100 pt-2 px-1">
-            <div className="flex gap-3 text-slate-600">
-              <button className="hover:text-red-500 transition-colors cursor-pointer">
-                <Heart className="h-4.5 w-4.5" />
-              </button>
-              <button className="hover:text-blue-500 transition-colors cursor-pointer">
-                <MessageCircle className="h-4.5 w-4.5" />
-              </button>
-              <button className="hover:text-green-500 transition-colors cursor-pointer">
-                <Send className="h-4.5 w-4.5" />
-              </button>
+               <div className="bg-black/70 text-white text-[10px] px-3 py-1.5 rounded-full font-medium shadow-lg backdrop-blur-sm">
+                 Tap to scroll
+               </div>
             </div>
-
-            {/* Pagination Carousel Indicator */}
-            <div className="flex gap-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
-              <span className="h-1.5 w-1.5 rounded-full bg-slate-300" />
-              <span className="h-1.5 w-1.5 rounded-full bg-slate-300" />
-              <span className="h-1.5 w-1.5 rounded-full bg-slate-300" />
-              <span className="h-1.5 w-1.5 rounded-full bg-slate-300" />
-            </div>
-
-            <button className="text-slate-600 hover:text-yellow-500 transition-colors cursor-pointer">
-              <Bookmark className="h-4.5 w-4.5" />
-            </button>
-          </div>
+          )}
+          <div className="elfsight-app-0446b9b2-e8e8-4f45-9ba1-237eab098406 w-full h-full" data-elfsight-app-lazy></div>
         </div>
       </div>
 

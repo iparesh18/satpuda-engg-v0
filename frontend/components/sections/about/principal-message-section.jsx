@@ -153,7 +153,7 @@ export function PrincipalMessageSection() {
             <div className="mt-12 flex items-center justify-between">
               <div>
                 <p className="text-4xl leading-none text-foreground sm:text-5xl" style={{ fontFamily: "cursive" }}>
-                  Ashok Kumar Gupta
+                Prof. (Dr.) Ashok Kumar Gupta
                 </p>
                 <div className="mt-2 flex items-center gap-2">
                   <div className="h-1 w-8 rounded-full bg-primary" />

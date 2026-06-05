@@ -9,7 +9,6 @@ import DirectorsMessagePage from "../components/pages/about/directors-message-pa
 import PrincipalMessagePage from "../components/pages/about/principal-message-page.jsx";
 import MissionVisionPage from "../components/pages/about/mission-vision-page.jsx";
 import AcademicsPage from "../components/pages/academics/academics-page.jsx";
-import AdmissionsPage from "../components/pages/admissions/admissions-page.jsx";
 import AdmissionFormPage from "../components/pages/admissions/admission-form-page.jsx";
 import ComputerLabPage from "../components/pages/our-campus/computer-lab-page.jsx";
 import TransportPage from "../components/pages/our-campus/transport-page.jsx";
@@ -65,7 +64,6 @@ export default function App() {
           <Route path="/academics/civil-engineering" element={<CivilPage />} />
           <Route path="/academics/mechanical-engineering" element={<MechanicalPage />} />
           <Route path="/academics/electrical-engineering" element={<ElectricalPage />} />
-          <Route path="/admissions" element={<AdmissionsPage />} />
           <Route path="/admissions/admission-form" element={<AdmissionFormPage />} />
           <Route path="/admissions/courses-offered" element={<CoursesOfferedPage />} />
           <Route path="/our-campus/computer-lab" element={<ComputerLabPage />} />
