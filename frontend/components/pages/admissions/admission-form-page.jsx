@@ -126,7 +126,7 @@ export default function AdmissionFormPage() {
                 <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
                   <Link to="/" className="hover:text-primary transition-colors">Home</Link>
                   <span>/</span>
-                  <Link to="/admissions" className="hover:text-primary transition-colors">Admission</Link>
+                  <span className="text-muted-foreground">Admission</span>
                   <span>/</span>
                   <span className="text-foreground font-medium">Admission Form</span>
                 </div>

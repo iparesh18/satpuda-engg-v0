@@ -56,19 +56,19 @@ export function Footer() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-8 lg:gap-10"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-6 sm:gap-8 lg:gap-10"
         >
           {/* Column 1: Logo + Social Links + Play/App store buttons */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-5 lg:col-span-2">
             <img
               src="/images/logo.webp"
               alt="Satpuda College of Engineering & Polytechnic"
-              className="mr-10 w-60 sm:w-72 h-auto object-contain"
+              className="w-72 sm:w-80 md:w-96 lg:w-[400px] h-auto object-contain -mt-2 lg:-mt-4 -ml-2"
               loading="lazy"
             />
             
             {/* Social Links */}
-            <div>
+            <div className="-mt-2 lg:-mt-8 ml-1">
               <div className="flex flex-wrap gap-2 pt-1">
                 {(() => {
                   const socialLinks = {
@@ -100,7 +100,7 @@ export function Footer() {
 
             {/* App Buttons */}
             <div className="flex flex-col gap-2 pt-1">
-              <a href="https://play.google.com/store" target="_blank" rel="noreferrer" className="w-fit">
+              <a href="https://play.google.com/store/search?q=jobsahi&c=apps" target="_blank" rel="noreferrer" className="w-fit">
                 <img
                   src="/images/google play.webp"
                   alt="Get it on Google Play"

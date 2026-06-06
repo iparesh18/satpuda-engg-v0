@@ -464,7 +464,7 @@ export function TransportSection() {
                   <div className="relative mx-auto mt-4 mb-6 h-36 w-36 overflow-hidden rounded-[2.5rem] p-1.5 group/img">
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary via-primary/50 to-transparent opacity-50 group-hover/img:rotate-180 transition-transform duration-1000 ease-in-out" />
                   <img
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=256&auto=format&fit=crop"
+                    src="/images/ajay baghele.webp"
                     alt="Transport Officer"
                     className="relative h-full w-full rounded-[2.2rem] object-cover transition-transform duration-700 group-hover/img:scale-105"
                   />
@@ -475,7 +475,7 @@ export function TransportSection() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <h4 className="text-3xl font-extrabold tracking-tight text-foreground">Rajesh Verma</h4>
+                  <h4 className="text-3xl font-extrabold tracking-tight text-foreground">Ajay Baghele</h4>
                   <p className="text-sm font-bold uppercase tracking-widest text-primary mb-6 mt-2">Transport Head</p>
                   
                   <div className="flex flex-col items-center gap-4">
