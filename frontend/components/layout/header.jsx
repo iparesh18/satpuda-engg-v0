@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "../ui/button";
-import { Menu, X, ChevronDown, Phone, Mail, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Mail, Facebook, Instagram, Linkedin, Youtube, Download } from "lucide-react";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -156,6 +156,14 @@ export function Header() {
 
           {/* Right Side: Admission (Desktop) and Socials */}
           <div className="flex items-center gap-4">
+            <a
+              href="/brochure.pdf"
+              download="SCEP-BROCHURE.pdf"
+              className="hidden md:flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white px-3 py-1 rounded-full text-xs font-medium transition-colors border border-white/20"
+            >
+              <Download className="h-3.5 w-3.5" />
+              Download Brochure
+            </a>
             <Link
               to="/admissions/admission-form"
               className="hidden md:inline font-medium cursor-pointer"

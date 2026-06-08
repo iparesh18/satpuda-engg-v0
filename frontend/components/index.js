@@ -23,5 +23,6 @@ export { PlacementsHeroSection } from "./sections/placements/placements-hero-sec
 export { StudentSuccessSection } from "./sections/placements/student-success-section.jsx";
 export { SuccessGlobeSection } from "./sections/placements/success-globe-section.jsx";
 export { HorizontalScrollSection } from "./sections/placements/horizontal-scroll-section.jsx";
+export { PlacementCellSection } from "./sections/placements/placement-cell-section.jsx";
 export { default as PlacementsPage } from "./pages/placements/placements-page.jsx";
 

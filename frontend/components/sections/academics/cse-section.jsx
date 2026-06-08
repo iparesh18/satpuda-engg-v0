@@ -276,8 +276,8 @@ const facultyMembers = [
     name: "Miss Deepali Tiwari ",
     role: "Assistant Professor",
     subject: "COA",
-    degree: "M.Tech",
-    image: "/images/dipali-mam.webp",
+    degree: "M.Sc",
+    image: "/images/deepali-mam.png",
     badgeTitle: "System",
     badgeSubtitle: "Architecture",
     titlePart1: "Designing",
@@ -612,7 +612,7 @@ export function CSESection() {
                     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     exit={{ opacity: 0, y: -15, filter: "blur(4px)" }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="relative z-20 w-[60%] sm:w-[50%] lg:w-[45%] flex flex-col justify-center h-full pl-4 lg:pl-8 py-8 lg:py-12 pr-2 lg:pr-8"
+                    className="relative z-20 w-[55%] sm:w-[50%] lg:w-[45%] flex flex-col justify-center h-full pl-4 lg:pl-8 py-8 lg:py-12 pr-2 lg:pr-4"
                   >
                     {/* HOD Text Content */}
                     <div className="mb-4 lg:mb-6 min-h-[28px]">
@@ -624,11 +624,11 @@ export function CSESection() {
                       )}
                     </div>
                     
-                    <h3 className="text-lg sm:text-xl lg:text-4xl font-bold leading-tight mb-2 lg:mb-4 text-foreground">
+                    <h3 className="text-lg sm:text-xl lg:text-3xl xl:text-4xl font-bold leading-tight mb-2 lg:mb-4 text-foreground break-words">
                       {selectedFaculty.titlePart1} <br className="hidden lg:block"/>
                       <span className="text-primary">{selectedFaculty.titlePart2}</span> <br className="hidden lg:block"/>
-                      {selectedFaculty.titlePart3} <br className="hidden lg:block"/>
-                      <span className="text-primary">{selectedFaculty.titlePart4}</span>
+                      <span className="text-[0.95rem] sm:text-lg lg:text-2xl xl:text-3xl inline-block mt-1 lg:mt-2">{selectedFaculty.titlePart3}</span> <br className="hidden lg:block"/>
+                      <span className="text-primary text-[0.95rem] sm:text-lg lg:text-2xl xl:text-3xl">{selectedFaculty.titlePart4}</span>
                     </h3>
                     
                     <div className="flex gap-1 mb-8">
@@ -660,9 +660,9 @@ export function CSESection() {
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     exit={{ opacity: 0, x: -20, scale: 0.95 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="absolute bottom-0 lg:bottom-[-4rem] right-0 lg:right-[-4rem] w-[65%] sm:w-[55%] lg:w-[70%] max-w-[550px] pointer-events-none z-10"
+                    className="absolute bottom-0 lg:bottom-[-2rem] right-0 lg:right-[-2rem] w-[55%] sm:w-[50%] lg:w-[60%] h-[350px] lg:h-[550px] max-w-[550px] pointer-events-none z-10"
                   >
-                    <img src={selectedFaculty.image} alt={selectedFaculty.name} className="w-full h-auto object-contain object-bottom mix-blend-darken drop-shadow-[0_20px_30px_rgba(0,0,0,0.15)] origin-bottom-right scale-[1.1] lg:scale-[1.15]" loading="lazy" />
+                    <img src={selectedFaculty.image} alt={selectedFaculty.name} className="w-full h-full object-contain object-right-bottom mix-blend-darken drop-shadow-[0_20px_30px_rgba(0,0,0,0.15)] origin-bottom-right scale-[1.1] lg:scale-[1.2]" loading="lazy" />
                   </motion.div>
                 </AnimatePresence>
               </div>
