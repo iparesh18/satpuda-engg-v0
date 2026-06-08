@@ -16,7 +16,7 @@ const SUCCESS_STORIES = [
   { name: "HIMANSHU PATLE", company: "ZENUS GROUP", photo: "/images/placement/himanshu patle.webp", package: "7.0 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
   { name: "RAJNEESH ASHWALE", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-05.webp", package: "4.0 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/first step innovation.webp" },
   { name: "ABHISHEK MANESHWAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-06.webp", package: "3.25 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.webp" },
-  { name: "RANVEER SHARMA", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-07.webp", package: "5.5 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/lloyds-metals.webp" },
+  { name: "RANVEER SHARMA", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-07.webp", package: "3.7 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/lloyds-metals.webp" },
   { name: "GAGAN PATLE", company: "ZENUS GROUP", photo: "/images/placement/gagan patle.webp", package: "4.0 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
   { name: "HARSHIT SELOKAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-08.webp", package: "3.25 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/gr infraproject ltd.webp" },
   { name: "ANKIT BANDHE", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-09.webp", package: "3.7 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/lloyds-metals.webp" },

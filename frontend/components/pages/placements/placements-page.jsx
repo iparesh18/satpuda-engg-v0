@@ -7,6 +7,7 @@ import { PlacementsHeroSection } from "../../sections/placements/placements-hero
 import { StudentSuccessSection } from "../../sections/placements/student-success-section.jsx";
 import { SuccessGlobeSection } from "../../sections/placements/success-globe-section.jsx";
 import { HorizontalScrollSection } from "../../sections/placements/horizontal-scroll-section.jsx";
+import { PlacementCellSection } from "../../sections/placements/placement-cell-section.jsx";
 
 export default function PlacementsPage() {
   return (
@@ -24,6 +25,9 @@ export default function PlacementsPage() {
         
         {/* Cinematic Horizontal Scroll Section */}
         <HorizontalScrollSection />
+        
+        {/* Placement Cell Section */}
+        <PlacementCellSection />
         
         {/* Why Choose Us Section */}
         <div className="bg-card/30">
