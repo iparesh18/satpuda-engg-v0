@@ -612,7 +612,7 @@ export function ComputerLabSection() {
                     transition={{ delay: 0.2 }}
                   >
                     <h4 className="text-3xl font-extrabold tracking-tight text-foreground">Asif Khan</h4>
-                    <p className="text-[11px] font-bold uppercase tracking-widest text-primary mb-6 mt-2 leading-tight">IT Support</p>
+                    <p className="text-[11px] font-bold uppercase tracking-widest text-primary mb-6 mt-2 leading-tight">IT Infrastructure & Network Administrator</p>
                     
                     <div className="flex flex-col items-center gap-4">
                       <div className="flex items-center gap-3 rounded-2xl border border-primary/20 bg-primary/5 px-6 py-3 w-full justify-center">
