@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Quote, Star, MessageSquarePlus } from "lucide-react";
 import { SectionHeading } from "./section-heading.jsx";
 import { Button } from "../../ui/button.jsx";
-import { FeedbackDialog } from "./feedback-dialog.jsx";
 
 function getInitials(name) {
   return String(name || "")
@@ -43,7 +43,6 @@ function Avatar({ name, size = "w-16 h-16 text-lg" }) {
 export function TestimonialsSection() {
   const apiBaseUrl = import.meta.env.VITE_API_URL || "";
   const [approved, setApproved] = useState([]);
-  const [dialogOpen, setDialogOpen] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -175,16 +174,15 @@ export function TestimonialsSection() {
       {/* Feedback CTA */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10 flex justify-center">
         <Button
-          type="button"
-          onClick={() => setDialogOpen(true)}
+          asChild
           className="h-12 px-7 bg-accent text-white hover:bg-accent/90 font-semibold shadow-lg shadow-accent/25 flex items-center gap-2 rounded-xl transition-all duration-300"
         >
-          <MessageSquarePlus className="w-5 h-5" />
-          Share Your Feedback
+          <Link to="/feedback">
+            <MessageSquarePlus className="w-5 h-5" />
+            Share Your Feedback
+          </Link>
         </Button>
       </div>
-
-      <FeedbackDialog isOpen={dialogOpen} onClose={() => setDialogOpen(false)} />
 
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes testimonial-marquee {

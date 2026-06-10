@@ -95,14 +95,15 @@ export function ReloadContactPopup() {
     <AnimatePresence>
       {open ? (
         <motion.div
-          className="fixed inset-0 flex items-center justify-center bg-black/55 px-3 py-4 sm:px-4 sm:py-6"
+          className="fixed inset-0 overflow-y-auto overscroll-contain bg-black/55"
           style={{ zIndex: 9999 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
+         <div className="flex min-h-full items-center justify-center p-3 sm:p-6">
           <motion.div
-            className="relative mt-4 w-full max-w-2xl overflow-hidden rounded-[1.75rem] border border-white/20 bg-card/95 shadow-2xl backdrop-blur-xl sm:mt-0"
+            className="relative w-full max-w-2xl overflow-hidden rounded-[1.75rem] border border-white/20 bg-card/95 shadow-2xl backdrop-blur-xl"
             initial={{ opacity: 0, y: 20, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.98 }}
@@ -239,6 +240,7 @@ export function ReloadContactPopup() {
                 </form>
               </div>
           </motion.div>
+         </div>
         </motion.div>
       ) : null}
     </AnimatePresence>

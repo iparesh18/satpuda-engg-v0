@@ -29,6 +29,7 @@ import { PlacementsPage } from "../components/index.js";
 import EventsNewsPage from "../components/pages/events-news/events-news-page.jsx";
 import PrivacyPolicyPage from "../components/pages/privacy-policy/privacy-policy-page.jsx";
 import FeeStructurePage from "../components/pages/admissions/fee-structure-page.jsx";
+import FeedbackPage from "../components/pages/feedback/feedback-page.jsx";
 
 
 import { ThemeProvider } from "../components/shared/theme-provider.jsx";
@@ -78,6 +79,7 @@ export default function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/fee-structure" element={<FeeStructurePage />} />
+          <Route path="/feedback" element={<FeedbackPage />} />
 
           <Route path="/events/recent" element={<EventsNewsPage />} />
           <Route path="/events-news" element={<EventsNewsPage />} />
