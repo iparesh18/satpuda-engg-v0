@@ -17,6 +17,9 @@ import { exportAdminRowsToCsv, exportAdminRowsToXlsx } from "../../admin/utils/e
 import { formatAdminValue } from "../../admin/utils/format.js";
 import { getDefaultAdminCollectionKey } from "../../admin/config/collections.js";
 import { deleteAdminRecord } from "../../admin/services/admin-api.js";
+import { FeedbackManager } from "../../admin/components/feedback-manager.jsx";
+
+const FEEDBACKS_KEY = "feedbacks";
 
 function createDefaultQuery(collection) {
   return {
@@ -41,9 +44,16 @@ export default function SatpudaSuperpowerPage() {
 
   const initialCollectionKey = getDefaultAdminCollectionKey(overview?.collections);
   const [activeCollectionKey, setActiveCollectionKey] = useState(initialCollectionKey);
+  const isFeedbacksView = activeCollectionKey === FEEDBACKS_KEY;
   const activeCollection = useMemo(
     () => overview?.collections?.find((collection) => collection.key === activeCollectionKey) || overview?.collections?.[0],
     [activeCollectionKey, overview]
+  );
+
+  // The generic data collections plus the custom Feedbacks moderation view.
+  const sidebarCollections = useMemo(
+    () => [...(overview?.collections || []), { key: FEEDBACKS_KEY, label: "Feedbacks" }],
+    [overview]
   );
 
   const [query, setQuery] = useState(() => createDefaultQuery(activeCollection));
@@ -61,7 +71,9 @@ export default function SatpudaSuperpowerPage() {
       return;
     }
 
-    const collectionExists = overview.collections.some((collection) => collection.key === activeCollectionKey);
+    const collectionExists =
+      activeCollectionKey === FEEDBACKS_KEY ||
+      overview.collections.some((collection) => collection.key === activeCollectionKey);
     if (!collectionExists) {
       setActiveCollectionKey(getDefaultAdminCollectionKey(overview.collections));
     }
@@ -212,7 +224,7 @@ export default function SatpudaSuperpowerPage() {
       <div className={desktopShellClass}>
         <div className="hidden lg:block lg:sticky lg:top-0 lg:h-screen lg:self-start">
           <AdminSidebar
-            collections={overview?.collections || []}
+            collections={sidebarCollections}
             activeCollectionKey={activeCollectionKey}
             onSelectCollection={handleSelectCollection}
             onRefresh={handleRefresh}
@@ -239,7 +251,7 @@ export default function SatpudaSuperpowerPage() {
                   </SheetTrigger>
                   <SheetContent side="left" className="w-[320px] border-slate-200 bg-white p-0 text-slate-900">
                     <AdminSidebar
-                      collections={overview?.collections || []}
+                      collections={sidebarCollections}
                       activeCollectionKey={activeCollectionKey}
                       onSelectCollection={handleSelectCollection}
                       onRefresh={handleRefresh}
@@ -254,10 +266,12 @@ export default function SatpudaSuperpowerPage() {
                     Public admin workspace
                   </p>
                   <h2 className="mt-2 text-2xl font-semibold text-[#021545] sm:text-3xl">
-                    {activeCollectionDetails?.label || "Admin Dashboard"}
+                    {isFeedbacksView ? "Feedbacks" : (activeCollectionDetails?.label || "Admin Dashboard")}
                   </h2>
                   <p className="mt-2 max-w-3xl text-sm text-slate-500">
-                    Browse MongoDB collections with filters, sorting, export tools, and responsive data inspection.
+                    {isFeedbacksView
+                      ? "Review, approve, and manage student feedback shown on the homepage."
+                      : "Browse MongoDB collections with filters, sorting, export tools, and responsive data inspection."}
                   </p>
                 </div>
               </div>
@@ -284,6 +298,10 @@ export default function SatpudaSuperpowerPage() {
           </header>
 
           <main className="flex-1 space-y-6 px-4 py-6 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
+            {isFeedbacksView ? (
+              <FeedbackManager apiBaseUrl={apiBaseUrl} />
+            ) : (
+             <>
             {overviewState.error ? (
               <Card className="border-[#d60b0b]/20 bg-[#d60b0b]/5 text-slate-900">
                 <CardHeader>
@@ -368,6 +386,8 @@ export default function SatpudaSuperpowerPage() {
                 />
               </div>
             </div>
+             </>
+            )}
           </main>
         </div>
       </div>

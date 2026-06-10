@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { useSecurityRestrictions } from "../hooks/use-security-restrictions.js";
 import RootLayout from "../components/layout/root-layout.jsx";
 import HomePage from "../components/pages/home/home-page.jsx";
 import StickyWhatsApp from "../components/ui/StickyWhatsApp.jsx";
@@ -46,6 +47,7 @@ function ScrollToTop() {
 export default function App() {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith("/satpuda-superpower");
+  useSecurityRestrictions();
 
   return (
     <ThemeProvider>

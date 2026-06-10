@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 const adminRouter = require("./routes/admin.js");
 const admissionsRouter = require("./routes/admissions.js");
 const contactsRouter = require("./routes/contacts.js");
+const feedbacksRouter = require("./routes/feedbacks.js");
 const { verifySmtp } = require("./services/enquiryEmail.service.js");
 
 dotenv.config();
@@ -25,6 +26,7 @@ app.get("/api/health", (req, res) => {
 app.use("/api/admin", adminRouter);
 app.use("/api/admissions", admissionsRouter);
 app.use("/api/contacts", contactsRouter);
+app.use("/api/feedbacks", feedbacksRouter);
 
 mongoose
   .connect(mongoUri)
