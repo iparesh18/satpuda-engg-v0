@@ -32,7 +32,7 @@ export function AdminSidebar({
           <Button
             type="button"
             variant="outline"
-            className={`border-slate-200 bg-white text-[#021545] hover:bg-slate-100 ${collapsed ? "w-full justify-center px-0" : "flex-1 justify-start"}`}
+            className={`border-slate-200 bg-white text-[#021545] hover:bg-slate-100 hover:text-black ${collapsed ? "w-full justify-center px-0" : "flex-1 justify-start"}`}
             onClick={onRefresh}
             title="Refresh dashboard"
           >
@@ -44,7 +44,7 @@ export function AdminSidebar({
             <Button
               type="button"
               variant="outline"
-              className={`border-slate-200 bg-white text-[#021545] hover:bg-slate-100 ${collapsed ? "w-full justify-center px-0" : "shrink-0"}`}
+              className={`border-slate-200 bg-white text-[#021545] hover:bg-slate-100 hover:text-black ${collapsed ? "w-full justify-center px-0" : "shrink-0"}`}
               onClick={onToggleCollapse}
               title={collapsed ? "Open sidebar" : "Close sidebar"}
             >
@@ -74,7 +74,7 @@ export function AdminSidebar({
                   className={`w-full rounded-xl border px-3 py-2 text-left text-sm transition-all duration-200 ${
                     isActive
                       ? "border-[#021545] bg-[#021545] font-medium text-white shadow-sm shadow-[#021545]/20"
-                      : "border-slate-200 bg-white text-slate-700 hover:border-[#021545]/30 hover:bg-slate-50"
+                      : "border-slate-200 bg-white text-slate-700 hover:border-[#021545]/30 hover:bg-slate-50 hover:text-black"
                   }`}
                 >
                   <span className="block truncate font-medium">{collection.label}</span>

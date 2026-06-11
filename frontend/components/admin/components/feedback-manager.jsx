@@ -144,7 +144,7 @@ export function FeedbackManager({ apiBaseUrl }) {
           variant="outline"
           onClick={load}
           disabled={loading}
-          className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100"
+          className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100 hover:text-black"
         >
           <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
           Refresh

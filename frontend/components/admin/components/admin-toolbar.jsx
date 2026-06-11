@@ -75,7 +75,7 @@ export function AdminToolbar({
           <Button
             type="button"
             variant="outline"
-            className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100"
+            className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100 hover:text-black"
             onClick={onResetFilters}
           >
             <Filter className="h-4 w-4" />
@@ -84,7 +84,7 @@ export function AdminToolbar({
           <Button
             type="button"
             variant="outline"
-            className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100"
+            className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100 hover:text-black"
             onClick={onExportCsv}
             disabled={loading}
           >
@@ -94,7 +94,7 @@ export function AdminToolbar({
           <Button
             type="button"
             variant="outline"
-            className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100"
+            className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100 hover:text-black"
             onClick={onExportXlsx}
             disabled={loading}
           >

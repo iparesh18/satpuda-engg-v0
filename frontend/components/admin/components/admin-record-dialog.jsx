@@ -37,7 +37,7 @@ export function AdminRecordDialog({ record, columns = [], open, onOpenChange, on
               type="button"
               variant="ghost"
               size="icon-sm"
-              className="text-slate-500 hover:bg-slate-100 hover:text-[#021545]"
+              className="text-slate-500 hover:bg-slate-100 hover:text-black hover:text-[#021545]"
               onClick={() => onOpenChange(false)}
             >
               <X className="h-4 w-4" />
@@ -73,7 +73,7 @@ export function AdminRecordDialog({ record, columns = [], open, onOpenChange, on
                     type="button"
                     variant="ghost"
                     size="icon-sm"
-                    className="shrink-0 text-slate-500 hover:bg-slate-100 hover:text-[#021545]"
+                    className="shrink-0 text-slate-500 hover:bg-slate-100 hover:text-black hover:text-[#021545]"
                     onClick={() => onCopyValue(value)}
                     title="Copy value"
                   >
@@ -109,7 +109,7 @@ export function AdminRecordDialog({ record, columns = [], open, onOpenChange, on
                     </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter>
-                    <AlertDialogCancel className="border-slate-200 bg-white text-slate-700 hover:bg-slate-100">
+                    <AlertDialogCancel className="border-slate-200 bg-white text-slate-700 hover:bg-slate-100 hover:text-black">
                       Cancel
                     </AlertDialogCancel>
                     <AlertDialogAction

@@ -1,4 +1,4 @@
-import { Header, HeroSection, StatsBar, AboutSection, GateAchieversSection, CoursesSection, BlueInfoMarqueeSection, WhyChooseUsSection, PlacementsSection, CompanyMarquee, RedInfoMarqueeSection, DomeGallerySection, TestimonialsSection, CTASection, SocialMediaSection, Footer } from "../../index.js";
+import { Header, HeroSection, StatsBar, AboutSection, GateAchieversSection, CoursesSection, BlueInfoMarqueeSection, WhyChooseUsSection, PlacementsSection, CompanyMarquee, RedInfoMarqueeSection, DomeGallerySection, DiscoverSatpuraSection, TestimonialsSection, CTASection, SocialMediaSection, Footer } from "../../index.js";
 import { ReloadContactPopup } from "../../sections/home/reload-contact-popup.jsx";
 import { ArrowUp } from "lucide-react";
 
@@ -47,6 +47,9 @@ export default function HomePage() {
 
       {/* 7c. Dome Gallery */}
       <DomeGallerySection />
+
+      {/* Discover Satpura */}
+      <DiscoverSatpuraSection />
 
       {/* 8. Testimonials - Social proof */}
       <TestimonialsSection />
