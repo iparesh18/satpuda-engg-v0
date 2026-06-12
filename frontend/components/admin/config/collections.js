@@ -1,4 +1,4 @@
-import { BookOpen, Mail } from "lucide-react";
+import { BookOpen, Mail, MessageSquare } from "lucide-react";
 
 export const ADMIN_COLLECTION_TEMPLATES = {
   admissions: {
@@ -14,6 +14,13 @@ export const ADMIN_COLLECTION_TEMPLATES = {
     description: "Enquiries submitted through the contact form.",
     icon: Mail,
     accent: "from-amber-500/20 to-orange-500/20"
+  },
+  feedbacks: {
+    key: "feedbacks",
+    label: "Feedbacks",
+    description: "Student feedback awaiting moderation.",
+    icon: MessageSquare,
+    accent: "from-violet-500/20 to-fuchsia-500/20"
   }
 };
 

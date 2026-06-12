@@ -1,7 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { Quote, Star, MessageSquarePlus } from "lucide-react";
 import { SectionHeading } from "./section-heading.jsx";
 import { Button } from "../../ui/button.jsx";
@@ -40,9 +39,98 @@ function Avatar({ name, size = "w-16 h-16 text-lg" }) {
   );
 }
 
+function TestimonialCard({ testimonial, variant = "desktop", onExpandedChange }) {
+  const isDesktop = variant === "desktop";
+  const [expanded, setExpanded] = useState(false);
+  const [isTruncated, setIsTruncated] = useState(false);
+  const quoteRef = useRef(null);
+  const didMount = useRef(false);
+
+  // Detect whether the clamped quote overflows so "Read more" only shows when needed.
+  useEffect(() => {
+    if (expanded) return;
+    const el = quoteRef.current;
+    if (!el) return;
+    setIsTruncated(el.scrollHeight > el.clientHeight + 1);
+  }, [testimonial.quote, expanded]);
+
+  // Notify the parent when a card opens/closes so the mobile marquee can pause.
+  useEffect(() => {
+    if (!didMount.current) {
+      didMount.current = true;
+      return;
+    }
+    onExpandedChange?.(expanded);
+  }, [expanded, onExpandedChange]);
+
+  const heightClass = expanded ? "" : isDesktop ? "h-[420px]" : "h-[380px]";
+
+  return (
+    <div
+      className={`${isDesktop ? "w-[340px] lg:w-[380px] p-8 hover:bg-card/80 group" : "w-80 flex-none p-6"} ${heightClass} flex flex-col bg-card/50 backdrop-blur-sm border border-border rounded-3xl shadow-xl transition-all duration-500`}
+    >
+      <div className={isDesktop ? "mb-5" : "mb-4"}>
+        <StarRow rating={testimonial.rating} />
+      </div>
+      <Quote
+        className={`${isDesktop ? "h-10 w-10 mb-6 group-hover:text-accent transition-colors duration-500" : "h-8 w-8 mb-4"} text-accent/30 shrink-0`}
+      />
+      <p
+        ref={quoteRef}
+        className={`text-foreground/70 leading-relaxed italic ${isDesktop ? "text-lg mb-3" : "text-base mb-2"} ${expanded ? "" : "line-clamp-5"}`}
+      >
+        {`"${testimonial.quote}"`}
+      </p>
+      {isTruncated ? (
+        <button
+          type="button"
+          onClick={() => setExpanded((prev) => !prev)}
+          className={`self-start font-semibold text-red-600 hover:text-red-700 hover:underline transition-colors ${isDesktop ? "text-sm mb-6" : "text-xs mb-4"}`}
+        >
+          {expanded ? "Read less" : "Read more ..."}
+        </button>
+      ) : null}
+      <div className={`mt-auto flex items-center ${isDesktop ? "gap-5" : "gap-4"}`}>
+        <Avatar name={testimonial.name} size={isDesktop ? "w-16 h-16 text-lg" : "w-14 h-14 text-base"} />
+        <div>
+          <p className={`font-bold text-foreground ${isDesktop ? "text-lg" : "text-base"} leading-none mb-1`}>
+            {testimonial.name}
+          </p>
+          {testimonial.role ? (
+            <p className={`${isDesktop ? "text-xs" : "text-[10px]"} text-muted-foreground uppercase tracking-widest`}>
+              {testimonial.role}
+            </p>
+          ) : null}
+          {testimonial.company ? (
+            <p className={`${isDesktop ? "text-xs mt-2" : "text-[10px] mt-1"} text-accent font-bold uppercase tracking-tighter`}>
+              {testimonial.company}
+            </p>
+          ) : null}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function TestimonialsSection() {
   const apiBaseUrl = import.meta.env.VITE_API_URL || "";
   const [approved, setApproved] = useState([]);
+  const [mobilePaused, setMobilePaused] = useState(false);
+  const [desktopPaused, setDesktopPaused] = useState(false);
+  const mobileExpandedCount = useRef(0);
+  const desktopExpandedCount = useRef(0);
+
+  // Pause the mobile marquee whenever at least one card is expanded.
+  const handleMobileExpandedChange = useCallback((isOpen) => {
+    mobileExpandedCount.current = Math.max(0, mobileExpandedCount.current + (isOpen ? 1 : -1));
+    setMobilePaused(mobileExpandedCount.current > 0);
+  }, []);
+
+  // Pause the desktop marquee whenever at least one card is expanded.
+  const handleDesktopExpandedChange = useCallback((isOpen) => {
+    desktopExpandedCount.current = Math.max(0, desktopExpandedCount.current + (isOpen ? 1 : -1));
+    setDesktopPaused(desktopExpandedCount.current > 0);
+  }, []);
 
   useEffect(() => {
     let active = true;
@@ -101,30 +189,14 @@ export function TestimonialsSection() {
           <div className="absolute inset-y-0 right-0 w-32 lg:w-64 bg-linear-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
 
           <div className="flex overflow-hidden group/marquee relative">
-            <div className="flex py-6 animate-testimonial-marquee pause-on-hover">
+            <div className={`flex items-start py-6 animate-testimonial-marquee pause-on-hover ${desktopPaused ? "is-paused" : ""}`}>
               {[...testimonials, ...testimonials].map((testimonial, index) => (
                 <div key={`desktop-${index}`} className="flex-shrink-0 px-4">
-                  <div className="w-[340px] lg:w-[380px] bg-card/50 backdrop-blur-sm border border-border rounded-3xl p-8 shadow-xl hover:bg-card/80 transition-all duration-500 group">
-                    <div className="mb-5">
-                      <StarRow rating={testimonial.rating} />
-                    </div>
-                    <Quote className="h-10 w-10 text-accent/30 mb-6 group-hover:text-accent transition-colors duration-500" />
-                    <p className="text-foreground/70 leading-relaxed mb-8 text-lg italic">
-                      {`"${testimonial.quote}"`}
-                    </p>
-                    <div className="flex items-center gap-5">
-                      <Avatar name={testimonial.name} />
-                      <div>
-                        <p className="font-bold text-foreground text-lg leading-none mb-1">{testimonial.name}</p>
-                        {testimonial.role ? (
-                          <p className="text-xs text-muted-foreground uppercase tracking-widest">{testimonial.role}</p>
-                        ) : null}
-                        {testimonial.company ? (
-                          <p className="text-xs text-accent font-bold mt-2 uppercase tracking-tighter">{testimonial.company}</p>
-                        ) : null}
-                      </div>
-                    </div>
-                  </div>
+                  <TestimonialCard
+                    testimonial={testimonial}
+                    variant="desktop"
+                    onExpandedChange={handleDesktopExpandedChange}
+                  />
                 </div>
               ))}
             </div>
@@ -136,38 +208,18 @@ export function TestimonialsSection() {
       {/* Mobile View - Marquee */}
       {hasTestimonials ? (
       <div className="md:hidden relative w-full overflow-hidden mt-2">
-        <motion.div
-          className="flex w-max items-stretch gap-5 py-4 will-change-transform pl-4"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+        <div
+          className={`flex w-max items-start gap-5 py-4 will-change-transform pl-4 animate-testimonial-marquee-mobile ${mobilePaused ? "is-paused" : ""}`}
         >
           {[...testimonials, ...testimonials].map((testimonial, index) => (
-            <div
+            <TestimonialCard
               key={`mobile-${index}`}
-              className="w-80 flex-none bg-card/50 backdrop-blur-sm border border-border rounded-3xl p-6 shadow-xl"
-            >
-              <div className="mb-4">
-                <StarRow rating={testimonial.rating} />
-              </div>
-              <Quote className="h-8 w-8 text-accent/30 mb-4" />
-              <p className="text-foreground/70 leading-relaxed mb-6 text-base italic">
-                {`"${testimonial.quote}"`}
-              </p>
-              <div className="flex items-center gap-4">
-                <Avatar name={testimonial.name} size="w-14 h-14 text-base" />
-                <div>
-                  <p className="font-bold text-foreground text-base leading-none mb-1">{testimonial.name}</p>
-                  {testimonial.role ? (
-                    <p className="text-[10px] text-muted-foreground uppercase tracking-widest">{testimonial.role}</p>
-                  ) : null}
-                  {testimonial.company ? (
-                    <p className="text-[10px] text-accent font-bold mt-1 uppercase tracking-tighter">{testimonial.company}</p>
-                  ) : null}
-                </div>
-              </div>
-            </div>
+              testimonial={testimonial}
+              variant="mobile"
+              onExpandedChange={handleMobileExpandedChange}
+            />
           ))}
-        </motion.div>
+        </div>
       </div>
       ) : null}
 
@@ -192,7 +244,11 @@ export function TestimonialsSection() {
         .animate-testimonial-marquee {
           animation: testimonial-marquee 36s linear infinite;
         }
-        .pause-on-hover:hover {
+        .animate-testimonial-marquee-mobile {
+          animation: testimonial-marquee 20s linear infinite;
+        }
+        .pause-on-hover:hover,
+        .is-paused {
           animation-play-state: paused;
         }
       `}} />

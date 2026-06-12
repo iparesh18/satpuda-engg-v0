@@ -2,6 +2,7 @@ import { ChevronLeft, ChevronRight, Database, RefreshCw } from "lucide-react";
 import { Button } from "../../ui/button.jsx";
 import { ScrollArea } from "../../ui/scroll-area.jsx";
 import { Skeleton } from "../../ui/skeleton.jsx";
+import { getAdminCollectionTemplate } from "../config/collections.js";
 
 export function AdminSidebar({
   collections = [],
@@ -65,19 +66,24 @@ export function AdminSidebar({
           ) : (
             collections.map((collection) => {
               const isActive = collection.key === activeCollectionKey;
+              const Icon = getAdminCollectionTemplate(collection.key).icon;
 
               return (
                 <button
                   key={collection.key}
                   type="button"
                   onClick={() => onSelectCollection(collection.key)}
-                  className={`w-full rounded-xl border px-3 py-2 text-left text-sm transition-all duration-200 ${
+                  title={collection.label}
+                  className={`flex w-full items-center rounded-xl border py-2 text-sm transition-all duration-200 ${
+                    collapsed ? "justify-center px-0" : "px-3 text-left"
+                  } ${
                     isActive
                       ? "border-[#021545] bg-[#021545] font-medium text-white shadow-sm shadow-[#021545]/20"
                       : "border-slate-200 bg-white text-slate-700 hover:border-[#021545]/30 hover:bg-slate-50 hover:text-black"
                   }`}
                 >
-                  <span className="block truncate font-medium">{collection.label}</span>
+                  <Icon className={`h-4 w-4 shrink-0 ${collapsed ? "" : "mr-3"}`} />
+                  {!collapsed ? <span className="block truncate font-medium">{collection.label}</span> : null}
                 </button>
               );
             })
