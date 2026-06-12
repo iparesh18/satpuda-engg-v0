@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Quote, Star, TrendingUp, Sparkles, ArrowRight, BadgeCheck, Briefcase, Calendar } from "lucide-react";
+import { Quote, Star, TrendingUp, Sparkles, ArrowRight, BadgeCheck, Briefcase, Calendar, GraduationCap } from "lucide-react";
 import ShinyText from "../../bits/shiny-text.jsx";
 import SpotlightCard from "../../bits/spotlight-card.jsx";
 import Magnetic from "../../bits/magnetic.jsx";
@@ -112,25 +112,37 @@ export function StudentSuccessSection() {
 
                     {/* Stats */}
                     <div className="flex items-center justify-between border-t border-gray-100 pt-6 mt-auto">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
-                          <Briefcase className="w-5 h-5" />
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+                          <Briefcase className="w-4 h-4 sm:w-5 sm:h-5" />
                         </div>
                         <div>
-                          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">PACKAGE</p>
-                          <p className="text-base font-black text-gray-900 leading-none">{story.package}</p>
+                          <p className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">PACKAGE</p>
+                          <p className="text-xs sm:text-base font-black text-gray-900 leading-none">{story.package}</p>
                         </div>
                       </div>
 
-                      <div className="w-px h-10 bg-gray-100" />
+                      <div className="w-px h-8 sm:h-10 bg-gray-100" />
 
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 shrink-0">
-                          <Calendar className="w-5 h-5" />
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-50 flex items-center justify-center text-green-600 shrink-0">
+                          <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5" />
                         </div>
                         <div>
-                          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">PLACED IN</p>
-                          <p className="text-base font-black text-gray-900 leading-none">{story.year}</p>
+                          <p className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">BRANCH</p>
+                          <p className="text-xs sm:text-base font-black text-gray-900 leading-none">{story.branch || "CSE"}</p>
+                        </div>
+                      </div>
+
+                      <div className="w-px h-8 sm:h-10 bg-gray-100" />
+
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 shrink-0">
+                          <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
+                        </div>
+                        <div>
+                          <p className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">PLACED IN</p>
+                          <p className="text-xs sm:text-base font-black text-gray-900 leading-none">{story.year}</p>
                         </div>
                       </div>
                     </div>

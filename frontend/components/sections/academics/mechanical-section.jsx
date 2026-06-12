@@ -64,7 +64,7 @@ const aboutHighlights = [
     icon: Users,
     title: "Mentored Development",
     description: "Guidance from experienced faculty for technical and career growth.",
-    image: "/images/courses/mech-cad-st.jpg",
+    image: "/images/courses/mech-cad-st.webp",
   },
 ];
 
@@ -122,12 +122,12 @@ const highlights = [
     description: "Precision machining, fitting and fabrication with modern equipment.",
   },
   {
-    image: "/images/courses/mech-cad-st.jpg",
+    image: "/images/courses/mech-cad-st.webp",
     title: "CAD/CAM Studios",
     description: "Digital design, modeling and manufacturing workflows for real-world applications.",
   },
   {
-    image: "/images/courses/mech-therm-st.jpg",
+    image: "/images/courses/mech-therm-st.webp",
     title: "Thermal Engineering Labs",
     description: "Practical understanding of engines, heat transfer and fluid systems.",
   },
@@ -146,7 +146,7 @@ const hodData = {
   degree: "M.Tech",
   badgeTitle: "15+ Years of",
   badgeSubtitle: "Engineering Excellence",
-  image: "/images/mechanical/tarun biranwar.png",
+  image: "/images/mechanical/tarun biranwar.webp",
 
   titlePart1: "Engineering",
   titlePart2: "Solutions.",
@@ -160,7 +160,7 @@ const facultyMembers = [
     role: "Professor & Principal",
     subject: "Mechanical Engineering",
     degree: "M.Tech",
-    image: "/images/mechanical/Ashok sir.png",
+    image: "/images/mechanical/Ashok sir.webp",
     badgeTitle: "Design",
     badgeSubtitle: "Expert",
     titlePart1: "Drafting",
@@ -173,7 +173,7 @@ const facultyMembers = [
     role: "Lecturer",
     subject: "Machine Design",
     degree: "B.Tech",
-    image: "/images/mechanical/shailesh.png",
+    image: "/images/mechanical/shailesh.webp",
     badgeTitle: "Thermal",
     badgeSubtitle: "Professional",
     titlePart1: "Analyzing",
@@ -186,7 +186,7 @@ const facultyMembers = [
     role: "Assistant Professor",
     subject: "Thermal Engineering",
     degree: "M.Tech",
-    image: "/images/mechanical/pankaj sir.png",
+    image: "/images/mechanical/pankaj sir.webp",
     badgeTitle: "Automation",
     badgeSubtitle: "Expert",
     titlePart1: "Programming",
@@ -199,7 +199,7 @@ const facultyMembers = [
     role: "Lecturer",
     subject: "Engineering Drawing",
     degree: "B.Tech",
-    image: "/images/mechanical/vedprakash.png",
+    image: "/images/mechanical/vedprakash.webp",
     badgeTitle: "Automation",
     badgeSubtitle: "Expert",
     titlePart1: "Programming",
@@ -212,7 +212,7 @@ const facultyMembers = [
     role: "Lecturer",
     subject: "Manufacturing Engineering",
     degree: "B.Tech",
-    image: "/images/mechanical/nitin sir.png",
+    image: "/images/mechanical/nitin sir.webp",
     badgeTitle: "Automation",
     badgeSubtitle: "Expert",
     titlePart1: "Programming",
@@ -225,7 +225,7 @@ const facultyMembers = [
     role: "Assistant Professor",
     subject: "Good Communicator",
     degree: "MA (English Literature)",
-    image: "/images/mechanical/sakshi.png",
+    image: "/images/mechanical/sakshi.webp",
     badgeTitle: "Automation",
     badgeSubtitle: "Expert",
     titlePart1: "Programming",
@@ -379,7 +379,7 @@ export function MechanicalSection() {
               className="relative aspect-square rounded-[3rem] overflow-hidden border-8 border-card shadow-2xl"
             >
               <img
-                src="/images/courses/mech-cen-st.jpg"
+                src="/images/courses/mech-cen-st.webp"
                 alt="Mechanical Projects"
                 className="w-full h-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />

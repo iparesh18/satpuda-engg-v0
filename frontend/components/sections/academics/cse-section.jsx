@@ -57,7 +57,7 @@ const aboutHighlights = [
     icon: Lightbulb,
     title: "Innovation & Research",
     description: "Encouraging projects, publications and creative thinking.",
-    image: "/images/overview/e-library-st.jpeg",
+    image: "/images/overview/e-library-st.webp",
   },
   {
     icon: Users,
@@ -131,7 +131,7 @@ const highlights = [
     description: "Industry experts share insights on latest technologies.",
   },
   {
-    image: "/images/journey/6.jpeg",
+    image: "/images/journey/6.webp",
     title: "Achievements",
     description: "Celebrating excellence in coding, competitions and innovation.",
   },
@@ -277,7 +277,7 @@ const facultyMembers = [
     role: "Assistant Professor",
     subject: "COA",
     degree: "M.Sc",
-    image: "/images/deepali-mam.png",
+    image: "/images/deepali-mam.webp",
     badgeTitle: "System",
     badgeSubtitle: "Architecture",
     titlePart1: "Designing",

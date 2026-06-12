@@ -21,15 +21,15 @@ const slides = [
   },
   {
     title: "Campus Built for Growth",
-    image: "/images/overview/cmapus-st.jpeg",
+    image: "/images/overview/cmapus-st.webp",
   },
   {
     title: "Campus Experiences",
-    image: "/images/overview/cps-st.png",
+    image: "/images/overview/cps-st.webp",
   },
   {
     title: "Smart Library & Study Zones",
-    image: "/images/overview/e-library-st.jpeg",
+    image: "/images/overview/e-library-st.webp",
   },
   {
     title: "Events, Sports & College Life",

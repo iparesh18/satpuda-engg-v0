@@ -11,13 +11,13 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const baseAchievers = [
-  { name: "DEWANG MALEWAR", company: "FIRST STEP INNOVATION", image: "/images/placement/company-01.webp" },
-  { name: "VISHAKHA BAGHELE", company: "FIRST STEP INNOVATION", image: "/images/placement/company-02.webp" },
-  { name: "PREKSHA DWIVEDI", company: "ZENUS GROUP", image: "/images/placement/company-03.webp" },
-  { name: "YOJNA PARDHI", company: "ZENUS GROUP", image: "/images/placement/yojna pardhi.webp" },
-  { name: "HIMANSHU PATLE", company: "ZENUS GROUP", image: "/images/placement/himanshu patle.webp" },
-  { name: "ANKUSH NANDAGOULI", company: "FIRST STEP INNOVATION", image: "/images/placement/company-04.webp" },
-  { name: "RAJNEESH ASHWALE", company: "FIRST STEP INNOVATION", image: "/images/placement/company-05.webp" },
+  { name: "DEWANG MALEWAR", branch: "B.Tech(CSE)", company: "FIRST STEP INNOVATION", image: "/images/placement/company-01.webp" },
+  { name: "VISHAKHA BAGHELE", branch: "B.Tech(CSE)", company: "FIRST STEP INNOVATION", image: "/images/placement/company-02.webp" },
+  { name: "PREKSHA DWIVEDI", branch: "B.Tech(CSE)", company: "ZENUS GROUP", image: "/images/placement/company-03.webp" },
+  { name: "YOJNA PARDHI", branch: "B.Tech(CSE)", company: "ZENUS GROUP", image: "/images/placement/yojna pardhi.webp" },
+  { name: "HIMANSHU PATLE", branch: "B.Tech(CSE)", company: "ZENUS GROUP", image: "/images/placement/himanshu patle.webp" },
+  { name: "ANKUSH NANDAGOULI", branch: "B.Tech(CSE)", company: "FIRST STEP INNOVATION", image: "/images/placement/company-04.webp" },
+  { name: "RAJNEESH ASHWALE",branch: "B.Tech(CSE)", company: "FIRST STEP INNOVATION", image: "/images/placement/company-05.webp" },
   { name: "ABHISHEK MANESHWAR", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-06.webp" },
   { name: "GAGAN PATLE", company: "ZENUS GROUP", image: "/images/placement/gagan patle.webp" },
   { name: "RANVEER SHARMA", company: "LLOYDS METALS AND ENERGY LIMITED", image: "/images/placement/company-07.webp" },
@@ -197,6 +197,7 @@ export function GateAchieversSection() {
 
                     <div className="absolute bottom-0 left-0 w-full p-8 text-center">
                       <h3 className="text-2xl font-bold text-white tracking-wide">{achiever.name}</h3>
+                      <p className="mt-2 text-xs font-bold uppercase tracking-[0.4em] text-blue-500">{achiever.branch}</p>
                       <p className="mt-2 text-xs font-bold uppercase tracking-[0.4em] text-white/70">
                         {achiever.company}
                       </p>

@@ -121,7 +121,7 @@ export function DiscoverSatpuraSection() {
                   controls={isPlaying}
                   onPause={() => setIsPlaying(false)}
                   onPlay={() => setIsPlaying(true)}
-                  poster="/images/placeholder.jpg"
+                  poster="/placeholder.webp"
                 />
                 {!isPlaying && (
                   <div className="absolute inset-0 flex items-center justify-center bg-primary/20 backdrop-blur-[2px] transition-all duration-500 group-hover:bg-transparent">
@@ -150,7 +150,7 @@ export function DiscoverSatpuraSection() {
                     <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-accent"></div>
                   </div>
                   
-                  <h3 className="text-3xl sm:text-4xl lg:text-[2.5rem] font-bold text-center mb-3 text-white tracking-tight">The Satpura Story</h3>
+                  <h3 className="text-3xl sm:text-4xl lg:text-[2.5rem] font-bold text-center mb-3 text-white tracking-tight">The Satpuda Story</h3>
                   <h4 className="text-xl sm:text-2xl font-bold text-center mb-6 text-white/90">
                     Passion. <span className="text-accent">Innovation.</span> Purpose.
                   </h4>

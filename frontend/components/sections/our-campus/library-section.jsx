@@ -171,7 +171,7 @@ export function LibrarySection() {
             >
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-card group">
                 <motion.img
-                  src="/images/overview/e-library-st.jpeg"
+                  src="/images/overview/e-library-st.webp"
                   alt="Library Hero"
                   className="w-full h-[500px] object-cover transition-transform duration-1000 group-hover:scale-110"
                 />

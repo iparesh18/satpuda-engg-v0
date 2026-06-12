@@ -492,12 +492,12 @@ export function SportsSection() {
         <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {[
             { title: "Kabaddi", img: "/images/overview/cricket-st.webp" },
-          { title: "Cricket", img: "/images/overview/kabadi-st.jpg" },
+          { title: "Cricket", img: "/images/overview/kabadi-st.webp" },
             { title: "Volleyball", img: "/images/overview/event and culture.webp" },
             { title: "Table tennis", img: "/images/overview/sport-tenis-st.webp" },
                { title: "Chess", img: "/images/overview/chess-st.webp" },
                 { title: "Kabaddi", img: "/images/overview/cricket-st.webp" },
-            { title: "Cricket", img: "/images/overview/kabadi-st.jpg" },
+            { title: "Cricket", img: "/images/overview/kabadi-st.webp" },
             { title: "Volleyball", img: "/images/overview/event and culture.webp" },
             { title: "Table tennis", img: "/images/overview/sport-tenis-st.webp" },
                { title: "Chess", img: "/images/overview/chess-st.webp" },

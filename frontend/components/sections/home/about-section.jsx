@@ -64,10 +64,9 @@ export function AboutSection({ className }) {
           <SectionHeading
             align="left"
             eyebrow="About Our Institution"
-            title="Shaping Engineers of Tomorrow Since 1995"
+            title="Shaping Engineers of Tomorrow Since 1999"
             description="At Satpuda College, we take pride in our state-of-the-art infrastructure, highly qualified faculty, and strong industry connections, ensuring top placements for our graduates."
             className="mb-8 mx-0"
-            highlights={['Shaping', 'Tomorrow', 'Since 1995']}
           />
 
           <div className="grid sm:grid-cols-2 gap-4 mb-10">

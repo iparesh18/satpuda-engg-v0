@@ -6,7 +6,7 @@ import ShinyText from "../../bits/shiny-text.jsx";
 
 export function PlacementsHeroSection() {
   const stats = [
-    { label: "Highest Package", value: "4.20 LPA", icon: Trophy, color: "text-yellow-500" },
+    { label: "Highest Package", value: "16.3 LPA", icon: Trophy, color: "text-yellow-500" },
     { label: "Top Recruiters", value: "200+", icon: Building2, color: "text-blue-500" },
     { label: "Students Placed", value: "3000+", icon: Users, color: "text-green-500" },
     { label: "Placement Rate", value: "95%", icon: TrendingUp, color: "text-purple-500" },

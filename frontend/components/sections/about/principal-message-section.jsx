@@ -20,7 +20,7 @@ const stats = [
 const gallery = [
   "/images/overview/campus building.webp",
   "/images/overview/student in lab.webp",
-  "/images/overview/e-library-st.jpeg",
+  "/images/overview/e-library-st.webp",
   "/images/overview/campus view.webp",
 ];
 

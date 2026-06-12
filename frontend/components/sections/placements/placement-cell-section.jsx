@@ -151,7 +151,7 @@ export function PlacementCellSection() {
             <div className="shrink-0 relative">
               <div className="w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border-[6px] border-white shadow-lg bg-[radial-gradient(circle_at_center,#f87171_0%,#b91c1c_100%)]">
                 {/* Fallback image if user doesn't have one */}
-                <img src="/images/Dr. Gorakhnath bhure.png" onError={(e) => {e.target.src = "https://ui-avatars.com/api/?name=Rahul+Mishra&background=d60b0b&color=fff&size=150"}} alt="Dr. Gorakhnath Bhure" className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
+                <img src="/images/Dr. Gorakhnath bhure.webp" onError={(e) => {e.target.src = "https://ui-avatars.com/api/?name=Rahul+Mishra&background=d60b0b&color=fff&size=150"}} alt="Dr. Gorakhnath Bhure" className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
               </div>
             </div>
             
@@ -189,7 +189,7 @@ export function PlacementCellSection() {
             <div className="shrink-0 relative">
               <div className="w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border-[6px] border-white shadow-lg bg-[radial-gradient(circle_at_center,#f87171_0%,#b91c1c_100%)]">
                 {/* Fallback image if user doesn't have one */}
-                <img src="/images/mansuri sir.png" onError={(e) => {e.target.src = "https://ui-avatars.com/api/?name=Amit+Sahu&background=d60b0b&color=fff&size=150"}} alt="Mr. Amit Sahu" className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
+                <img src="/images/mansuri sir.webp" onError={(e) => {e.target.src = "https://ui-avatars.com/api/?name=Amit+Sahu&background=d60b0b&color=fff&size=150"}} alt="Mr. Amit Sahu" className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
               </div>
             </div>
             
