@@ -25,7 +25,7 @@ function DataCell({ column, value, onCopyValue }) {
       <button
         type="button"
         onClick={() => onCopyValue(value)}
-        className="group block w-full rounded-lg text-left transition hover:bg-slate-50 focus:outline-none"
+        className="group block w-full rounded-lg text-left transition hover:bg-slate-50 hover:text-black focus:outline-none"
         title="Copy cell value"
       >
         <span className="flex items-start gap-2">
@@ -136,7 +136,7 @@ export function AdminDataTable({
                   </tr>
                 ) : (
                   rows.map((row) => (
-                    <tr key={row._id || JSON.stringify(row)} className="group hover:bg-slate-50">
+                    <tr key={row._id || JSON.stringify(row)} className="group hover:bg-slate-50 hover:text-black">
                       {columns.map((column) => (
                         <DataCell
                           key={column.key}
@@ -151,7 +151,7 @@ export function AdminDataTable({
                             type="button"
                             variant="outline"
                             size="sm"
-                            className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100"
+                            className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100 hover:text-black"
                             onClick={() => onViewRecord(row)}
                           >
                             <Eye className="h-4 w-4" />
@@ -183,7 +183,7 @@ export function AdminDataTable({
                                   </AlertDialogDescription>
                                 </AlertDialogHeader>
                                 <AlertDialogFooter>
-                                  <AlertDialogCancel className="border-slate-200 bg-white text-slate-700 hover:bg-slate-100">
+                                  <AlertDialogCancel className="border-slate-200 bg-white text-slate-700 hover:bg-slate-100 hover:text-black">
                                     Cancel
                                   </AlertDialogCancel>
                                   <AlertDialogAction
@@ -233,7 +233,7 @@ export function AdminDataTable({
                 type="button"
                 variant="outline"
                 size="sm"
-                className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100"
+                className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100 hover:text-black"
                 disabled={currentPage <= 1}
                 onClick={() => onPageChange(currentPage - 1)}
               >
@@ -244,7 +244,7 @@ export function AdminDataTable({
                 type="button"
                 variant="outline"
                 size="sm"
-                className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100"
+                className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100 hover:text-black"
                 disabled={currentPage >= totalPages}
                 onClick={() => onPageChange(currentPage + 1)}
               >

@@ -244,7 +244,7 @@ export default function SatpudaSuperpowerPage() {
                       type="button"
                       variant="outline"
                       size="icon-sm"
-                      className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100 lg:hidden"
+                      className="border-slate-200 bg-white text-[#021545] hover:bg-slate-100 hover:text-black lg:hidden"
                     >
                       <Menu className="h-4 w-4" />
                     </Button>
@@ -280,7 +280,7 @@ export default function SatpudaSuperpowerPage() {
                 <Button
                   type="button"
                   variant="outline"
-                  className="hidden border-slate-200 bg-white text-[#021545] hover:bg-slate-100 lg:inline-flex"
+                  className="hidden border-slate-200 bg-white text-[#021545] hover:bg-slate-100 hover:text-black lg:inline-flex"
                   onClick={() => setSidebarCollapsed((current) => !current)}
                 >
                   {sidebarCollapsed ? "Open sidebar" : "Close sidebar"}

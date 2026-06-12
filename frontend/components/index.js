@@ -17,6 +17,7 @@ export { CompanyMarquee } from "./sections/home/company-marquee.jsx";
 export { DomeGallerySection } from "./sections/home/dome-gallery-section.jsx";
 export { RedInfoMarqueeSection } from "./sections/home/red-info-marquee-section.jsx";
 export { BlueInfoMarqueeSection } from "./sections/home/blue-info-marquee-section.jsx";
+export { DiscoverSatpuraSection } from "./sections/home/discover-satpura-section.jsx";
 export { CSESection } from "./sections/academics/cse-section.jsx";
 export { MiningSection } from "./sections/academics/mining-section.jsx";
 export { PlacementsHeroSection } from "./sections/placements/placements-hero-section.jsx";
