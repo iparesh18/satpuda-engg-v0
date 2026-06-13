@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import { Button } from "../../ui/button.jsx";
 import { PROGRAM_OPTIONS, getBranchOptions, buildAdmissionCourse } from "../../shared/admission-options.js";
 import {
-  ArrowRight,
   ClipboardList,
   User,
   Phone,
@@ -393,8 +392,11 @@ export default function AdmissionFormPage() {
                       <p className="text-[12px] sm:text-sm font-semibold text-foreground">+91 94258 36824, +91 6262 604 111</p>
                     </div>
                   </div>
-                  <Button variant="outline" className="h-9 px-4">
-                    Contact Us
+                  <Button asChild variant="outline" className="h-9 px-4">
+                    <a href="tel:+919425836824">
+                      <Phone className="h-4 w-4" />
+                      Call Now
+                    </a>
                   </Button>
                 </div>
               </div>
@@ -423,8 +425,10 @@ export default function AdmissionFormPage() {
                 <Mail className="h-4 w-4 text-primary" />
                 <span className="text-[11px] sm:text-xs lg:text-sm">satpudaengineeringcollege@gmail.com</span>
               </div>
-              <Button className="h-10 px-5 bg-primary text-white">
-                Contact Us <ArrowRight className="ml-2 h-4 w-4" />
+              <Button asChild className="h-10 px-5 bg-primary text-white">
+                <a href="tel:+919425836824">
+                  Call Now <Phone className="ml-2 h-4 w-4" />
+                </a>
               </Button>
             </div>
           </div>
