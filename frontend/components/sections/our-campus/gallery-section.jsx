@@ -20,6 +20,7 @@ import BlurText from "../../bits/blur-text.jsx";
 import ShinyText from "../../bits/shiny-text.jsx";
 import SpotlightCard from "../../bits/spotlight-card.jsx";
 import DomeGallery from "../../bits/DomeGallery.jsx";
+import SpiralGallery from "../../bits/spiral-gallery.jsx";
 
 const highlightChips = [
   "Events & Culture",
@@ -88,6 +89,21 @@ const domeImages = [
   { src: "/images/overview/campus overview.webp", alt: "Campus overview" },
   { src: "/images/overview/student in class.webp", alt: "Student learning" },
   { src: "/images/overview/student in lab.webp", alt: "Innovation lab" }
+];
+
+const spiralImages = [
+  { src: "/images/overview/campus overview.webp", title: "Campus Overview", tag: "Campus" },
+  { src: "/images/overview/event and culture.webp", title: "Festive Nights", tag: "Events" },
+  { src: "/images/overview/student in lab.webp", title: "Innovation Lab", tag: "Labs" },
+  { src: "/images/overview/sports and activity.webp", title: "Athletic Spirit", tag: "Sports" },
+  { src: "/images/overview/smart library.webp", title: "Smart Library", tag: "Library" },
+  { src: "/images/overview/student in class.webp", title: "Active Learning", tag: "Academics" },
+  { src: "/images/overview/campus view.webp", title: "Open Greens", tag: "Campus" },
+  { src: "/images/overview/college bus.webp", title: "Campus Transport", tag: "Transport" },
+  { src: "/images/overview/architect-st.webp", title: "Golden Hour", tag: "Architecture" },
+  { src: "/images/overview/seminar-st.webp", title: "Seminar Hall", tag: "Events" },
+  { src: "/images/overview/cs-lab-st.webp", title: "Computer Lab", tag: "Labs" },
+  { src: "/images/overview/campus building.webp", title: "Campus Building", tag: "Architecture" }
 ];
 
 
@@ -418,7 +434,14 @@ export function GallerySection() {
         </div>
       </motion.section>
 
-      
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SpiralGallery
+          images={spiralImages}
+          eyebrow="Spiral Showreel"
+          title="Scroll the Spiral"
+          subtitle="Scroll to spin through campus moments — each frame drifts down the vortex, rounding into focus and away again."
+        />
+      </section>
     </main>
   );
 }
