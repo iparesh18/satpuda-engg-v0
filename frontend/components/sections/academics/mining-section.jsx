@@ -33,7 +33,7 @@ import SpotlightCard from "../../bits/spotlight-card.jsx";
 import Magnetic from "../../bits/magnetic.jsx";
 
 const stats = [
-  { icon: Users, value: "180+", label: "Students Enrolled" },
+  { icon: Users, value: "650+", label: "Students Enrolled" },
   { icon: GraduationCap, value: "20+", label: "Expert Faculty" },
   { icon: Building2, value: "12+", label: "Labs & Facilities" },
   { icon: Trophy, value: "95%", label: "Placement Assistance" },
@@ -140,13 +140,13 @@ const highlights = [
 
 const hodData = {
   isHod: true,
-  name: "Dr. R. K. Sharma",
+  name: "Mr. Chhabesh Parihar",
   role: "HOD - Mining Engineering",
-  subject: "Rock Mechanics & Mine Planning",
-  degree: "B.Tech(Mining), M.Tech, PhD",
+  subject: "Mine Ventilation",
+  degree: "B.Tech(Mining)",
   badgeTitle: "20+ Years of",
   badgeSubtitle: "Mining Excellence",
-  image: "https://ui-avatars.com/api/?name=RK+Sharma&background=d60b0b&color=fff&size=150",
+  image: "/images/chabbu-mine.png",
 
   titlePart1: "Pioneering",
   titlePart2: "Earth Sciences.",
@@ -155,38 +155,25 @@ const hodData = {
 };
 
 const facultyMembers = [
+  // {
+  //   name: "Mr. Chhabesh parihar ",
+  //   role: "Assistant Professor",
+  //   subject: "Mine Ventilation",
+  //   degree: "B.Tech",
+  //   image: "/images/chabesh-2.png",
+  //   badgeTitle: "Ventilation",
+  //   badgeSubtitle: "Expert",
+  //   titlePart1: "Mastering",
+  //   titlePart2: "Excavation.",
+  //   titlePart3: "Safe",
+  //   titlePart4: "Operations.",
+  // },
   {
-    name: "Mr. S. P. Singh",
-    role: "Assistant Professor",
-    subject: "Surface Mining",
-    degree: "M.Tech",
-    image: "https://ui-avatars.com/api/?name=SP+Singh&background=d60b0b&color=fff&size=150",
-    badgeTitle: "Excavation",
-    badgeSubtitle: "Expert",
-    titlePart1: "Mastering",
-    titlePart2: "Excavation.",
-    titlePart3: "Safe",
-    titlePart4: "Operations.",
-  },
-  {
-    name: "Mr. Alok Kumar",
-    role: "Assistant Professor",
-    subject: "Underground Mining",
-    degree: "M.Tech",
-    image: "https://ui-avatars.com/api/?name=Alok+Kumar&background=d60b0b&color=fff&size=150",
-    badgeTitle: "Underground",
-    badgeSubtitle: "Specialist",
-    titlePart1: "Exploring",
-    titlePart2: "Depths.",
-    titlePart3: "Securing",
-    titlePart4: "Mines.",
-  },
-  {
-    name: "Miss Neha Patel",
+    name: "Miss Poonam Choudhary",
     role: "Lecturer",
     subject: "Mine Surveying",
     degree: "B.Tech",
-    image: "https://ui-avatars.com/api/?name=Neha+Patel&background=d60b0b&color=fff&size=150",
+    image:  "/images/new-poonam-mine.png",
     badgeTitle: "Surveying",
     badgeSubtitle: "Professional",
     titlePart1: "Mapping",
@@ -194,19 +181,7 @@ const facultyMembers = [
     titlePart3: "Precision",
     titlePart4: "Measurement.",
   },
-  {
-    name: "Mr. Rajesh Verma",
-    role: "Assistant Professor",
-    subject: "Mineral Processing",
-    degree: "M.Sc",
-    image: "https://ui-avatars.com/api/?name=Rajesh+Verma&background=d60b0b&color=fff&size=150",
-    badgeTitle: "Mineral",
-    badgeSubtitle: "Processing",
-    titlePart1: "Extracting",
-    titlePart2: "Value.",
-    titlePart3: "Refining",
-    titlePart4: "Ores.",
-  }
+
 ];
 
 export function MiningSection() {

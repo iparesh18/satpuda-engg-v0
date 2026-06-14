@@ -8,34 +8,34 @@ import Magnetic from "../../bits/magnetic.jsx";
 import BlurText from "../../bits/blur-text.jsx";
 
 const SUCCESS_STORIES = [
-  { name: "DEWANG MALEWAR", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-01.webp", package: "4.0 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/first step innovation.webp" },
-  { name: "YOJNA PARDHI", company: "ZENUS GROUP", photo: "/images/placement/yojna pardhi.webp", package: "7.0 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
-  { name: "VISHAKHA BAGHELE", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-02.webp", package: "4.0 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/first step innovation.webp" },
-  { name: "PREKSHA DWIVEDI", company: "ZENUS GROUP", photo: "/images/placement/company-03.webp", package: "7.0 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
-  { name: "ANKUSH NANDAGOULI", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-04.webp", package: "4.0 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/first step innovation.webp" },
-  { name: "HIMANSHU PATLE", company: "ZENUS GROUP", photo: "/images/placement/himanshu patle.webp", package: "7.0 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
-  { name: "RAJNEESH ASHWALE", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-05.webp", package: "4.0 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/first step innovation.webp" },
-  { name: "ABHISHEK MANESHWAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-06.webp", package: "3.25 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.webp" },
-  { name: "RANVEER SHARMA", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-07.webp", package: "3.7 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/lloyds-metals.webp" },
-  { name: "GAGAN PATLE", company: "ZENUS GROUP", photo: "/images/placement/gagan patle.webp", package: "4.0 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
-  { name: "HARSHIT SELOKAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-08.webp", package: "3.25 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/gr infraproject ltd.webp" },
-  { name: "ANKIT BANDHE", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-09.webp", package: "3.7 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/lloyds-metals.webp" },
-  { name: "TARUN BISEN", company: "ZENUS GROUP", photo: "/images/placement/tarun bisen.webp", package: "4.0 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
-  { name: "HIMANSHU DORAS", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-10.webp", package: "3.25 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/gr infraproject ltd.webp" },
-  { name: "DISHANT THAKRE", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-11.webp", package: "3.7 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/lloyds-metals.webp" },
-  { name: "PRAFUL BITHLE", company: "ZENUS GROUP", photo: "/images/placement/praful bithle.webp", package: "4.0 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
-  { name: "OM DUBEY", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-12.webp", package: "3.25 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.webp" },
-  { name: "DIPANSHU", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-14.webp", package: "3.7 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/lloyds-metals.webp" },
-  { name: "ABHAY RAHANGDALE", company: "ZENUS GROUP", photo: "/images/placement/abhay rahangdale.webp", package: "4.0 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
-  { name: "VINENDRA PAGARWAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-13.webp", package: "3.25 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/gr infraproject ltd.webp" },
-  { name: "VIJESH KUMAR", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-16.webp", package: "3.7 LPA", year: "2026", borderColor: "border-blue-600", logo: "/images/lloyds-metals.webp" },
-  { name: "YASH SHRIVASTAVA", company: "ZENUS GROUP", photo: "/images/placement/yash Shrivastava.webp", package: "4.0 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
-  { name: "NAVEEN GAJBHIYE", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-15.webp", package: "3.25 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.webp" },
-  { name: "ADNAN KHAN", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-17.webp", package: "3.7 LPA", year: "2026", borderColor: "border-green-500", logo: "/images/lloyds-metals.webp" },
-  { name: "SANJEET PANCHESWAR", company: "GROUP R MINING & EXPLORATION INDIA PVT LTD", photo: "/images/placement/18.webp", package: "14.3 LPA", year: "2017", borderColor: "border-purple-600", logo: "/images/group r.webp" },
-  { name: "VINENDRA PAGARWAR", company: "ZENUS GROUP", photo: "/images/placement/vinendra pagarwar.webp", package: "4.0 LPA", year: "2026", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
-  { name: "MITHLESH KHERWAR", company: "GROUP R MINING & EXPLORATION INDIA PVT LTD", photo: "/images/placement/19.webp", package: "16.3 LPA", year: "2017", borderColor: "border-blue-600", logo: "/images/group r.webp" },
-  { name: "ASHISH KOLTE", company: "WMW SRL BACAU (EUROPE)", photo: "/images/placement/Ak.webp", package: "15.30 LPA", year: "2022", borderColor: "border-green-500", logo: "/images/WMW logo.webp" }
+  { name: "DEWANG MALEWAR", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-01.webp", package: "4.0 LPA", year: "2026",branch:"CSE", borderColor: "border-blue-600", logo: "/images/first step innovation.webp" },
+  { name: "YOJNA PARDHI", company: "ZENUS GROUP", photo: "/images/placement/yojna pardhi.webp", package: "7.0 LPA", year: "2026",branch:"CSE", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
+  { name: "VISHAKHA BAGHELE", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-02.webp", package: "4.0 LPA", year: "2026",branch:"CSE", borderColor: "border-green-500", logo: "/images/first step innovation.webp" },
+  { name: "PREKSHA DWIVEDI", company: "ZENUS GROUP", photo: "/images/placement/company-03.webp", package: "7.0 LPA", year: "2026",branch:"CSE", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
+  { name: "ANKUSH NANDAGOULI", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-04.webp", package: "4.0 LPA", year: "2026",branch:"CSE", borderColor: "border-blue-600", logo: "/images/first step innovation.webp" },
+  { name: "HIMANSHU PATLE", company: "ZENUS GROUP", photo: "/images/placement/himanshu patle.webp", package: "7.0 LPA", year: "2026",branch:"CSE", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
+  { name: "RAJNEESH ASHWALE", company: "FIRST STEP INNOVATION", photo: "/images/placement/company-05.webp", package: "4.0 LPA", year: "2026",branch:"CSE", borderColor: "border-green-500", logo: "/images/first step innovation.webp" },
+  { name: "ABHISHEK MANESHWAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-06.webp", package: "3.25 LPA", year: "2026",branch:"CIVIL", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.webp" },
+  { name: "RANVEER SHARMA", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-07.webp", package: "3.7 LPA", year: "2026",branch:"MINING", borderColor: "border-blue-600", logo: "/images/lloyds-metals.webp" },
+  { name: "GAGAN PATLE", company: "ZENUS GROUP", photo: "/images/placement/gagan patle.webp", package: "4.0 LPA", year: "2026",branch:"Poly. Elec", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
+  { name: "HARSHIT SELOKAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-08.webp", package: "3.25 LPA", year: "2026",branch:"CIVIL", borderColor: "border-green-500", logo: "/images/gr infraproject ltd.webp" },
+  { name: "ANKIT BANDHE", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-09.webp", package: "3.7 LPA", year: "2026",branch:"Mech.", borderColor: "border-purple-600", logo: "/images/lloyds-metals.webp" },
+  { name: "TARUN BISEN", company: "ZENUS GROUP", photo: "/images/placement/tarun bisen.webp", package: "4.0 LPA", year: "2026",branch:"Poly. Mech.", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
+  { name: "HIMANSHU DORAS", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-10.webp", package: "3.25 LPA", year: "2026",branch:"CIVIL", borderColor: "border-blue-600", logo: "/images/gr infraproject ltd.webp" },
+  { name: "DISHANT THAKRE", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-11.webp", package: "3.7 LPA", year: "2026",branch:"Poly. Mech.", borderColor: "border-green-500", logo: "/images/lloyds-metals.webp" },
+  { name: "PRAFUL BITHLE", company: "ZENUS GROUP", photo: "/images/placement/praful bithle.webp", package: "4.0 LPA", year: "2026",branch:"Poly. Mech.", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
+  { name: "OM DUBEY", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-12.webp", package: "3.25 LPA", year: "2026",branch:"CIVIL", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.webp" },
+  { name: "DIPANSHU", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-14.webp", package: "3.7 LPA", year: "2026",branch:"MECH", borderColor: "border-green-500", logo: "/images/lloyds-metals.webp" },
+  { name: "ABHAY RAHANGDALE", company: "ZENUS GROUP", photo: "/images/placement/abhay rahangdale.webp", package: "4.0 LPA", year: "2026",branch:"Poly. Civil", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
+  { name: "VINENDRA PAGARWAR", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-13.webp", package: "3.25 LPA", year: "2026",branch:"Poly. Civil", borderColor: "border-blue-600", logo: "/images/gr infraproject ltd.webp" },
+  { name: "VIJESH KUMAR", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-16.webp", package: "3.7 LPA", year: "2026",branch:"Poly. Elec", borderColor: "border-blue-600", logo: "/images/lloyds-metals.webp" },
+  { name: "YASH SHRIVASTAVA", company: "ZENUS GROUP", photo: "/images/placement/yash Shrivastava.webp", package: "4.0 LPA", year: "2026",branch:"Poly. Civil", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
+  { name: "NAVEEN GAJBHIYE", company: "GR INFRAPROJECTS LTD.", photo: "/images/placement/company-15.webp", package: "3.25 LPA", year: "2026",branch:"", borderColor: "border-purple-600", logo: "/images/gr infraproject ltd.webp" },
+  { name: "ADNAN KHAN", company: "LLOYDS METALS AND ENERGY LTD", photo: "/images/placement/company-17.webp", package: "3.7 LPA", year: "2026",branch:"Mining", borderColor: "border-green-500", logo: "/images/lloyds-metals.webp" },
+  { name: "SANJEET PANCHESWAR", company: "GROUP R MINING & EXPLORATION INDIA PVT LTD", photo: "/images/placement/18.webp", package: "14.3 LPA", year: "2017",branch:"Poly. (MMS)", borderColor: "border-purple-600", logo: "/images/group r.webp" },
+  { name: "VINENDRA PAGARWAR", company: "ZENUS GROUP", photo: "/images/placement/vinendra pagarwar.webp", package: "4.0 LPA", year: "2026",branch:"Poly. Civil", borderColor: "border-purple-600", logo: "/images/zenus group.webp" },
+  { name: "MITHLESH KHERWAR", company: "GROUP R MINING & EXPLORATION INDIA PVT LTD", photo: "/images/placement/19.webp", package: "16.3 LPA", year: "2017",branch:"Poly. (MMS)", borderColor: "border-blue-600", logo: "/images/group r.webp" },
+  { name: "ASHISH KOLTE", company: "WMW SRL BACAU (EUROPE)", photo: "/images/placement/Ak.webp", package: "15.30 LPA", year: "2022",branch:"Poly. Mech.", borderColor: "border-green-500", logo: "/images/WMW logo.webp" }
 ];
 
 export function StudentSuccessSection() {
@@ -130,7 +130,7 @@ export function StudentSuccessSection() {
                         </div>
                         <div>
                           <p className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">BRANCH</p>
-                          <p className="text-xs sm:text-base font-black text-gray-900 leading-none">{story.branch || "CSE"}</p>
+                          <p className="text-xs sm:text-base font-black text-gray-900 leading-none">{story.branch}</p>
                         </div>
                       </div>
 
