@@ -32,7 +32,7 @@ import SpotlightCard from "../../bits/spotlight-card.jsx";
 import Magnetic from "../../bits/magnetic.jsx";
 
 const stats = [
-  { icon: Users, value: "240+", label: "Students Enrolled" },
+  { icon: Users, value: "480+", label: "Students Enrolled" },
   { icon: GraduationCap, value: "25+", label: "Expert Faculty" },
   { icon: Building2, value: "12+", label: "Labs & Facilities" },
   { icon: Trophy, value: "98%", label: "Placement Assistance" },
@@ -263,7 +263,7 @@ const facultyMembers = [
     name: "Miss Tripti Chouhan",
     role: "Assistant Professor",
     subject: "Applied Maths",
-    degree: "M.Tech",
+    degree: "MSc",
     image: "/images/tripti mam.webp",
     badgeTitle: "Operating",
     badgeSubtitle: "Systems Expert",
@@ -275,7 +275,7 @@ const facultyMembers = [
   {
     name: "Miss Deepali Tiwari ",
     role: "Assistant Professor",
-    subject: "COA",
+    subject: "Physics",
     degree: "M.Sc",
     image: "/images/deepali-mam.webp",
     badgeTitle: "System",

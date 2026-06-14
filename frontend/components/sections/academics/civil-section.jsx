@@ -33,7 +33,7 @@ import SpotlightCard from "../../bits/spotlight-card.jsx";
 import Magnetic from "../../bits/magnetic.jsx";
 
 const stats = [
-  { icon: Users, value: "220+", label: "Students Enrolled" },
+  { icon: Users, value: "280+", label: "Students Enrolled" },
   { icon: GraduationCap, value: "22+", label: "Expert Faculty" },
   { icon: Building2, value: "10+", label: "Labs & Facilities" },
   { icon: Trophy, value: "96%", label: "Placement Assistance" },
@@ -184,8 +184,20 @@ const facultyMembers = [
   {
     name: "Mr. Pankaj Rao Mahore",
     role: "Assistant Professor",
-    subject: "Surveying",
+    subject: "Geotechnical Engg",
     degree: "M.Tech",
+    image: "/images/civil/pankaj-mahore-civil.png",
+    badgeTitle: "Geo Tech",
+    badgeSubtitle: "Professional",
+    titlePart1: "Mapping",
+    titlePart2: "Terrains.",
+    titlePart3: "Measuring",
+    titlePart4: "Land.",
+  },  {
+    name: "Mr. Pankaj Choudhary",
+    role: "Lecturer",
+    subject: "Civil Engineering",
+    degree: "B.E.",
     image: "/images/civil/pankaj sir.webp",
     badgeTitle: "Surveying",
     badgeSubtitle: "Professional",
@@ -194,6 +206,19 @@ const facultyMembers = [
     titlePart3: "Measuring",
     titlePart4: "Land.",
   },
+   {
+    name: "Mr Pradeep Matre",
+    role: "Assistant Professor",
+    subject: "Structural Engg",
+    degree: "B.Tech",
+    image: "/images/civil/pradeep-matr-civil.png",
+    badgeTitle: "Structural",
+    badgeSubtitle: "Professional",
+    titlePart1: "Mapping",
+    titlePart2: "Terrains.",
+    titlePart3: "Measuring",
+    titlePart4: "Land.",
+  }, 
   {
     name: "Miss Mansi Soni",
     role: "Lecturer",

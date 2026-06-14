@@ -33,7 +33,7 @@ import SpotlightCard from "../../bits/spotlight-card.jsx";
 import Magnetic from "../../bits/magnetic.jsx";
 
 const stats = [
-  { icon: Users, value: "230+", label: "Students Enrolled" },
+  { icon: Users, value: "570+", label: "Students Enrolled" },
   { icon: GraduationCap, value: "23+", label: "Expert Faculty" },
   { icon: Lightbulb, value: "11+", label: "Labs & Facilities" },
   { icon: Trophy, value: "95%", label: "Placement Assistance" },
@@ -152,6 +152,19 @@ const facultyMembers = [
     titlePart3: "Mastering",
     titlePart4: "Power.",
   },
+    {
+    name: "Dr. Gorakhnath Bhure ",
+    role: "CEO jobsahi,Training and placement officer ",
+    subject: "Electrical Machines",
+    degree: "Ph.D in Electronics",
+    image: "/images/electrical/gorakh-bhure-ele.png",
+    badgeTitle: "Digital",
+    badgeSubtitle: "Communication",
+    titlePart1: "Designing",
+    titlePart2: "Circuits.",
+    titlePart3: "Mastering",
+    titlePart4: "Power.",
+  },
   {
     name: "Mr. Ajay Baghele",
     role: "Lecturer",
@@ -260,7 +273,7 @@ const facultyMembers = [
     name: "Mrs. Jhamiya mervi",
     role: "Assistant Professor",
     subject: "Power Electronics",
-    degree: "MBA",
+    degree: "M.Tech",
     image: "/images/electrical/jhamiya-ele1.webp",
     badgeTitle: "Electrical",
     badgeSubtitle: "Engineering",
