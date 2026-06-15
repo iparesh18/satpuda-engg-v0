@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Menu, RefreshCw, Sparkles } from "lucide-react";
+import { Menu, RefreshCw, Sparkles, LogOut } from "lucide-react";
 import { toast, Toaster } from "sonner";
 import { Button } from "../../ui/button.jsx";
 import { Sheet, SheetContent, SheetTrigger } from "../../ui/sheet.jsx";
@@ -18,6 +18,8 @@ import { formatAdminValue } from "../../admin/utils/format.js";
 import { getDefaultAdminCollectionKey } from "../../admin/config/collections.js";
 import { deleteAdminRecord } from "../../admin/services/admin-api.js";
 import { FeedbackManager } from "../../admin/components/feedback-manager.jsx";
+import { AdminLogin } from "../../admin/components/admin-login.jsx";
+import { isAdminAuthenticated, clearAdminToken, onAdminUnauthorized } from "../../admin/services/admin-auth.js";
 
 const FEEDBACKS_KEY = "feedbacks";
 
@@ -37,7 +39,7 @@ function createDefaultQuery(collection) {
   };
 }
 
-export default function SatpudaSuperpowerPage() {
+function AdminDashboard({ onLogout }) {
   const apiBaseUrl = import.meta.env.VITE_API_URL || "";
   const overviewState = useAdminOverview(apiBaseUrl);
   const overview = overviewState.data;
@@ -218,7 +220,7 @@ export default function SatpudaSuperpowerPage() {
   const latestPreview = latestSubmission?.preview || [];
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(2,21,69,0.06),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(214,11,11,0.05),transparent_32%),linear-gradient(180deg,#f8fafc_0%,#eef2f9_100%)] text-slate-900">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(2,21,69,0.06),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(214,11,11,0.05),transparent_32%),linear-gradient(180deg,#f8fafc_0%,#eef2f9_100%)] text-slate-900 [&_button]:cursor-pointer">
       <Toaster richColors theme="light" position="top-right" />
 
       <div className={desktopShellClass}>
@@ -249,7 +251,7 @@ export default function SatpudaSuperpowerPage() {
                       <Menu className="h-4 w-4" />
                     </Button>
                   </SheetTrigger>
-                  <SheetContent side="left" className="w-[320px] border-slate-200 bg-white p-0 text-slate-900">
+                  <SheetContent side="left" className="w-[320px] border-slate-200 bg-white p-0 text-slate-900 [&_button]:cursor-pointer">
                     <AdminSidebar
                       collections={sidebarCollections}
                       activeCollectionKey={activeCollectionKey}
@@ -292,6 +294,15 @@ export default function SatpudaSuperpowerPage() {
                 >
                   <RefreshCw className="h-4 w-4" />
                   Refresh all
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="border-[#d60b0b]/30 bg-white text-[#d60b0b] hover:bg-[#d60b0b]/5 hover:text-[#d60b0b]"
+                  onClick={onLogout}
+                >
+                  <LogOut className="h-4 w-4" />
+                  Logout
                 </Button>
               </div>
             </div>
@@ -403,4 +414,22 @@ export default function SatpudaSuperpowerPage() {
       />
     </div>
   );
+}
+
+export default function SatpudaSuperpowerPage() {
+  const [authenticated, setAuthenticated] = useState(() => isAdminAuthenticated());
+
+  // If a protected request returns 401 (e.g. expired/invalid token), drop back to login.
+  useEffect(() => onAdminUnauthorized(() => setAuthenticated(false)), []);
+
+  const handleLogout = () => {
+    clearAdminToken();
+    setAuthenticated(false);
+  };
+
+  if (!authenticated) {
+    return <AdminLogin onSuccess={() => setAuthenticated(true)} />;
+  }
+
+  return <AdminDashboard onLogout={handleLogout} />;
 }

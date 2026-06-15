@@ -1,5 +1,6 @@
 const express = require("express");
 const Feedback = require("../models/Feedback.js");
+const { adminAuth } = require("../middleware/adminAuth.js");
 
 const router = express.Router();
 
@@ -59,7 +60,7 @@ router.get("/approved", async (req, res) => {
 });
 
 // Admin: all feedback split into pending + approved
-router.get("/admin", async (req, res) => {
+router.get("/admin", adminAuth, async (req, res) => {
   try {
     const [pending, approved] = await Promise.all([
       Feedback.find({ status: "pending" }).sort({ createdAt: -1 }).lean(),
@@ -74,7 +75,7 @@ router.get("/admin", async (req, res) => {
 });
 
 // Admin: approve a pending feedback (this is what makes it show on the marquee)
-router.patch("/:id/approve", async (req, res) => {
+router.patch("/:id/approve", adminAuth, async (req, res) => {
   try {
     const { id } = req.params;
     if (!isValidId(id)) {
@@ -99,7 +100,7 @@ router.patch("/:id/approve", async (req, res) => {
 });
 
 // Admin: delete a feedback (works for both pending and approved)
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", adminAuth, async (req, res) => {
   try {
     const { id } = req.params;
     if (!isValidId(id)) {

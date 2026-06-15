@@ -164,7 +164,7 @@ export function AdminDataTable({
                                   type="button"
                                   variant="outline"
                                   size="sm"
-                                  className="border-[#d60b0b]/30 bg-white text-[#d60b0b] hover:bg-[#d60b0b]/10"
+                                  className="border-[#d60b0b]/30 bg-white text-[#d60b0b] hover:bg-[#d60b0b]/10 hover:text-black"
                                   disabled={deletingId === row._id}
                                 >
                                   {deletingId === row._id ? (
@@ -175,7 +175,7 @@ export function AdminDataTable({
                                   Delete
                                 </Button>
                               </AlertDialogTrigger>
-                              <AlertDialogContent className="border-slate-200 bg-white text-slate-900">
+                              <AlertDialogContent className="border-slate-200 bg-white text-slate-900 [&_button]:cursor-pointer">
                                 <AlertDialogHeader>
                                   <AlertDialogTitle className="text-[#021545]">Delete this record?</AlertDialogTitle>
                                   <AlertDialogDescription className="text-slate-500">

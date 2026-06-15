@@ -1,3 +1,5 @@
+import { authHeaders, notifyUnauthorized } from "./admin-auth.js";
+
 function normalizeBaseUrl(apiBaseUrl) {
   return String(apiBaseUrl || "").replace(/\/$/, "");
 }
@@ -18,7 +20,16 @@ function buildQueryString(params = {}) {
 }
 
 async function requestJson(url, options = {}) {
-  const response = await fetch(url, options);
+  const response = await fetch(url, {
+    ...options,
+    headers: { ...authHeaders(), ...(options.headers || {}) }
+  });
+
+  if (response.status === 401) {
+    notifyUnauthorized();
+    throw new Error("Session expired. Please sign in again.");
+  }
+
   const payload = await response.json().catch(() => ({}));
 
   if (!response.ok) {

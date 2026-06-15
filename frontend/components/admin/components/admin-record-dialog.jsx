@@ -28,7 +28,7 @@ export function AdminRecordDialog({ record, columns = [], open, onOpenChange, on
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         showCloseButton={false}
-        className="max-h-[90vh] w-[min(92vw,900px)] overflow-y-auto border-slate-200 bg-white text-slate-900 shadow-2xl shadow-slate-900/20 sm:max-w-4xl"
+        className="max-h-[90vh] w-[min(92vw,900px)] overflow-y-auto border-slate-200 bg-white text-slate-900 shadow-2xl shadow-slate-900/20 sm:max-w-4xl [&_button]:cursor-pointer"
       >
         <DialogHeader>
           <DialogTitle className="flex items-center justify-between text-[#021545]">
@@ -94,14 +94,14 @@ export function AdminRecordDialog({ record, columns = [], open, onOpenChange, on
                   <Button
                     type="button"
                     variant="outline"
-                    className="border-[#d60b0b]/30 bg-white text-[#d60b0b] hover:bg-[#d60b0b]/10"
+                    className="border-[#d60b0b]/30 bg-white text-[#d60b0b] hover:bg-[#d60b0b]/10 hover:text-black"
                     disabled={deleting}
                   >
                     {deleting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
                     Delete record
                   </Button>
                 </AlertDialogTrigger>
-                <AlertDialogContent className="border-slate-200 bg-white text-slate-900">
+                <AlertDialogContent className="border-slate-200 bg-white text-slate-900 [&_button]:cursor-pointer">
                   <AlertDialogHeader>
                     <AlertDialogTitle className="text-[#021545]">Delete this record?</AlertDialogTitle>
                     <AlertDialogDescription className="text-slate-500">
