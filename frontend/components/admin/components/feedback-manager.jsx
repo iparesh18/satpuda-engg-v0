@@ -59,7 +59,7 @@ function FeedbackCard({ item, isPending, onApprove, onDelete, busyId }) {
           variant="outline"
           disabled={busy}
           onClick={() => onDelete(item)}
-          className="border-slate-200 text-[#d60b0b] hover:bg-red-50"
+          className="border-slate-200 text-[#d60b0b] hover:bg-red-50 hover:text-black"
         >
           <Trash2 className="h-4 w-4" />
           Delete

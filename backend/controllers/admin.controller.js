@@ -1,6 +1,24 @@
 const { getAdminCollectionConfig, getAdminCollectionsList } = require("../config/adminCollections.js");
 const { fetchCollectionPage, buildOverview } = require("../services/adminQuery.service.js");
 
+function loginAdmin(req, res) {
+  const expectedUsername = process.env.ADMIN_USERNAME;
+  const expectedPassword = process.env.ADMIN_PASSWORD;
+  const token = process.env.ADMIN_AUTH_TOKEN;
+
+  if (!expectedUsername || !expectedPassword || !token) {
+    return res.status(500).json({ error: "Admin auth is not configured on the server." });
+  }
+
+  const { username, password } = req.body || {};
+
+  if (String(username || "").trim() !== expectedUsername || String(password || "") !== expectedPassword) {
+    return res.status(401).json({ error: "Invalid username or password." });
+  }
+
+  return res.json({ token, username: expectedUsername });
+}
+
 async function getAdminCollection(req, res) {
   try {
     const config = getAdminCollectionConfig(req.params.collectionName);
@@ -62,6 +80,7 @@ async function getAdminOverview(req, res) {
 }
 
 module.exports = {
+  loginAdmin,
   getAdminCollection,
   getAdminOverview,
   deleteAdminRecord

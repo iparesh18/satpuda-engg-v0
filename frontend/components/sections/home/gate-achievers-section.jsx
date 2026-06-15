@@ -32,7 +32,7 @@ const baseAchievers = [
   { name: "PRAFUL BITHLE", branch: "Poly(Mech)", company: "ZENUS GROUP", image: "/images/placement/praful bithle.webp" },
   { name: "VINENDRA PAGARWAR", branch: "Poly(Civil)" ,company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-13.webp" },
   { name: "DIPANSHU", branch: "Poly(Mech)", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-14.webp" },
-  { name: "NAVEEN GAJBHIYE", branch: "B.Tech(CSE)", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-15.webp" },
+  { name: "NAVEEN GAJBHIYE", branch: "Poly(Civil)", company: "GR INFRAPROJECTS LTD.", image: "/images/placement/company-15.webp" },
   { name: "VIJESH KUMAR", branch: "Poly(Elec)", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-16.webp" },
   { name: "YASH SHRIVASTAVA", branch: "Poly(Civil)", company: "ZENUS GROUP", image: "/images/placement/yash Shrivastava.webp" },
   { name: "ADNAN KHAN", branch: "Poly(Mining)", company: "LLYODS METALS AND ENERGY LIMITED", image: "/images/placement/company-17.webp" },
