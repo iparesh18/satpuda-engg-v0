@@ -13,7 +13,6 @@ export function Footer() {
     Gallery: "/our-campus/gallery",
     "Privacy Policy": "/privacy-policy",
     "Fee Structure": "/fee-structure",
-    "MSME Incubation Center": "/msme-incubation-center",
   };
 
   const importantLinkMap = {
@@ -37,7 +36,6 @@ export function Footer() {
       "MP DTE",
       "SCHOLARSHIP",
       "RGPV, Bhopal",
-      "MSME Incubation Center",
     ],
     admissions: [
       "Privacy Policy",
