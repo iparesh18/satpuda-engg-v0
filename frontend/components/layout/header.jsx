@@ -143,14 +143,14 @@ export function Header() {
             </a>
           </div>
 
-          {/* Center: Admission Open (Mobile Only) */}
+          {/* Center: MSME Incubation (Mobile Only) */}
           <div className="md:hidden flex-1 flex justify-center items-center px-2">
             <Link
-              to="/admissions/admission-form"
-              className="font-semibold text-[11px] whitespace-nowrap"
-              style={{ animation: "admission-blink 1.6s infinite" }}
+              to="/msme-incubation-center"
+              className="font-semibold text-[11px] whitespace-nowrap text-white bg-accent px-3 py-1 rounded-full shadow-[0_0_8px_rgba(214,11,11,0.6)] animate-pulse"
+              style={{ animationDuration: "2s" }}
             >
-              Admission Open -2026-27
+              MSME Incubation Center
             </Link>
           </div>
 
@@ -164,6 +164,13 @@ export function Header() {
               <Download className="h-3.5 w-3.5" />
               Download Brochure
             </a>
+            <Link
+              to="/msme-incubation-center"
+              className="hidden md:flex items-center justify-center px-4 py-1 rounded-full text-xs font-bold text-white bg-accent hover:bg-accent/90 transition-all border border-white/20 shadow-[0_0_12px_rgba(214,11,11,0.6)] animate-pulse"
+              style={{ animationDuration: "2s" }}
+            >
+              MSME Incubation Center
+            </Link>
             <Link
               to="/admissions/admission-form"
               className="hidden md:inline font-medium cursor-pointer"

@@ -1,10 +1,11 @@
-import { Header, HeroSection, StatsBar, AboutSection, GateAchieversSection, CoursesSection, BlueInfoMarqueeSection, WhyChooseUsSection, PlacementsSection, CompanyMarquee, RedInfoMarqueeSection, DomeGallerySection, DiscoverSatpuraSection, TestimonialsSection, CTASection, SocialMediaSection, Footer } from "../../index.js";
+import { Header, HeroSection, StatsBar, AboutSection, GateAchieversSection, CoursesSection, BlueInfoMarqueeSection, WhyChooseUsSection, PlacementsSection, CompanyMarquee, RedInfoMarqueeSection, DomeGallerySection, DiscoverSatpuraSection, TestimonialsSection, CTASection, SocialMediaSection, Footer, MsmePopup } from "../../index.js";
 import { ReloadContactPopup } from "../../sections/home/reload-contact-popup.jsx";
 import { ArrowUp } from "lucide-react";
 
 export default function HomePage() {
     return (<main className="min-h-screen">
-  <ReloadContactPopup />
+  {/* <ReloadContactPopup /> */}
+  <MsmePopup />
 
       {/* 1. Header & Hero */}
       <Header />
