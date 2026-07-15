@@ -717,8 +717,7 @@ export function MsmeIncubationSection() {
                 <div className="min-w-0">
                   <p className="font-bold text-foreground">Phone</p>
                   <p className="text-sm">
-                    <a href="tel:6262604111" className="hover:text-primary transition-colors">6262604111</a>,{" "}
-                    <a href="tel:6262604112" className="hover:text-primary transition-colors">6262604112</a>
+                    <a href="tel:9669112592" className="hover:text-primary transition-colors">9669112592</a>
                   </p>
                 </div>
               </li>
@@ -736,7 +735,7 @@ export function MsmeIncubationSection() {
             </ul>
 
             <a
-              href="tel:6262604111"
+              href="tel:9669112592"
               className="group relative mt-10 inline-flex w-full sm:w-auto items-center justify-center gap-3 overflow-hidden rounded-full bg-primary px-10 py-5 text-lg font-bold text-primary-foreground shadow-xl shadow-primary/20 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/40"
             >
               {/* awwwards-style fill sweep */}
