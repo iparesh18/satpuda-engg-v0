@@ -4,8 +4,8 @@ import { ArrowUp } from "lucide-react";
 
 export default function HomePage() {
     return (<main className="min-h-screen">
-  {/* <ReloadContactPopup /> */}
-  <MsmePopup />
+  <ReloadContactPopup />
+  {/* <MsmePopup /> */}
 
       {/* 1. Header & Hero */}
       <Header />
