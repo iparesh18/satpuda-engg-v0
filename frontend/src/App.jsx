@@ -31,6 +31,8 @@ import PrivacyPolicyPage from "../components/pages/privacy-policy/privacy-policy
 import FeeStructurePage from "../components/pages/admissions/fee-structure-page.jsx";
 import FeedbackPage from "../components/pages/feedback/feedback-page.jsx";
 import MsmeIncubationPage from "../components/pages/msme-incubation/msme-incubation-page.jsx";
+import GrievenceCellPage from "../components/pages/grievence-cell/grievence-cell-page.jsx";
+import MandatoryDisclosuresPage from "../components/pages/mandatory-disclosures/mandatory-disclosures-page.jsx";
 
 
 import { ThemeProvider } from "../components/shared/theme-provider.jsx";
@@ -80,6 +82,8 @@ export default function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/fee-structure" element={<FeeStructurePage />} />
+          <Route path="/grievence-cell" element={<GrievenceCellPage />} />
+          <Route path="/mandatory-disclosures" element={<MandatoryDisclosuresPage />} />
           <Route path="/feedback" element={<FeedbackPage />} />
           <Route path="/msme-incubation-center" element={<MsmeIncubationPage />} />
 

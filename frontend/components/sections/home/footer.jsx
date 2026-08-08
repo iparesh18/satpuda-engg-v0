@@ -11,8 +11,14 @@ export function Footer() {
     Library: "/our-campus/library",
     Transport: "/our-campus/transport",
     Gallery: "/our-campus/gallery",
+    "Mandatory Disclosures": "/mandatory-disclosures",
     "Privacy Policy": "/privacy-policy",
     "Fee Structure": "/fee-structure",
+    "Grievance Cell": "/grievence-cell",
+  };
+
+  const quickLinksExternalMap = {
+    Feedback: "https://docs.google.com/forms/d/e/1FAIpQLSfyIZCppG7jUGO8U0XfBUDACc4S2X4nd2QbJ-YvxhXv4ZnoIA/viewform?usp=publish-editor",
   };
 
   const importantLinkMap = {
@@ -30,7 +36,7 @@ export function Footer() {
   };
 
   const links = {
-    ourCampuses: ["About Us", "Library", "Transport", "Gallery"],
+    ourCampuses: ["About Us", "Library", "Transport", "Gallery", "Mandatory Disclosures", "Feedback"],
     importantLinks: [
       "AICTE",
       "MP DTE",
@@ -40,6 +46,7 @@ export function Footer() {
     admissions: [
       "Privacy Policy",
       "Fee Structure",
+      "Grievance Cell",
     ],
     institutions: [
       "Satpuda Valley Public School",
@@ -126,7 +133,17 @@ export function Footer() {
               <ul className="space-y-2 sm:space-y-4">
                 {col.items.map((link) => (
                   <li key={link}>
-                    {campusLinkMap[link] ? (
+                    {quickLinksExternalMap[link] ? (
+                      <a
+                        href={quickLinksExternalMap[link]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[13px] text-muted-foreground hover:text-accent transition-all duration-300 flex items-center group"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent scale-0 group-hover:scale-100 transition-transform mr-2" />
+                        {link}
+                      </a>
+                    ) : campusLinkMap[link] ? (
                       <Link
                         to={campusLinkMap[link]}
                         className="text-[13px] text-muted-foreground hover:text-accent transition-all duration-300 flex items-center group"

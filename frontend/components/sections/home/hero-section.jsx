@@ -15,6 +15,10 @@ export function HeroSection() {
      "/images/hbanner2.webp",
      "/images/hbanner3.webp",
      "/images/hbanner4.webp",
+    "/slidder image/slidder1.webp",
+    "/slidder image/slidder2.webp",
+    "/slidder image/slidder3.webp",
+    "/slidder image/slidder4.webp"
     
    
   ];
@@ -101,7 +105,7 @@ export function HeroSection() {
         </button>
 
         {/* Pagination Dots */}
-        <div className="absolute bottom-4 md:bottom-[120px] lg:bottom-[140px] left-1/2 -translate-x-1/2 z-30 flex gap-2">
+        <div className="absolute bottom-4 md:bottom-30 lg:bottom-35 left-1/2 -translate-x-1/2 z-30 flex gap-2">
           {heroImages.map((_, idx) => (
             <button
               key={idx}
