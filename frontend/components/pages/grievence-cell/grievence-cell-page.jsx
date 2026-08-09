@@ -3,7 +3,7 @@
 import { Link } from "react-router-dom";
 import { Header, Footer } from "../../index.js";
 import { Button } from "../../ui/button.jsx";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ExternalLink } from "lucide-react";
 
 const COMPLAINT_REGISTRATION_LINKS = {
   student: "https://docs.google.com/forms/d/e/1FAIpQLSfyrxFakLBGzlvtUPBDEOordsU2hFC2x8ysStuvIhYGMmJoQA/viewform?usp=dialog",
@@ -83,6 +83,8 @@ export default function GrievenceCellPage() {
                       <Button asChild className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90">
                         <a
                           href={targetUrl}
+                          target={isPlaceholder ? undefined : "_blank"}
+                          rel={isPlaceholder ? undefined : "noopener noreferrer"}
                           onClick={(event) => {
                             if (isPlaceholder) {
                               event.preventDefault();
@@ -91,6 +93,7 @@ export default function GrievenceCellPage() {
                           aria-disabled={isPlaceholder}
                         >
                           Click Here
+                          <ExternalLink className="h-4 w-4 opacity-80" />
                         </a>
                       </Button>
                     </div>

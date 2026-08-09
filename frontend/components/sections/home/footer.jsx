@@ -22,6 +22,7 @@ export function Footer() {
   };
 
   const importantLinkMap = {
+    LMS: "https://lms.satpudaengineeringcollege.com",
     AICTE: "https://aicte.gov.in/",
     "MP DTE": "https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx",
     SCHOLARSHIP: "https://www.tribal.mp.gov.in/MPTAAS",
@@ -38,6 +39,7 @@ export function Footer() {
   const links = {
     ourCampuses: ["About Us", "Library", "Transport", "Gallery", "Mandatory Disclosures", "Feedback"],
     importantLinks: [
+      "LMS",
       "AICTE",
       "MP DTE",
       "SCHOLARSHIP",

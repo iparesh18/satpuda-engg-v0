@@ -20,13 +20,23 @@ import {
   Coffee,
   Globe,
   X,
-  Phone
+  Phone,
+  ExternalLink,
+  MonitorPlay
 } from "lucide-react";
 import BlurText from "../../bits/blur-text.jsx";
 import Magnetic from "../../bits/magnetic.jsx";
 import SplitText from "../../bits/split-text.jsx";
 import ShinyText from "../../bits/shiny-text.jsx";
 import SpotlightCard from "../../bits/spotlight-card.jsx";
+
+const LMS_URL = "https://lms.satpudaengineeringcollege.com";
+
+const lmsPoints = [
+  "Course material & lecture notes",
+  "Assignments and submissions",
+  "Online tests & results",
+];
 
 const highlightChips = [
   "Massive Collection",
@@ -155,6 +165,16 @@ export function LibrarySection() {
                   Explore Collection
                   <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
+                <a
+                  href={LMS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 rounded-full border border-primary/30 bg-background/60 px-10 py-5 text-lg font-bold text-primary backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-primary hover:bg-primary/10"
+                >
+                  <GraduationCap className="h-5 w-5" />
+                  LMS
+                  <ExternalLink className="h-4 w-4 opacity-60 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
                 <div className="flex items-center gap-3 text-sm font-medium text-muted-foreground ml-2">
                   <span>Our Campus</span>
                   <span className="text-muted-foreground/30">/</span>
@@ -306,6 +326,68 @@ export function LibrarySection() {
       </motion.section>
 
 
+
+      {/* LMS Access Section */}
+      <motion.section
+        className="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8"
+        initial={{ opacity: 0, y: 22 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <div className="relative overflow-hidden rounded-[40px] border border-primary/20 bg-gradient-to-br from-primary/10 via-card/40 to-accent/5 p-8 shadow-2xl backdrop-blur-md sm:p-12">
+          <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-primary/20 blur-3xl opacity-40" />
+
+          <div className="relative grid gap-10 lg:grid-cols-[1.1fr,0.9fr] lg:items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-primary">Learn Online</p>
+              <h3 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+                Satpuda LMS Portal
+              </h3>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+                Extend the library beyond its walls. Log in to the Learning Management System to access
+                your courses, study material, assignments and results — anytime, from any device.
+              </p>
+
+              <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+                {lmsPoints.map((point) => (
+                  <li key={point} className="flex items-center gap-3 text-sm font-medium text-muted-foreground">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <Zap className="h-3.5 w-3.5" />
+                    </span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+
+              <Magnetic intensity={0.3}>
+                <a
+                  href={LMS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-10 inline-flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-lg font-bold text-primary-foreground shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105"
+                >
+                  Go to LMS
+                  <ExternalLink className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+              </Magnetic>
+            </div>
+
+            <SpotlightCard className="rounded-[2.5rem] border-none bg-background/50 p-8 text-center">
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-[1.75rem] bg-primary/10 text-primary">
+                <MonitorPlay className="h-10 w-10" />
+              </div>
+              <h4 className="mt-6 text-2xl font-bold tracking-tight text-foreground">Digital Classroom</h4>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                A single sign-in for every subject, semester and department — built for students and faculty alike.
+              </p>
+              <p className="mt-6 break-all font-mono text-xs text-primary/80">
+                lms.satpudaengineeringcollege.com
+              </p>
+            </SpotlightCard>
+          </div>
+        </div>
+      </motion.section>
 
       {/* Library Experience Video Section */}
       <motion.section

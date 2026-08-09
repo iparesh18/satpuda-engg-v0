@@ -2,7 +2,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "../ui/button";
-import { Menu, X, ChevronDown, Phone, Mail, Facebook, Instagram, Linkedin, Youtube, Download } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Mail, Facebook, Instagram, Linkedin, Youtube, Download, GraduationCap } from "lucide-react";
+
+const LMS_URL = "https://lms.satpudaengineeringcollege.com";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -156,6 +158,16 @@ export function Header() {
 
           {/* Right Side: Admission (Desktop) and Socials */}
           <div className="flex items-center gap-4">
+            <a
+              href={LMS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Learning Management System"
+              className="hidden md:flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white px-3 py-1 rounded-full text-xs font-semibold tracking-wide transition-colors border border-white/20"
+            >
+              <GraduationCap className="h-3.5 w-3.5 shrink-0" />
+              LMS
+            </a>
             <a
               href="/brochure.pdf"
               download="SCEP-BROCHURE.pdf"
@@ -330,6 +342,18 @@ export function Header() {
               </div>
             )}
           </div>))}
+
+          <a
+            href={LMS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center gap-2 rounded-lg px-4 py-3 text-base font-semibold text-foreground hover:bg-secondary transition-colors"
+          >
+            <GraduationCap className="h-5 w-5 text-accent" />
+            LMS
+          </a>
+
           <Link to="/admissions/admission-form" onClick={() => setMobileMenuOpen(false)}>
             <Button className="w-full mt-4 bg-accent hover:bg-accent/90 text-accent-foreground">
               Apply Now

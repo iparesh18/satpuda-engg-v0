@@ -65,7 +65,7 @@ const institutionalPolicies = [
   { title: "Implementation of Teacher Training Policy", pdf: IMPLEMENTATION_TEACHER_TRAINING_POLICY_PDF },
   { title: "Implemented Safety and Security measures", pdf: SAFETY_SECURITY_MEASURES_PDF },
   { title: "Implementing Food Safety and Standard", pdf: FOOD_SAFETY_STANDARD_PDF },
-  { title: "Internal Committee (IC)", pdf: INTERNAL_COMMITTEE_IC_PDF },
+  { title: "ICC", pdf: INTERNAL_COMMITTEE_IC_PDF },
   { title: "Internal Quality Assurance Cell", pdf: INTERNAL_QUALITY_ASSURANCE_CELL_PDF },
 ];
 
