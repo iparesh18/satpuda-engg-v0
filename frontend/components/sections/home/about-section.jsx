@@ -34,7 +34,7 @@ export function AboutSection({ className }) {
             </div>
             <div className="space-y-6 pt-12">
               <motion.div whileHover={{ scale: 1.02 }} className="rounded-3xl overflow-hidden h-32 lg:h-48 shadow-2xl border border-border">
-                <img src="/images/hero-7.webp" alt="Lab" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
+                <img src="/images/k-1.webp" alt="Students presenting project in Lab" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
               </motion.div>
               <motion.div whileHover={{ scale: 1.02 }} className="rounded-3xl overflow-hidden h-48 lg:h-72 shadow-2xl border border-border">
                 <img src="/images/hero-6.webp" alt="Students" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
